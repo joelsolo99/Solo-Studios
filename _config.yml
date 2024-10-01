@@ -10,17 +10,17 @@
 ############################
 
 # Name of website
-title: My website
+title: Solo Studios
 
 # Your name to show in the footer
-author: Some Person
+author: Solo Studios
 
 ###############################################
 # --- List of links in the navigation bar --- #
 ###############################################
 
 navbar-links:
-  About Me: "aboutme"
+  About Us: "aboutus"
   Resources:
     - Beautiful Jekyll: "https://beautifuljekyll.com"
     - Learn markdown: "https://www.markdowntutorial.com/"
