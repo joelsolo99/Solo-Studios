@@ -103,3 +103,63 @@
 .contact-section .cta-button:hover {
     background-color: #f9f9f9;
 }
+
+
+/* Tracklist Section */
+.tracklist-section {
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+}
+
+.tracklist-section h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Tracklist Table */
+.tracklist-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+  background-color: white;
+}
+
+.tracklist-table thead {
+  background-color: #333;
+  color: white;
+}
+
+.tracklist-table th, .tracklist-table td {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.tracklist-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.tracklist-table tr:hover {
+  background-color: #f5f5f5;
+}
+
+.tracklist-table th {
+  background-color: #444;
+  color: white;
+  text-transform: uppercase;
+}
+
+.tracklist-table td {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Responsive Table for Mobile */
+@media screen and (max-width: 768px) {
+  .tracklist-table th, .tracklist-table td {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+}
