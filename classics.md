@@ -1,5 +1,5 @@
 <div class="tracklist-section">
-  <h2>Modern Pop Tracklist</h2>
+  <h2>Classics Tracklist</h2>
   <table class="tracklist-table" id="tracklist-table">
     <thead>
       <tr>
@@ -17,7 +17,7 @@
 <script>
 // Function to fetch CSV data
 function loadTracklist() {
-  fetch('/assets/tracklists/modern-pop.csv')
+  fetch('/assets/tracklists/classics.csv')
     .then(response => response.text())
     .then(csvData => {
       const rows = csvData.split('\n').slice(1); // Remove header row

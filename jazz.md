@@ -1,10 +1,9 @@
 <div class="tracklist-section">
-  <h2>Modern Pop Tracklist</h2>
+  <h2>Jazz Tracklist</h2>
   <table class="tracklist-table" id="tracklist-table">
     <thead>
       <tr>
         <th>Song</th>
-        <th>Artist</th>
       </tr>
     </thead>
     <tbody>

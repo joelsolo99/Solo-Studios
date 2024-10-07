@@ -23,7 +23,8 @@ navbar-links:
   About Us: "aboutus"
   Songs:
     - Modern Pop: "modern-pop"    
-    - Learn markdown: "https://www.markdowntutorial.com/"
+    - Classics: "classics"
+    - Jazz: "jazz"
   
 
 ################
