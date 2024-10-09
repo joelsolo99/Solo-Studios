@@ -23,43 +23,56 @@ body {
 .services-section {
     background-color: #1a1a1a; /* Dark background for services */
     padding: 50px 0;
+    text-align: center;
 }
 
 .services {
     display: flex; /* Flexbox for side-by-side layout */
-    justify-content: space-around; /* Space between the services */
-    flex-wrap: wrap; /* Ensure services wrap on smaller screens */
+    justify-content: space-between; /* Space between the services */
+    align-items: stretch; /* Ensure equal height */
+    flex-wrap: wrap; /* Wrap services if screen is too small */
+    max-width: 1200px; /* Set a maximum width for layout */
+    margin: 0 auto; /* Center the services section */
 }
 
 .service {
-    background-color: #1f1f1f; /* Slightly lighter background for individual service blocks */
+    background-color: #1f1f1f; /* Slightly lighter background for service blocks */
     padding: 20px;
     margin: 10px;
     border-radius: 8px;
-    flex-basis: 30%; /* Each service takes up around a third of the width */
+    flex: 1; /* Make all services equal width */
+    max-width: 30%; /* Ensure the services take up 30% of the space */
     color: #b0b0b0; /* Light gray text */
     text-align: center;
     transition: background-color 0.3s ease;
+    box-sizing: border-box; /* Include padding in the width */
 }
 
-.service h3 {
-    color: #008080; /* Teal headings for service titles */
+/* Ensure the services are responsive on smaller screens */
+@media (max-width: 992px) {
+    .service {
+        max-width: 45%; /* Slightly larger on tablets */
+    }
 }
 
-.service p {
-    color: #b0b0b0; /* Light gray text */
-}
-
-/* Make services stack vertically on smaller screens */
 @media (max-width: 768px) {
     .service {
-        flex-basis: 100%; /* Full width for small screens */
+        max-width: 100%; /* Full width for small screens */
         margin: 10px 0;
     }
 }
 
+/* Hover effect for service blocks */
 .service:hover {
     background-color: #2a2a2a; /* Slightly darker on hover */
+}
+
+.service h3 {
+    color: #008080; /* Teal heading */
+}
+
+.service p {
+    color: #b0b0b0; /* Light gray text */
 }
 
 
