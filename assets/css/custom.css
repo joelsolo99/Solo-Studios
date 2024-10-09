@@ -27,62 +27,72 @@ body {
 }
 
 .services {
-    display: flex; /* Flexbox for side-by-side layout */
-    justify-content: space-between; /* Space between the services */
-    align-items: stretch; /* Ensure equal height */
-    flex-wrap: wrap; /* Wrap services if screen is too small */
-    max-width: 1200px; /* Set a maximum width for layout */
-    margin: 0 auto; /* Center the services section */
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
+/* Service blocks styling */
 .service {
-    background-color: #1f1f1f; /* Slightly lighter background for service blocks */
+    background-color: #1f1f1f;
     padding: 20px;
     margin: 10px;
     border-radius: 8px;
-    flex: 1; /* Make all services equal width */
-    max-width: 30%; /* Ensure the services take up 30% of the space */
-    color: #b0b0b0; /* Light gray text */
+    flex: 1;
+    max-width: 30%;
+    color: #b0b0b0;
     text-align: center;
     transition: background-color 0.3s ease;
-    box-sizing: border-box; /* Include padding in the width */
+    box-sizing: border-box;
 }
 
 /* Tablet view */
 @media (max-width: 992px) {
     .service {
-        max-width: 45%; /* Slightly larger on tablets */
+        max-width: 45%;
     }
 }
 
 /* Mobile view */
 @media (max-width: 768px) {
     .services {
-        flex-direction: column; /* Stack services vertically */
-        padding: 0; /* Remove padding to maximize width */
+        flex-direction: column;
+        padding: 0;
     }
 
     .service {
-        max-width: 100%; /* Full width for small screens */
-        margin: 10px 0; /* Remove side margins, only add space between services */
+        max-width: 100%;
+        margin: 10px 0;
+        word-wrap: break-word; /* Force long words to break */
     }
 
+    h3 {
+        font-size: 1.5rem; /* Reduce header size on mobile */
+    }
+
+    p {
+        font-size: 1rem; /* Reduce paragraph font size */
+    }
+    
     .services-section {
-        padding: 0 10px; /* Add slight padding to avoid services touching screen edges */
+        padding: 0 10px; /* Avoid touching the screen edges */
     }
 }
 
 /* Hover effect for service blocks */
 .service:hover {
-    background-color: #2a2a2a; /* Slightly darker on hover */
+    background-color: #2a2a2a;
 }
 
 .service h3 {
-    color: #008080; /* Teal heading */
+    color: #008080;
 }
 
 .service p {
-    color: #b0b0b0; /* Light gray text */
+    color: #b0b0b0;
 }
 
 
