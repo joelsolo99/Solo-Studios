@@ -133,8 +133,8 @@ page-col: "#FFFFFF"
 text-col: "#404040"
 link-col: "#008AFF"
 hover-col: "#0085A1"
-navbar-col: "#EAEAEA"
-navbar-text-col: "#404040"
+navbar-col: "#008080"
+navbar-text-col: "#d5ffff"
 navbar-border-col: "#DDDDDD"
 footer-col: "#EAEAEA"
 footer-text-col: "#777777"
@@ -281,7 +281,6 @@ defaults:
 # Include the custom dark theme CSS site-wide
 include:
   - "/assets/css/dark-theme.css"
-
 # Exclude these files from production site
 exclude:
   - CHANGELOG.md
