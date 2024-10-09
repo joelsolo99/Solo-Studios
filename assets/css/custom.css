@@ -48,17 +48,27 @@ body {
     box-sizing: border-box; /* Include padding in the width */
 }
 
-/* Ensure the services are responsive on smaller screens */
+/* Tablet view */
 @media (max-width: 992px) {
     .service {
         max-width: 45%; /* Slightly larger on tablets */
     }
 }
 
+/* Mobile view */
 @media (max-width: 768px) {
+    .services {
+        flex-direction: column; /* Stack services vertically */
+        padding: 0; /* Remove padding to maximize width */
+    }
+
     .service {
         max-width: 100%; /* Full width for small screens */
-        margin: 10px 0;
+        margin: 10px 0; /* Remove side margins, only add space between services */
+    }
+
+    .services-section {
+        padding: 0 10px; /* Add slight padding to avoid services touching screen edges */
     }
 }
 
@@ -89,6 +99,7 @@ body {
 .about-section p {
     color: #d0d0d0; /* Light gray text */
 }
+
 
 /* Contact section (with teal background) */
 .contact-section {
