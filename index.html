@@ -33,16 +33,19 @@ title: Solo Studios
     @media (max-width: 768px) {
         .services {
             flex-direction: column; /* Stack services vertically */
+            padding: 0; /* Remove padding to maximize width */
         }
         .service {
-            max-width: 100%; /* Ensure full width */
-            margin: 0 0 20px 0; /* Remove side margins, only leave bottom spacing */
+            max-width: 100%; /* Ensure services take full width */
+            margin: 0 0 20px 0; /* Remove side margins, keep bottom margin */
+            padding: 20px; /* Ensure consistent padding inside the services */
         }
         .services-section {
-            padding: 0 10px; /* Add small padding to the sides to avoid touching edges */
+            padding: 0; /* Remove any outer padding to allow full-width services */
         }
     }
 </style>
+
 
 
 
