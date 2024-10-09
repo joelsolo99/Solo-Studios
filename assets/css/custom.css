@@ -25,13 +25,43 @@ body {
     padding: 50px 0;
 }
 
+.services {
+    display: flex; /* Flexbox for side-by-side layout */
+    justify-content: space-around; /* Space between the services */
+    flex-wrap: wrap; /* Ensure services wrap on smaller screens */
+}
+
+.service {
+    background-color: #1f1f1f; /* Slightly lighter background for individual service blocks */
+    padding: 20px;
+    margin: 10px;
+    border-radius: 8px;
+    flex-basis: 30%; /* Each service takes up around a third of the width */
+    color: #b0b0b0; /* Light gray text */
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
 .service h3 {
-    color: #ffffff; /* White headings */
+    color: #008080; /* Teal headings for service titles */
 }
 
 .service p {
-    color: #b0b0b0; /* Light gray text for the service descriptions */
+    color: #b0b0b0; /* Light gray text */
 }
+
+/* Make services stack vertically on smaller screens */
+@media (max-width: 768px) {
+    .service {
+        flex-basis: 100%; /* Full width for small screens */
+        margin: 10px 0;
+    }
+}
+
+.service:hover {
+    background-color: #2a2a2a; /* Slightly darker on hover */
+}
+
 
 /* About section */
 .about-section {
