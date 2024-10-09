@@ -1,0 +1,116 @@
+/* dark-theme.css */
+
+/* General body styling for dark theme */
+body {
+    background-color: #121212; /* Dark background */
+    color: #e0e0e0; /* Light text for readability */
+}
+
+/* Hero section */
+.hero-section {
+    background-color: #1f1f1f; /* Darker gray for hero background */
+    padding: 100px 0;
+    text-align: center;
+}
+
+.hero-section h1 {
+    color: #008080; /* Teal heading text for highlight */
+}
+
+.hero-section p {
+    color: #b0b0b0; /* Light gray for paragraph */
+}
+
+/* Services section */
+.services-section {
+    background-color: #1a1a1a; /* Dark background for services */
+    padding: 50px 0;
+}
+
+.service h3 {
+    color: #008080; /* Teal headings for service titles */
+}
+
+.service p {
+    color: #b0b0b0; /* Light gray for service descriptions */
+}
+
+/* About section */
+.about-section {
+    background-color: #1f1f1f; /* Slightly lighter dark for contrast */
+    padding: 50px 0;
+}
+
+.about-section h2 {
+    color: #008080; /* Teal heading text for highlight */
+}
+
+.about-section p {
+    color: #d0d0d0; /* Light gray text */
+}
+
+/* Contact section (keeping teal background for branding) */
+.contact-section {
+    background-color: #008080; /* Teal background */
+    color: white;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.cta-button {
+    background-color: white;
+    color: #008080; /* Teal text for button */
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.cta-button:hover {
+    background-color: #007373; /* Darker teal on hover */
+}
+
+/* Links and buttons */
+a {
+    color: #008080; /* Teal links for highlight */
+}
+
+a:hover {
+    color: #00cccc; /* Lighter teal on hover */
+}
+
+/* Footer (if applicable) */
+footer {
+    background-color: #1a1a1a; /* Dark footer */
+    color: #e0e0e0;
+    padding: 20px 0;
+    text-align: center;
+}
+
+/* Footer links */
+footer a {
+    color: #008080; /* Teal links in footer */
+}
+
+footer a:hover {
+    color: #00cccc; /* Lighter teal on hover */
+}
+
+/* Navigation bar (if applicable) */
+.navbar {
+    background-color: #1a1a1a; /* Dark background for navbar */
+    color: white;
+}
+
+.navbar a {
+    color: #e0e0e0; /* Light links in navbar */
+}
+
+.navbar a:hover {
+    color: #008080; /* Teal highlight on hover */
+}
+
+/* Borders and separators */
+hr {
+    border: 1px solid #008080; /* Teal horizontal rule */
+}

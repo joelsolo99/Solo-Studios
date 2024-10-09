@@ -278,6 +278,10 @@ defaults:
     values:
       layout: "page"
 
+# Include the custom dark theme CSS site-wide
+include:
+  - "/assets/css/dark-theme.css"
+
 # Exclude these files from production site
 exclude:
   - CHANGELOG.md
