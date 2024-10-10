@@ -6,6 +6,7 @@ body {
     padding: 0;
 }
 
+/* Hero section */
 .hero-section {
     background-color: #1f1f1f;
     padding: 100px 0;
@@ -20,10 +21,12 @@ body {
     color: #b0b0b0;
 }
 
+/* Services section */
 .services-section {
     background-color: #1a1a1a;
     padding: 50px 0;
     text-align: center;
+    width: 100%; /* Ensure the section takes the full width */
 }
 
 .services {
@@ -32,41 +35,40 @@ body {
     justify-content: space-between;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0; /* Remove padding */
 }
 
+/* Service block styles */
 .service {
     background-color: #1f1f1f;
     padding: 20px;
     margin: 10px;
     border-radius: 8px;
-    flex: 1 1 30%; /* Flex-grow, flex-shrink, and basis for flexibility */
+    flex: 1 1 30%; /* Take 30% width by default */
     box-sizing: border-box;
+    text-align: center;
     color: #b0b0b0;
     transition: background-color 0.3s ease;
-    text-align: center;
 }
 
-/* Responsive design for tablets */
-@media (max-width: 992px) {
-    .service {
-        flex: 1 1 45%; /* Take more space on tablet */
-    }
-}
-
-/* Mobile styles */
+/* Force service block to full width on mobile */
 @media (max-width: 768px) {
     .services {
-        flex-direction: column;
+        flex-direction: column; /* Stack services vertically */
     }
 
     .service {
-        flex: 1 1 100%; /* Ensure services take full width */
-        margin: 10px 0;
-        padding: 20px;
-        text-align: center;
+        flex: 1 1 100%; /* Take full width on mobile */
+        max-width: 100%; /* Ensure no width constraints */
+        margin: 0 0 20px 0; /* Add bottom margin between services */
+    }
+
+    .services-section {
+        padding: 0 10px; /* Ensure the section doesn't touch screen edges */
     }
 }
 
+/* Hover effect for service blocks */
 .service:hover {
     background-color: #2a2a2a;
 }
@@ -79,17 +81,26 @@ body {
     color: #b0b0b0;
 }
 
+/* About section */
 .about-section {
     background-color: #1f1f1f;
     padding: 50px 0;
+}
+
+.about-section h2 {
+    color: #ffffff;
+}
+
+.about-section p {
     color: #d0d0d0;
 }
 
+/* Contact section */
 .contact-section {
     background-color: #008080;
+    color: white;
     padding: 50px 0;
     text-align: center;
-    color: white;
 }
 
 .cta-button {
@@ -105,15 +116,15 @@ body {
     background-color: #007373;
 }
 
-
-/* Links and buttons */
+/* Links */
 a {
-    color: #1e90ff; /* Light blue for links */
+    color: #1e90ff;
 }
 
 a:hover {
-    color: #add8e6; /* Lighter blue on hover */
+    color: #add8e6;
 }
+
 
 
 
