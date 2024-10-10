@@ -51,34 +51,20 @@ body {
     transition: background-color 0.3s ease;
 }
 
-/* Force service block to full width on mobile */
+/* Mobile devices: Stack services vertically on smaller screens */
 @media (max-width: 768px) {
     .services {
         flex-direction: column; /* Stack services vertically */
+        width: 100%; /* Ensure full width */
+        padding: 0; /* Remove any padding to maximize width */
+        box-sizing: border-box; /* Ensure full width use */
     }
 
     .service {
         flex: 1 1 100%; /* Take full width on mobile */
-        max-width: 100%; /* Ensure no width constraints */
-        margin: 0 0 20px 0; /* Add bottom margin between services */
+        max-width: 100%; /* No width constraints */
+        margin: 10px 0; /* Adjust margins for spacing */
     }
-
-    .services-section {
-        padding: 0 10px; /* Ensure the section doesn't touch screen edges */
-    }
-}
-
-/* Hover effect for service blocks */
-.service:hover {
-    background-color: #2a2a2a;
-}
-
-.service h3 {
-    color: #008080;
-}
-
-.service p {
-    color: #b0b0b0;
 }
 
 /* About section */

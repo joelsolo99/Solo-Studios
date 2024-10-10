@@ -38,17 +38,20 @@ body {
 
 /* Mobile devices: Stack services vertically on smaller screens */
 @media (max-width: 768px) {
-    .services-section {
+    .services {
         flex-direction: column; /* Stack services vertically */
-        align-items: center; /* Center align the items */
+        width: 100%; /* Ensure full width */
+        padding: 0; /* Remove any padding to maximize width */
+        box-sizing: border-box; /* Ensure full width use */
     }
 
     .service {
-        width: 100%; /* Take up full width */
-        margin-bottom: 20px; /* Keep spacing between services */
-        text-align: center; /* Center the content */
+        flex: 1 1 100%; /* Take full width on mobile */
+        max-width: 100%; /* No width constraints */
+        margin: 10px 0; /* Adjust margins for spacing */
     }
 }
+
 
 
 
