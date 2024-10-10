@@ -22,15 +22,16 @@ function loadTracklist() {
       const rows = csvData.split('\n').slice(1); // Remove header row
       const tableBody = document.querySelector('#tracklist-table tbody');
       rows.forEach(row => {
-        const cols = row.split(',');
+        const cols = row.split(',').map(col => col.replace(/(^"|"$)/g, '').trim()); // Remove quotes and trim
+
         if (cols.length > 1) {  // To avoid empty rows
           const tr = document.createElement('tr');
           const songTd = document.createElement('td');
           const artistTd = document.createElement('td');
 
           // Set text content for song and artist cells
-          songTd.textContent = cols[0].trim();
-          artistTd.textContent = cols[1].trim();
+          songTd.textContent = cols[0];
+          artistTd.textContent = cols[1];
 
           // Add data-label attributes for responsive design
           songTd.setAttribute('data-label', 'Song');
