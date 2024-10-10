@@ -1,5 +1,5 @@
 <div class="tracklist-section">
-  <h2>Modern Pop Tracklist</h2>
+  <h2>Jazz Tracklist</h2>
   <table class="tracklist-table" id="tracklist-table">
     <thead>
       <tr>
@@ -21,23 +21,20 @@ function loadTracklist() {
       const rows = csvData.split('\n').slice(1); // Remove header row
       const tableBody = document.querySelector('#tracklist-table tbody');
       rows.forEach(row => {
-        const cols = row.split(',');
-        if (cols.length > 1) {  // To avoid empty rows
+        const cols = row.split(',').map(col => col.replace(/(^"|"$)/g, '').trim()); // Remove quotes and trim
+
+        if (cols.length > 0) {  // Only check for the song column
           const tr = document.createElement('tr');
           const songTd = document.createElement('td');
-          const artistTd = document.createElement('td');
 
-          // Set text content for song and artist cells
-          songTd.textContent = cols[0].trim();
-          artistTd.textContent = cols[1].trim();
+          // Set text content for song cell
+          songTd.textContent = cols[0]; // Only one column for song
 
           // Add data-label attributes for responsive design
           songTd.setAttribute('data-label', 'Song');
-          
 
-          // Append cells to the row
+          // Append cell to the row
           tr.appendChild(songTd);
-          tr.appendChild(artistTd);
           tableBody.appendChild(tr);
         }
       });
