@@ -25,14 +25,14 @@ body {
 .services-section {
     background-color: #1a1a1a;
     padding: 50px 0;
-    display: flex; /* Flexbox layout */
-    justify-content: space-around; /* Distribute services horizontally */
-    flex-wrap: wrap; /* Allow wrapping if necessary */
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 .service {
     width: 30%; /* Each service takes up 30% of the width */
-    margin-bottom: 20px; /* Add spacing between rows */
+    margin-bottom: 20px;
     text-align: center;
 }
 
@@ -40,13 +40,16 @@ body {
 @media (max-width: 768px) {
     .services-section {
         flex-direction: column; /* Stack services vertically */
-        align-items: center; /* Center align items */
+        align-items: center; /* Center align the items */
     }
 
     .service {
-        width: 80%; /* Make each service take up more width (adjust as needed) */
+        width: 100%; /* Take up full width */
+        margin-bottom: 20px; /* Keep spacing between services */
+        text-align: center; /* Center the content */
     }
 }
+
 
 
 /* About section */
