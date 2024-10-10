@@ -1,88 +1,72 @@
-/* General dark theme styles */
+/* General styles for body and sections */
 body {
-    background-color: #121212; /* Dark background */
-    color: #e0e0e0; /* Light text for readability */
+    background-color: #121212;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 0;
 }
 
-/* Hero section */
 .hero-section {
-    background-color: #1f1f1f; /* Darker gray for hero background */
+    background-color: #1f1f1f;
     padding: 100px 0;
     text-align: center;
 }
 
 .hero-section h1 {
-    color: #ffffff; /* White text for the heading */
+    color: #ffffff;
 }
 
 .hero-section p {
-    color: #b0b0b0; /* Light gray text for the paragraph */
+    color: #b0b0b0;
 }
 
-/* Services section */
 .services-section {
-    background-color: #1a1a1a; /* Dark background for services */
+    background-color: #1a1a1a;
     padding: 50px 0;
     text-align: center;
 }
 
 .services {
     display: flex;
-    justify-content: space-between;
-    align-items: stretch;
     flex-wrap: wrap;
+    justify-content: space-between;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-/* Service blocks styling */
 .service {
     background-color: #1f1f1f;
     padding: 20px;
     margin: 10px;
     border-radius: 8px;
-    flex: 1;
-    max-width: 30%;
-    color: #b0b0b0;
-    text-align: center;
-    transition: background-color 0.3s ease;
+    flex: 1 1 30%; /* Flex-grow, flex-shrink, and basis for flexibility */
     box-sizing: border-box;
+    color: #b0b0b0;
+    transition: background-color 0.3s ease;
+    text-align: center;
 }
 
-/* Tablet view */
+/* Responsive design for tablets */
 @media (max-width: 992px) {
     .service {
-        max-width: 45%;
+        flex: 1 1 45%; /* Take more space on tablet */
     }
 }
 
-/* Mobile view */
+/* Mobile styles */
 @media (max-width: 768px) {
     .services {
         flex-direction: column;
-        padding: 0;
     }
 
     .service {
-        max-width: 100%;
+        flex: 1 1 100%; /* Ensure services take full width */
         margin: 10px 0;
-        word-wrap: break-word; /* Force long words to break */
-    }
-
-    h3 {
-        font-size: 1.5rem; /* Reduce header size on mobile */
-    }
-
-    p {
-        font-size: 1rem; /* Reduce paragraph font size */
-    }
-    
-    .services-section {
-        padding: 0 10px; /* Avoid touching the screen edges */
+        padding: 20px;
+        text-align: center;
     }
 }
 
-/* Hover effect for service blocks */
 .service:hover {
     background-color: #2a2a2a;
 }
@@ -95,28 +79,17 @@ body {
     color: #b0b0b0;
 }
 
-
-/* About section */
 .about-section {
-    background-color: #1f1f1f; /* Slightly lighter dark for contrast */
+    background-color: #1f1f1f;
     padding: 50px 0;
+    color: #d0d0d0;
 }
 
-.about-section h2 {
-    color: #ffffff; /* White headings */
-}
-
-.about-section p {
-    color: #d0d0d0; /* Light gray text */
-}
-
-
-/* Contact section (with teal background) */
 .contact-section {
-    background-color: #008080; /* Teal background */
-    color: white;
+    background-color: #008080;
     padding: 50px 0;
     text-align: center;
+    color: white;
 }
 
 .cta-button {
@@ -131,6 +104,7 @@ body {
 .cta-button:hover {
     background-color: #007373;
 }
+
 
 /* Links and buttons */
 a {
