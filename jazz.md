@@ -16,7 +16,7 @@
 <script>
 // Function to fetch CSV data
 function loadTracklist() {
-  fetch('/assets/tracklists/modern-pop.csv')
+  fetch('/assets/tracklists/jazz.csv')
     .then(response => response.text())
     .then(csvData => {
       const rows = csvData.split('\n').slice(1); // Remove header row
