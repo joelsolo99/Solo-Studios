@@ -21,19 +21,33 @@ body {
     color: #b0b0b0; /* Light gray for paragraph */
 }
 
-/* Services section */
+/* Default styling for the services section (desktop and larger screens) */
 .services-section {
-    background-color: #1a1a1a; /* Dark background for services */
+    background-color: #1a1a1a;
     padding: 50px 0;
+    display: flex; /* Flexbox layout */
+    justify-content: space-around; /* Distribute services horizontally */
+    flex-wrap: wrap; /* Allow wrapping if necessary */
 }
 
-.service h3 {
-    color: #008080; /* Teal headings for service titles */
+.service {
+    width: 30%; /* Each service takes up 30% of the width */
+    margin-bottom: 20px; /* Add spacing between rows */
+    text-align: center;
 }
 
-.service p {
-    color: #b0b0b0; /* Light gray for service descriptions */
+/* Mobile devices: Stack services vertically on smaller screens */
+@media (max-width: 768px) {
+    .services-section {
+        flex-direction: column; /* Stack services vertically */
+        align-items: center; /* Center align items */
+    }
+
+    .service {
+        width: 80%; /* Make each service take up more width (adjust as needed) */
+    }
 }
+
 
 /* About section */
 .about-section {
