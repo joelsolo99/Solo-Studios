@@ -13,7 +13,6 @@
   </table>
 </div>
 
-
 <script>
 // Function to fetch CSV data
 function loadTracklist() {
@@ -26,11 +25,20 @@ function loadTracklist() {
         const cols = row.split(',');
         if (cols.length > 1) {  // To avoid empty rows
           const tr = document.createElement('tr');
-          cols.forEach(col => {
-            const td = document.createElement('td');
-            td.textContent = col.trim();
-            tr.appendChild(td);
-          });
+          const songTd = document.createElement('td');
+          const artistTd = document.createElement('td');
+
+          // Set text content for song and artist cells
+          songTd.textContent = cols[0].trim();
+          artistTd.textContent = cols[1].trim();
+
+          // Add data-label attributes for responsive design
+          songTd.setAttribute('data-label', 'Song');
+          artistTd.setAttribute('data-label', 'Artist');
+
+          // Append cells to the row
+          tr.appendChild(songTd);
+          tr.appendChild(artistTd);
           tableBody.appendChild(tr);
         }
       });

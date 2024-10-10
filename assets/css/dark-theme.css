@@ -142,3 +142,82 @@ hr {
     margin: 0;
 }
 
+
+/* Table Styling */
+.tracklist-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 1.1em;
+    font-family: 'Arial', sans-serif;
+    background-color: #1a1a1a; /* Dark background for table */
+    color: #e0e0e0; /* Light text */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+}
+
+/* Table Header */
+.tracklist-table thead {
+    background-color: #008080; /* Teal background for headers */
+    color: white;
+}
+
+.tracklist-table thead th {
+    padding: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Table Rows */
+.tracklist-table tbody tr {
+    border-bottom: 1px solid #3d3d3d; /* Subtle row separation */
+}
+
+.tracklist-table tbody tr:nth-of-type(even) {
+    background-color: #2a2a2a; /* Slightly lighter for zebra striping */
+}
+
+.tracklist-table tbody tr:hover {
+    background-color: #3d3d3d; /* Darker gray on hover */
+    cursor: pointer; /* Pointer cursor on hover for interactivity */
+}
+
+/* Table Cells */
+.tracklist-table tbody td {
+    padding: 10px;
+    text-align: left;
+}
+
+/* Add a subtle hover effect on table rows */
+.tracklist-table tbody tr:hover td {
+    color: #00cccc; /* Lighter teal on hover */
+}
+
+/* Make sure the table is responsive on smaller screens */
+@media (max-width: 768px) {
+    .tracklist-table thead {
+        display: none; /* Hide table headers on small screens */
+    }
+    
+    .tracklist-table tbody tr {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .tracklist-table tbody td {
+        display: block;
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+    }
+
+    .tracklist-table tbody td::before {
+        content: attr(data-label); /* Create label for each cell */
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 15px;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+}
+

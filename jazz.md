@@ -1,5 +1,5 @@
 <div class="tracklist-section">
-  <h2>Jazz Tracklist</h2>
+  <h2>Modern Pop Tracklist</h2>
   <table class="tracklist-table" id="tracklist-table">
     <thead>
       <tr>
@@ -11,7 +11,6 @@
     </tbody>
   </table>
 </div>
-
 
 <script>
 // Function to fetch CSV data
@@ -25,11 +24,20 @@ function loadTracklist() {
         const cols = row.split(',');
         if (cols.length > 1) {  // To avoid empty rows
           const tr = document.createElement('tr');
-          cols.forEach(col => {
-            const td = document.createElement('td');
-            td.textContent = col.trim();
-            tr.appendChild(td);
-          });
+          const songTd = document.createElement('td');
+          const artistTd = document.createElement('td');
+
+          // Set text content for song and artist cells
+          songTd.textContent = cols[0].trim();
+          artistTd.textContent = cols[1].trim();
+
+          // Add data-label attributes for responsive design
+          songTd.setAttribute('data-label', 'Song');
+          
+
+          // Append cells to the row
+          tr.appendChild(songTd);
+          tr.appendChild(artistTd);
           tableBody.appendChild(tr);
         }
       });
