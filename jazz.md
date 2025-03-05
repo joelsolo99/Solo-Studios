@@ -40,7 +40,7 @@ function loadTracklist() {
       });
     })
     .catch(error => console.error('Error loading tracklist:', error));
-}
+}can't 
 
 // Call the function on page load
 document.addEventListener('DOMContentLoaded', loadTracklist);
