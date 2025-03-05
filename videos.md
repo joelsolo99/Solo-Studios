@@ -13,7 +13,7 @@ permalink: /videos/
 
 <section class="services-section">
   <div class="service">
-    <h2>Ibiza Sax DJ Set – Sample Reel</h2>
+    <h2>Can't Help Falling in Love</h2>
     <iframe width="100%" height="315" src="https://www.youtube.com/embed/7wbCDQSyBmc
 " 
       title="Solo Studios - Ibiza Sax DJ Set" 
