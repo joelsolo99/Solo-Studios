@@ -14,7 +14,8 @@ permalink: /videos/
 <section class="services-section">
   <div class="service">
     <h2>Ibiza Sax DJ Set – Sample Reel</h2>
-    <iframe width="100%" height="315" src="https://www.youtube.com/embed/3HpHmbpGbn8" 
+    <iframe width="100%" height="315" src="https://www.youtube.com/embed/7wbCDQSyBmc
+" 
       title="Solo Studios - Ibiza Sax DJ Set" 
       frameborder="0" 
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
