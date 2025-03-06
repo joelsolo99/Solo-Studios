@@ -40,7 +40,7 @@ Take a look at the core packages I offer for weddings. Whether you're after smoo
         <td>800</td>
       </tr>
       <tr>
-        <td><strong>Wombo Combo</strong></td>
+        <td><strong>All Day Combo Deal</strong></td>
         <td>Drinks / food / party</td>
         <td>1200</td>
       </tr>
