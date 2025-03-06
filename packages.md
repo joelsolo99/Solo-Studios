@@ -40,7 +40,7 @@ permalink: /packages/
 
 # Wedding Packages
 
-Take a look at the core packages I offer for weddings. Whether you're after smooth background vibes or an all-out party, there's something to suit your day.
+Take a look at the core packages we offer for weddings. Whether you're after smooth background vibes or an all-out party, there's something to suit your day.
 
 ---
 
@@ -52,7 +52,7 @@ Take a look at the core packages I offer for weddings. Whether you're after smoo
       <tr>
         <th>Service</th>
         <th>Set</th>
-        <th>Price (�)</th>
+        <th>Price (£)</th>
       </tr>
     </thead>
     <tbody>
@@ -68,7 +68,7 @@ Take a look at the core packages I offer for weddings. Whether you're after smoo
       </tr>
       <tr>
         <td>Wedding party</td>
-        <td>Continuous \u2013 close (up to 12am)</td>
+        <td>Continuous – close (up to 12am)</td>
         <td>800</td>
       </tr>
       <tr>
@@ -89,7 +89,7 @@ Take a look at the core packages I offer for weddings. Whether you're after smoo
     <thead>
       <tr>
         <th>Travel (miles)</th>
-        <th>Price (�/mile)</th>
+        <th>Price (£/mile)</th>
       </tr>
     </thead>
     <tbody>
