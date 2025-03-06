@@ -5,6 +5,38 @@ permalink: /packages/
 ---
 
 <link rel="stylesheet" href="{{ '/assets/css/dark-theme.css' | relative_url }}">
+<style>
+  /* Custom table styling for dark theme */
+  .table-wrapper table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+
+  .table-wrapper table th, .table-wrapper table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #555;
+  }
+
+  .table-wrapper table th {
+    background-color: #444;
+    color: #f0f0f0;
+  }
+
+  .table-wrapper table td {
+    background-color: #333;
+    color: #f0f0f0;
+  }
+
+  .table-wrapper table tr:nth-child(even) td {
+    background-color: #444;
+  }
+
+  .table-wrapper table tr:hover td {
+    background-color: #555;
+  }
+</style>
 
 # Wedding Packages
 
@@ -20,7 +52,7 @@ Take a look at the core packages I offer for weddings. Whether you're after smoo
       <tr>
         <th>Service</th>
         <th>Set</th>
-        <th>Price (£)</th>
+        <th>Price (�)</th>
       </tr>
     </thead>
     <tbody>
@@ -36,7 +68,7 @@ Take a look at the core packages I offer for weddings. Whether you're after smoo
       </tr>
       <tr>
         <td>Wedding party</td>
-        <td>Continuous – close (up to 12am)</td>
+        <td>Continuous \u2013 close (up to 12am)</td>
         <td>800</td>
       </tr>
       <tr>
@@ -57,7 +89,7 @@ Take a look at the core packages I offer for weddings. Whether you're after smoo
     <thead>
       <tr>
         <th>Travel (miles)</th>
-        <th>Price (£/mile)</th>
+        <th>Price (�/mile)</th>
       </tr>
     </thead>
     <tbody>
