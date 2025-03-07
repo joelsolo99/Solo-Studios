@@ -4,12 +4,13 @@
 body {
     background-color: #121212; /* Dark background */
     color: #e0e0e0; /* Light text for readability */
+    padding: 0 20px; /* Added side padding for general body */
 }
 
 /* Hero section */
 .hero-section {
     background-color: #1f1f1f; /* Darker gray for hero background */
-    padding: 100px 0;
+    padding: 100px 20px; /* Added side padding */
     text-align: center;
 }
 
@@ -24,7 +25,7 @@ body {
 /* Default styling for the services section (desktop and larger screens) */
 .services-section {
     background-color: #1a1a1a;
-    padding: 50px 0;
+    padding: 50px 20px; /* Added side padding */
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
@@ -33,12 +34,14 @@ body {
 .service {
     width: 30%; /* Each service takes up 30% of the width */
     margin-bottom: 20px;
+    padding: 20px; /* Added padding inside each service box */
     text-align: center;
+    box-sizing: border-box; /* Ensures padding doesn't break layout */
 }
 
 /* Mobile devices: Stack services vertically on smaller screens */
 @media (max-width: 768px) {
-    .services {
+    .services-section {
         flex-direction: column; /* Stack services vertically */
         width: 100%; /* Ensure full width */
         padding: 0; /* Remove any padding to maximize width */
@@ -52,13 +55,10 @@ body {
     }
 }
 
-
-
-
 /* About section */
 .about-section {
     background-color: #1f1f1f; /* Slightly lighter dark for contrast */
-    padding: 50px 0;
+    padding: 50px 20px; /* Added side padding */
 }
 
 .about-section h2 {
@@ -73,7 +73,7 @@ body {
 .contact-section {
     background-color: #008080; /* Teal background */
     color: white;
-    padding: 50px 0;
+    padding: 50px 20px; /* Added side padding */
     text-align: center;
 }
 
@@ -103,7 +103,7 @@ a:hover {
 footer {
     background-color: #1a1a1a; /* Dark footer */
     color: #e0e0e0;
-    padding: 20px 0;
+    padding: 20px 20px; /* Added side padding */
     text-align: center;
 }
 
@@ -120,6 +120,7 @@ footer a:hover {
 .navbar {
     background-color: #1a1a1a; /* Dark background for navbar */
     color: white;
+    padding: 10px 20px; /* Added side padding */
 }
 
 .navbar a {
@@ -142,7 +143,6 @@ hr {
     margin: 0;
 }
 
-
 /* Table Styling */
 .tracklist-table {
     width: 100%;
@@ -162,7 +162,7 @@ hr {
 }
 
 .tracklist-table thead th {
-    padding: 10px;
+    padding: 15px 20px; /* Increased padding for header */
     font-weight: bold;
     text-transform: uppercase;
 }
@@ -183,8 +183,9 @@ hr {
 
 /* Table Cells */
 .tracklist-table tbody td {
-    padding: 10px;
+    padding: 15px 20px; /* Added side padding */
     text-align: left;
+    box-sizing: border-box;
 }
 
 /* Add a subtle hover effect on table rows */
@@ -197,7 +198,7 @@ hr {
     .tracklist-table thead {
         display: none; /* Hide table headers on small screens */
     }
-    
+
     .tracklist-table tbody tr {
         display: block;
         margin-bottom: 10px;
@@ -220,4 +221,3 @@ hr {
         text-transform: uppercase;
     }
 }
-
