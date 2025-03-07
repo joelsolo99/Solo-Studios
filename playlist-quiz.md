@@ -30,6 +30,23 @@ permalink: /playlist-quiz/
     <label><input type="radio" name="meme" value="some"> A couple for a laugh</label><br>
     <label><input type="radio" name="meme" value="none"> Not at my wedding</label><br>
 
+    <h2>4. What type of first dance are you imagining?</h2>
+    <label><input type="radio" name="first_dance" value="slow"> A classic slow dance</label><br>
+    <label><input type="radio" name="first_dance" value="fun"> Something upbeat and fun</label><br>
+    <label><input type="radio" name="first_dance" value="unique"> A unique or mashup moment</label><br>
+
+    <h2>5. What's your must-have genre?</h2>
+    <label><input type="radio" name="genre" value="disco"> Disco Fever</label><br>
+    <label><input type="radio" name="genre" value="indie"> Indie Anthems</label><br>
+    <label><input type="radio" name="genre" value="garage"> UK Garage</label><br>
+    <label><input type="radio" name="genre" value="rnb"> R&B Classics</label><br>
+
+    <h2>6. What's the ultimate vibe for the late-night set?</h2>
+    <label><input type="radio" name="latenight" value="chill"> Chill and soulful</label><br>
+    <label><input type="radio" name="latenight" value="house"> Pumping house tracks</label><br>
+    <label><input type="radio" name="latenight" value="karaoke"> Big singalong anthems</label><br>
+    <label><input type="radio" name="latenight" value="cheese"> Pure cheese, please!</label><br>
+
     <br>
     <button type="button" onclick="generatePlaylist()" class="cta-button">Get Your Playlist</button>
   </form>
@@ -42,26 +59,43 @@ function generatePlaylist() {
   const vibe = document.querySelector('input[name="vibe"]:checked')?.value;
   const decade = document.querySelector('input[name="decade"]:checked')?.value;
   const meme = document.querySelector('input[name="meme"]:checked')?.value;
+  const firstDance = document.querySelector('input[name="first_dance"]:checked')?.value;
+  const genre = document.querySelector('input[name="genre"]:checked')?.value;
+  const lateNight = document.querySelector('input[name="latenight"]:checked')?.value;
 
-  if (!vibe || !decade || !meme) {
+  if (!vibe || !decade || !meme || !firstDance || !genre || !lateNight) {
     alert('Please answer all questions!');
     return;
   }
 
   let playlist = '<h2>Your Sample Playlist</h2><ul>';
 
-  if (vibe === 'romantic') playlist += '<li>Endless Love - Lionel Richie & Diana Ross</li><li>Young Hearts Run Free - Candi Staton</li><li>You've Got The Love - Florence + The Machine</li><li>The Way You Look Tonight - Frank Sinatra</li><li>Sexual Healing - Marvin Gaye</li>';
-  if (vibe === 'rock') playlist += '<li>Livin' On A Prayer - Bon Jovi</li><li>Sweet Child O' Mine - Guns N' Roses</li><li>Sex on Fire - Kings of Leon</li><li>White Wedding - Billy Idol</li><li>I Believe in a Thing Called Love - The Darkness</li>';
-  if (vibe === 'jazzy') playlist += '<li>Roxanne - The Police</li><li>Car Wash - Rose Royce</li><li>Respect - Aretha Franklin</li><li>Karma Chameleon - Culture Club</li><li>Celebration - Kool & The Gang</li>';
-  if (vibe === 'meme') playlist += '<li>All Star - Smash Mouth</li><li>Mambo No. 5 - Lou Bega</li><li>It Wasn't Me - Shaggy</li><li>Dirty Cash - Adventures Of Stevie V.</li><li>Push It - Salt-N-Pepa</li>';
+  if (vibe === 'romantic') playlist += '<li>Endless Love - Diana Ross & Lionel Richie</li><li>Young Hearts Run Free - Candi Staton</li>';
+  if (vibe === 'rock') playlist += '<li>Livin\' On A Prayer - Bon Jovi</li><li>Sweet Child O\' Mine - Guns N\' Roses</li>';
+  if (vibe === 'jazzy') playlist += '<li>Sexual Healing - Marvin Gaye</li><li>Roxanne - The Police</li>';
+  if (vibe === 'meme') playlist += '<li>All Star - Smash Mouth</li><li>Mambo No. 5 - Lou Bega</li>';
 
-  if (decade === '80s') playlist += '<li>Footloose - Kenny Loggins</li><li>Girls Just Want to Have Fun - Cyndi Lauper</li><li>Love Shack - The B-52's</li><li>Crocodile Rock - Elton John</li><li>Video Killed The Radio Star - The Buggles</li>';
-  if (decade === '90s') playlist += '<li>You've Got The Love - Florence + The Machine</li><li>Sex on Fire - Kings of Leon</li><li>Livin' On A Prayer - Bon Jovi</li><li>Twist And Shout - The Beatles</li><li>Poker Face - Lady Gaga</li>';
-  if (decade === '2000s') playlist += '<li>Levitating - Dua Lipa</li><li>Yeah! - Usher</li><li>Symphony - Clean Bandit ft. Zara Larsson</li><li>Cake By The Ocean - DNCE</li><li>Ain't Nobody (Loves Me Better) - Felix Jaehn</li>';
-  if (decade === 'current') playlist += '<li>Symphony - Clean Bandit ft. Zara Larsson</li><li>Ain't Nobody (Loves Me Better) - Felix Jaehn</li><li>Levitating - Dua Lipa</li><li>Cake By The Ocean - DNCE</li><li>Dirty Cash - Adventures Of Stevie V.</li>';
+  if (decade === '80s') playlist += '<li>Footloose - Kenny Loggins</li><li>Girls Just Want to Have Fun - Cyndi Lauper</li>';
+  if (decade === '90s') playlist += '<li>You\'ve Got The Love - Florence + The Machine</li><li>Sex on Fire - Kings of Leon</li>';
+  if (decade === '2000s') playlist += '<li>Levitating - Dua Lipa</li><li>Yeah! - Usher</li>';
+  if (decade === 'current') playlist += '<li>Symphony - Clean Bandit ft. Zara Larsson</li><li>Ain\'t Nobody (Loves Me Better) - Felix Jaehn</li>';
 
-  if (meme === 'love') playlist += '<li>Poker Face - Lady Gaga</li><li>It Wasn't Me - Shaggy</li><li>All Star - Smash Mouth</li><li>Mambo No. 5 - Lou Bega</li><li>Push It - Salt-N-Pepa</li>';
-  if (meme === 'some') playlist += '<li>Dirty Cash - Adventures Of Stevie V.</li><li>Twist And Shout - The Beatles</li>';
+  if (meme === 'love') playlist += '<li>Poker Face - Lady Gaga</li><li>It Wasn\'t Me - Shaggy</li>';
+  if (meme === 'some') playlist += '<li>Dirty Cash - Adventures Of Stevie V.</li>';
+
+  if (firstDance === 'slow') playlist += '<li>The Way You Look Tonight - Frank Sinatra</li>';
+  if (firstDance === 'fun') playlist += '<li>Twist And Shout - The Beatles</li>';
+  if (firstDance === 'unique') playlist += '<li>Pencil Full Of Lead - Paolo Nutini</li>';
+
+  if (genre === 'disco') playlist += '<li>Stayin\' Alive - Bee Gees</li>';
+  if (genre === 'indie') playlist += '<li>Take Me Out - Franz Ferdinand</li>';
+  if (genre === 'garage') playlist += '<li>Flowers - Sweet Female Attitude</li>';
+  if (genre === 'rnb') playlist += '<li>No Scrubs - TLC</li>';
+
+  if (lateNight === 'chill') playlist += '<li>Redbone - Childish Gambino</li>';
+  if (lateNight === 'house') playlist += '<li>One More Time - Daft Punk</li>';
+  if (lateNight === 'karaoke') playlist += '<li>Mr. Brightside - The Killers</li>';
+  if (lateNight === 'cheese') playlist += '<li>Cha Cha Slide - DJ Casper</li>';
 
   playlist += '</ul>';
 
