@@ -3,8 +3,8 @@
   <table class="tracklist-table" id="tracklist-table">
     <thead>
       <tr>
-        <th>Song</th>
         <th>Artist</th>
+        <th>Song</th>
       </tr>
     </thead>
     <tbody>
