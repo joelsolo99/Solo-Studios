@@ -7,13 +7,14 @@ title: Solo Studios
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
 <div class="hero-section">
+    <img src="{{ "/assets/img/homepage.jpg" | relative_url }}" alt="Hero Image" class="hero-image">
     <div class="hero-content">
         <h1>Welcome to Solo Studios</h1>
         <p>Your go-to Saxophone & DJ duo to energise your wedding, party, or event.</p>
     </div>
 </div>
+
 <div class="wrapper">
     <div class="services-section">
         <div class="services">
@@ -33,9 +34,31 @@ title: Solo Studios
     </div>
 </div>
 
-
+<div class="contact-section" id="contact">
+    <h2>Let\u2019s Chat</h2>
+    <p>Have questions or want to discuss your event? We're here to help you create the perfect soundtrack to your celebration. Reach out for a custom quote!</p>
+    <a href="mailto:info@solostudios.uk" class="cta-button">Contact Now</a>
+</div>
 
 <style>
+    /* Resize the image to fit the hero section */
+    .hero-image {
+        width: 100%; /* Make the image stretch across the entire width */
+        height: auto; /* Maintain aspect ratio */
+        object-fit: cover; /* Ensure it covers the hero section area without distorting */
+    }
+
+    /* Hero content styling */
+    .hero-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        text-align: center;
+    }
+
+    /* Responsive adjustments */
     @media (max-width: 768px) {
         .services {
             flex-direction: column; /* Stack services vertically */
@@ -51,10 +74,3 @@ title: Solo Studios
         }
     }
 </style>
-
-
-<div class="contact-section" id="contact">
-    <h2>Let’s Chat</h2>
-    <p>Have questions or want to discuss your event? We're here to help you create the perfect soundtrack to your celebration. Reach out for a custom quote!</p>
-    <a href="mailto:info@solostudios.uk" class="cta-button">Contact Now</a>
-</div>
