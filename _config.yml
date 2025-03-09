@@ -20,15 +20,16 @@ author: Solo Studios
 ###############################################
 
 navbar-links:
-  About Us: "about"
+  About Us: "about/"
   Songs:
-    - Modern Pop: "modern-pop"    
-    - Classics: "classics"
-    - Jazz: "jazz"
-    - Evening Party Sample Setlist: "evening-party"
-    - Ibiza Sax Mix: "ibiza-sax"
+    - Modern Pop: "playlists/modern-pop"    
+    - Classics: "playlists/classics"
+    - Jazz: "playlists/jazz"
+    - Evening Party Sample Setlist: "playlists/evening-party"
+    - Ibiza Sax Mix: "playlists/ibiza-sax"
   Footage: "videos"
-  Packages: "packages"
+  Packages: 
+    - Wedding: "packages/wedding-packages"
   Sample Playlist: "playlist-quiz"
   
 

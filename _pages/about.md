@@ -1,7 +1,7 @@
 ---
 title: "About Us"
 permalink: /about/
-layout: default
+layout: page
 ---
 
 <link rel="stylesheet" href="{{ '/assets/css/dark-theme.css' | relative_url }}">
