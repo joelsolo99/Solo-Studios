@@ -20,7 +20,7 @@ author: Solo Studios
 ###############################################
 
 navbar-links:
-  About Us: "aboutus"
+  About Us: "about"
   Songs:
     - Modern Pop: "modern-pop"    
     - Classics: "classics"
