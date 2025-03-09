@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Wedding Packages
-permalink: /packages/
+permalink: /wedding-packages/
 ---
 
 <link rel="stylesheet" href="{{ '/assets/css/dark-theme.css' | relative_url }}">
