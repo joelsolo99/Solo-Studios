@@ -19,9 +19,15 @@ author: Solo Studios
 # --- List of links in the navigation bar --- #
 ###############################################
 
+collections:
+  pages:
+    output: true
+    permalink: /:path/
+
+
 navbar-links:
   About Us: "about/"
-  Songs:
+  Playlists:
     - Modern Pop: "playlists/modern-pop"    
     - Classics: "playlists/classics"
     - Jazz: "playlists/jazz"
