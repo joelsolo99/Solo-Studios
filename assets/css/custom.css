@@ -11,6 +11,19 @@ body {
     background-color: #1f1f1f;
     padding: 100px 0;
     text-align: center;
+    position: relative; /* Needed for absolute positioning of content */
+    height: 500px; /* Set a height for the hero section */
+    overflow: hidden; /* Ensure the image does not overflow the container */
+}
+
+.hero-section .hero-image {
+    width: 100%; /* Make the image stretch across the entire width */
+    height: 100%; /* Fill the height of the hero section */
+    object-fit: cover; /* Ensure it covers the hero section area without distorting */
+    position: absolute; /* Position the image behind the content */
+    top: 0;
+    left: 0;
+    z-index: -1; /* Ensure the image stays behind the text content */
 }
 
 .hero-section h1 {
@@ -20,6 +33,8 @@ body {
 .hero-section p {
     color: #b0b0b0;
 }
+
+
 
 /* Services section */
 .services-section {
