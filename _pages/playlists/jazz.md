@@ -1,3 +1,8 @@
+---
+layout: page
+title: "Jazz Tracklist"
+---
+
 <div class="tracklist-section">
   <h2>Jazz Tracklist</h2>
   <table class="tracklist-table" id="tracklist-table">

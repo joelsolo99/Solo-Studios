@@ -1,3 +1,8 @@
+---
+layout: page
+title: "Evening Party Sample Setlist"
+---
+
 <div class="tracklist-section">
   <h2>Evening Party Sample Playlist</h2>
   <table class="tracklist-table" id="tracklist-table">

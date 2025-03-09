@@ -1,3 +1,9 @@
+---
+layout: page
+title: "Modern Pop Tracklist"
+---
+
+
 <div class="tracklist-section">
   <h2>Modern Pop Tracklist</h2>
   <table class="tracklist-table" id="tracklist-table">

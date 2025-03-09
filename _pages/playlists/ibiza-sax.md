@@ -1,3 +1,8 @@
+---
+layout: page
+title: "Ibiza Tracklist"
+---
+
 <div class="tracklist-section">
   <h2>Ibiza Sax Mix</h2>
   <table class="tracklist-table" id="tracklist-table">
