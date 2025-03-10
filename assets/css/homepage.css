@@ -1,3 +1,4 @@
+/* General styling */
 body {
     font-family: Arial, sans-serif;
     color: #333;
@@ -6,20 +7,21 @@ body {
     padding: 0;
 }
 
+/* Hero Section */
 .hero-section {
     position: relative;
-    height: 50vh; /* Reduced height */
+    height: 50vh; /* Adjusted for a reasonable image size */
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     color: white;
-    overflow: hidden;
 }
 
 .hero-image {
     width: 100%;
-    max-height: 100%;
+    height: 100%;
     object-fit: cover;
     position: absolute;
     top: 0;
@@ -32,7 +34,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay for readability */
 }
 
 .hero-content {
@@ -41,23 +43,23 @@ body {
     max-width: 80%;
 }
 
-.cta-button {
-    display: inline-block;
-    background-color: #008080;
-    color: white;
-    padding: 12px 24px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: bold;
-    margin-top: 15px;
+.hero-content h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
 }
 
+.hero-content p {
+    font-size: 1.2em;
+}
+
+/* Wrapper */
 .wrapper {
     padding: 50px 20px;
     max-width: 1100px;
     margin: auto;
 }
 
+/* Services Section */
 .services-section {
     text-align: center;
 }
@@ -71,3 +73,54 @@ body {
 }
 
 .service {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    min-width: 250px;
+    text-align: center;
+}
+
+.service h3 {
+    color: #008080;
+}
+
+.service p {
+    color: #555;
+}
+
+.highlight {
+    color: #008080;
+    font-weight: bold;
+}
+
+/* Contact Section */
+.contact-section {
+    background-color: #1f1f1f;
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #008080;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-section {
+        height: 40vh;
+    }
+
+    .services {
+        flex-direction: column;
+    }
+}
