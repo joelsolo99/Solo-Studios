@@ -1,46 +1,142 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solo Studios</title>
-    <link rel="stylesheet" href="homepage.css">
-</head>
-<body>
-    <div class="hero-section">
-        <img src="assets/img/homepage.jpg" alt="Joel Solomons - Saxophonist" class="hero-image">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1>Solo Studios</h1>
-            <p>Electrifying saxophone and DJ performances for weddings, parties, and events.</p>
-            <a href="#contact" class="cta-button">Book Now</a>
+---
+layout: home
+title: Solo Studios
+---
+
+<link rel="stylesheet" href="{{ "/assets/css/custom.css" | relative_url }}">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<div class="hero-section">
+    <img src="{{ "/assets/img/homepage.jpg" | relative_url }}" alt="Hero Image" class="hero-image">
+    <div class="hero-content">
+        <h1>Welcome to Solo Studios</h1>
+        <p>Your go-to Saxophone & DJ duo to energise your wedding, party, or event.</p>
+    </div>
+</div>
+
+<div class="wrapper">
+    <div class="services-section">
+        <div class="services">
+            <div class="service">
+                <h3 style="color: #008080;">Saxophone Performances</h3>
+                <p style="color: #b0b0b0;">Bringing the <span style="color: #008080;">songs you want to hear</span> to create the <span style="color: #008080;">perfect vibe</span> for your event.</p>
+            </div>
+            <div class="service">
+                <h3 style="color: #008080;">DJ Sets</h3>
+                <p style="color: #b0b0b0;">Tailored, <span style="color: #008080;">professional DJ sets</span> that keep the <span style="color: #008080;">energy flowing</span> from start to finish.</p>
+            </div>
+            <div class="service">
+                <h3 style="color: #008080;">Sax + DJ Combo</h3>
+                <p style="color: #b0b0b0;">The <span style="color: #008080;">ultimate crowd-pleaser</span>: live sax paired with expertly mixed DJ tracks for an <span style="color: #008080;">unforgettable experience</span>.</p>
+            </div>
         </div>
     </div>
+</div>
 
-    <div class="wrapper">
-        <section class="services-section">
-            <h2>Our Services</h2>
-            <div class="services">
-                <div class="service">
-                    <h3>Saxophone Performances</h3>
-                    <p>Live saxophone music tailored to your event, creating the perfect atmosphere.</p>
-                </div>
-                <div class="service">
-                    <h3>DJ Sets</h3>
-                    <p>Professional DJ sets, keeping the energy high and the dancefloor alive.</p>
-                </div>
-                <div class="service">
-                    <h3>Sax + DJ Combo</h3>
-                    <p>The ultimate party experience—live sax with expertly mixed DJ tracks.</p>
-                </div>
-            </div>
-        </section>
-    </div>
+<div class="contact-section" id="contact">
+    <h2>Let's Chat</h2>
+    <p>Have questions or want to discuss your event? We're here to help you create the perfect soundtrack to your celebration. Reach out for a custom quote!</p>
+    <a href="mailto:info@solostudios.uk" class="cta-button">Contact Now</a>
+</div>
 
-    <section class="contact-section" id="contact">
-        <h2>Let's Chat</h2>
-        <p>Planning an event? Let's create the perfect soundtrack for your celebration.</p>
-        <a href="mailto:info@solostudios.uk" class="cta-button">Contact Now</a>
-    </section>
-</body>
-</html>
+<style>
+    /* Hero section styling */
+    .hero-section {
+        position: relative;
+        height: 60vh; /* Set the height of the hero section to a percentage of the viewport height */
+        overflow: hidden; /* Prevent image overflow */
+    }
+
+    /* Resize the image to fit the hero section */
+    .hero-image {
+        width: 100%; /* Make the image stretch across the entire width */
+        height: 100%; /* Make the image cover the entire height of the section */
+        object-fit: cover; /* Ensure it covers the hero section area without distorting */
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    /* Hero content styling */
+    .hero-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        text-align: center;
+        z-index: 1; /* Ensure content is on top of the image */
+    }
+
+    .hero-content h1 {
+        font-size: 2.5em; /* Adjust font size for readability */
+    }
+
+    .hero-content p {
+        font-size: 1.2em; /* Adjust font size for readability */
+    }
+
+    /* Services section styling */
+    .services-section {
+        padding: 50px 20px;
+    }
+
+    .services {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+
+    .service {
+        background-color: #f5f5f5;
+        padding: 20px;
+        border-radius: 8px;
+        flex: 1;
+        min-width: 250px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .service h3 {
+        color: #008080;
+    }
+
+    .service p {
+        color: #b0b0b0;
+    }
+
+    /* Contact section styling */
+    .contact-section {
+        background-color: #1f1f1f;
+        color: white;
+        padding: 50px 20px;
+        text-align: center;
+    }
+
+    .cta-button {
+        background-color: #008080;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        text-decoration: none;
+        font-size: 1.2em;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .services {
+            flex-direction: column; /* Stack services vertically */
+            padding: 0; /* Remove padding to maximize width */
+        }
+        .service {
+            max-width: 100%; /* Ensure services take full width */
+            margin: 0 0 20px 0; /* Remove side margins, keep bottom margin */
+            padding: 20px; /* Ensure consistent padding inside the services */
+        }
+        .services-section {
+            padding: 20px; /* Remove any outer padding to allow full-width services */
+        }
+    }
+</style>
