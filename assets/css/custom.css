@@ -194,3 +194,63 @@ a:hover {
     padding: 0;
     margin: 0;
 }
+
+
+/* Videos Section */
+.videos-section {
+    background-color: #1a1a1a;
+    padding: 50px 20px;
+    text-align: center;
+    width: 100%;
+}
+
+.videos-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.video {
+    background-color: #1f1f1f;
+    padding: 20px;
+    border-radius: 8px;
+    flex: 1 1 45%; /* Two videos side-by-side on larger screens */
+    max-width: 500px;
+    box-sizing: border-box;
+    text-align: center;
+    color: #b0b0b0;
+    transition: background-color 0.3s ease;
+}
+
+/* Responsive video container */
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 10px;
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+    .videos-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .video {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+}
