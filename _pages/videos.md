@@ -14,11 +14,20 @@ permalink: /videos/
 <section class="services-section">
   <div class="service">
     <h2>Can't Help Falling in Love</h2>
-    <iframe width="100%" height="315" src="https://www.youtube.com/embed/7wbCDQSyBmc
-" 
-      title="Solo Studios - Ibiza Sax DJ Set" 
-      frameborder="0" 
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    <iframe width="100%" height="315" src="https://www.youtube.com/embed/7wbCDQSyBmc"
+      title="Solo Studios - Can't Help Falling in Love"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <div class="service">
+    <h2>One Step Beyond - Madness</h2>
+    <iframe width="100%" height="315" src="https://www.youtube.com/embed/V9XAYfDN2Gs"
+      title="Solo Studios - One Step Beyond (Madness Cover)"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       allowfullscreen>
     </iframe>
   </div>
