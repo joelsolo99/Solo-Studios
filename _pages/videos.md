@@ -17,7 +17,7 @@ permalink: /videos/
       <h2>Can't Help Falling in Love</h2>
       <div class="video-wrapper">
         <iframe src="https://www.youtube.com/embed/7wbCDQSyBmc" 
-          title="Solo Studios - Can't Help Falling in Love"
+          title="Elvis: Can't Help Falling in Love"
           frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen>
         </iframe>
@@ -28,7 +28,7 @@ permalink: /videos/
       <h2>One Step Beyond - Madness</h2>
       <div class="video-wrapper">
         <iframe src="https://www.youtube.com/embed/V9XAYfDN2Gs" 
-          title="Solo Studios - One Step Beyond (Madness Cover)"
+          title="Madness: One Step Beyond"
           frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen>
         </iframe>
