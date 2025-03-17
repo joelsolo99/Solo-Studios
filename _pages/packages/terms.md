@@ -5,7 +5,27 @@ permalink: /packages/terms/
 ---
 
 <link rel="stylesheet" href="{{ '/assets/css/dark-theme.css' | relative_url }}">
+<style> /* Apply styles to all tables within the .table-wrapper */
+.table-wrapper table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #333; /* Dark background */
+  color: white; /* Light text */
+  margin-bottom: 20px; /* Space below tables */
+}
 
+.table-wrapper th,
+.table-wrapper td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #444; /* Light borders for contrast */
+}
+
+.table-wrapper th {
+  background-color: #444; /* Slightly lighter background for headers */
+  font-weight: bold;
+}
+</style>
 # Terms & Conditions
 
 ## Travel Fees
