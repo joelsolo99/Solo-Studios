@@ -18,18 +18,26 @@ permalink: /packages/terms/
 .table-wrapper td {
   padding: 10px;
   text-align: left;
-  border: 1px solid #444; /* Light borders for contrast */
+  border: 1px solid #666; /* Lighter border for contrast */
 }
 
 .table-wrapper th {
   background-color: #444; /* Slightly lighter background for headers */
   font-weight: bold;
+  color: #fff; /* Ensuring text is white for headers */
 }
 
 .table-wrapper td {
   color: white; /* Ensure all table cells have light text */
 }
 
+.table-wrapper tr:nth-child(even) {
+  background-color: #444; /* Alternating row colors for better readability */
+}
+
+.table-wrapper tr:hover {
+  background-color: #555; /* Highlight rows on hover */
+}
 </style>
 
 
