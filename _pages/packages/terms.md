@@ -43,6 +43,28 @@ For bookings exceeding **four hours**, please ensure that performers are well-fe
 
 ## Cancellations
 
+/* Apply styles to all tables within the .table-wrapper */
+.table-wrapper table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #333; /* Dark background */
+  color: white; /* Light text */
+  margin-bottom: 20px; /* Space below tables */
+}
+
+.table-wrapper th,
+.table-wrapper td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #444; /* Light borders for contrast */
+}
+
+.table-wrapper th {
+  background-color: #444; /* Slightly lighter background for headers */
+  font-weight: bold;
+}
+
+
 <div class="table-wrapper">
   <table>
     <thead>
@@ -67,6 +89,7 @@ For bookings exceeding **four hours**, please ensure that performers are well-fe
     </tbody>
   </table>
 </div>
+
 
 ---
 
