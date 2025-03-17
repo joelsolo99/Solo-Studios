@@ -9,9 +9,9 @@ permalink: /packages/terms/
 .table-wrapper table {
   width: 100%;
   border-collapse: collapse;
+  margin-bottom: 20px; /* Space below tables */
   background-color: #333; /* Dark background */
   color: white; /* Light text */
-  margin-bottom: 20px; /* Space below tables */
 }
 
 .table-wrapper th,
@@ -25,6 +25,11 @@ permalink: /packages/terms/
   background-color: #444; /* Slightly lighter background for headers */
   font-weight: bold;
 }
+
+.table-wrapper td {
+  color: white; /* Ensure all table cells have light text */
+}
+
 </style>
 
 
