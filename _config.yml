@@ -36,7 +36,7 @@ navbar-links:
   Footage: "videos"
   Packages: 
     - Wedding: "packages/wedding-packages"
-    - Terms: "packages/terms"
+    - Terms: "packages/"
   Playlist Quiz: "playlist-quiz"
   
 
@@ -65,14 +65,14 @@ round-avatar: true
 social-network-links:
   email: "events@solostudios.uk"
   whatsapp: +447956343402
-  youtube: http://www.youtube.com/@SoloStudiosPlymouth
+  youtube: "@SoloStudiosPlymouth""
 #  medium: yourname
 #  reddit: yourname or r/yoursubreddit
 #  linkedin: daattali
 #  xing: yourname
 #  stackoverflow: "3943160/daattali"
 #  snapchat: deanat78
-  instagram: @solo_studios_plymouth
+  instagram: solo_studios_plymouth
 #  spotify: yourname
 #  telephone: +14159998888
 #  steam: deanat78
