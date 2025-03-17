@@ -43,6 +43,7 @@ body {
     position: relative;
     z-index: 2;
     max-width: 80%;
+    top: 15%; /* Adjust this for centre offset of text on image */
 }
 
 .hero-content h1 {
