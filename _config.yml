@@ -36,6 +36,7 @@ navbar-links:
   Footage: "videos"
   Packages: 
     - Wedding: "packages/wedding-packages"
+    - Terms: "packages/terms"
   Playlist Quiz: "playlist-quiz"
   
 

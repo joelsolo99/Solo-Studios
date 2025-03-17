@@ -82,58 +82,6 @@ Take a look at the core packages we offer for weddings. Whether you're after smo
 
 ---
 
-## Travel Fees
-
-<div class="table-wrapper">
-  <table>
-    <thead>
-      <tr>
-        <th>Travel (miles)</th>
-        <th>Price (£/mile)</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Over 70</td>
-        <td>0.45</td>
-      </tr>
-      <tr>
-        <td>Under 70</td>
-        <td>N/A</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
----
-
-## Cancellations
-
-<div class="table-wrapper">
-  <table>
-    <thead>
-      <tr>
-        <th>Amount kept as deposit</th>
-        <th>Time</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>10% (standard deposit)</td>
-        <td>48 hours grace period</td>
-      </tr>
-      <tr>
-        <td>50%</td>
-        <td>24 hours before arrival</td>
-      </tr>
-      <tr>
-        <td>100% (no refund)</td>
-        <td>Less than 24 hours' notice</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
----
+For details on travel fees, cancellations, and other terms, please visit our [Terms & Conditions](/packages/terms/) page.
 
 For any bespoke packages, travel arrangements, or special requests, feel free to [get in touch](mailto:events@solostudios.uk). We're happy to tailor things to make your event perfect.
