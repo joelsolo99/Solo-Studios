@@ -18,7 +18,7 @@ permalink: /packages/terms/
 .table-wrapper td {
   padding: 10px;
   text-align: left;
-  border: 1px solid #666; /* Lighter border for contrast */
+  border: 1px solid #444; /* Light border for contrast */
 }
 
 .table-wrapper th {
@@ -32,12 +32,18 @@ permalink: /packages/terms/
 }
 
 .table-wrapper tr:nth-child(even) {
-  background-color: #444; /* Alternating row colors for better readability */
+  background-color: #3a3a3a; /* Slightly lighter background for even rows */
 }
 
-.table-wrapper tr:hover {
-  background-color: #555; /* Highlight rows on hover */
+.table-wrapper tr:nth-child(odd) {
+  background-color: #444; /* Darker background for odd rows */
 }
+
+/* Hover effect */
+.table-wrapper tr:hover {
+  background-color: #555; /* Change background on hover */
+}
+
 </style>
 
 
