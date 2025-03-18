@@ -1,78 +1,55 @@
-/* General body styling for light theme */
+/* General Styling */
 body {
-    background-color: #fafafa; /* Light background */
-    color: #333; /* Dark text for readability */
+    background-color: #fafafa;
+    color: #333;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
 }
 
-/* Hero section */
+/* Hero Section */
 .hero-section {
-    background-color: #f0f0f0; /* Lighter background for the hero section */
+    background-color: #f0f0f0;
     padding: 100px 20px;
     text-align: center;
 }
 
 .hero-section h1 {
-    color: #008080; /* Teal heading text for highlight */
+    color: #008080;
 }
 
-.hero-section p {
-    color: #555; /* Dark gray for paragraph */
-}
-
-/* Default styling for the services section */
+/* Services Section */
 .services-section {
-    background-color: #ffffff; /* White background for services section */
+    background-color: #ffffff;
     padding: 50px 20px;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow for separation */
 }
 
 .service {
-    background: #ffffff; /* White background for service boxes */
+    background: #ffffff;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Soft shadow for cards */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
     width: 30%;
     text-align: center;
     margin-bottom: 20px;
-    box-sizing: border-box;
 }
 
-/* Mobile devices: Stack services vertically */
+/* Responsive Services */
 @media (max-width: 768px) {
     .services-section {
         flex-direction: column;
     }
-
     .service {
-        flex: 1 1 100%;
-        max-width: 100%;
-        margin: 10px 0;
+        width: 100%;
     }
 }
 
-/* About section */
-.about-section {
-    background-color: #ffffff; /* White background for contrast */
-    padding: 50px 20px;
-}
-
-.about-section h2 {
-    color: #008080; /* Teal heading text for highlight */
-}
-
-.about-section p {
-    color: #555; /* Dark gray text for readability */
-}
-
-/* Contact section */
+/* Contact Section */
 .contact-section {
-    background-color: #008080; /* Teal background for branding */
+    background-color: #008080;
     color: white;
     padding: 50px 20px;
     text-align: center;
@@ -80,7 +57,7 @@ body {
 
 .cta-button {
     background-color: white;
-    color: #008080; /* Teal text for button */
+    color: #008080;
     padding: 10px 20px;
     border-radius: 5px;
     text-decoration: none;
@@ -88,129 +65,27 @@ body {
 }
 
 .cta-button:hover {
-    background-color: #007373; /* Darker teal on hover */
+    background-color: #007373;
 }
 
-/* Links and buttons */
+/* Links */
 a {
-    color: #008080; /* Teal links for highlight */
+    color: #008080;
 }
 
 a:hover {
-    color: #00cccc; /* Lighter teal on hover */
+    color: #00cccc;
 }
 
 /* Footer */
 footer {
-    background-color: #f0f0f0; /* Lighter background for footer */
+    background-color: #f0f0f0;
     color: #333;
-    padding: 20px 20px;
+    padding: 20px;
     text-align: center;
 }
 
-/* Footer links */
-footer a {
-    color: #008080; /* Teal links in footer */
-}
-
-footer a:hover {
-    color: #00cccc; /* Lighter teal on hover */
-}
-
-
-
-/* Borders and separators */
-hr {
-    border: 1px solid #008080; /* Teal horizontal rule */
-}
-
-.wrapper {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-}
-
-/* Table Styling */
-.tracklist-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-    font-size: 1.1em;
-    font-family: 'Arial', sans-serif;
-    background-color: #ffffff; /* White background for table */
-    color: #333; /* Dark text for table */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
-}
-
-/* Table Header */
-.tracklist-table thead {
-    background-color: #008080; /* Teal background for headers */
-    color: white;
-}
-
-.tracklist-table thead th {
-    padding: 15px 20px;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-/* Table Rows */
-.tracklist-table tbody tr {
-    border-bottom: 1px solid #f0f0f0; /* Light row separation */
-}
-
-.tracklist-table tbody tr:nth-of-type(even) {
-    background-color: #fafafa; /* Light zebra striping */
-}
-
-.tracklist-table tbody tr:hover {
-    background-color: #f0f0f0; /* Light gray on hover */
-    cursor: pointer;
-}
-
-/* Table Cells */
-.tracklist-table tbody td {
-    padding: 15px 20px;
-    text-align: left;
-    box-sizing: border-box;
-}
-
-/* Add a subtle hover effect on table rows */
-.tracklist-table tbody tr:hover td {
-    color: #00cccc; /* Lighter teal on hover */
-}
-
-/* Make sure the table is responsive on smaller screens */
-@media (max-width: 768px) {
-    .tracklist-table thead {
-        display: none; /* Hide table headers on small screens */
-    }
-
-    .tracklist-table tbody tr {
-        display: block;
-        margin-bottom: 10px;
-    }
-
-    .tracklist-table tbody td {
-        display: block;
-        text-align: right;
-        padding-left: 50%;
-        position: relative;
-    }
-
-    .tracklist-table tbody td::before {
-        content: attr(data-label);
-        position: absolute;
-        left: 0;
-        width: 50%;
-        padding-left: 15px;
-        font-weight: bold;
-        text-transform: uppercase;
-    }
-}
-
-/* Centre Tracklist Section */
+/* Tracklist Table */
 .tracklist-container {
     display: flex;
     justify-content: center;
@@ -220,45 +95,61 @@ hr {
     width: 100%;
 }
 
-/* Ensure Table is Centred */
 .tracklist-table {
-    width: 80%; /* Keeps the table from stretching too wide */
-    margin: 20px auto; /* Centers the table horizontally */
-    border-collapse: collapse; /* Ensures proper spacing */
-    text-align: center; /* Centres text */
+    width: 50%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    text-align: center;
+    table-layout: fixed;
 }
 
-
-
-
-/* Custom table styling for light theme */
-.table-wrapper table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
+/* Table Header */
+.tracklist-table thead {
+    background-color: #008080;
+    color: white;
 }
 
-.table-wrapper table th,
-.table-wrapper table td {
-  padding: 12px;
-  text-align: left;
-  border: 1px solid #ddd; /* Lighter border color */
+.tracklist-table th {
+    padding: 15px;
+    text-transform: uppercase;
 }
 
-.table-wrapper table th {
-  background-color: #f5f5f5; /* Lighter background for table header */
-  color: #333; /* Dark text color for headers */
+/* Table Rows */
+.tracklist-table tbody tr {
+    border-bottom: 1px solid #f0f0f0;
 }
 
-.table-wrapper table td {
-  background-color: #ffffff; /* White background for table cells */
-  color: #333; /* Dark text for readability */
+.tracklist-table tbody tr:nth-of-type(even) {
+    background-color: #fafafa;
 }
 
-.table-wrapper table tr:nth-child(even) td {
-  background-color: #f9f9f9; /* Slightly lighter background for zebra striping */
+.tracklist-table tbody tr:hover {
+    background-color: #f0f0f0;
 }
 
-.table-wrapper table tr:hover td {
-  background-color: #f1f1f1; /* Light gray hover effect */
+/* Table Cells */
+.tracklist-table td {
+    padding: 15px;
+    text-align: center;
+}
+
+.tracklist-table th:first-child,
+.tracklist-table td:first-child {
+    width: 50%;
+    text-align: right;
+    padding-right: 10px;
+}
+
+.tracklist-table th:last-child,
+.tracklist-table td:last-child {
+    width: 50%;
+    text-align: left;
+    padding-left: 10px;
+}
+
+/* Responsive Tables */
+@media (max-width: 768px) {
+    .tracklist-table {
+        width: 90%;
+    }
 }
