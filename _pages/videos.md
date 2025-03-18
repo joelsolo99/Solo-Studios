@@ -4,7 +4,7 @@ title: Videos
 permalink: /videos/
 ---
 
-<link rel="stylesheet" href="{{ '/assets/css/dark-theme.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/site-theme.css' | relative_url }}">
 
 <section class="hero-section">
   <h1>Solo Studios Videos</h1>

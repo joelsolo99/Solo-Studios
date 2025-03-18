@@ -4,7 +4,7 @@ title: "Wedding Playlist Quiz"
 permalink: /playlist-quiz/
 ---
 
-<link rel="stylesheet" href="/assets/css/dark-theme.css">
+<link rel="stylesheet" href="/assets/css/site-theme.css">
 
 <section class="hero-section">
   <h1>Find Your Perfect Wedding Vibes</h1>

@@ -4,7 +4,7 @@ title: Wedding Packages
 permalink: /packages/wedding-packages/
 ---
 
-<link rel="stylesheet" href="{{ '/assets/css/dark-theme.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/site-theme.css' | relative_url }}">
 <style>
   /* Custom table styling for dark theme */
   .table-wrapper table {

@@ -4,7 +4,7 @@ title: Terms & Conditions
 permalink: /packages/terms/
 ---
 
-<link rel="stylesheet" href="{{ '/assets/css/dark-theme.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/site-theme.css' | relative_url }}">
 <style> /* Apply styles to all tables within the .table-wrapper */
 .table-wrapper table {
   width: 100%;
