@@ -1,21 +1,22 @@
 ---
 layout: page
-title: "Classics Tracklist"
+title: "Classic Pop Tracklist"
 ---
 
-<div class="tracklist-section">
-  <h2>Classics Tracklist</h2>
-  <table class="tracklist-table" id="tracklist-table">
-    <thead>
-      <tr>
-        <th>Song</th>
-        <th>Artist</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- Tracklist data will be inserted here by JavaScript -->
-    </tbody>
-  </table>
+<div class="tracklist-container">
+  <div class="tracklist-section">
+    <table class="tracklist-table" id="tracklist-table">
+      <thead>
+        <tr>
+          <th>Song</th>
+          <th>Artist</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Tracklist data will be inserted here by JavaScript -->
+      </tbody>
+    </table>
+  </div>
 </div>
 
 <script>
@@ -27,16 +28,15 @@ function loadTracklist() {
       const rows = csvData.split('\n').slice(1); // Remove header row
       const tableBody = document.querySelector('#tracklist-table tbody');
       rows.forEach(row => {
-        const cols = row.split(',').map(col => col.replace(/(^"|"$)/g, '').trim()); // Remove quotes and trim
-
+        const cols = row.split(',');
         if (cols.length > 1) {  // To avoid empty rows
           const tr = document.createElement('tr');
           const songTd = document.createElement('td');
           const artistTd = document.createElement('td');
 
           // Set text content for song and artist cells
-          songTd.textContent = cols[0];
-          artistTd.textContent = cols[1];
+          songTd.textContent = cols[0].trim();
+          artistTd.textContent = cols[1].trim();
 
           // Add data-label attributes for responsive design
           songTd.setAttribute('data-label', 'Song');

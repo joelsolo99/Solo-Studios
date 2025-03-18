@@ -2,20 +2,20 @@
 layout: page
 title: "Evening Party Sample Setlist"
 ---
-
-<div class="tracklist-section">
-  <h2>Evening Party Sample Playlist</h2>
-  <table class="tracklist-table" id="tracklist-table">
-    <thead>
-      <tr>
-        <th>Artist</th>
-        <th>Song</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- Tracklist data will be inserted here by JavaScript -->
-    </tbody>
-  </table>
+<div class="tracklist-container">
+  <div class="tracklist-section">
+    <table class="tracklist-table" id="tracklist-table">
+      <thead>
+        <tr>
+          <th>Artist</th>
+          <th>Song</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Tracklist data will be inserted here by JavaScript -->
+      </tbody>
+    </table>
+  </div>
 </div>
 
 <script>

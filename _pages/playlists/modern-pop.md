@@ -3,20 +3,20 @@ layout: page
 title: "Modern Pop Tracklist"
 ---
 
-
-<div class="tracklist-section">
-  <h2>Modern Pop Tracklist</h2>
-  <table class="tracklist-table" id="tracklist-table">
-    <thead>
-      <tr>
-        <th>Song</th>
-        <th>Artist</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- Tracklist data will be inserted here by JavaScript -->
-    </tbody>
-  </table>
+<div class="tracklist-container">
+  <div class="tracklist-section">
+    <table class="tracklist-table" id="tracklist-table">
+      <thead>
+        <tr>
+          <th>Song</th>
+          <th>Artist</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Tracklist data will be inserted here by JavaScript -->
+      </tbody>
+    </table>
+  </div>
 </div>
 
 <script>
