@@ -223,8 +223,12 @@ hr {
 /* Ensure Table is Centred */
 .tracklist-table {
     width: 80%; /* Keeps the table from stretching too wide */
-    margin: 20px auto; /* Center the table horizontally */
+    margin: 20px auto; /* Centers the table horizontally */
+    border-collapse: collapse; /* Ensures proper spacing */
+    text-align: center; /* Centres text */
 }
+
+
 
 
 /* Custom table styling for light theme */
