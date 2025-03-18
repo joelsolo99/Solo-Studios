@@ -5,38 +5,7 @@ permalink: /packages/wedding-packages/
 ---
 
 <link rel="stylesheet" href="{{ '/assets/css/site-theme.css' | relative_url }}">
-<style>
-  /* Custom table styling for dark theme */
-  .table-wrapper table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-  }
 
-  .table-wrapper table th, .table-wrapper table td {
-    padding: 12px;
-    text-align: left;
-    border: 1px solid #555;
-  }
-
-  .table-wrapper table th {
-    background-color: #444;
-    color: #f0f0f0;
-  }
-
-  .table-wrapper table td {
-    background-color: #333;
-    color: #f0f0f0;
-  }
-
-  .table-wrapper table tr:nth-child(even) td {
-    background-color: #444;
-  }
-
-  .table-wrapper table tr:hover td {
-    background-color: #555;
-  }
-</style>
 
 # Wedding Packages
 
