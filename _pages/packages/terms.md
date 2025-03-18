@@ -75,15 +75,10 @@ We cannot perform outdoors in **heavy rain** or **extreme heat**. Please ensure 
 
 ## Hospitality Requirements
 
-For bookings exceeding **four hours**, please ensure that performers are well-fed. A well-fed musician leads to a much better set! Please provide a **hot meal** for each performer.
+For bookings exceeding **four hours**, please ensure that performers are well-fed. A well-fed musician leads to a much better set! Please provide a **hot meal** for each performer. If this is not possible, a suitable monetary allowance must be provided to cover the cost of a meal elsewhere.
 
-### Dietary Preferences:
-* **Saxophonist**: No **pork** or **shellfish**, please.
-* **DJ**: No specific dietary restrictions.
 
 ## Cancellations
-
-
 
 
 <div class="table-wrapper">
