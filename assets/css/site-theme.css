@@ -117,20 +117,7 @@ footer a:hover {
     color: #00cccc; /* Lighter teal on hover */
 }
 
-/* Navigation bar */
-.navbar {
-    background-color: #ffffff; /* Light background for navbar */
-    color: #333;
-    padding: 10px 20px;
-}
 
-.navbar a {
-    color: #333; /* Dark text for navbar links */
-}
-
-.navbar a:hover {
-    color: #008080; /* Teal highlight on hover */
-}
 
 /* Borders and separators */
 hr {
