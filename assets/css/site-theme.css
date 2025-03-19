@@ -153,3 +153,52 @@ footer {
         width: 90%;
     }
 }
+
+/* Tooltip styling to match site theme */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 3px;
+  color: inherit;
+}
+
+/* Tooltip text box */
+.tooltip .tooltip-text {
+  visibility: hidden;
+  width: 250px;
+  background-color: var(--tooltip-bg, rgba(0, 0, 0, 0.9)); /* Use a variable or fallback */
+  color: var(--tooltip-text, #fff);
+  text-align: center;
+  padding: 8px 12px;
+  border-radius: 8px;
+  position: absolute;
+  z-index: 10;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  font-size: 0.9em;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  white-space: normal;
+  max-width: 90%;
+}
+
+/* Show tooltip on hover */
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-50%) translateY(-5px);
+}
+
+/* Ensure tooltips don't go off-screen */
+@media (max-width: 768px) {
+  .tooltip .tooltip-text {
+    width: 200px;
+    font-size: 0.8em;
+  }
+}
+

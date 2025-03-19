@@ -21,33 +21,42 @@ Take a look at the core packages we offer for weddings. Whether you're after smo
       <tr>
         <th>Service</th>
         <th>Set</th>
-        <th>Price (£)</th>
+        <th>Total Duration</th>
+        <th>Price</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>Drinks reception</td>
-        <td>2 x 45 mins</td>
-        <td>400</td>
+        <td>Sax + Backings Only</td>
+        <td class="tooltip">
+          2 x 45 mins
+          <span class="tooltip-text">Perfect for a drinks reception or background music during photography!</span>
+        </td>
+        <td>2 hours</td>
+        <td>From �400</td>
       </tr>
       <tr>
-        <td>Wedding breakfast</td>
-        <td>2 x 45 mins</td>
-        <td>400</td>
+        <td>Sax + Backings Only</td>
+        <td class="tooltip">
+          5 x 45 mins (any time)
+          <span class="tooltip-text">Our most flexible package. You specify the start and end time and we'll sort the rest!</span>
+        </td>
+        <td>5 hours</td>
+        <td>From �800</td>
       </tr>
       <tr>
-        <td>Wedding party</td>
-        <td>Continuous – close (up to 12am)</td>
-        <td>800</td>
-      </tr>
-      <tr>
-        <td><strong>All Day Combo Deal</strong></td>
-        <td>Drinks / food / party</td>
-        <td>1200</td>
+        <td><strong>Combo Deal (Sax + DJ)</strong></td>
+        <td class="tooltip">
+          5pm - Midnight
+          <span class="tooltip-text">Music all day. Chilled sax during your cocktail hour, background music while you and your guests are eating, your choice of first-dance song, and then all out party tunes until it's time to go home!</span>
+        </td>
+        <td>7 hours</td>
+        <td>From �1200</td>
       </tr>
     </tbody>
   </table>
 </div>
+
 
 ---
 
