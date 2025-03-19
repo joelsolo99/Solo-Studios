@@ -81,7 +81,7 @@ For bookings exceeding **four hours**, please ensure that performers are well-fe
 ## Cancellations
 
 
-<div class="table-wrapper">
+<div class="terms-table-wrapper">
   <table>
     <thead>
       <tr>

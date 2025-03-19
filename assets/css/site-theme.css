@@ -103,7 +103,7 @@ footer {
     table-layout: fixed;
 }
 
-/* Table Header */
+/* Tracklist Table Header */
 .tracklist-table thead {
     background-color: #008080;
     color: white;
@@ -114,7 +114,7 @@ footer {
     text-transform: uppercase;
 }
 
-/* Table Rows */
+/* Tracklist Table Rows */
 .tracklist-table tbody tr {
     border-bottom: 1px solid #f0f0f0;
 }
@@ -127,7 +127,7 @@ footer {
     background-color: #f0f0f0;
 }
 
-/* Table Cells */
+/* Tracklist Table Cells */
 .tracklist-table td {
     padding: 15px;
     text-align: center;
@@ -164,31 +164,43 @@ footer {
   padding-left: 10px;  /* Align with the text in table */
 }
 
-/* Table Styling */
-.table-wrapper table {
+/* ===================== */
+
+/* Packages Table */
+.packages-table-wrapper table {
   width: 100%;
   border-collapse: collapse;
 }
 
-.table-wrapper th, .table-wrapper td {
+.packages-table-wrapper th, .packages-table-wrapper td {
   border: 1px solid #ddd;
   padding: 12px;
   text-align: left;
 }
 
-/* Style table headers */
-.table-wrapper th {
-  background-color: #f4f4f4;
+/* Packages Table Header */
+.packages-table-wrapper th {
+  background-color: #008080;
+  color: white;
   font-weight: bold;
 }
 
-/* Alternate row shading */
-.table-wrapper tbody tr:nth-child(odd) {
+/* Alternate row shading for Packages table */
+.packages-table-wrapper tbody tr:nth-child(odd) {
   background-color: #f9f9f9;
 }
 
-/* Styling for table description column */
-.table-wrapper .set-description {
+.packages-table-wrapper tbody tr:nth-child(even) {
+  background-color: #ffffff;
+}
+
+/* Hover effect for Packages table */
+.packages-table-wrapper tbody tr:hover {
+  background-color: #f0f0f0;
+}
+
+/* Styling for table description column in Packages table */
+.packages-table-wrapper .set-description {
   color: #008080; /* Teal */
   font-size: 0.9em;
   font-style: italic;
@@ -197,7 +209,46 @@ footer {
   padding-left: 10px;  /* Ensure alignment with other columns */
 }
 
-/* Style table hover effect */
-.table-wrapper tbody tr:hover {
+/* ===================== */
+
+/* Terms Table */
+.terms-table-wrapper table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.terms-table-wrapper th, .terms-table-wrapper td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+/* Terms Table Header */
+.terms-table-wrapper th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+/* Alternate row shading for Terms table */
+.terms-table-wrapper tbody tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+.terms-table-wrapper tbody tr:nth-child(even) {
+  background-color: #ffffff;
+}
+
+/* Hover effect for Terms table */
+.terms-table-wrapper tbody tr:hover {
   background-color: #f0f0f0;
+}
+
+/* Styling for table description column in Terms table */
+.terms-table-wrapper .set-description {
+  color: #008080; /* Teal */
+  font-size: 0.9em;
+  font-style: italic;
+  text-align: left;
+  max-width: 300px;
+  padding-left: 10px;  /* Ensure alignment with other columns */
 }

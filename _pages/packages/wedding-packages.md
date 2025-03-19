@@ -13,7 +13,7 @@ Take a look at the core packages we offer for weddings. Whether you're after smo
 
 ## Package Options
 
-<div class="table-wrapper">
+<div class="packages-table-wrapper">
   <table>
     <thead>
       <tr>
