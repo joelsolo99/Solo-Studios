@@ -161,6 +161,7 @@ footer {
   font-style: italic;
   text-align: left;
   max-width: 300px;
+  padding-left: 10px;  /* Align with the text in table */
 }
 
 /* Table Styling */
@@ -184,4 +185,19 @@ footer {
 /* Alternate row shading */
 .table-wrapper tbody tr:nth-child(odd) {
   background-color: #f9f9f9;
+}
+
+/* Styling for table description column */
+.table-wrapper .set-description {
+  color: #008080; /* Teal */
+  font-size: 0.9em;
+  font-style: italic;
+  text-align: left;
+  max-width: 300px;
+  padding-left: 10px;  /* Ensure alignment with other columns */
+}
+
+/* Style table hover effect */
+.table-wrapper tbody tr:hover {
+  background-color: #f0f0f0;
 }
