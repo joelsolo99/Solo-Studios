@@ -154,63 +154,34 @@ footer {
     }
 }
 
-/* Ensure tooltips work inside tables */
-.tooltip {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-  text-decoration: underline;
-  text-decoration-style: dotted;
-  text-underline-offset: 3px;
-  color: inherit;
+/* Style the new description column */
+.set-description {
+  color: #008080; /* Teal */
+  font-weight: bold;
+  text-align: left;
+  padding: 10px;
 }
 
-/* Tooltip text styling */
-.tooltip .tooltip-text {
-  display: none; /* Hide tooltip initially */
-  width: 250px;
-  background-color: var(--tooltip-bg, rgba(0, 0, 0, 0.9)); 
-  color: var(--tooltip-text, #fff);
-  text-align: center;
-  padding: 8px 12px;
-  border-radius: 8px;
-  position: absolute;
-  z-index: 10;
-  bottom: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 0.9em;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  white-space: normal;
-  max-width: 90%;
-  margin-bottom: 5px;
+/* Ensure table formatting remains consistent */
+.table-wrapper table {
+  width: 100%;
+  border-collapse: collapse;
 }
 
-/* Show tooltip on hover */
-.tooltip:hover .tooltip-text {
-  display: block;
+.table-wrapper th, .table-wrapper td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
 }
 
-/* Ensure tooltips are positioned correctly in a table */
-.table-wrapper {
-  position: relative;
+/* Style table headers */
+.table-wrapper th {
+  background-color: #f4f4f4;
+  font-weight: bold;
 }
 
-.tooltip .tooltip-text::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: rgba(0, 0, 0, 0.9) transparent transparent transparent;
+/* Alternate row shading */
+.table-wrapper tbody tr:nth-child(odd) {
+  background-color: #f9f9f9;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .tooltip .tooltip-text {
-    width: 200px;
-    font-size: 0.8em;
-  }
-}
