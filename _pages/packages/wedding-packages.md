@@ -61,7 +61,6 @@ Take a look at the core packages we offer for weddings. Whether you're after smo
 </div>
 
 
-
 ---
 
 For details on travel fees, cancellations, and other terms, please visit our [Terms & Conditions](/packages/terms/) page.

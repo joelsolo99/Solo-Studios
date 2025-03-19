@@ -157,7 +157,7 @@ footer {
 /* Ensure tooltips work inside tables */
 .tooltip {
   position: relative;
-  display: inline-block; /* Prevents table layout from breaking */
+  display: inline-block;
   cursor: pointer;
   text-decoration: underline;
   text-decoration-style: dotted;
@@ -167,7 +167,7 @@ footer {
 
 /* Tooltip text styling */
 .tooltip .tooltip-text {
-  visibility: hidden;
+  display: none; /* Hide tooltip initially */
   width: 250px;
   background-color: var(--tooltip-bg, rgba(0, 0, 0, 0.9)); 
   color: var(--tooltip-text, #fff);
@@ -179,8 +179,6 @@ footer {
   bottom: 100%;
   left: 50%;
   transform: translateX(-50%);
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
   font-size: 0.9em;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   white-space: normal;
@@ -190,9 +188,7 @@ footer {
 
 /* Show tooltip on hover */
 .tooltip:hover .tooltip-text {
-  visibility: visible;
-  opacity: 1;
-  transform: translateX(-50%) translateY(-5px);
+  display: block;
 }
 
 /* Ensure tooltips are positioned correctly in a table */
@@ -218,5 +214,3 @@ footer {
     font-size: 0.8em;
   }
 }
-
-
