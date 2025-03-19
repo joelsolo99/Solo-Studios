@@ -22,8 +22,8 @@ Take a look at the core packages we offer for weddings. Whether you're after smo
         <th>Service</th>
         <th>Set</th>
         <th>Total Duration</th>
-        <th>Description</th>
         <th>Price</th>
+        <th>Description</th>
       </tr>
     </thead>
     <tbody>
@@ -31,26 +31,27 @@ Take a look at the core packages we offer for weddings. Whether you're after smo
         <td>Sax + Backings Only</td>
         <td>2 x 45 mins</td>
         <td>2 hours</td>
-        <td class="set-description">Perfect for a drinks reception or background music during photography!</td>
         <td>From £400</td>
+        <td class="set-description">Ideal for a drinks reception or relaxed background music during photos.</td>
       </tr>
       <tr>
         <td>Sax + Backings Only</td>
         <td>5 x 45 mins (any time)</td>
         <td>5 hours</td>
-        <td class="set-description">Our most flexible package. You specify the start and end time and we'll sort the rest!</td>
         <td>From £800</td>
+        <td class="set-description">A flexible option—tell us your timings, and we’ll take care of the rest.</td>
       </tr>
       <tr>
         <td><strong>Combo Deal (Sax + DJ)</strong></td>
         <td>5pm - Midnight</td>
         <td>7 hours</td>
-        <td class="set-description">Music all day. Chilled sax during your cocktail hour, background music while you and your guests are eating, your choice of first-dance song, and then all-out party tunes until it's time to go home!</td>
         <td>From £1200</td>
+        <td class="set-description">Smooth sax for cocktails, background music over dinner, a first-dance performance, and a full DJ set to keep the party going.</td>
       </tr>
     </tbody>
   </table>
 </div>
+
 
 
 

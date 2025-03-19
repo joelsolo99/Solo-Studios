@@ -154,15 +154,16 @@ footer {
     }
 }
 
-/* Style the new description column */
+/* Style the description column */
 .set-description {
   color: #008080; /* Teal */
-  font-weight: bold;
+  font-size: 0.9em;
+  font-style: italic;
   text-align: left;
-  padding: 10px;
+  max-width: 300px;
 }
 
-/* Ensure table formatting remains consistent */
+/* Table Styling */
 .table-wrapper table {
   width: 100%;
   border-collapse: collapse;
@@ -184,4 +185,3 @@ footer {
 .table-wrapper tbody tr:nth-child(odd) {
   background-color: #f9f9f9;
 }
-
