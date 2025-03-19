@@ -7,8 +7,6 @@ permalink: /packages/wedding-packages/
 <link rel="stylesheet" href="{{ '/assets/css/site-theme.css' | relative_url }}">
 
 
-# Wedding Packages
-
 Take a look at the core packages we offer for weddings. Whether you're after smooth background vibes or an all-out party, there's something to suit your day.
 
 ---
