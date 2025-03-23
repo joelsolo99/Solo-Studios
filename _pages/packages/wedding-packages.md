@@ -46,7 +46,7 @@ Take a look at the core packages we offer for weddings. Whether you're after smo
         <p><strong>Set:</strong> 12pm - Midnight</p>
         <p><strong>Total Duration:</strong> 12 hours</p>
         <p><strong>Price:</strong> From £1600</p>
-        <p class="set-description">I will learn the perfect song for you to walk down the aisle to to make your ceremony as perfect as you. Includes everything in the combo deal, but we are happy to travel between ceremony and reception locations.</p>
+        <p class="set-description">Everything in the combo deal, plus travel between ceremony and reception locations. Includes us learning a new song for your ceremony.</p>
     </div>
 </div>
 
