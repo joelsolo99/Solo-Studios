@@ -187,6 +187,8 @@ footer {
   border: 1px solid #ddd;
   padding: 12px;
   text-align: left;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 /* Alternate Row Shading */
@@ -211,6 +213,8 @@ footer {
   text-align: left;
   max-width: 300px;
   padding-left: 10px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 /* Responsive Table for Mobile */
@@ -219,7 +223,7 @@ footer {
     display: block;
     width: 100%;
     overflow-x: auto;
-    white-space: nowrap;
+    white-space: normal;
   }
 
   .packages-table-wrapper th, 
@@ -229,9 +233,12 @@ footer {
   }
 
   .packages-table-wrapper .set-description {
-    max-width: 200px; /* Reduce max width for better wrapping */
+    max-width: 100%; /* Allow full width usage */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 }
+
 
 
 /* ===================== */
