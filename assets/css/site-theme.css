@@ -170,21 +170,10 @@ footer {
 .packages-table-wrapper table {
   width: 100%;
   border-collapse: collapse;
-  table-layout: fixed; /* Ensures consistent column width */
+  table-layout: auto; /* Allowing auto width for responsive behaviour */
 }
 
-/* Table Header */
-.packages-table-wrapper th {
-  background-color: #008080;
-  color: white;
-  font-weight: bold;
-  padding: 12px;
-  text-align: left;
-}
-
-/* Table Cells */
-.packages-table-wrapper th, 
-.packages-table-wrapper td {
+.packages-table-wrapper th, .packages-table-wrapper td {
   border: 1px solid #ddd;
   padding: 12px;
   text-align: left;
@@ -193,7 +182,14 @@ footer {
   white-space: normal; /* Ensure wrapping */
 }
 
-/* Alternate Row Shading */
+/* Packages Table Header */
+.packages-table-wrapper th {
+  background-color: #008080;
+  color: white;
+  font-weight: bold;
+}
+
+/* Alternate row shading for Packages table */
 .packages-table-wrapper tbody tr:nth-child(odd) {
   background-color: #f9f9f9;
 }
@@ -202,12 +198,12 @@ footer {
   background-color: #ffffff;
 }
 
-/* Hover Effect */
+/* Hover effect for Packages table */
 .packages-table-wrapper tbody tr:hover {
   background-color: #f0f0f0;
 }
 
-/* Styling for Description Column */
+/* Styling for table description column in Packages table */
 .packages-table-wrapper .set-description {
   color: #008080; /* Teal */
   font-size: 0.9em;
@@ -222,24 +218,38 @@ footer {
 
 /* Responsive Table for Mobile */
 @media screen and (max-width: 768px) {
+  /* Convert table to list on mobile */
   .packages-table-wrapper table {
+    display: none; /* Hide the table on mobile */
+  }
+
+  .packages-table-wrapper .package-item {
     display: block;
-    width: 100%;
-    overflow-x: auto;
+    margin-bottom: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    padding: 15px;
   }
 
-  .packages-table-wrapper th, 
-  .packages-table-wrapper td {
-    padding: 10px;
-    font-size: 14px; /* Slightly smaller text for better mobile fit */
+  .packages-table-wrapper .package-item h3 {
+    color: #008080;
+    font-size: 1.2em;
+    margin-bottom: 10px;
   }
 
+  .packages-table-wrapper .package-item p {
+    font-size: 1em;
+    margin-bottom: 5px;
+  }
+
+  /* Description text adjustment */
   .packages-table-wrapper .set-description {
-    max-width: 100%; /* Allow full width usage */
+    font-size: 1em; /* Adjust size for better readability */
+    white-space: normal;
     word-wrap: break-word;
-    overflow-wrap: break-word;
   }
 }
+
 
 /* ===================== */
 
