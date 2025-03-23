@@ -273,3 +273,32 @@ footer {
   max-width: 300px;
   padding-left: 10px;  /* Ensure alignment with other columns */
 }
+
+
+/* ===================== */
+
+
+/* Adjustments to card and video wrapper */
+.service iframe {
+  width: 100%;
+  height: 200px; /* Adjust height to suit the video dimensions */
+  border-radius: 8px;
+}
+
+.service h3 {
+  font-size: 1.3em;
+  margin-bottom: 10px;
+}
+
+/* Responsive adjustments for video cards */
+@media screen and (max-width: 768px) {
+  .service {
+    width: calc(50% - 30px); /* 2 videos per row on mobile */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .service {
+    width: 100%; /* 1 video per row on smaller screens */
+  }
+}
