@@ -1,48 +1,40 @@
 ---
-layout: page
-title: Wedding Packages
-permalink: /packages/wedding-packages/
+title: "About Us"
+permalink: /about/
+layout: home
 ---
 
-<link rel="stylesheet" href="{{ '/assets/css/site-theme.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/homepage.css' | relative_url }}">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-Take a look at the core packages we offer for weddings. Whether you're after smooth background vibes or an all-out party, there's something to suit your day.
-
----
-
-## Package Options
-
-<div class="wrapper">
-    <!-- First Package -->
-    <div class="service">
-        <h3>Sax + Backings Only</h3>
-        <p><strong>Set:</strong> 2 x 45 mins</p>
-        <p><strong>Total Duration:</strong> 2 hours</p>
-        <p><strong>Price:</strong> From £400</p>
-        <p class="set-description">Ideal for a drinks reception or relaxed background music during photos.</p>
-    </div>
-
-    <!-- Second Package -->
-    <div class="service">
-        <h3>Sax + Backings Only</h3>
-        <p><strong>Set:</strong> 5 x 45 mins (any time)</p>
-        <p><strong>Total Duration:</strong> 5 hours</p>
-        <p><strong>Price:</strong> From £800</p>
-        <p class="set-description">A flexible option—tell us your timings, and we’ll take care of the rest.</p>
-    </div>
-
-    <!-- Third Package -->
-    <div class="service">
-        <h3><strong>Combo Deal (Sax + DJ)</strong></h3>
-        <p><strong>Set:</strong> 5pm - Midnight</p>
-        <p><strong>Total Duration:</strong> 7 hours</p>
-        <p><strong>Price:</strong> From £1200</p>
-        <p class="set-description">Smooth sax for cocktails, background music over dinner, a first-dance performance, and a full DJ set to keep the party going.</p>
+<div class="hero-section">
+    <img src="{{ '/assets/img/sax-portrait.jpg' | relative_url }}" alt="Joel Solomons playing saxophone" class="hero-image">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1>About Solo Studios</h1>
+        <p>Live saxophone and DJ performances tailored to your event.</p>
     </div>
 </div>
 
----
+<div class="wrapper">
+    <div class="about-section">
+        <h2>Meet Joel</h2>
+        <p>Hi, I'm <strong>Joel Solomons</strong>, and I run <strong>Solo Studios</strong>. I'm a Royal College of Music-trained saxophonist and clarinettist, and I've spent years bringing live music to weddings, parties, and events across the South West. Based in Plymouth, I love getting people up on the dancefloor, singing along and dancing to some of my favourite music.</p>
+    </div>
 
-For details on travel fees, cancellations, and other terms, please visit our [Terms & Conditions](/packages/terms/) page.
+    <div class="about-section">
+        <h2>Meet Our DJ</h2>
+        <img src="{{ '/assets/img/jovan-black-and-white.jpg' | relative_url }}" alt="Jovan DJing" class="about-image">
+        <p>Our DJ has over <strong>five years of experience</strong> behind the decks and was previously a house DJ at a local venue. He's performed at weddings, private parties, and corporate events, always matching the music to the energy of the room.</p>
+    </div>
 
-For any bespoke packages, travel arrangements, or special requests, feel free to [get in touch](mailto:events@solostudios.uk). We're happy to tailor things to make your event perfect.
+    <div class="service" id="contact">
+        <h2>Let's Plan Your Event</h2>
+        <p>We are flexible and always happy to learn new music to personalise your event.</p>
+        <p>If you're looking for a top-tier saxophonist, DJ, or both:</p>
+        <p class="cta-wrapper">
+            <a href="mailto:events@solostudios.uk" class="cta-button">Get in touch</a>
+        </p>
+        <p>We'd love to chat!</p>
+    </div>
+</div>
