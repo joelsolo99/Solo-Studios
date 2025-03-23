@@ -184,7 +184,7 @@ footer {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin: 15px;
   padding: 20px;
-  width: calc(33.33% - 30px); /* Adjust the width to fit 3 items per row */
+  width: calc(45% - 30px); /* Adjusted to make cards wider (45% width) */
   box-sizing: border-box;
   transition: transform 0.3s ease;
   display: flex;
@@ -229,8 +229,6 @@ footer {
     width: 100%; /* 1 card per row on mobile devices */
   }
 }
-
-
 
 /* ===================== */
 
