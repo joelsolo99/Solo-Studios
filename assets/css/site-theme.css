@@ -166,87 +166,59 @@ footer {
 
 /* ===================== */
 
-/* Packages Table */
-.packages-table-wrapper table {
-  width: 100%;
-  border-collapse: collapse;
-  table-layout: auto; /* Allowing auto width for responsive behaviour */
+/* Wrapper to ensure proper spacing around the services */
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 20px;
 }
 
-.packages-table-wrapper th, .packages-table-wrapper td {
+/* Each service (package) displayed as a card */
+.service {
+  background-color: #fff;
   border: 1px solid #ddd;
-  padding: 12px;
-  text-align: left;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  white-space: normal; /* Ensure wrapping */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 15px;
+  padding: 20px;
+  width: calc(33.33% - 30px); /* Adjust the width to fit 3 items per row */
+  box-sizing: border-box;
+  transition: transform 0.3s ease;
 }
 
-/* Packages Table Header */
-.packages-table-wrapper th {
-  background-color: #008080;
-  color: white;
-  font-weight: bold;
+/* Add hover effect to each card */
+.service:hover {
+  transform: translateY(-5px);
 }
 
-/* Alternate row shading for Packages table */
-.packages-table-wrapper tbody tr:nth-child(odd) {
-  background-color: #f9f9f9;
+/* Title Styling for Service Cards */
+.service h3 {
+  color: #008080;
+  font-size: 1.5em;
+  margin-bottom: 10px;
 }
 
-.packages-table-wrapper tbody tr:nth-child(even) {
-  background-color: #ffffff;
-}
-
-/* Hover effect for Packages table */
-.packages-table-wrapper tbody tr:hover {
-  background-color: #f0f0f0;
-}
-
-/* Styling for table description column in Packages table */
-.packages-table-wrapper .set-description {
-  color: #008080; /* Teal */
-  font-size: 0.9em;
+/* Description Text Styling */
+.set-description {
+  color: #333;
+  font-size: 1em;
   font-style: italic;
-  text-align: left;
-  max-width: 300px;
-  padding-left: 10px;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  white-space: normal; /* Ensures wrapping */
+  margin-top: 10px;
 }
 
-/* Responsive Table for Mobile */
+/* Ensure proper wrapping on mobile */
 @media screen and (max-width: 768px) {
-  /* Convert table to list on mobile */
-  .packages-table-wrapper table {
-    display: none; /* Hide the table on mobile */
+  .service {
+    width: calc(50% - 30px); /* 2 cards per row on smaller screens */
   }
+}
 
-  .packages-table-wrapper .package-item {
-    display: block;
-    margin-bottom: 20px;
-    background-color: #ffffff;
-    border: 1px solid #ddd;
-    padding: 15px;
-  }
-
-  .packages-table-wrapper .package-item h3 {
-    color: #008080;
-    font-size: 1.2em;
-    margin-bottom: 10px;
-  }
-
-  .packages-table-wrapper .package-item p {
-    font-size: 1em;
-    margin-bottom: 5px;
-  }
-
-  /* Description text adjustment */
-  .packages-table-wrapper .set-description {
-    font-size: 1em; /* Adjust size for better readability */
-    white-space: normal;
-    word-wrap: break-word;
+@media screen and (max-width: 480px) {
+  .service {
+    width: 100%; /* 1 card per row on mobile devices */
   }
 }
 
