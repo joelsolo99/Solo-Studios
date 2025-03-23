@@ -39,6 +39,15 @@ Take a look at the core packages we offer for weddings. Whether you're after smo
         <p><strong>Price:</strong> From £1200</p>
         <p class="set-description">Smooth sax for cocktails, background music over dinner, a first-dance performance, and a full DJ set to keep the party going.</p>
     </div>
+    
+    <!-- Fourth Package -->
+    <div class="service">
+        <h3><strong>The All-Day Package</strong></h3>
+        <p><strong>Set:</strong> 12pm - Midnight</p>
+        <p><strong>Total Duration:</strong> 12 hours</p>
+        <p><strong>Price:</strong> From £1600</p>
+        <p class="set-description">I will learn the perfect song for you to walk down the aisle to to make your ceremony as perfect as you. Includes everything in the combo deal, but we are happy to travel between ceremony and reception locations.</p>
+    </div>
 </div>
 
 ---
