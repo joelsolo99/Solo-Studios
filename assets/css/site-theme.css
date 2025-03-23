@@ -172,20 +172,24 @@ footer {
   border-collapse: collapse;
 }
 
-.packages-table-wrapper th, .packages-table-wrapper td {
+/* Table Header */
+.packages-table-wrapper th {
+  background-color: #008080;
+  color: white;
+  font-weight: bold;
+  padding: 12px;
+  text-align: left;
+}
+
+/* Table Cells */
+.packages-table-wrapper th, 
+.packages-table-wrapper td {
   border: 1px solid #ddd;
   padding: 12px;
   text-align: left;
 }
 
-/* Packages Table Header */
-.packages-table-wrapper th {
-  background-color: #008080;
-  color: white;
-  font-weight: bold;
-}
-
-/* Alternate row shading for Packages table */
+/* Alternate Row Shading */
 .packages-table-wrapper tbody tr:nth-child(odd) {
   background-color: #f9f9f9;
 }
@@ -194,20 +198,41 @@ footer {
   background-color: #ffffff;
 }
 
-/* Hover effect for Packages table */
+/* Hover Effect */
 .packages-table-wrapper tbody tr:hover {
   background-color: #f0f0f0;
 }
 
-/* Styling for table description column in Packages table */
+/* Styling for Description Column */
 .packages-table-wrapper .set-description {
   color: #008080; /* Teal */
   font-size: 0.9em;
   font-style: italic;
   text-align: left;
   max-width: 300px;
-  padding-left: 10px;  /* Ensure alignment with other columns */
+  padding-left: 10px;
 }
+
+/* Responsive Table for Mobile */
+@media screen and (max-width: 768px) {
+  .packages-table-wrapper table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .packages-table-wrapper th, 
+  .packages-table-wrapper td {
+    padding: 10px;
+    font-size: 14px; /* Slightly smaller text for better mobile fit */
+  }
+
+  .packages-table-wrapper .set-description {
+    max-width: 200px; /* Reduce max width for better wrapping */
+  }
+}
+
 
 /* ===================== */
 
