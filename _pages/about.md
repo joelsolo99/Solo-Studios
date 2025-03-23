@@ -28,13 +28,13 @@ layout: home
         <p>Our DJ has over <strong>five years of experience</strong> behind the decks and was previously a house DJ at a local venue. He\u2019s performed at weddings, private parties, and corporate events, always matching the music to the energy of the room.</p>
     </div>
 
-    <div class="contact-section service" id="contact">
+    <div class="service" id="contact">
         <h2>Let's Plan Your Event</h2>
         <p>We are flexible and always happy to learn new music to personalise your event.</p>
         <p>If you're looking for a top-tier saxophonist, DJ, or both:</p>
         <p class="cta-wrapper">
             <a href="mailto:events@solostudios.uk" class="cta-button">Get in touch</a>
         </p>
-        <p>We\u2019d love to chat!</p>
+        <p>We'd love to chat!</p>
     </div>
 </div>
