@@ -117,13 +117,64 @@ body {
     margin-top: 15px;
 }
 
-.about-image {
+/* DJ Section Styling */
+.dj-section {
+    position: relative;
     width: 100%;
-    height: 60vh; /* Match the hero image height */
+    max-width: 1100px;
+    margin: auto;
+    padding: 0;
+    overflow: hidden;
+}
+
+.dj-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 60vh; /* Match hero section */
+}
+
+.dj-image {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     object-position: center;
-    border-radius: 8px; /* Optional: Keep a consistent style */
+    display: block;
 }
+
+.dj-overlay {
+    position: absolute;
+    bottom: 5%;  /* Adjusts text to be near the bottom */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    background: rgba(0, 0, 0, 0.7); /* Slightly darker overlay */
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* Text Styling */
+.dj-overlay h2 {
+    margin-top: 0;
+    font-size: 2em;
+}
+
+.dj-overlay p {
+    font-size: 1.2em;
+    margin-bottom: 0;
+}
+
+/* Responsive Tweaks */
+@media (max-width: 768px) {
+    .dj-overlay {
+        width: 90%;
+        bottom: 3%; /* Moves text slightly lower on smaller screens */
+        font-size: 1em;
+        padding: 15px;
+    }
+}
+
 
 
 /* Responsive Design */
