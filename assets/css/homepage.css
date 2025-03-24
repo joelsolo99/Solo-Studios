@@ -176,15 +176,14 @@ body {
         object-position: center top; /* Make sure the image is centered at the top */
     }
 
+    /* Text Positioning for Mobile */
     .dj-overlay {
-        position: absolute;
-        bottom: 10px; /* Keeps text near the bottom */
-        left: 50%;
-        transform: translateX(-50%);
-        width: 90%;  /* Wider overlay for mobile */
-        background: rgba(0, 0, 0, 0.4); /* Slightly stronger overlay */
-        padding: 10px; /* Padding around text */
+        position: relative;  /* Remove absolute positioning */
+        background: transparent;  /* No overlay background */
+        padding: 0;  /* No padding */
+        width: 100%;  /* Take full width */
         text-align: center;
+        margin-top: 10px;  /* Space between image and text */
     }
 
     .dj-overlay h2 {
@@ -195,6 +194,7 @@ body {
         font-size: 0.8em; /* Smaller text for mobile */
     }
 }
+
 
 
 
