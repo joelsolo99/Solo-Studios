@@ -1,0 +1,66 @@
+/* Wrapper to ensure proper spacing around the video cards */
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 20px;
+}
+
+/* Each video displayed as a card */
+.service {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 15px;
+  padding: 20px;
+  width: calc(45% - 30px); /* Adjusted to match the wedding packages cards */
+  box-sizing: border-box;
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Add hover effect to each card */
+.service:hover {
+  transform: translateY(-5px);
+}
+
+/* Title Styling for Video Cards */
+.service h3 {
+  color: #008080;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+/* Ensure videos are properly contained within their cards */
+.video-wrapper {
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.video-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .service {
+    width: calc(50% - 30px); /* 2 videos per row on smaller screens */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .service {
+    width: 100%; /* 1 video per row on mobile devices */
+  }
+}
