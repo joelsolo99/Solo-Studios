@@ -166,31 +166,28 @@ body {
     margin-bottom: 0;
 }
 
-/* Responsive Tweaks */
+/* Mobile Specific Styles */
 @media (max-width: 768px) {
     .dj-image-wrapper {
         height: 50vh; /* Reduce height on smaller screens */
     }
 
     .dj-image {
-        object-position: center top; /* Re-centre image */
+        object-position: center; /* Centre image */
     }
 
     .dj-overlay {
-        width: 85%; /* Slightly wider on mobile */
-        bottom: 3%;
-        font-size: 0.9em; /* Smaller text */
-        padding: 10px; /* Reduce padding */
+        display: none; /* Remove overlay on mobile */
     }
 
-    .dj-overlay h2 {
-        font-size: 1.4em; /* Smaller heading */
-    }
-
-    .dj-overlay p {
-        font-size: 0.9em; /* Smaller paragraph */
+    .dj-section h2, .dj-section p {
+        font-size: 0.9em; /* Smaller text for mobile */
+        text-align: center;
+        padding: 10px;
+        margin: 0 auto;
     }
 }
+
 
 
 /* Responsive Design */
