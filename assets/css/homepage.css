@@ -143,37 +143,38 @@ body {
 
 .dj-overlay {
     position: absolute;
-    bottom: 5%;  /* Adjusts text to be near the bottom */
+    bottom: 5%;  /* Keeps text near the bottom */
     left: 50%;
     transform: translateX(-50%);
-    width: 85%;
-    background: rgba(0, 0, 0, 0.7); /* Slightly darker overlay */
+    width: 75%;  /* Slightly smaller width */
+    background: rgba(0, 0, 0, 0.5); /* More transparent */
     color: white;
-    padding: 20px;
-    border-radius: 8px;
+    padding: 15px; /* Smaller padding */
+    border-radius: 6px;
     text-align: center;
 }
 
 /* Text Styling */
 .dj-overlay h2 {
     margin-top: 0;
-    font-size: 2em;
+    font-size: 1.8em; /* Slightly smaller */
 }
 
 .dj-overlay p {
-    font-size: 1.2em;
+    font-size: 1.1em; /* Slightly smaller */
     margin-bottom: 0;
 }
 
 /* Responsive Tweaks */
 @media (max-width: 768px) {
     .dj-overlay {
-        width: 90%;
-        bottom: 3%; /* Moves text slightly lower on smaller screens */
+        width: 85%; /* Slightly wider on smaller screens */
+        bottom: 3%;
         font-size: 1em;
-        padding: 15px;
+        padding: 12px;
     }
 }
+
 
 
 
