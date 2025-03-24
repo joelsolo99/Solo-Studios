@@ -148,7 +148,7 @@ body {
     left: 50%;
     transform: translateX(-50%);
     width: 75%;  /* Slightly smaller width */
-    background: rgba(0, 0, 0, 0.45); /* More transparent */
+    background: rgba(0, 0, 0, 0.3); /* More transparent black overlay */
     color: white;
     padding: 12px; /* Smaller padding */
     border-radius: 6px;
@@ -177,18 +177,24 @@ body {
     }
 
     .dj-overlay {
-        display: none; /* Remove overlay on mobile */
+        position: absolute;
+        bottom: 10%; /* Keeps text a bit higher */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;  /* Wider overlay */
+        background: rgba(0, 0, 0, 0.5); /* Slightly stronger overlay for mobile */
+        padding: 8px; /* Less padding */
+        text-align: center;
     }
 
     .dj-section h2, .dj-section p {
-        font-size: 1em; /* Smaller text for mobile */
+        font-size: 1.1em; /* Smaller text for mobile */
         text-align: center;
         padding: 10px;
         margin: 0 auto;
         color: #fff; /* Make text visible */
     }
 }
-
 
 
 /* Responsive Design */
