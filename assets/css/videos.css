@@ -34,7 +34,8 @@
 .service h3 {
   color: #008080;
   font-size: 1.5em;
-  margin-bottom: 10px;
+  margin-top: 5px;  /* Reduce space above the title */
+  margin-bottom: 5px; /* Keep spacing balanced */
   height: 60px; /* Adjust this value as needed */
   display: flex;
   align-items: center;
