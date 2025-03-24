@@ -144,13 +144,13 @@ body {
 /* Overlay Box */
 .dj-overlay {
     position: absolute;
-    bottom: 5%;  /* Keeps text near the bottom */
+    bottom: 10px;  /* Keeps text near the bottom with slight padding */
     left: 50%;
     transform: translateX(-50%);
     width: 75%;  /* Slightly smaller width */
     background: rgba(0, 0, 0, 0.3); /* More transparent black overlay */
     color: white;
-    padding: 12px; /* Smaller padding */
+    padding: 8px;
     border-radius: 6px;
     text-align: center;
 }
@@ -158,43 +158,44 @@ body {
 /* Text Styling */
 .dj-overlay h2 {
     margin-top: 0;
-    font-size: 1.6em; /* Smaller heading */
+    font-size: 1.4em; /* Smaller heading */
 }
 
 .dj-overlay p {
-    font-size: 1em; /* Smaller text */
+    font-size: 0.9em; /* Smaller text */
     margin-bottom: 0;
 }
 
 /* Mobile Specific Styles */
 @media (max-width: 768px) {
     .dj-image-wrapper {
-        height: 50vh; /* Reduce height on smaller screens */
+        height: 50vh; /* Show more of the top of the image */
     }
 
     .dj-image {
-        object-position: right; /* Show more of the right side */
+        object-position: center top; /* Make sure the image is centered at the top */
     }
 
     .dj-overlay {
         position: absolute;
-        bottom: 10%; /* Keeps text a bit higher */
+        bottom: 10px; /* Keeps text near the bottom */
         left: 50%;
         transform: translateX(-50%);
-        width: 90%;  /* Wider overlay */
-        background: rgba(0, 0, 0, 0.5); /* Slightly stronger overlay for mobile */
-        padding: 8px; /* Less padding */
+        width: 90%;  /* Wider overlay for mobile */
+        background: rgba(0, 0, 0, 0.4); /* Slightly stronger overlay */
+        padding: 10px; /* Padding around text */
         text-align: center;
     }
 
-    .dj-section h2, .dj-section p {
-        font-size: 1.1em; /* Smaller text for mobile */
-        text-align: center;
-        padding: 10px;
-        margin: 0 auto;
-        color: #fff; /* Make text visible */
+    .dj-overlay h2 {
+        font-size: 1.2em; /* Smaller heading on mobile */
+    }
+
+    .dj-overlay p {
+        font-size: 0.8em; /* Smaller text for mobile */
     }
 }
+
 
 
 /* Responsive Design */
