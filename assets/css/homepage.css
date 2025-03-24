@@ -176,15 +176,10 @@ body {
         object-position: center top; /* Make sure the image is centered at the top */
     }
 
-    /* Remove the original overlay for mobile */
-    .dj-overlay {
-        display: none;
-    }
-
     /* Mobile Card Styling */
     .dj-overlay-wrapper {
-        width: 90%; /* Same width as the "Let's Plan Your Event" card */
-        margin: 20px auto; /* Center the card horizontally with top margin */
+        width: 100%; /* Full width for the card */
+        margin-top: 20px;
     }
 
     .dj-overlay {
@@ -192,6 +187,8 @@ body {
         background: white;   /* White background for the card */
         color: black;        /* Black text on mobile */
         padding: 20px;
+        width: 90%;           /* Slightly smaller width for the card */
+        margin: 0 auto;      /* Center the card horizontally */
         border-radius: 6px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         text-align: left;     /* Left-aligned text */
@@ -205,12 +202,11 @@ body {
         font-size: 0.8em; /* Smaller text for mobile */
     }
 
-    /* Make sure text on mobile is not duplicated */
+    /* Make sure text on mobile is not duplicated and styled like 'Let's Plan Your Event' */
     .dj-overlay-wrapper {
         margin-top: 20px;
     }
 }
-
 
 
 
