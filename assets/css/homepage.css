@@ -141,15 +141,16 @@ body {
     display: block;
 }
 
+/* Overlay Box */
 .dj-overlay {
     position: absolute;
     bottom: 5%;  /* Keeps text near the bottom */
     left: 50%;
     transform: translateX(-50%);
     width: 75%;  /* Slightly smaller width */
-    background: rgba(0, 0, 0, 0.5); /* More transparent */
+    background: rgba(0, 0, 0, 0.45); /* More transparent */
     color: white;
-    padding: 15px; /* Smaller padding */
+    padding: 12px; /* Smaller padding */
     border-radius: 6px;
     text-align: center;
 }
@@ -157,25 +158,39 @@ body {
 /* Text Styling */
 .dj-overlay h2 {
     margin-top: 0;
-    font-size: 1.8em; /* Slightly smaller */
+    font-size: 1.6em; /* Smaller heading */
 }
 
 .dj-overlay p {
-    font-size: 1.1em; /* Slightly smaller */
+    font-size: 1em; /* Smaller text */
     margin-bottom: 0;
 }
 
 /* Responsive Tweaks */
 @media (max-width: 768px) {
+    .dj-image-wrapper {
+        height: 50vh; /* Reduce height on smaller screens */
+    }
+
+    .dj-image {
+        object-position: center top; /* Re-centre image */
+    }
+
     .dj-overlay {
-        width: 85%; /* Slightly wider on smaller screens */
+        width: 85%; /* Slightly wider on mobile */
         bottom: 3%;
-        font-size: 1em;
-        padding: 12px;
+        font-size: 0.9em; /* Smaller text */
+        padding: 10px; /* Reduce padding */
+    }
+
+    .dj-overlay h2 {
+        font-size: 1.4em; /* Smaller heading */
+    }
+
+    .dj-overlay p {
+        font-size: 0.9em; /* Smaller paragraph */
     }
 }
-
-
 
 
 /* Responsive Design */
