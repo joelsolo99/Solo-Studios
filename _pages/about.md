@@ -45,6 +45,7 @@ layout: home
 
 
 
+
     <div class="service" id="contact">
         <h2>Let's Plan Your Event</h2>
         <p>We are flexible and always happy to learn new music to personalise your event.</p>

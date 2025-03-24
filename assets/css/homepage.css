@@ -201,7 +201,13 @@ body {
     .dj-overlay p {
         font-size: 0.8em; /* Smaller text for mobile */
     }
+
+    /* Make sure text on mobile is not duplicated and styled like 'Let's Plan Your Event' */
+    .dj-overlay-wrapper {
+        margin-top: 20px;
+    }
 }
+
 
 
 /* Responsive Design */
