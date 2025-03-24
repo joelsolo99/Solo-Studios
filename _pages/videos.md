@@ -15,7 +15,8 @@ Take a look at some of our latest performances and highlights!
 <div class="wrapper">
     <!-- First Video -->
     <div class="service">
-        <h3>Can't Help Falling in Love</h3>
+        <h3 class="song-title">Can't Help Falling in Love</h3>
+        <p class="artist-name">Elvis Presley</p>
         <div class="video-wrapper">
             <iframe src="https://www.youtube.com/embed/7wbCDQSyBmc" 
                 title="Elvis: Can't Help Falling in Love"
@@ -27,7 +28,8 @@ Take a look at some of our latest performances and highlights!
 
     <!-- Second Video -->
     <div class="service">
-        <h3>One Step Beyond - Madness</h3>
+        <h3 class="song-title">One Step Beyond</h3>
+        <p class="artist-name">Madness</p>
         <div class="video-wrapper">
             <iframe src="https://www.youtube.com/embed/V9XAYfDN2Gs" 
                 title="Madness: One Step Beyond"
@@ -40,5 +42,4 @@ Take a look at some of our latest performances and highlights!
 
 ---
 
-For more performances, follow us on [YouTube](https://www.youtube.com/@SoloStudiosPlymouth).
-
+For more performances, subscribe to us on [YouTube](https://www.youtube.com/@SoloStudiosPlymouth).
