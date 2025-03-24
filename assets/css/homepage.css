@@ -176,17 +176,22 @@ body {
         object-position: center top; /* Make sure the image is centered at the top */
     }
 
-    /* Move Text Below the Image on Mobile */
+    /* Mobile Card Styling */
+    .dj-overlay-wrapper {
+        width: 100%; /* Full width for the card */
+        margin-top: 20px;
+    }
+
     .dj-overlay {
         position: relative;  /* Remove absolute positioning */
-        background: transparent;  /* No overlay background */
-        padding: 0;  /* No padding */
-        width: 80%;  /* Slightly smaller width for the card */
-        margin: 0 auto;  /* Center the card horizontally */
-        margin-top: 20px;  /* Space between image and text */
-        text-align: left;
+        background: white;   /* White background for the card */
+        color: black;        /* Black text on mobile */
+        padding: 20px;
+        width: 90%;           /* Slightly smaller width for the card */
+        margin: 0 auto;      /* Center the card horizontally */
         border-radius: 6px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: left;     /* Left-aligned text */
     }
 
     .dj-overlay h2 {
@@ -195,13 +200,6 @@ body {
 
     .dj-overlay p {
         font-size: 0.8em; /* Smaller text for mobile */
-    }
-
-    /* Align the card to the right */
-    .dj-overlay-wrapper {
-        display: flex;
-        justify-content: flex-end; /* Right align the card */
-        width: 100%;
     }
 }
 
