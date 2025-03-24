@@ -173,7 +173,7 @@ body {
     }
 
     .dj-image {
-        object-position: center top; /* Make sure the image is centered at the top */
+        object-position: right top; /* Make sure the image is centered at the top */
     }
 
     /* Mobile Card Styling */
