@@ -37,7 +37,7 @@ navbar-links:
   Packages: 
     - Wedding: "packages/wedding-packages"
     - Parties: "packages/party-packages"
-    - Christmas: "packages/christmas-packages"
+    - Christmas: "packages/christmas-party-packages"
     - Events: "packages/events.md"
     - Terms: "packages/terms"
   Playlist Quiz: "playlist-quiz"
