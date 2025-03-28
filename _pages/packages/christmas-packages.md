@@ -60,9 +60,9 @@ For any bespoke packages, travel arrangements, or special requests, feel free to
 <script src="{{ '/assets/js/snowstorm.js' | relative_url }}"></script>
 
 <script>
-  snowStorm.snowColor = '#808080'; // Teal tint for snowflakes
+  snowStorm.snowColor = '#008080'; // Teal tint for snowflakes
   snowStorm.flakesMax = 400; // Maximum number of snowflakes
   snowStorm.animationInterval = 40; // Snowfall animation speed
-  snowStorm.flakeWidth = 12; // Increase snowflake width
-  snowStorm.flakeHeight = 12; // Increase snowflake height
+  snowStorm.flakeWidth = 14; // Increase snowflake width
+  snowStorm.flakeHeight = 14s; // Increase snowflake height
 </script>
