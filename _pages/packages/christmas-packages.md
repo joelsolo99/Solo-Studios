@@ -61,8 +61,8 @@ For any bespoke packages, travel arrangements, or special requests, feel free to
 
 <script>
   snowStorm.snowColor = '#008080'; // Teal tint for snowflakes
-  snowStorm.flakesMax = 400; // Maximum number of snowflakes
+  snowStorm.flakesMax = 500; // Maximum number of snowflakes
   snowStorm.animationInterval = 40; // Snowfall animation speed
-  snowStorm.flakeWidth = 14; // Increase snowflake width
-  snowStorm.flakeHeight = 14s; // Increase snowflake height
+  snowStorm.flakeWidth = 16; // Increase snowflake width
+  snowStorm.flakeHeight = 16; // Increase snowflake height
 </script>
