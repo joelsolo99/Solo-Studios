@@ -46,7 +46,7 @@ Make your event unforgettable with live saxophone and DJ entertainment. Whether 
         <p><strong>Set:</strong> From start to finish</p>
         <p><strong>Total Duration:</strong> Full event duration</p>
         <p><strong>Price:</strong> From £1500</p>
-        <p class="set-description">We\u2019ll provide music throughout your entire event, from the welcome drinks to the final song. Includes request-taking (if provided in advance) for a fully tailored experience.</p>
+        <p class="set-description">We'll provide music throughout your entire event, from the welcome drinks to the final song. Includes request-taking (if provided in advance) for a fully tailored experience.</p>
     </div>
 </div>
 
