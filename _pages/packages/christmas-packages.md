@@ -18,7 +18,7 @@ Celebrate the festive season in style with our Christmas party packages. Whether
         <h3>Stay Frosty</h3>
         <p><strong>Set:</strong> 1 x 60 mins</p>
         <p><strong>Total Duration:</strong> 1 hour</p>
-        <p><strong>Price:</strong> From £250</p>
+        <p><strong>Price:</strong> From £300</p>
         <p class="set-description">A calm and traditional sax performance with backing tracks. Ideal for setting the perfect Christmas atmosphere.</p>
     </div>
 

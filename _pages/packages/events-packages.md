@@ -36,7 +36,7 @@ Make your event unforgettable with live saxophone and DJ entertainment. Whether 
         <h3>Evening Entertainment</h3>
         <p><strong>Set:</strong> 4 hours (latest finish 10pm)</p>
         <p><strong>Total Duration:</strong> 4 hours</p>
-        <p><strong>Price:</strong> From £1100</p>
+        <p><strong>Price:</strong> From £1000</p>
         <p class="set-description">A longer set for awards ceremonies, gala nights, and end-of-year parties. Live saxophone with a DJ to keep the vibe going all evening.</p>
     </div>
     

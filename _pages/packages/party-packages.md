@@ -36,7 +36,7 @@ Take a look at the core packages we offer for parties. Whether it's a milestone 
         <h3>The Dancefloor Experience</h3>
         <p><strong>Set:</strong> 4 hours (latest finish 10pm)</p>
         <p><strong>Total Duration:</strong> 4 hours</p>
-        <p><strong>Price:</strong> From £1000</p>
+        <p><strong>Price:</strong> From £1100</p>
         <p class="set-description">An extended session with live sax and DJ to keep the energy up throughout the evening. Ideal for milestone birthdays and lively celebrations.</p>
     </div>
     
