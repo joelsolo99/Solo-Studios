@@ -6,7 +6,7 @@ permalink: /packages/party-packages/
 
 <link rel="stylesheet" href="{{ '/assets/css/site-theme.css' | relative_url }}">
 
-Take a look at the core packages we offer for parties. Whether you're after smooth background vibes or a full-blown dancefloor experience, we've got you covered.
+Take a look at the core packages we offer for parties. Whether it's a milestone birthday, anniversary, celebration or just an excuse to get everyone you know together, we've got a package for you!
 
 ---
 
