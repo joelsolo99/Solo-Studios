@@ -6,7 +6,7 @@ permalink: /packages/events-packages/
 
 <link rel="stylesheet" href="{{ '/assets/css/site-theme.css' | relative_url }}">
 
-Make your event unforgettable with live saxophone and DJ entertainment. Whether it's a corporate gathering, a gala dinner, or a lively work party, we\u2019ve got a package to suit the occasion.
+Make your event unforgettable with live saxophone and DJ entertainment. Whether it's a corporate gathering, a gala dinner, or a lively work party, we've got a package to suit the occasion.
 
 ---
 
