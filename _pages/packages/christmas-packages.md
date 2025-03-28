@@ -57,17 +57,10 @@ For details on travel fees, cancellations, and other terms, please visit our [Te
 For any bespoke packages, travel arrangements, or special requests, feel free to [get in touch](mailto:events@solostudios.uk). We're happy to tailor things to make your Christmas event unforgettable.
 
 <!-- Add the snowfall.js library -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/snowfall/1.7.1/snowfall.min.js"></script>
+<script src="{{ '/assets/js/snowstorm.js' | relative_url }}"></script>
 
-<!-- Snowfall effect initialization -->
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    document.body.snowfall({
-      flakeCount: 100,  // Number of snowflakes
-      minSize: 10,      // Minimum size of snowflakes
-      maxSize: 20,      // Maximum size of snowflakes
-      minSpeed: 1,      // Minimum speed of snowflakes
-      maxSpeed: 3,      // Maximum speed of snowflakes
-    });
-  });
+  snowStorm.snowColor = '#aaccff'; // Snowflake color
+  snowStorm.flakesMax = 200; // Maximum number of snowflakes
+  snowStorm.animationInterval = 50; // Snowfall animation speed
 </script>
