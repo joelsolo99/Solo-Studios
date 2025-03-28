@@ -19,7 +19,7 @@ Celebrate the festive season in style with our Christmas party packages. Whether
         <p><strong>Set:</strong> 1 x 60 mins</p>
         <p><strong>Total Duration:</strong> 1 hour</p>
         <p><strong>Price:</strong> From £250</p>
-        <p class="set-description">A calm and traditional sax performance with backing tracks\u2014ideal for setting the perfect Christmas atmosphere.</p>
+        <p class="set-description">A calm and traditional sax performance with backing tracks. Ideal for setting the perfect Christmas atmosphere.</p>
     </div>
 
     <!-- Second Package -->
@@ -28,7 +28,7 @@ Celebrate the festive season in style with our Christmas party packages. Whether
         <p><strong>Set:</strong> 2 x 45 mins</p>
         <p><strong>Total Duration:</strong> 2 hours</p>
         <p><strong>Price:</strong> From £400</p>
-        <p class="set-description">A mix of festive classics and party favourites, performed live on sax with backing tracks\u2014great for drinks receptions or dinner entertainment.</p>
+        <p class="set-description">A mix of festive classics and party favourites, performed live on sax with backing tracks. Great for drinks receptions or dinner entertainment.</p>
     </div>
 
     <!-- Third Package -->
