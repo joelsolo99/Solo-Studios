@@ -61,6 +61,6 @@ For any bespoke packages, travel arrangements, or special requests, feel free to
 
 <script>
   snowStorm.snowColor = '#aaccff'; // Snowflake color
-  snowStorm.flakesMax = 200; // Maximum number of snowflakes
-  snowStorm.animationInterval = 50; // Snowfall animation speed
+  snowStorm.flakesMax = 400; // Maximum number of snowflakes
+  snowStorm.animationInterval = 40; // Snowfall animation speed
 </script>
