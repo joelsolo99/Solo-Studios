@@ -30,7 +30,7 @@ layout: home
     <!-- Desktop overlay: stays inside the image -->
     <div class="dj-overlay">
         <h2>Meet Our DJ</h2>
-        <p>Our DJ has over <strong>five years of experience</strong> behind the decks and was previously a house DJ at a local venue. He's performed at weddings, private parties, and corporate events, always matching the music to the energy of the room.</p>
+        <p>Our DJ <strong> Jovan Allen </strong> has over <strong>five years of experience</strong> behind the decks and was previously a house DJ at a local venue. He's performed at weddings, private parties, and corporate events, always matching the music to the energy of the room.</p>
     </div>
 </div>
 
