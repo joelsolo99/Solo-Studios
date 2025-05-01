@@ -15,6 +15,19 @@ Take a look at some of our latest performances and highlights!
 <div class="wrapper">
     <!-- First Video -->
     <div class="service">
+        <h3 class="song-title">Jubel</h3>
+        <p class="artist-name">Klingande</p>
+        <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/8h6FA_lBQIQ" 
+                title="Klingande: Jubel"
+                frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+
+    <!-- Second Video -->
+    <div class="service">
         <h3 class="song-title">Can't Help Falling in Love</h3>
         <p class="artist-name">Elvis Presley</p>
         <div class="video-wrapper">
@@ -26,7 +39,7 @@ Take a look at some of our latest performances and highlights!
         </div>
     </div>
 
-    <!-- Second Video -->
+    <!-- Third Video -->
     <div class="service">
         <h3 class="song-title">One Step Beyond</h3>
         <p class="artist-name">Madness</p>
