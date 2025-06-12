@@ -10,7 +10,43 @@ Take a look at some of our latest performances and highlights!
 
 ---
 
-## Featured Videos
+
+
+## Highlight Reels
+
+
+<div class="wrapper">
+    <!-- First Video -->
+    <div class="service">
+        <h3 class="song-title">Highlights</h3>
+        <p class="artist-name">June 2025 Wedding</p>
+        <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/XGTYujEmczU?si=jIdW3ApMs0UtlcEi" 
+                title="June 2025 Wedding: Highlight Reel"
+                frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+    
+    
+## DJ & Sax
+
+<div class="wrapper">
+    <!-- First Video -->
+    <div class="service">
+        <h3 class="song-title">DJ & Sax Demo</h3>
+        <p class="artist-name">June 2025 Wedding</p>
+        <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/P2BvXQ27y0o?si=j9mLojFEGp5L0NWA" 
+                title="June 2025 DJ Demo"
+                frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+
+## Songs
 
 <div class="wrapper">
     <!-- First Video -->
