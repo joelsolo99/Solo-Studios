@@ -10,7 +10,14 @@ Take a look at some of our latest performances and highlights!
 
 ---
 
-## Highlight Reels
+### Jump to:
+- [Party Vibes](#party-vibes)
+- [DJ & Sax](#dj-sax)
+- [Solo Sax](#solo-sax)
+
+---
+
+## <a id="party-vibes"></a>Party Vibes
 
 <div class="wrapper">
   <div class="service">
@@ -26,7 +33,7 @@ Take a look at some of our latest performances and highlights!
   </div>
 </div>
 
-## DJ & Sax
+## <a id="dj-sax"></a>DJ & Sax
 
 <div class="wrapper">
   <div class="service">
@@ -42,7 +49,7 @@ Take a look at some of our latest performances and highlights!
   </div>
 </div>
 
-## Songs
+## <a id="solo-sax"></a>Solo Sax
 
 <div class="wrapper">
   <div class="service">
@@ -84,4 +91,4 @@ Take a look at some of our latest performances and highlights!
 
 ---
 
-For more performances, subscribe to us on [YouTube](https://www.youtube.com/@SoloStudiosPlymouth).
+For more performances, follow us on [YouTube](https://www.youtube.com/@SoloStudiosPlymouth) and [Instagram](https://www.instagram.com/solo_studios_plymouth).
