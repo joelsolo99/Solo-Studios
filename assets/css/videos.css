@@ -1,12 +1,12 @@
 /* Wrapper for video cards */
 .wrapper {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 20px;
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
-  justify-items: center; /* Centres items within grid cells */
 }
 
 /* Each video card */
@@ -16,8 +16,8 @@
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 15px;
-  width: 100%;
-  max-width: 340px; /* Caps max width while allowing grid to adapt */
+  flex: 1 1 300px; /* Flexible growth, minimum width */
+  max-width: 360px; /* Prevents overgrowth on wide screens */
   text-align: center;
   transition: transform 0.3s ease;
   display: flex;
@@ -62,13 +62,13 @@
 
 /* Responsive Design */
 @media screen and (max-width: 768px) {
-  .wrapper {
-    gap: 15px;
+  .service {
+    flex: 1 1 45%; /* Two per row on medium screens */
   }
 }
 
 @media screen and (max-width: 480px) {
-  .wrapper {
-    grid-template-columns: 1fr;
+  .service {
+    flex: 1 1 100%; /* Full width on narrow screens */
   }
 }
