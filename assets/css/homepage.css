@@ -29,7 +29,6 @@ body {
     left: 0;
 }
 
-
 .hero-overlay {
     position: absolute;
     top: 0;
@@ -83,6 +82,11 @@ body {
     flex: 1;
     min-width: 250px;
     text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.service:hover {
+    transform: translateY(-5px);
 }
 
 .service h3 {
@@ -208,8 +212,6 @@ body {
     }
 }
 
-
-
 /* Responsive Design */
 @media (max-width: 768px) {
     .hero-section {
@@ -220,5 +222,3 @@ body {
         flex-direction: column;
     }
 }
-
-
