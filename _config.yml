@@ -33,7 +33,9 @@ navbar-links:
     - Jazz: "playlists/jazz"
     - Evening Party Sample Setlist: "playlists/evening-party"
     - Ibiza Sax Mix: "playlists/ibiza-sax"
-  Footage: "videos"
+  Gallery:
+  - Videos: "/gallery/videos"
+  - Photos: "/gallery/photos"
   Packages: 
     - Wedding: "packages/wedding-packages"
     - Parties: "packages/party-packages"

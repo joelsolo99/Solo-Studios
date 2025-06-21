@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Videos
-permalink: /videos/
+permalink: gallery/videos/
 ---
 
 <link rel="stylesheet" href="{{ '/assets/css/videos.css' | relative_url }}">
