@@ -1,16 +1,23 @@
-/* Main wrapper */
+/* Wrapper */
 .wrapper {
   padding: 40px 20px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-/* Grid layout */
+/* Base Grid Layout */
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 20px;
   align-items: start;
+}
+
+/* Progressive enhancement: CSS Masonry support */
+@supports (grid-template-rows: masonry) {
+  .gallery-grid {
+    grid-template-rows: masonry;
+  }
 }
 
 /* Gallery item card */
@@ -41,17 +48,17 @@
   object-fit: cover;
 }
 
-/* Fade in when loaded */
+/* Loaded fade-in */
 .gallery-item img.loaded {
   opacity: 1;
 }
 
-/* Landscape images (optional styling if needed) */
+/* Optional landscape classification */
 .gallery-item.landscape img {
   aspect-ratio: 16 / 9;
 }
 
-/* Caption below image */
+/* Caption */
 .caption {
   padding: 10px;
   font-size: 0.95em;
@@ -62,7 +69,7 @@
   background-color: #f9f9f9;
 }
 
-/* Lightbox styles */
+/* Lightbox overlay */
 .lightbox {
   display: none;
   position: fixed;
@@ -100,7 +107,7 @@
   cursor: pointer;
 }
 
-/* Responsive tweaks */
+/* Responsive layout */
 @media screen and (max-width: 768px) {
   .gallery-grid {
     grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
