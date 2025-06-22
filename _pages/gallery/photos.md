@@ -11,7 +11,7 @@ custom_css: photos.css
   <div class="gallery-heading">Photo Gallery</div>
 
   <div class="gallery-grid">
-    {% assign gallery_images = site.static_files | where_exp: "file", "file.path contains 'assets/img/gallery'" %}
+    {% assign gallery_images = site.static_files | where_exp: "file", "file.path contains 'assets/img/photo_gallery'" %}
     {% for image in gallery_images %}
       <img src="{{ site.baseurl }}{{ image.path }}" alt="Gallery image" loading="lazy">
     {% endfor %}
