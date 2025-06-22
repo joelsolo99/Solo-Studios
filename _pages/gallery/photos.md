@@ -19,7 +19,7 @@ custom_css: photos.css
           alt="{{ image.name | replace: '-', ' ' | replace: '_', ' ' | replace: '.jpg', '' | replace: '.jpeg', '' | replace: '.png', '' | replace: '.gif', '' }}" 
           loading="lazy"
         >
-        <div class="caption">{{ image.name | replace: '-', ' ' | replace: '_', ' ' | replace: '.jpg', '' | replace: '.jpeg', '' | replace: '.png', '' | replace: '.gif', '' }}</div>
+        <div class="caption"><strong>{{ image.name | replace: '-', ' ' | replace: '_', ' ' | replace: '.jpg', '' | replace: '.jpeg', '' | replace: '.png', '' | replace: '.gif', '' }}</strong></div>
       </div>
     {% endfor %}
   </div>
@@ -32,6 +32,9 @@ custom_css: photos.css
   <div id="lightbox-caption" class="lightbox-caption"></div>
 </div>
 
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const lightbox = document.getElementById("lightbox-modal");
@@ -39,56 +42,54 @@ document.addEventListener("DOMContentLoaded", () => {
   const lightboxCaption = document.getElementById("lightbox-caption");
   const closeBtn = document.getElementById("lightbox-close");
 
-  // Lightbox open on image click + orientation detection
+  const grid = document.querySelector('.gallery-grid');
+
+  const masonry = new Masonry(grid, {
+    itemSelector: '.gallery-item',
+    percentPosition: true,
+    gutter: 12
+  });
+
+  imagesLoaded(grid, () => {
+    masonry.layout();
+  });
+
   document.querySelectorAll('.gallery-item img').forEach(img => {
     const parent = img.closest('.gallery-item');
-    
-    // Add orientation class based on natural image dimensions
-    if (img.naturalWidth && img.naturalHeight) {
+
+    // Orientation class
+    const setOrientation = () => {
       if (img.naturalWidth >= img.naturalHeight) {
         parent.classList.add('landscape');
       } else {
         parent.classList.add('portrait');
       }
+    };
+
+    if (img.complete) {
+      setOrientation();
+      img.classList.add('loaded');
     } else {
       img.addEventListener('load', () => {
-        if (img.naturalWidth >= img.naturalHeight) {
-          parent.classList.add('landscape');
-        } else {
-          parent.classList.add('portrait');
-        }
+        setOrientation();
+        img.classList.add('loaded');
       });
     }
 
-    // Open lightbox on click
+    // Lightbox
     img.addEventListener('click', () => {
-      lightbox.style.display = "block";
+      lightbox.style.display = "flex";
       lightboxImg.src = img.src;
       lightboxCaption.textContent = img.alt || "";
     });
   });
 
-  // Close lightbox on close button click
-  closeBtn.addEventListener('click', () => {
-    lightbox.style.display = "none";
-  });
-
-  // Close lightbox if clicking outside the image
+  closeBtn.addEventListener('click', () => lightbox.style.display = "none");
   lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) {
-      lightbox.style.display = "none";
-    }
+    if (e.target === lightbox) lightbox.style.display = "none";
   });
-
-  // Fade in images on load
-  document.querySelectorAll('.gallery-item img').forEach(img => {
-    if (img.complete) {
-      img.classList.add('loaded');
-    } else {
-      img.addEventListener('load', () => {
-        img.classList.add('loaded');
-      });
-    }
+  document.addEventListener('keydown', e => {
+    if (e.key === "Escape") lightbox.style.display = "none";
   });
 });
 </script>
