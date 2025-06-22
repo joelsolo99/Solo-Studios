@@ -1,7 +1,7 @@
-/* Limit max width of the whole gallery for better control */
+/* Container limits width and columns */
 .masonry-gallery {
-  max-width: 1100px;     /* Limit overall gallery width */
-  margin: 0 auto;        /* Center gallery */
+  max-width: 900px;   /* keep gallery container narrow for neat cards */
+  margin: 0 auto;
   column-count: 4;
   column-gap: 16px;
   padding: 20px;
@@ -25,23 +25,23 @@
   }
 }
 
-/* Each item in masonry */
+/* Each card container */
 .masonry-item {
   break-inside: avoid;
   margin-bottom: 16px;
   background: #fff;
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
   overflow: hidden;
   position: relative;
   text-align: center;
-  width: 100%; /* Make sure it fills its column */
-  max-width: 280px; /* Limit width inside column */
-  margin-left: auto;  /* Center within column */
+  width: 100%;
+  max-width: 180px;      /* max card width */
+  margin-left: auto;
   margin-right: auto;
 }
 
-/* Image styling */
+/* Image styling - thumbnail sized */
 .masonry-item img {
   width: 100%;
   height: auto;
@@ -49,26 +49,28 @@
   transition: opacity 0.5s ease-in-out;
   cursor: pointer;
   border-radius: 4px;
+  display: block;
 }
 
 .masonry-item img.loaded {
   opacity: 1;
 }
 
-/* Caption styling */
+/* Caption below images */
 .caption {
-  padding: 8px 12px;
-  font-size: 0.9em;
+  padding: 6px 10px;
+  font-size: 0.85em;
   color: #555;
   font-style: italic;
   text-align: center;
+  user-select: none;
 }
 
 /* Lightbox modal styles */
 .lightbox {
   display: none;
   position: fixed;
-  z-index: 999;
+  z-index: 1000;
   padding-top: 60px;
   left: 0; top: 0;
   width: 100%; height: 100%;
@@ -81,17 +83,19 @@
   display: block;
   max-width: 90%;
   max-height: 80vh;
-  box-shadow: 0 0 20px black;
+  box-shadow: 0 0 25px black;
   border-radius: 6px;
+  user-select: none;
 }
 
 .lightbox-caption {
   margin: auto;
   text-align: center;
   color: #fff;
-  padding: 10px;
+  padding: 12px 20px;
   font-size: 1em;
   max-width: 80%;
+  user-select: none;
 }
 
 .close {
@@ -99,8 +103,13 @@
   top: 20px;
   right: 35px;
   color: #fff;
-  font-size: 40px;
+  font-size: 44px;
   font-weight: bold;
   cursor: pointer;
   transition: 0.3s;
+  user-select: none;
+}
+
+.close:hover {
+  color: #bbb;
 }
