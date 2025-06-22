@@ -1,6 +1,8 @@
-/* Main masonry layout */
+/* Limit max width of the whole gallery for better control */
 .masonry-gallery {
-  column-count: 4;       /* 4 columns on large screens */
+  max-width: 1100px;     /* Limit overall gallery width */
+  margin: 0 auto;        /* Center gallery */
+  column-count: 4;
   column-gap: 16px;
   padding: 20px;
 }
@@ -23,7 +25,7 @@
   }
 }
 
-/* Each item in the masonry grid */
+/* Each item in masonry */
 .masonry-item {
   break-inside: avoid;
   margin-bottom: 16px;
@@ -33,18 +35,20 @@
   overflow: hidden;
   position: relative;
   text-align: center;
+  width: 100%; /* Make sure it fills its column */
+  max-width: 280px; /* Limit width inside column */
+  margin-left: auto;  /* Center within column */
+  margin-right: auto;
 }
 
-/* Image fade-in when loaded */
+/* Image styling */
 .masonry-item img {
   width: 100%;
-  max-width: 280px;    /* Limit image max width */
-  height: auto;        /* Maintain aspect ratio */
-  display: block;
-  margin: 0 auto;      /* Centre image inside column */
+  height: auto;
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
   cursor: pointer;
+  border-radius: 4px;
 }
 
 .masonry-item img.loaded {
@@ -78,6 +82,7 @@
   max-width: 90%;
   max-height: 80vh;
   box-shadow: 0 0 20px black;
+  border-radius: 6px;
 }
 
 .lightbox-caption {
