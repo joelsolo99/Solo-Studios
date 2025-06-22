@@ -1,6 +1,6 @@
-/* Container limits width and columns */
+/* Masonry container: limit width + columns */
 .masonry-gallery {
-  max-width: 900px;   /* keep gallery container narrow for neat cards */
+  max-width: 900px;    /* max gallery width */
   margin: 0 auto;
   column-count: 4;
   column-gap: 16px;
@@ -25,7 +25,7 @@
   }
 }
 
-/* Each card container */
+/* Each masonry item */
 .masonry-item {
   break-inside: avoid;
   margin-bottom: 16px;
@@ -35,21 +35,24 @@
   overflow: hidden;
   position: relative;
   text-align: center;
-  width: 100%;
-  max-width: 180px;      /* max card width */
+  width: 180px;         /* fixed width */
+  display: inline-block; /* force exact width, no stretching */
   margin-left: auto;
   margin-right: auto;
 }
 
-/* Image styling - thumbnail sized */
+/* Image styling */
+/* Force fixed size thumbnails with cropping */
 .masonry-item img {
-  width: 100%;
-  height: auto;
+  width: 180px !important;   /* fixed width */
+  height: 120px !important;  /* fixed height */
+  object-fit: cover !important; /* crop nicely */
+  border-radius: 4px;
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
   cursor: pointer;
-  border-radius: 4px;
   display: block;
+  margin: 0 auto;
 }
 
 .masonry-item img.loaded {
