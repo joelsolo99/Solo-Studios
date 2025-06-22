@@ -298,7 +298,7 @@ defaults:
 
 # Include the custom theme CSS site-wide
 include:
-  - "/assets/css/site-theme.css"
+  - "/assets"
 # Exclude these files from production site
 exclude:
   - CHANGELOG.md
