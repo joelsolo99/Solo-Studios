@@ -3,7 +3,7 @@
   max-width: 1100px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   gap: 16px;
   padding: 20px;
 }
@@ -21,10 +21,16 @@
   align-items: center;
   padding: 10px;
   transition: transform 0.3s ease;
+  grid-column: span 1; /* default */
 }
 
 .gallery-item:hover {
   transform: translateY(-5px);
+}
+
+/* Landscape cards get wider */
+.gallery-item.landscape {
+  grid-column: span 2;
 }
 
 /* Image styles - keep natural aspect ratio */

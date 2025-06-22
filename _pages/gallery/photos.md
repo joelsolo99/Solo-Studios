@@ -39,8 +39,28 @@ document.addEventListener("DOMContentLoaded", () => {
   const lightboxCaption = document.getElementById("lightbox-caption");
   const closeBtn = document.getElementById("lightbox-close");
 
-  // Lightbox open on image click
+  // Lightbox open on image click + orientation detection
   document.querySelectorAll('.gallery-item img').forEach(img => {
+    const parent = img.closest('.gallery-item');
+    
+    // Add orientation class based on natural image dimensions
+    if (img.naturalWidth && img.naturalHeight) {
+      if (img.naturalWidth >= img.naturalHeight) {
+        parent.classList.add('landscape');
+      } else {
+        parent.classList.add('portrait');
+      }
+    } else {
+      img.addEventListener('load', () => {
+        if (img.naturalWidth >= img.naturalHeight) {
+          parent.classList.add('landscape');
+        } else {
+          parent.classList.add('portrait');
+        }
+      });
+    }
+
+    // Open lightbox on click
     img.addEventListener('click', () => {
       lightbox.style.display = "block";
       lightboxImg.src = img.src;
