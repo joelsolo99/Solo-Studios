@@ -23,21 +23,26 @@ h1 {
 .gallery-item {
   background: #fff;
   border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
   overflow: hidden;
   margin: 10px;
   transition: transform 0.3s ease;
   cursor: pointer;
   width: calc(25% - 20px);
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+/* Image Styling */
 .gallery-item img {
   width: 100%;
-  height: auto;
+  height: auto; /* Keep natural proportions */
   display: block;
   opacity: 0;
   transition: opacity 0.6s ease;
+  border-bottom: 1px solid #eee;
 }
 
 .gallery-item img.loaded {
@@ -52,15 +57,6 @@ h1 {
   color: #333;
   text-align: center;
   font-weight: 600;
-}
-
-/* Orientation Styles */
-.gallery-item.landscape img {
-  aspect-ratio: 16/10;
-}
-
-.gallery-item.portrait img {
-  aspect-ratio: 3/4;
 }
 
 /* Hover Effect */
@@ -92,10 +88,11 @@ h1 {
   display: none;
   position: fixed;
   z-index: 999;
-  left: 0; top: 0;
+  left: 0;
+  top: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgba(0, 0, 0, 0.8);
   align-items: center;
   justify-content: center;
   padding: 20px;
@@ -106,7 +103,7 @@ h1 {
   max-width: 90%;
   max-height: 85vh;
   border-radius: 6px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
 
 .lightbox-caption {
