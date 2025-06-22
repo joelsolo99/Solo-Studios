@@ -1,108 +1,123 @@
-/* Grid container */
-.gallery-grid {
-  max-width: 1100px;
+/* Main wrapper */
+.wrapper {
+  padding: 40px 20px;
+  max-width: 1200px;
   margin: 0 auto;
+}
+
+/* Grid layout */
+.gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 16px;
-  padding: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+  align-items: start;
 }
 
-/* Each card */
+/* Gallery item card */
 .gallery-item {
-  background: #fff;
+  background-color: #fff;
+  border: 1px solid #ddd;
   border-radius: 8px;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
   overflow: hidden;
-  text-align: center;
   cursor: pointer;
-  padding: 10px;
-  transition: transform 0.3s ease;
-  grid-column: span 1;
-  /* No flex here */
+  transition: transform 0.2s ease;
+  display: flex;
+  flex-direction: column;
 }
 
-.gallery-item.landscape {
-  grid-column: span 2;
-}
-
-/* Hover effect: subtle scale */
+/* Hover effect */
 .gallery-item:hover {
-  transform: scale(1.04);
+  transform: translateY(-4px);
 }
 
-/* Images */
+/* Image styling */
 .gallery-item img {
   width: 100%;
   height: auto;
-  border-radius: 6px;
   display: block;
-
   opacity: 0;
-  transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.6s ease;
+  object-fit: cover;
 }
 
+/* Fade in when loaded */
 .gallery-item img.loaded {
   opacity: 1;
 }
 
-/* Caption */
-.caption {
-  font-size: 0.95em;
-  color: #444;
-  font-style: normal;
-  font-family: Georgia, 'Times New Roman', serif;
-  user-select: none;
-  padding: 8px 5px 0;
-  font-weight: bold;
-  line-height: 1.3;
-  /* No fixed height */
+/* Landscape images (optional styling if needed) */
+.gallery-item.landscape img {
+  aspect-ratio: 16 / 9;
 }
 
-/* Lightbox modal */
+/* Caption below image */
+.caption {
+  padding: 10px;
+  font-size: 0.95em;
+  font-weight: 600;
+  font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+  color: #333;
+  text-align: center;
+  background-color: #f9f9f9;
+}
+
+/* Lightbox styles */
 .lightbox {
   display: none;
   position: fixed;
-  z-index: 1000;
-  padding-top: 60px;
+  z-index: 9999;
   left: 0; top: 0;
-  width: 100%; height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.85);
+  width: 100vw; height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
-.lightbox-content {
-  margin: auto;
-  display: block;
+.lightbox img.lightbox-content {
   max-width: 90%;
   max-height: 80vh;
-  box-shadow: 0 0 25px black;
   border-radius: 6px;
-  user-select: none;
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
 }
 
 .lightbox-caption {
-  margin: auto;
+  margin-top: 15px;
+  color: white;
+  font-size: 1.1em;
   text-align: center;
-  color: #fff;
-  padding: 12px 20px;
-  font-size: 1em;
-  max-width: 80%;
-  user-select: none;
+  font-family: "Segoe UI", sans-serif;
 }
 
-.close {
+.lightbox .close {
   position: absolute;
-  top: 20px;
-  right: 35px;
-  color: #fff;
-  font-size: 44px;
+  top: 15px;
+  right: 25px;
+  color: white;
+  font-size: 2em;
   font-weight: bold;
   cursor: pointer;
-  transition: 0.3s;
-  user-select: none;
 }
 
-.close:hover {
-  color: #bbb;
+/* Responsive tweaks */
+@media screen and (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  }
+
+  .lightbox-caption {
+    font-size: 1em;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .lightbox img.lightbox-content {
+    max-width: 95%;
+    max-height: 70vh;
+  }
+
+  .lightbox-caption {
+    font-size: 0.9em;
+  }
 }
