@@ -19,9 +19,7 @@ custom_css: photos.css
           alt="{{ image.name | replace: '-', ' ' | replace: '_', ' ' | replace: '.jpg', '' | replace: '.jpeg', '' | replace: '.png', '' | replace: '.gif', '' }}" 
           loading="lazy"
         >
-        <div class="caption">
-          <strong>{{ image.name | replace: '-', ' ' | replace: '_', ' ' | replace: '.jpg', '' | replace: '.jpeg', '' | replace: '.png', '' | replace: '.gif', '' }}</strong>
-        </div>
+        <div class="caption"><strong>{{ image.name | replace: '-', ' ' | replace: '_', ' ' | replace: '.jpg', '' | replace: '.jpeg', '' | replace: '.png', '' | replace: '.gif', '' }}</strong></div>
       </div>
     {% endfor %}
   </div>
@@ -30,11 +28,12 @@ custom_css: photos.css
 <!-- Lightbox Modal -->
 <div id="lightbox-modal" class="lightbox">
   <span id="lightbox-close" class="close">&times;</span>
-  <div class="lightbox-inner">
-    <img class="lightbox-content" id="lightbox-img" alt="">
-    <div id="lightbox-caption" class="lightbox-caption"></div>
-  </div>
+  <img class="lightbox-content" id="lightbox-img" alt="">
+  <div id="lightbox-caption" class="lightbox-caption"></div>
 </div>
+
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
@@ -42,42 +41,55 @@ document.addEventListener("DOMContentLoaded", () => {
   const lightboxImg = document.getElementById("lightbox-img");
   const lightboxCaption = document.getElementById("lightbox-caption");
   const closeBtn = document.getElementById("lightbox-close");
-  const galleryItems = document.querySelectorAll('.gallery-item img');
-  const images = Array.from(galleryItems);
-  let currentIndex = -1;
 
-  function openLightbox(index) {
-    const img = images[index];
-    lightbox.style.display = "flex";
-    lightboxImg.src = img.src;
-    lightboxCaption.textContent = img.alt || "";
-    lightboxCaption.classList.remove("fade-in");
-    void lightboxCaption.offsetWidth;
-    lightboxCaption.classList.add("fade-in");
-    currentIndex = index;
-  }
+  const grid = document.querySelector('.gallery-grid');
 
-  images.forEach((img, index) => {
-    img.addEventListener('click', () => openLightbox(index));
+  const masonry = new Masonry(grid, {
+    itemSelector: '.gallery-item',
+    percentPosition: true,
+    gutter: 12
+  });
+
+  imagesLoaded(grid, () => {
+    masonry.layout();
+  });
+
+  document.querySelectorAll('.gallery-item img').forEach(img => {
+    const parent = img.closest('.gallery-item');
+
+    // Orientation class
+    const setOrientation = () => {
+      if (img.naturalWidth >= img.naturalHeight) {
+        parent.classList.add('landscape');
+      } else {
+        parent.classList.add('portrait');
+      }
+    };
+
     if (img.complete) {
+      setOrientation();
       img.classList.add('loaded');
     } else {
-      img.addEventListener('load', () => img.classList.add('loaded'));
+      img.addEventListener('load', () => {
+        setOrientation();
+        img.classList.add('loaded');
+      });
     }
+
+    // Lightbox
+    img.addEventListener('click', () => {
+      lightbox.style.display = "flex";
+      lightboxImg.src = img.src;
+      lightboxCaption.textContent = img.alt || "";
+    });
   });
 
   closeBtn.addEventListener('click', () => lightbox.style.display = "none");
-
   lightbox.addEventListener('click', (e) => {
     if (e.target === lightbox) lightbox.style.display = "none";
   });
-
   document.addEventListener('keydown', e => {
-    if (lightbox.style.display === "flex") {
-      if (e.key === "ArrowRight" && currentIndex < images.length - 1) openLightbox(currentIndex + 1);
-      else if (e.key === "ArrowLeft" && currentIndex > 0) openLightbox(currentIndex - 1);
-      else if (e.key === "Escape") lightbox.style.display = "none";
-    }
+    if (e.key === "Escape") lightbox.style.display = "none";
   });
 });
 </script>
