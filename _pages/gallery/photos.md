@@ -10,7 +10,7 @@ custom_css: photos.css
 <div class="wrapper">
   <h1>Photo Gallery</h1>
 
-  <div class="gallery-grid" id="gallery">
+  <div class="gallery-grid">
     {% assign gallery_images = site.static_files | where_exp: "file", "file.path contains 'assets/img/photo_gallery'" %}
     {% for image in gallery_images %}
       <div class="gallery-item">
@@ -36,22 +36,14 @@ custom_css: photos.css
   </div>
 </div>
 
-<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-  const grid = document.querySelector('.gallery-grid');
-  const msnry = new Masonry(grid, {
-    itemSelector: '.gallery-item',
-    columnWidth: '.gallery-item',
-    percentPosition: true,
-    gutter: 20
-  });
-
   const lightbox = document.getElementById("lightbox-modal");
   const lightboxImg = document.getElementById("lightbox-img");
   const lightboxCaption = document.getElementById("lightbox-caption");
   const closeBtn = document.getElementById("lightbox-close");
-  const images = Array.from(document.querySelectorAll('.gallery-item img'));
+  const galleryItems = document.querySelectorAll('.gallery-item img');
+  const images = Array.from(galleryItems);
   let currentIndex = -1;
 
   function openLightbox(index) {
@@ -75,6 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   closeBtn.addEventListener('click', () => lightbox.style.display = "none");
+
   lightbox.addEventListener('click', (e) => {
     if (e.target === lightbox) lightbox.style.display = "none";
   });
