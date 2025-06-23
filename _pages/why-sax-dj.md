@@ -51,10 +51,11 @@ layout: default
   %}
 
   {% for point in points %}
-    <section class="point-section fade-in-section {% if forloop.index0 | modulo: 2 == 0 %}left-offset{% else %}right-offset{% endif %}" 
-             style="background-image: url('{{ point.image | relative_url }}')">
-      <div class="overlay"></div>
-      <div class="text-content">
+    <section class="dj-section fade-in-section {% if forloop.index0 | modulo: 2 == 0 %}left-offset{% else %}right-offset{% endif %}">
+      <div class="dj-image-wrapper">
+        <img src="{{ point.image | relative_url }}" alt="{{ point.title }}" class="dj-image">
+      </div>
+      <div class="dj-overlay">
         <h2>{{ point.title }}</h2>
         <p>{{ point.text }}</p>
       </div>
@@ -63,7 +64,6 @@ layout: default
 </div>
 
 <script>
-  // Fade in on scroll
   document.addEventListener("DOMContentLoaded", function() {
     const faders = document.querySelectorAll('.fade-in-section');
 
