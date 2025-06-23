@@ -1,0 +1,103 @@
+/* Wrapper and Title */
+.wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.8em;
+  margin-bottom: 50px;
+  color: #008080;
+  font-weight: 700;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Each point section */
+.point-section {
+  position: relative;
+  color: white;
+  min-height: 320px;
+  margin-bottom: 60px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 30px 40px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+/* Overlay for readability */
+.point-section .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 1;
+  border-radius: 12px;
+}
+
+/* Text content container */
+.point-section .text-content {
+  position: relative;
+  max-width: 600px;
+  z-index: 2;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Heading */
+.point-section h2 {
+  font-size: 2em;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+/* Paragraph */
+.point-section p {
+  font-size: 1.1em;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+/* Left offset sections */
+.left-offset {
+  justify-content: flex-start;
+  padding-left: 50px;
+}
+
+/* Right offset sections */
+.right-offset {
+  justify-content: flex-end;
+  padding-right: 50px;
+  text-align: right;
+}
+
+/* Fade in visible */
+.fade-in-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .point-section {
+    flex-direction: column !important;
+    justify-content: center !important;
+    text-align: center !important;
+    padding: 30px 20px !important;
+  }
+  .right-offset, .left-offset {
+    justify-content: center !important;
+    padding: 30px 20px !important;
+    text-align: center !important;
+  }
+  .point-section .text-content {
+    max-width: 100%;
+  }
+}
