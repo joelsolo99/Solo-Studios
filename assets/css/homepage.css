@@ -1,228 +1,115 @@
-/* General styling */
-body {
-    font-family: Arial, sans-serif;
-    color: #333;
-    background-color: #fafafa;
-    margin: 0;
-    padding: 0;
-}
-
-/* Hero Section */
-.hero-section {
-    position: relative;
-    height: 60vh; /* Adjusted for a reasonable image size */
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-}
-
-.hero-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: 50% 23%;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Dark overlay for readability */
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 80%;
-    top: 15%; /* Adjust this for centre offset of text on image */
-}
-
-.hero-content h1 {
-    font-size: 2.5em;
-    margin-bottom: 10px;
-}
-
-.hero-content p {
-    font-size: 1.2em;
-}
-
 /* Wrapper */
 .wrapper {
-    padding: 50px 20px;
-    max-width: 1100px;
-    margin: auto;
+  max-width: 1200px;
+  margin: auto;
+  padding: 30px 15px;
 }
 
-/* Services Section */
-.services-section {
-    text-align: center;
+h1 {
+  text-align: center;
+  font-size: 2.8em;
+  margin-bottom: 50px;
+  color: #008080;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.services {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 20px;
-    margin-top: 20px;
+/* Section Container */
+.why-dj-sax {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 80px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+  transition: transform 0.3s ease, opacity 0.6s ease;
+  opacity: 0; /* For fade-in */
+  transform: translateY(40px);
 }
 
-.service {
-    background: white;
+/* Make visible when scrolled into view */
+.why-dj-sax.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Image wrapper */
+.why-dj-sax .dj-image-wrapper {
+  flex: 1 1 50%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Images */
+.why-dj-sax .dj-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 0;
+  transition: transform 0.3s ease;
+}
+
+/* Text overlay container */
+.why-dj-sax .dj-overlay {
+  flex: 1 1 50%;
+  padding: 40px 50px;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  background: #fefefe;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 0;
+  min-height: 320px;
+}
+
+/* Titles */
+.why-dj-sax .dj-overlay h2 {
+  font-size: 2em;
+  margin-bottom: 15px;
+  color: #008080;
+}
+
+/* Paragraphs */
+.why-dj-sax .dj-overlay p {
+  font-size: 1.1em;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+/* Left offset: image on left, text on right */
+.why-dj-sax.left-offset {
+  flex-direction: row;
+}
+
+/* Right offset: image on right, text on left */
+.why-dj-sax.right-offset {
+  flex-direction: row-reverse;
+}
+
+/* On smaller screens, stack vertically */
+@media (max-width: 900px) {
+  .why-dj-sax {
+    flex-direction: column !important;
+    margin-bottom: 50px;
+  }
+
+  .why-dj-sax .dj-image-wrapper,
+  .why-dj-sax .dj-overlay {
+    flex: 1 1 100%;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    flex: 1;
-    min-width: 250px;
-    text-align: center;
-    transition: transform 0.3s ease;
+  }
+
+  .why-dj-sax .dj-overlay {
+    min-height: auto;
+  }
 }
 
-.service:hover {
-    transform: translateY(-5px);
-}
-
-.service h3 {
-    color: #008080;
-}
-
-.service p {
-    color: #555;
-}
-
-.highlight {
-    color: #008080;
-    font-weight: bold;
-}
-
-/* Contact Section */
-.contact-section {
-    background-color: #1f1f1f;
-    color: white;
-    text-align: center;
-    padding: 50px 20px;
-}
-
-.cta-button {
-    display: inline-block;
-    background-color: #008080;
-    color: white;
-    padding: 12px 24px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: bold;
-    margin-top: 15px;
-}
-
-/* DJ Section Styling */
-.dj-section {
-    position: relative;
-    width: 100%;
-    max-width: 1100px;
-    margin: auto;
-    padding: 0;
-    overflow: hidden;
-}
-
-.dj-image-wrapper {
-    position: relative;
-    width: 100%;
-    height: 60vh; /* Maintain reasonable image size */
-}
-
-.dj-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top; /* Focus more on the top part of the image */
-    display: block;
-}
-
-/* Overlay Box (Desktop) */
-.dj-overlay {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 75%;
-    background: rgba(0, 0, 0, 0.3); /* Transparent black overlay */
-    color: white;
-    padding: 8px;
-    border-radius: 6px;
-    text-align: center;
-}
-
-/* Text Styling (Desktop) */
-.dj-overlay h2 {
-    margin-top: 0;
-    font-size: 1.4em;
-}
-
-.dj-overlay p {
-    font-size: 0.9em;
-    margin-bottom: 0;
-}
-
-/* Mobile Specific Styles */
-@media (max-width: 768px) {
-    .dj-image-wrapper {
-        height: 50vh; /* Show more of the top of the image */
-    }
-
-    .dj-image {
-        object-position: right top; /* Make sure the image is centered at the top */
-    }
-
-    /* Mobile Card Styling */
-    .dj-overlay-wrapper {
-        width: 100%; /* Full width for the card */
-        margin-top: 20px;
-    }
-
-    .dj-overlay {
-        position: relative;  /* Remove absolute positioning */
-        background: white;   /* White background for the card */
-        color: black;        /* Black text on mobile */
-        padding: 20px;
-        width: 90%;           /* Slightly smaller width for the card */
-        margin: 0 auto;      /* Center the card horizontally */
-        border-radius: 6px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        text-align: left;     /* Left-aligned text */
-    }
-
-    .dj-overlay h2 {
-        font-size: 1.2em; /* Slightly smaller heading on mobile */
-    }
-
-    .dj-overlay p {
-        font-size: 0.8em; /* Smaller text for mobile */
-    }
-
-    /* Make sure text on mobile is not duplicated and styled like 'Let's Plan Your Event' */
-    .dj-overlay-wrapper {
-        margin-top: 20px;
-    }
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .hero-section {
-        height: 40vh;
-    }
-
-    .services {
-        flex-direction: column;
-    }
-}
-
-.section-spacer {
-  margin-top: 60px;
+/* Optional: subtle zoom effect on image hover */
+.why-dj-sax:hover .dj-image {
+  transform: scale(1.05);
+  transition: transform 0.4s ease;
 }
