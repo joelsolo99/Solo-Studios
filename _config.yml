@@ -27,6 +27,7 @@ collections:
 
 navbar-links:
   About Us: "about/"
+  Why Sax and DJ?: "why-sax-dj/"
   Playlists:
     - Modern Pop: "playlists/modern-pop"    
     - Classics: "playlists/classics"
