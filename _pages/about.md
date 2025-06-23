@@ -41,7 +41,7 @@ layout: home
 
   <div class="dj-overlay">
     <h2>What We Offer</h2>
-    <p>If you're searching for <strong>sax for hire in Plymouth, Devon, or Cornwall</strong>, you're in the right place. Whether it's live saxophone for a wedding ceremony, a party sax set to get guests dancing, or a <strong>DJ and sax combo</strong> to keep the dancefloor full all night, Solo Studios can deliver. We\u2019re regularly booked for <strong>wedding sax hire</strong>, event musicians, and <strong>mobile DJs across the South West</strong>, and we tailor every performance to suit your day perfectly.</p>
+    <p>If you're searching for <strong>sax for hire in Plymouth, Devon, or Cornwall</strong>, you're in the right place. Whether it's live saxophone for a wedding ceremony, a party sax set to get guests dancing, or a <strong>DJ and sax combo</strong> to keep the dancefloor full all night, Solo Studios can deliver. We're regularly booked for <strong>wedding sax hire</strong>, event musicians, and <strong>mobile DJs across the South West</strong>, and we tailor every performance to suit your day perfectly.</p>
   </div>
 </div>
 
