@@ -222,3 +222,7 @@ body {
         flex-direction: column;
     }
 }
+
+.section-spacer {
+  margin-top: 60px;
+}
