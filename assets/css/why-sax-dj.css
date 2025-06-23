@@ -1,8 +1,8 @@
-/* Wrapper and Title */
+/* Wrapper */
 .wrapper {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 40px 20px;
+  max-width: 1200px;
+  margin: auto;
+  padding: 30px 15px;
 }
 
 h1 {
@@ -10,94 +10,106 @@ h1 {
   font-size: 2.8em;
   margin-bottom: 50px;
   color: #008080;
-  font-weight: 700;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Each point section */
-.point-section {
+/* Section Container */
+.why-dj-sax {
   position: relative;
-  color: white;
-  min-height: 320px;
-  margin-bottom: 60px;
-  background-size: cover;
-  background-position: center;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  padding: 30px 40px;
-  opacity: 0;
+  margin-bottom: 80px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+  transition: transform 0.3s ease, opacity 0.6s ease;
+  opacity: 0; /* For fade-in */
   transform: translateY(40px);
-  transition: opacity 1s ease, transform 1s ease;
 }
 
-/* Overlay for readability */
-.point-section .overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.55);
-  z-index: 1;
-  border-radius: 12px;
-}
-
-/* Text content container */
-.point-section .text-content {
-  position: relative;
-  max-width: 600px;
-  z-index: 2;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-/* Heading */
-.point-section h2 {
-  font-size: 2em;
-  margin-bottom: 12px;
-  font-weight: 700;
-}
-
-/* Paragraph */
-.point-section p {
-  font-size: 1.1em;
-  line-height: 1.5;
-  font-weight: 400;
-}
-
-/* Left offset sections */
-.left-offset {
-  justify-content: flex-start;
-  padding-left: 50px;
-}
-
-/* Right offset sections */
-.right-offset {
-  justify-content: flex-end;
-  padding-right: 50px;
-  text-align: right;
-}
-
-/* Fade in visible */
-.fade-in-section.visible {
+/* Make visible when scrolled into view */
+.why-dj-sax.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Responsive */
+/* Image wrapper */
+.why-dj-sax .dj-image-wrapper {
+  flex: 1 1 50%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Images */
+.why-dj-sax .dj-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 0;
+  transition: transform 0.3s ease;
+}
+
+/* Text overlay container */
+.why-dj-sax .dj-overlay {
+  flex: 1 1 50%;
+  padding: 40px 50px;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  background: #fefefe;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 0;
+  min-height: 320px;
+}
+
+/* Titles */
+.why-dj-sax .dj-overlay h2 {
+  font-size: 2em;
+  margin-bottom: 15px;
+  color: #008080;
+}
+
+/* Paragraphs */
+.why-dj-sax .dj-overlay p {
+  font-size: 1.1em;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+/* Left offset: image on left, text on right */
+.why-dj-sax.left-offset {
+  flex-direction: row;
+}
+
+/* Right offset: image on right, text on left */
+.why-dj-sax.right-offset {
+  flex-direction: row-reverse;
+}
+
+/* On smaller screens, stack vertically */
 @media (max-width: 900px) {
-  .point-section {
+  .why-dj-sax {
     flex-direction: column !important;
-    justify-content: center !important;
-    text-align: center !important;
-    padding: 30px 20px !important;
+    margin-bottom: 50px;
   }
-  .right-offset, .left-offset {
-    justify-content: center !important;
-    padding: 30px 20px !important;
-    text-align: center !important;
+
+  .why-dj-sax .dj-image-wrapper,
+  .why-dj-sax .dj-overlay {
+    flex: 1 1 100%;
+    padding: 20px;
   }
-  .point-section .text-content {
-    max-width: 100%;
+
+  .why-dj-sax .dj-overlay {
+    min-height: auto;
   }
+}
+
+/* Optional: subtle zoom effect on image hover */
+.why-dj-sax:hover .dj-image {
+  transform: scale(1.05);
+  transition: transform 0.4s ease;
 }
