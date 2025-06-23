@@ -6,7 +6,7 @@ permalink: /packages/wedding-packages/
 
 <link rel="stylesheet" href="{{ '/assets/css/site-theme.css' | relative_url }}">
 
-Take a look at the core packages we offer for weddings. Whether you're after smooth background vibes or an all-out party, there's something to suit your day.
+Take a look at the core packages we offer for weddings. If you're planning a wedding in the South West, Solo Studios offers live saxophone music and DJ services that feel personal, professional, and completely tailored to your day. Whether it's a relaxed ceremony in Devon, a lively evening party in Cornwall, or a full wedding celebration in Plymouth, our sax and DJ packages are designed to create the perfect vibe, and memories that last.
 
 ---
 
