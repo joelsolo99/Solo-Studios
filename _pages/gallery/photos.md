@@ -27,9 +27,15 @@ custom_css: photos.css
 
 <!-- Lightbox Modal -->
 <div id="lightbox-modal" class="lightbox">
-  <span id="lightbox-close" class="close">&times;</span>
-  <img class="lightbox-content" id="lightbox-img" alt="">
-  <div id="lightbox-caption" class="lightbox-caption"></div>
+  <div class="lightbox-inner">
+    <span id="lightbox-close" class="close">&times;</span>
+    <button id="lightbox-prev" class="nav-arrow left">&#10094;</button>
+    <button id="lightbox-next" class="nav-arrow right">&#10095;</button>
+    <div class="lightbox-content">
+      <img id="lightbox-img" alt="">
+      <div id="lightbox-caption" class="lightbox-caption"></div>
+    </div>
+  </div>
 </div>
 
 <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
@@ -41,6 +47,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const lightboxImg = document.getElementById("lightbox-img");
   const lightboxCaption = document.getElementById("lightbox-caption");
   const closeBtn = document.getElementById("lightbox-close");
+  const prevBtn = document.getElementById("lightbox-prev");
+  const nextBtn = document.getElementById("lightbox-next");
 
   const grid = document.querySelector('.gallery-grid');
 
@@ -54,7 +62,18 @@ document.addEventListener("DOMContentLoaded", () => {
     masonry.layout();
   });
 
-  document.querySelectorAll('.gallery-item img').forEach(img => {
+  const images = Array.from(document.querySelectorAll('.gallery-item img'));
+  let currentIndex = -1;
+
+  const showImageAt = (index) => {
+    const img = images[index];
+    if (!img) return;
+    lightboxImg.src = img.src;
+    lightboxCaption.textContent = img.alt || "";
+    currentIndex = index;
+  };
+
+  images.forEach((img, index) => {
     const parent = img.closest('.gallery-item');
 
     // Orientation class
@@ -76,20 +95,59 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
-    // Lightbox
+    // Lightbox open
     img.addEventListener('click', () => {
       lightbox.style.display = "flex";
-      lightboxImg.src = img.src;
-      lightboxCaption.textContent = img.alt || "";
+      showImageAt(index);
     });
   });
 
+  // Close lightbox
   closeBtn.addEventListener('click', () => lightbox.style.display = "none");
   lightbox.addEventListener('click', (e) => {
     if (e.target === lightbox) lightbox.style.display = "none";
   });
   document.addEventListener('keydown', e => {
     if (e.key === "Escape") lightbox.style.display = "none";
+  });
+
+  // Arrow buttons
+  prevBtn.addEventListener("click", () => {
+    if (currentIndex > 0) showImageAt(currentIndex - 1);
+  });
+
+  nextBtn.addEventListener("click", () => {
+    if (currentIndex < images.length - 1) showImageAt(currentIndex + 1);
+  });
+
+  // Keyboard arrow support
+  document.addEventListener("keydown", e => {
+    if (lightbox.style.display === "flex") {
+      if (e.key === "ArrowLeft" && currentIndex > 0) {
+        showImageAt(currentIndex - 1);
+      } else if (e.key === "ArrowRight" && currentIndex < images.length - 1) {
+        showImageAt(currentIndex + 1);
+      }
+    }
+  });
+
+  // Touch swipe support
+  let touchStartX = 0;
+  lightbox.addEventListener("touchstart", e => {
+    touchStartX = e.changedTouches[0].screenX;
+  });
+
+  lightbox.addEventListener("touchend", e => {
+    const touchEndX = e.changedTouches[0].screenX;
+    const deltaX = touchEndX - touchStartX;
+
+    if (Math.abs(deltaX) > 50) {
+      if (deltaX > 0 && currentIndex > 0) {
+        showImageAt(currentIndex - 1);
+      } else if (deltaX < 0 && currentIndex < images.length - 1) {
+        showImageAt(currentIndex + 1);
+      }
+    }
   });
 });
 </script>

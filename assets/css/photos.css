@@ -35,10 +35,19 @@ h1 {
   align-items: center;
 }
 
+/* Landscape / Portrait classes for orientation */
+.gallery-item.landscape {
+  /* optional styling if you want to tweak landscape items */
+}
+
+.gallery-item.portrait {
+  /* optional styling if you want to tweak portrait items */
+}
+
 /* Image Styling */
 .gallery-item img {
   width: 100%;
-  height: auto; /* Keep natural proportions */
+  height: auto;
   display: block;
   opacity: 0;
   transition: opacity 0.6s ease;
@@ -67,7 +76,7 @@ h1 {
 /* Responsive Grid Breakpoints */
 @media (max-width: 992px) {
   .gallery-item {
-    width: calc(33.333% - 20px); /* 3 per row under 992px */
+    width: calc(33.333% - 20px);
   }
 }
 
@@ -99,6 +108,37 @@ h1 {
   box-sizing: border-box;
 }
 
+/* Lightbox Inner Container */
+.lightbox-inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100%;
+  max-height: 100%;
+  text-align: center;
+}
+
+/* Lightbox Content: Image + Caption */
+.lightbox-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 90%;
+  max-height: 85vh;
+  border-radius: 6px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Lightbox Image */
+.lightbox-inner img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+/* Lightbox Caption */
 .lightbox-caption {
   margin-top: 12px;
   color: white;
@@ -106,6 +146,7 @@ h1 {
   font-size: 1.1em;
   font-weight: 400;
   font-family: 'Segoe UI', Roboto, sans-serif;
+  width: 100%;
 }
 
 /* Close Button */
@@ -117,35 +158,36 @@ h1 {
   color: white;
   cursor: pointer;
   transition: color 0.2s ease;
+  z-index: 1000;
 }
 
 .close:hover {
   color: #aaa;
 }
 
-.lightbox-content {
-  max-width: 90%;
-  max-height: 85vh;
-  border-radius: 6px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+/* Navigation Arrows */
+.nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 3em;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+  padding: 0 12px;
+  user-select: none;
 }
 
-.lightbox-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 100%;
-  max-height: 100%;
-  text-align: center;
+.nav-arrow.left {
+  left: 20px;
 }
 
-.lightbox-inner img {
-  display: block;
-  max-width: 100%;
-  height: auto;
+.nav-arrow.right {
+  right: 20px;
 }
 
-
+.nav-arrow:hover {
+  color: #aaa;
+}
