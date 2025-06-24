@@ -21,7 +21,7 @@ Take a look at some of our latest performances and highlights!
 <div class="video-grid">
   <div class="service">
     <h3 class="song-title">Highlights</h3>
-    <p class="artist-name">June 2025 Wedding</p>
+    <p class="artist-name">Wedding at Roswarne House, Cornwall</p>
     <div class="video-wrapper">
       <iframe src="https://www.youtube.com/embed/XGTYujEmczU?si=jIdW3ApMs0UtlcEi" 
               title="June 2025 Wedding: Highlight Reel"
@@ -31,7 +31,7 @@ Take a look at some of our latest performances and highlights!
   </div>
 
   <div class="service">
-    <h3 class="song-title">DJ & Sax Demo</h3>
+    <h3 class="song-title">DJ & Sax @ Palhawn Fort, Cornwall</h3>
     <p class="artist-name">June 2025 Wedding</p>
     <div class="video-wrapper">
       <iframe src="https://www.youtube.com/embed/P2BvXQ27y0o?si=j9mLojFEGp5L0NWA" 
