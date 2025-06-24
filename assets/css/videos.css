@@ -28,7 +28,7 @@ h1 {
   margin: 10px;
   padding: 15px;
   box-sizing: border-box;
-  width: calc(33.333% - 20px);
+  width: calc(48% - 20px); /* about 50% width for two cards per row */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -78,7 +78,7 @@ h1 {
 /* Responsive adjustments */
 @media (max-width: 992px) {
   .video-grid .service {
-    width: calc(50% - 20px);
+    width: calc(70% - 20px);
   }
 }
 
