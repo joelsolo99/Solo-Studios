@@ -21,7 +21,7 @@ Take a look at some of our latest performances and highlights!
 <div class="video-grid">
   <div class="service">
     <h3 class="song-title">Highlights</h3>
-    <p class="artist-name">Wedding at Roswarne House, Cornwall</p>
+    <p class="artist-name">Wedding: Roswarne House, Cornwall</p>
     <div class="video-wrapper">
       <iframe src="https://www.youtube.com/embed/XGTYujEmczU?si=jIdW3ApMs0UtlcEi" 
               title="June 2025 Wedding: Highlight Reel"
@@ -32,7 +32,7 @@ Take a look at some of our latest performances and highlights!
 
   <div class="service">
     <h3 class="song-title">Highlights</h3>
-    <p class="artist-name">Wedding at Palwawn Fort, Cornwall</p>
+    <p class="artist-name">Wedding: Palwawn Fort, Cornwall</p>
     <div class="video-wrapper">
       <iframe src="https://www.youtube.com/embed/P2BvXQ27y0o?si=j9mLojFEGp5L0NWA" 
               title="June 2025 DJ Demo"
