@@ -82,3 +82,24 @@ Take a look at some of our latest performances and highlights!
 ---
 
 For more performances, follow us on [YouTube](https://www.youtube.com/@SoloStudiosPlymouth) and [Instagram](https://www.instagram.com/solo_studios_plymouth).
+
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const gridContainers = document.querySelectorAll('.video-grid');
+  
+  gridContainers.forEach(grid => {
+    const masonry = new Masonry(grid, {
+      itemSelector: '.service',
+      percentPosition: true,
+      gutter: 20
+    });
+
+    imagesLoaded(grid, () => {
+      masonry.layout();
+    });
+  });
+});
+</script>

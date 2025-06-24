@@ -1,79 +1,89 @@
-/* Wrapper for video cards */
+/* Wrapper styling */
+.wrapper {
+  max-width: 1200px;
+  margin: auto;
+  padding: 30px 15px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.4em;
+  margin-bottom: 30px;
+  color: #008080;
+}
+
+/* Masonry grid for videos */
 .video-grid {
-  display: flex !important;
-  flex-wrap: wrap !important;
-  justify-content: center !important; /* Center cards */
-  gap: 20px !important;
-  max-width: 1200px !important;
-  margin: 0 auto !important;
-  padding: 20px !important;
-  box-sizing: border-box !important;
+  display: flex;
+  flex-wrap: wrap;
+  margin: -10px;
+  justify-content: center;
 }
 
 /* Each video card */
 .video-grid .service {
-  background-color: #fff !important;
-  border: 1px solid #ddd !important;
-  border-radius: 8px !important;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
-  padding: 15px !important;
-  width: 48% !important; /* Force two side-by-side cards */
-  min-width: 300px !important;
-  box-sizing: border-box !important;
-  text-align: center !important;
-  transition: transform 0.3s ease !important;
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  margin: 10px;
+  padding: 15px;
+  box-sizing: border-box;
+  width: calc(33.333% - 20px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease;
+  cursor: default;
 }
 
 /* Hover effect */
 .video-grid .service:hover {
-  transform: translateY(-5px) !important;
+  transform: translateY(-4px);
 }
 
-/* Song Title */
+/* Song title styling */
 .song-title {
-  color: #008080 !important;
-  font-size: 1.2em !important;
-  font-weight: bold !important;
-  margin: 5px 0 2px !important;
+  color: #008080;
+  font-size: 1.2em;
+  font-weight: 700;
+  margin: 5px 0 8px;
+  text-align: center;
 }
 
-/* Artist Name */
+/* Artist name styling */
 .artist-name {
-  font-size: 1em !important;
-  font-style: italic !important;
-  color: #555 !important;
-  margin-bottom: 10px !important;
+  font-style: italic;
+  color: #555;
+  margin-bottom: 15px;
+  text-align: center;
 }
 
-/* Video Wrapper */
+/* Video wrapper with consistent 16:9 aspect ratio */
 .video-wrapper {
-  width: 100% !important;
-  aspect-ratio: 16 / 9 !important;
-  border-radius: 5px !important;
-  overflow: hidden !important;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 0 12px rgba(0,0,0,0.1);
 }
 
+/* Responsive iframe */
 .video-wrapper iframe {
-  width: 100% !important;
-  height: 100% !important;
-  border: none !important;
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
 }
 
-/* Responsive Design */
-@media screen and (max-width: 768px) {
-  .video-grid {
-    gap: 15px !important;
-  }
+/* Responsive adjustments */
+@media (max-width: 992px) {
   .video-grid .service {
-    width: 45% !important;
+    width: calc(50% - 20px);
   }
 }
 
-@media screen and (max-width: 480px) {
+@media (max-width: 600px) {
   .video-grid .service {
-    width: 100% !important;
+    width: 100%;
   }
 }
