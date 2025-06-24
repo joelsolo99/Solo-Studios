@@ -31,8 +31,8 @@ Take a look at some of our latest performances and highlights!
   </div>
 
   <div class="service">
-    <h3 class="song-title">DJ & Sax @ Palhawn Fort, Cornwall</h3>
-    <p class="artist-name">June 2025 Wedding</p>
+    <h3 class="song-title">Highlights</h3>
+    <p class="artist-name">Wedding at Palwawn Fort, Cornwall</p>
     <div class="video-wrapper">
       <iframe src="https://www.youtube.com/embed/P2BvXQ27y0o?si=j9mLojFEGp5L0NWA" 
               title="June 2025 DJ Demo"
