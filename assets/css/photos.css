@@ -142,3 +142,10 @@ h1 {
   text-align: center;
 }
 
+.lightbox-inner img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+
