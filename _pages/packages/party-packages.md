@@ -27,7 +27,7 @@ Take a look at the core packages we offer for parties. Whether it's a milestone 
         <h3>The Party Starter</h3>
         <p><strong>Set:</strong> 2 x 45 mins (sax) + DJ throughout</p>
         <p><strong>Total Duration:</strong> 2 hours</p>
-        <p><strong>Price:</strong> From 600</p>
+        <p><strong>Price:</strong> From £600</p>
         <p class="set-description">A step up for those who want a more dynamic party atmosphere. Includes a full DJ set alongside sax and a stage lighting rig to get people on the dance floor.</p>
     </div>
 
