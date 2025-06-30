@@ -25,8 +25,17 @@ Take a look at some of our latest performances and highlights!
     <div class="video-wrapper">
       <iframe src="https://www.youtube.com/embed/XGTYujEmczU?si=jIdW3ApMs0UtlcEi" 
               title="June 2025 Wedding: Highlight Reel"
-              frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen></iframe>
+              frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <div class="service">
+    <h3 class="song-title">Highlights</h3>
+    <p class="artist-name">Hen Party: Bristol</p>
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/vPPcldkjnSk?si=9YRIcF2sx0zfqsNB" 
+              title="June 2025 Hen Party: Highlight Reel"
+              frameborder="0" allowfullscreen></iframe>
     </div>
   </div>
 
@@ -36,8 +45,7 @@ Take a look at some of our latest performances and highlights!
     <div class="video-wrapper">
       <iframe src="https://www.youtube.com/embed/P2BvXQ27y0o?si=j9mLojFEGp5L0NWA" 
               title="June 2025 DJ Demo"
-              frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen></iframe>
+              frameborder="0" allowfullscreen></iframe>
     </div>
   </div>
 </div>
@@ -51,8 +59,7 @@ Take a look at some of our latest performances and highlights!
     <div class="video-wrapper">
       <iframe src="https://www.youtube.com/embed/8h6FA_lBQIQ" 
               title="Klingande: Jubel"
-              frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen></iframe>
+              frameborder="0" allowfullscreen></iframe>
     </div>
   </div>
 
@@ -62,8 +69,7 @@ Take a look at some of our latest performances and highlights!
     <div class="video-wrapper">
       <iframe src="https://www.youtube.com/embed/7wbCDQSyBmc" 
               title="Elvis: Can't Help Falling in Love"
-              frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen></iframe>
+              frameborder="0" allowfullscreen></iframe>
     </div>
   </div>
 
@@ -73,8 +79,7 @@ Take a look at some of our latest performances and highlights!
     <div class="video-wrapper">
       <iframe src="https://www.youtube.com/embed/V9XAYfDN2Gs" 
               title="Madness: One Step Beyond"
-              frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen></iframe>
+              frameborder="0" allowfullscreen></iframe>
     </div>
   </div>
 </div>
