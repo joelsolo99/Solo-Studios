@@ -1,19 +1,65 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "Solo Studios",
-  "image": "https://solostudios.uk/assets/img/logo.png",
-  "url": "https://solostudios.uk",
-  "telephone": "+44 7956 343402",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Plymouth",
-    "addressCountry": "GB"
-  },
-  "sameAs": [
-    "https://www.instagram.com/solo_studios_plymouth/",
-    "https://www.youtube.com/@SoloStudiosPlymouth"
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "name": "Solo Studios",
+      "image": "https://solostudios.uk/assets/img/logo.png",
+      "url": "https://solostudios.uk",
+      "telephone": "+44 7956 343402",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Plymouth",
+        "addressRegion": "Devon",
+        "addressCountry": "GB"
+      },
+      "sameAs": [
+        "https://www.instagram.com/solo_studios_plymouth/",
+        "https://www.youtube.com/@SoloStudiosPlymouth"
+      ],
+      "areaServed": [
+        { "@type": "Place", "name": "Plymouth" },
+        { "@type": "Place", "name": "Devon" },
+        { "@type": "Place", "name": "Cornwall" },
+        { "@type": "Place", "name": "Dorset" },
+        { "@type": "Place", "name": "Somerset" },
+        { "@type": "Place", "name": "Bristol" }
+      ]
+    },
+    {
+      "@type": "MusicGroup",
+      "name": "Solo Studios",
+      "url": "https://solostudios.uk",
+      "member": [
+        {
+          "@type": "Person",
+          "name": "Joel Solomons"
+        }
+      ],
+      "genre": [
+        "Ibiza sax",
+        "Sax vibes",
+        "Wedding sax",
+        "Party sax",
+        "Jazz sax",
+        "Pop sax"
+      ]
+    },
+    {
+      "@type": "Service",
+      "name": "Saxophone and DJ hire",
+      "serviceType": [
+        "Wedding entertainment",
+        "Party entertainment",
+        "Birthday parties",
+        "Event entertainment"
+      ],
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "Solo Studios"
+      }
+    }
   ]
 }
 </script>
