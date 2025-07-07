@@ -79,6 +79,10 @@ layout: default
       <p>For a fraction of the cost of a full band, but still delivers the feeling of live music. That makes it ideal for couples or party organisers looking for unforgettable entertainment on a realistic budget.</p>
     </div>
   </section>
+    <div style="text-align: center; margin-top: 3rem;">
+    <a href="/places/" style="font-size: 0.8rem; opacity: 0.6;">See where we've played</a>
+  </div>
+
 </div>
 
 <script>

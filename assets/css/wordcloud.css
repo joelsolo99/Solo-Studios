@@ -1,0 +1,78 @@
+.wordcloud-wrapper {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background: #f9f9f9;
+  padding: 2rem 4rem;
+  box-sizing: border-box;
+}
+
+
+.wordcloud {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* change to start/space-evenly if you prefer */
+  gap: 1.2rem 2rem;
+  padding: 2rem 1rem;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.wordcloud .town {
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+  display: inline-block;
+  padding: 0.4em 0.9em;
+  border-radius: 12px;
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+  transition: transform 0.2s ease, box-shadow 0.3s ease, color 0.3s ease;
+  color: #0b6e6e;
+  box-shadow: 0 2px 4px rgba(11,110,110,0.15);
+}
+
+.wordcloud .town:hover {
+  transform: scale(1.1);
+  color: #003636;
+  box-shadow: 0 6px 14px rgba(0, 86, 86, 0.3);
+  z-index: 2;
+}
+
+/* Pastel backgrounds */
+.wordcloud .town.bg1 {
+  background-color: #d6f5f5;  /* very light teal */
+  color: #006d77;             /* strong dark teal */
+}
+
+.wordcloud .town.bg2 {
+  background-color: #cce7e8;  /* muted aqua */
+  color: #014f56;             /* deep sea teal */
+}
+
+.wordcloud .town.bg3 {
+  background-color: #e0f7f1;  /* light mint green */
+  color: #007f8c;             /* bluish teal */
+}
+
+.wordcloud .town.bg4 {
+  background-color: #f0fbfa;  /* pale blue-green */
+  color: #088e9e;             /* strong cyan-teal */
+}
+
+.wordcloud .town.bg5 {
+  background-color: #e3f4f4;  /* off-white with teal tint */
+  color: #005c63;             /* forest teal */
+}
+
+
+
+.wordcloud {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  padding: 2rem 4rem;
+}
