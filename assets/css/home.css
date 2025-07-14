@@ -1,24 +1,44 @@
 .hero-section {
   position: relative;
-  width: 60vw;           /* Set width to ~60% of viewport */
-  height: 60vh;          /* Keep height */
-  margin: 0 auto;        /* Centre the section horizontally */
+  width: 100vw;
+  max-width: 100%;
+  height: 60vh;
   overflow: hidden;
+  margin: 0 auto;
 }
-
 
 .hero-video {
   position: absolute;
   top: 0;
   left: 50%;
-  width: 100%;           /* Fill the section width */
-  height: 150vh;         /* Keep your vertical zoom */
+  transform: translateX(-50%);
+  width: 100vw;
+  max-width: 100%;
+  height: auto;
+  min-height: 100%;
   object-fit: cover;
-  object-position: center -25vh;
+  object-position: center center;
   z-index: -2;
-  transform: translateX(-50%); /* Centre inside the section */
 }
 
+/* Mobile adjustments */
+@media (max-width: 767px) {
+  .hero-section {
+    height: 50vh; /* slightly shorter on mobile */
+  }
+  
+  .hero-video {
+    object-position: center -10%; /* crop a bit higher on mobile */
+  }
+
+  .hero-content h1 {
+    font-size: 1.8rem; /* smaller heading on mobile */
+  }
+
+  .hero-content p {
+    font-size: 1rem; /* adjust text size */
+  }
+}
 
 
 
@@ -53,29 +73,6 @@
   margin: 0 auto;
 }
 
-
-@media (max-width: 768px) {
-  .hero-section {
-    height: 50vh; /* Slightly shorter height */
-    width: 110vw; /* Slightly wider */
-    overflow: hidden;
-  }
-
-  .hero-video {
-    object-position: center -15vh; /* Shift video up more to crop bottom */
-    width: 110vw; /* Make video wider */
-    min-height: 140vh; /* Adjust height to maintain crop */
-  }
-
-  .hero-content h1 {
-    font-size: 2.5rem; /* Smaller heading font size */
-    line-height: 1.2;
-  }
-
-  .hero-content p {
-    font-size: 1rem; /* Smaller paragraph */
-  }
-}
 
 
 
