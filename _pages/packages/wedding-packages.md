@@ -1,57 +1,94 @@
 ---
-layout: page
+layout: default
 title: Wedding Packages
 permalink: /packages/wedding-packages/
 ---
 
-<link rel="stylesheet" href="{{ '/assets/css/site-theme.css' | relative_url }}">
-
-Take a look at the core packages we offer for weddings. If you're planning a wedding in the South West, Solo Studios offers live saxophone music and DJ services that feel personal, professional, and completely tailored to your day. Whether it's a relaxed ceremony in Devon, a lively evening party in Cornwall, or a full wedding celebration in Plymouth, our sax and DJ packages are designed to create the perfect vibe, and memories that last.
-
----
-
-## Package Options
+<link rel="stylesheet" href="{{ '/assets/css/why-sax-dj.css' | relative_url }}">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <div class="wrapper">
-    <!-- First Package -->
-    <div class="service">
-        <h3>Sax + Backings Only</h3>
-        <p><strong>Set:</strong> 2 x 45 mins</p>
-        <p><strong>Total Duration:</strong> 2 hours</p>
-        <p><strong>Price:</strong> From £400</p>
-        <p class="set-description">Ideal for a drinks reception or relaxed background music during photos.</p>
-    </div>
+  <h1>Wedding Packages</h1>
 
-    <!-- Second Package -->
-    <div class="service">
-        <h3>Sax + Backings Only</h3>
-        <p><strong>Set:</strong> 5 x 45 mins (any time)</p>
-        <p><strong>Total Duration:</strong> 5 hours</p>
-        <p><strong>Price:</strong> From £800</p>
-        <p class="set-description">A flexible option—tell us your timings, and we’ll take care of the rest.</p>
-    </div>
+  <p>If you're planning a wedding in the South West, Solo Studios offers live saxophone music and DJ services that feel personal, professional, and completely tailored to your day. Whether it's a relaxed ceremony in Devon, a lively evening party in Cornwall, or a full wedding celebration in Plymouth, our sax and DJ packages are designed to create the perfect vibe — and memories that last.</p>
 
-    <!-- Third Package -->
-    <div class="service">
-        <h3><strong>Combo Deal (Sax + DJ)</strong></h3>
-        <p><strong>Set:</strong> 5pm - Midnight</p>
-        <p><strong>Total Duration:</strong> 7 hours</p>
-        <p><strong>Price:</strong> From £1200</p>
-        <p class="set-description">Smooth sax for cocktails, background music over dinner, a first-dance performance, and a full DJ set to keep the party going.</p>
+  <section class="why-dj-sax fade-in-section left-offset">
+    <div class="dj-image-wrapper">
+      <img src="{{ '/assets/img/wedding_packages/1.webp' | relative_url }}" alt="Sax + Backings Only – 2x45min" class="dj-image">
     </div>
-    
-    <!-- Fourth Package -->
-    <div class="service">
-        <h3><strong>The All-Day Package</strong></h3>
-        <p><strong>Set:</strong> 12pm - Midnight</p>
-        <p><strong>Total Duration:</strong> 12 hours</p>
-        <p><strong>Price:</strong> From £1600</p>
-        <p class="set-description">Everything in the combo deal, plus travel between ceremony and reception locations. Includes us learning a new song for your ceremony.</p>
+    <div class="dj-overlay">
+      <h2>Sax + Backings Only (Short Set)</h2>
+      <p><strong>Set:</strong> 2 × 45 mins<br>
+         <strong>Total Duration:</strong> 2 hours<br>
+         <strong>Price:</strong> From £500</p>
+      <p>Ideal for a drinks reception or relaxed background music during photos — smooth sax backed by pro tracks that blend perfectly into the vibe of your afternoon.</p>
     </div>
+  </section>
+
+  <section class="why-dj-sax fade-in-section right-offset">
+    <div class="dj-image-wrapper">
+      <img src="{{ '/assets/img/wedding_packages/2.webp' | relative_url }}" alt="Sax + Backings Only – 5x45min" class="dj-image">
+    </div>
+    <div class="dj-overlay">
+      <h2>Sax + Backings Only (Full Day Flex)</h2>
+      <p><strong>Set:</strong> 5 × 45 mins (any time)<br>
+         <strong>Total Duration:</strong> 5 hours<br>
+         <strong>Price:</strong> From £1000</p>
+      <p>A flexible option — tell us your timings, and we’ll take care of the rest. Perfect if you want music across multiple parts of the day without going full DJ.</p>
+    </div>
+  </section>
+
+  <section class="why-dj-sax fade-in-section left-offset">
+    <div class="dj-image-wrapper">
+      <img src="{{ '/assets/img/wedding_packages/3.webp' | relative_url }}" alt="Combo Deal Sax + DJ" class="dj-image">
+    </div>
+    <div class="dj-overlay">
+      <h2>Combo Deal (Sax + DJ)</h2>
+      <p><strong>Set:</strong> 5pm – Midnight<br>
+         <strong>Total Duration:</strong> 7 hours<br>
+         <strong>Price:</strong> From £1200</p>
+      <p>Smooth sax for cocktails, background music over dinner, a first-dance performance, and a full DJ set to keep the party going. This is our most popular package for a reason.</p>
+    </div>
+  </section>
+
+  <section class="why-dj-sax fade-in-section right-offset">
+    <div class="dj-image-wrapper">
+      <img src="{{ '/assets/img/wedding_packages/4.webp' | relative_url }}" alt="All-Day Package" class="dj-image">
+    </div>
+    <div class="dj-overlay">
+      <h2>The All-Day Package</h2>
+      <p><strong>Set:</strong> 12pm – Midnight<br>
+         <strong>Total Duration:</strong> 12 hours<br>
+         <strong>Price:</strong> From £1600</p>
+      <p>Everything in the Combo Deal, plus ceremony music, travel between locations, and a custom request — like learning a special song just for your moment.</p>
+    </div>
+  </section>
+
+  <div style="text-align: center; margin-top: 3rem;">
+    <a href="/packages/terms/" style="font-size: 0.8rem; opacity: 0.6;">See terms and conditions</a><br>
+    <a href="mailto:events@solostudios.uk" style="font-size: 0.8rem; opacity: 0.6;">Get in touch to tailor your package</a>
+  </div>
 </div>
 
----
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const faders = document.querySelectorAll('.fade-in-section');
 
-For details on travel fees, cancellations, and other terms, please visit our [Terms & Conditions](/packages/terms/) page.
+    const appearOptions = {
+      threshold: 0.1,
+      rootMargin: "0px 0px -100px 0px"
+    };
 
-For any bespoke packages, travel arrangements, or special requests, feel free to [get in touch](mailto:events@solostudios.uk). We're happy to tailor things to make your event perfect.
+    const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        appearOnScroll.unobserve(entry.target);
+      });
+    }, appearOptions);
+
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
+  });
+</script>

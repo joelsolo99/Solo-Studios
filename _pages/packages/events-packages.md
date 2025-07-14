@@ -18,7 +18,7 @@ Make your event unforgettable with live saxophone and DJ entertainment. Whether 
         <h3>Background Sax</h3>
         <p><strong>Set:</strong> 2 x 45 mins</p>
         <p><strong>Total Duration:</strong> 2 hours</p>
-        <p><strong>Price:</strong> From £400</p>
+        <p><strong>Price:</strong> From £500</p>
         <p class="set-description">Perfect for networking events, drinks receptions, or black-tie dinners. Smooth, elegant saxophone playing to set the right atmosphere.</p>
     </div>
 
@@ -27,7 +27,7 @@ Make your event unforgettable with live saxophone and DJ entertainment. Whether 
         <h3>Sax & DJ Energiser</h3>
         <p><strong>Set:</strong> 2 x 45 mins (sax) + DJ throughout</p>
         <p><strong>Total Duration:</strong> 2 hours</p>
-        <p><strong>Price:</strong> From £800</p>
+        <p><strong>Price:</strong> From £1000</p>
         <p class="set-description">Designed to get the energy up! Great for product launches, networking after-parties, and team celebrations. Includes a stage lighting rig for a professional setup.</p>
     </div>
 
@@ -36,7 +36,7 @@ Make your event unforgettable with live saxophone and DJ entertainment. Whether 
         <h3>Evening Entertainment</h3>
         <p><strong>Set:</strong> 4 hours (latest finish 10pm)</p>
         <p><strong>Total Duration:</strong> 4 hours</p>
-        <p><strong>Price:</strong> From £1000</p>
+        <p><strong>Price:</strong> From £1200</p>
         <p class="set-description">A longer set for awards ceremonies, gala nights, and end-of-year parties. Live saxophone with a DJ to keep the vibe going all evening.</p>
     </div>
     
