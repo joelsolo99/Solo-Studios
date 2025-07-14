@@ -25,10 +25,9 @@
 
   .hero-video {
     min-height: 120%;
-    /* Shift video up a bit more */
     object-position: center -20%;
+    top: -5px; /* or try -8px if needed */
   }
-}
 
 
   .hero-content h1 {
