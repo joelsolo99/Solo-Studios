@@ -24,11 +24,12 @@
 /* Mobile adjustments */
 @media (max-width: 767px) {
   .hero-section {
-    height: 50vh; /* slightly shorter on mobile */
+    height: 50vh;
   }
   
   .hero-video {
-    object-position: center -10%; /* crop a bit higher on mobile */
+    min-height: 120%; /* Increase to cover container */
+    object-position: center -15%; /* Adjust crop higher */
   }
 
   .hero-content h1 {
