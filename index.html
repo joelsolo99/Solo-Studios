@@ -1,60 +1,132 @@
 ---
 layout: home
-title: Solo Studios
+title: Live Saxophone & DJ for Hire in Plynouth and the South West
+permalink: /
 ---
 
-<link rel="stylesheet" href="{{ "/assets/css/homepage.css" | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/home.css' | relative_url }}">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <div class="hero-section">
-    <img src="{{ "/assets/img/homepage.jpg" | relative_url }}" alt="Solo Studios" class="hero-image">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-        <h1>Solo Studios</h1>
-        <p>Your go-to Saxophone & DJ duo to energise your wedding, party, or event.</p>
-    </div>
+  <video autoplay muted loop playsinline class="hero-video">
+    <source src="{{ '/assets/video/hello_loop.mp4' | relative_url }}" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1>Solo Studios</h1>
+    <p>Your go-to Saxophone & DJ duo to energise your wedding, party, or event.</p>
+  </div>
 </div>
 
-<div class="wrapper">
-    <div class="services-section">
-        <h2>Our Services</h2>
-        <div class="services">
-            <div class="service">
-                <h3>Saxophone Performances</h3>
-                <p>Bringing the <span class="highlight">songs you want to hear</span> to create the <span class="highlight">perfect vibe</span> for your event.</p>
-            </div>
-            <div class="service">
-                <h3>DJ Sets</h3>
-                <p>Tailored, <span class="highlight">professional DJ sets</span> that keep the <span class="highlight">energy flowing</span> from start to finish.</p>
-            </div>
-            <div class="service">
-                <h3>Sax + DJ Combo</h3>
-                <p>The <span class="highlight">ultimate crowd-pleaser</span>: live sax paired with expertly mixed DJ tracks for an <span class="highlight">unforgettable experience</span>.</p>
-            </div>
-        </div>
-    </div>
 
-    <div class="services-section">
-        <h2>Events</h2>
-        <div class="services">
-            <div class="service">
-                <h3>Weddings</h3>
-                <p>Set the <span class="highlight">perfect mood</span> for your special day with a tailored performance that makes your wedding <span class="highlight">truly unforgettable</span>.</p>
-            </div>
-            <div class="service">
-                <h3>Parties</h3>
-                <p>Turn up the <span class="highlight">energy</span> and keep your guests <span class="highlight">dancing all night</span> with high-energy sax and DJ sets.</p>
-            </div>
-            <div class="service">
-                <h3>Events</h3>
-                <p>From corporate functions to private celebrations, we provide the <span class="highlight">perfect soundtrack</span> to make your event <span class="highlight">stand out</span>.</p>
-            </div>
-        </div>
+
+<div class="services-cards-wrapper">
+  <h2 class="services-section-title">Our Services</h2>
+  <div class="services-cards-section">
+
+
+<div class="services-cards-section">
+  <div class="service-card">
+    <div class="image-container">
+      <img src="{{ '/assets/img/homepage/1.webp' | relative_url }}" alt="Weddings" class="service-image">
+      <a href="/packages/wedding-packages/" class="service-label">Weddings</a>
     </div>
+  </div>
+
+  <div class="service-card">
+    <div class="image-container">
+      <img src="{{ '/assets/img/homepage/2.webp' | relative_url }}" alt="Parties" class="service-image">
+      <a href="/packages/party-packages/" class="service-label">Parties</a>
+    </div>
+  </div>
+
+  <div class="service-card">
+    <div class="image-container">
+      <img src="{{ '/assets/img/homepage/3.webp' | relative_url }}" alt="Events" class="service-image">
+      <a href="/packages/events-packages/" class="service-label">Events</a>
+    </div>
+  </div>
 </div>
 
-<div class="service" id="contact">
-    <h2>Let's Chat</h2>
-    <p>Have questions or want to discuss your event? Reach out for a custom quote!</p>
-    <a href="mailto:info@solostudios.uk" class="cta-button">Contact Now</a>
+
+  </div>
 </div>
+
+<section class="video-gallery-preview">
+  <h2 class="section-title">See us in Action!</h2>
+  <div class="video-cards-container">
+
+<a href="/gallery/videos/#video-henparty?autoplay=true" class="video-card" aria-label="Watch Hen Party Video">
+  <img src="{{ '/assets/img/video_thumbs/1.webp' | relative_url }}" alt="Hen Party Highlight" class="video-thumb">
+  <div class="video-overlay">
+    <span>Watch Video</span>
+  </div>
+</a>
+
+<a href="/gallery/videos/#video-roswarne?autoplay=true" class="video-card" aria-label="Watch Roswarne Wedding Video">
+  <img src="{{ '/assets/img/video_thumbs/2.webp' | relative_url }}" alt="Roswarne Wedding Highlight" class="video-thumb">
+  <div class="video-overlay">
+    <span>Watch Video</span>
+  </div>
+</a>
+
+<a href="/gallery/videos/#video-boconnion?autoplay=true" class="video-card" aria-label="Watch Boconnion Wedding Video">
+  <img src="{{ '/assets/img/video_thumbs/3.webp' | relative_url }}" alt="Boconnion Wedding Highlight" class="video-thumb">
+  <div class="video-overlay">
+    <span>Watch Video</span>
+  </div>
+</a>
+
+
+  </div>
+  <div class="video-gallery-cta">
+    <a href="/gallery/videos/" class="cta-button">See All Videos</a>
+  </div>
+</section>
+
+
+<section class="scrolling-gallery venues-gallery">
+  <h2 class="section-title">Venues We've Played</h2>
+  <div class="gallery-scroll-container">
+
+    <div class="venue-card">
+      <img src="{{ '/assets/img/venues/Roswarne-House.webp' | relative_url }}" alt="Roswarne House, Cornwall">
+      <div class="venue-caption">Roswarne House, Cornwall</div>
+    </div>
+
+    <div class="venue-card">
+      <img src="{{ '/assets/img/venues/Palhawn-Fort.webp' | relative_url }}" alt="Palhawn Fort, Cornwall">
+      <div class="venue-caption">Palhawn Fort, Cornwall</div>
+    </div>
+
+    <div class="venue-card">
+      <img src="{{ '/assets/img/venues/Boconnion.webp' | relative_url }}" alt="Boconnion, Bodmin">
+      <div class="venue-caption">Boconnion, Bodmin</div>
+    </div>
+
+    <div class="venue-card">
+      <img src="{{ '/assets/img/venues/Highvibe-Yoga.webp' | relative_url }}" alt="Highvibe Yoga Studio, Bristol">
+      <div class="venue-caption">Highvibe Yoga Studio, Bristol</div>
+    </div>
+
+    <div class="venue-card">
+      <img src="{{ '/assets/img/venues/Boconnoc-House.webp' | relative_url }}" alt="Boconnoc House, Cornwall">
+      <div class="venue-caption">Boconnoc House, Cornwall</div>
+    </div>
+
+    <div class="venue-card">
+      <img src="{{ '/assets/img/venues/Praze-an-Beeble.webp' | relative_url }}" alt="Praze-an-Beeble, Cornwall">
+      <div class="venue-caption">Praze-an-Beeble, Cornwall</div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<section class="contact-section">
+  <h2 class="section-title">Get in Touch</h2>
+  <p>Have questions or want a custom quote? We’re here to help make your event unforgettable.</p>
+  <a href="mailto:events@solostudios.uk" class="cta-button contact-button">Contact Us</a>
+</section>

@@ -1,89 +1,122 @@
-/* Wrapper styling */
-.wrapper {
-  max-width: 1200px;
-  margin: auto;
-  padding: 30px 15px;
+/* videos.css with Solo Studios teal and branding */
+
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #333333;
+  background: #ffffff;
+  margin: 0;
+  padding: 2rem;
 }
 
-h1 {
-  text-align: center;
-  font-size: 2.4em;
-  margin-bottom: 30px;
-  color: #008080;
+h2, h3 {
+  font-weight: 600;
+  color: #008080; /* Teal */
+  margin-bottom: 0.5rem;
 }
 
-/* Masonry grid for videos */
-.video-grid {
-  display: flex;
-  flex-wrap: wrap;
-  margin: -10px;
-  justify-content: center;
+h3.song-title {
+  margin-top: 0;
+  font-size: 1.2rem;
 }
 
-/* Each video card */
-.video-grid .service {
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-  margin: 10px;
-  padding: 15px;
-  box-sizing: border-box;
-  width: calc(48% - 20px); /* about 50% width for two cards per row */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  transition: transform 0.3s ease;
-  cursor: default;
-}
-
-/* Hover effect */
-.video-grid .service:hover {
-  transform: translateY(-4px);
-}
-
-/* Song title styling */
-.song-title {
-  color: #008080;
-  font-size: 1.2em;
-  font-weight: 700;
-  margin: 5px 0 8px;
-  text-align: center;
-}
-
-/* Artist name styling */
-.artist-name {
+p.artist-name {
+  margin-top: 0;
   font-style: italic;
-  color: #555;
-  margin-bottom: 15px;
-  text-align: center;
+  color: #4a4a4a;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
 }
 
-/* Video wrapper with consistent 16:9 aspect ratio */
+a {
+  color: #008080;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Container for each video card */
+.service {
+  background: #e0f2f1; /* Light teal background */
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 128, 128, 0.2);
+  margin-bottom: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 128, 128, 0.3);
+}
+
+/* Responsive video wrapper for 16:9 ratio */
 .video-wrapper {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  border-radius: 6px;
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
   overflow: hidden;
-  box-shadow: 0 0 12px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  box-shadow: inset 0 0 10px rgba(0, 128, 128, 0.1);
 }
 
-/* Responsive iframe */
 .video-wrapper iframe {
+  position: absolute;
+  top: 0; left: 0;
   width: 100%;
   height: 100%;
   border: none;
-  display: block;
+  border-radius: 8px;
 }
 
-/* Responsive adjustments */
-@media (max-width: 992px) {
-  .video-grid .service {
-    width: calc(70% - 20px);
+/* Masonry container styling */
+.video-grid {
+  margin-top: 1rem;
+}
+
+/* Smooth layout adjustment */
+@media (min-width: 768px) {
+  .video-grid {
+    column-count: 3;
+    column-gap: 1.5rem;
   }
-}
-
-@media (max-width: 600px) {
-  .video-grid .service {
+  
+  .service {
+    display: inline-block;
     width: 100%;
+    margin-bottom: 1.5rem;
   }
+}
+
+/* Smaller screens: single column */
+@media (max-width: 767px) {
+  .video-grid {
+    column-count: 1;
+  }
+}
+
+/* Section jump links styling */
+h2#party-vibes,
+h2#solo-sax {
+  margin-top: 3rem;
+  border-bottom: 2px solid #008080; /* teal border */
+  padding-bottom: 0.5rem;
+}
+
+/* Add a bit more spacing below jump links */
+h2#party-vibes + .video-grid,
+h2#solo-sax + .video-grid {
+  margin-bottom: 4rem;
+}
+
+/* Styling the "Jump to:" links */
+ul {
+  padding-left: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+ul li {
+  margin-bottom: 0.4rem;
 }
