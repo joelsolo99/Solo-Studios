@@ -254,23 +254,24 @@ body::after {
   }
   
   /* Table cells block with labels on left */
-  .tracklist-table td {
-    display: block;
-    width: 100%;
-    text-align: right;
-    padding: 0.5rem 0.75rem;
-    position: relative;
-    color: #004d4d !important;
-  }
-  
-  .tracklist-table td::before {
-    content: attr(data-label);
-    font-weight: bold;
-    position: absolute;
-    left: 0;
-    top: 0;
-    padding: 0.5rem 0.75rem;
-    color: #008080;
-    text-align: left;
-  }
+.tracklist-table td {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 1rem 0.75rem 0.5rem 0.75rem;
+  position: relative;
+  padding-top: 2.5rem;
+  color: #004d4d !important;
+  box-sizing: border-box;
 }
+
+.tracklist-table td::before {
+  content: attr(data-label);
+  display: block;
+  font-weight: bold;
+  margin-bottom: 1.5rem; !important;
+  color: #008080;
+  font-size: 0.95rem;
+}
+
+
