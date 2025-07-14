@@ -10,14 +10,14 @@ permalink: /packages/wedding-packages/
 <div class="wrapper">
   <h1>Wedding Packages</h1>
 
-  <p>If you're planning a wedding in the South West, Solo Studios offers live saxophone music and DJ services that feel personal, professional, and completely tailored to your day. Whether it's a relaxed ceremony in Devon, a lively evening party in Cornwall, or a full wedding celebration in Plymouth, our sax and DJ packages are designed to create the perfect vibe — and memories that last.</p>
+  <p>If you're planning a wedding in the South West, Solo Studios offers live saxophone music and DJ services that feel personal, professional, and completely tailored to your day. Whether it's a relaxed ceremony in Devon, a lively evening party in Cornwall, or a full wedding celebration in Plymouth, our sax and DJ packages are designed to create the perfect vibe, and memories that last.</p>
 
   <section class="why-dj-sax fade-in-section left-offset">
     <div class="dj-image-wrapper">
       <img src="{{ '/assets/img/wedding_packages/1.webp' | relative_url }}" alt="Sax + Backings Only – 2x45min" class="dj-image">
     </div>
     <div class="dj-overlay">
-      <h2>Sax + Backings Only (Short Set)</h2>
+      <h2>Sax + Backings Only</h2>
       <p><strong>Set:</strong> 2 × 45 mins<br>
          <strong>Total Duration:</strong> 2 hours<br>
          <strong>Price:</strong> From £500</p>
@@ -60,7 +60,7 @@ permalink: /packages/wedding-packages/
       <p><strong>Set:</strong> 12pm – Midnight<br>
          <strong>Total Duration:</strong> 12 hours<br>
          <strong>Price:</strong> From £1600</p>
-      <p>Everything in the Combo Deal, plus ceremony music, travel between locations, and a custom request — like learning a special song just for your moment.</p>
+      <p>Everything in the Combo Deal, plus ceremony music, travel between locations, and a custom request, like learning a special song just for your moment.</p>
     </div>
   </section>
 
