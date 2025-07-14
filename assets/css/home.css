@@ -56,27 +56,27 @@
 
 @media (max-width: 768px) {
   .hero-section {
-    width: 100vw;
-    height: 50vh;
+    height: 50vh; /* Slightly shorter height */
+    width: 110vw; /* Slightly wider */
+    overflow: hidden;
   }
 
   .hero-video {
-    width: 100vw;
-    height: 100%;
-    object-fit: cover;
-    object-position: center center;
-    min-height: unset;
+    object-position: center -15vh; /* Shift video up more to crop bottom */
+    width: 110vw; /* Make video wider */
+    min-height: 140vh; /* Adjust height to maintain crop */
   }
 
-  .hero-overlay {
-    width: 100vw;
+  .hero-content h1 {
+    font-size: 2.5rem; /* Smaller heading font size */
+    line-height: 1.2;
   }
 
-  .hero-content {
-    padding: 1rem;
-    text-align: center;
+  .hero-content p {
+    font-size: 1rem; /* Smaller paragraph */
   }
 }
+
 
 
 .services-cards-wrapper {
