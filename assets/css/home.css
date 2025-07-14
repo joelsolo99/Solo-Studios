@@ -19,14 +19,17 @@
 
 /* Mobile adjustments */
 @media (max-width: 767px) {
-  .hero-section {
+.hero-section {
     height: 50vh;
   }
-  
+
   .hero-video {
-    min-height: 120%; /* Increase to cover container */
-    object-position: center -15%; /* Adjust crop higher */
+    min-height: 120%;
+    /* Shift video up a bit more */
+    object-position: center -20%;
   }
+}
+
 
   .hero-content h1 {
     font-size: 1.8rem; /* smaller heading on mobile */
