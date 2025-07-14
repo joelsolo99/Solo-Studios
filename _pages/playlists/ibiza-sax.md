@@ -1,7 +1,18 @@
 ---
-layout: page
+layout: default
 title: "Ibiza Tracklist"
 ---
+
+
+<link rel="stylesheet" href="{{ '/assets/css/ibiza-tracklist.css' | relative_url }}">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+
+<div class="tracklist-icons">
+  <img src="{{ '/assets/img/vinyl.png' | relative_url }}" alt="Spinning Vinyl" class="vinyl-icon" />
+  <img src="{{ '/assets/img/palm_tree.svg' | relative_url }}" alt="Palm Tree" class="palm-icon" />
+</div>
+
 <div class="tracklist-container">
   <div class="tracklist-section">
     <table class="tracklist-table" id="tracklist-table">
@@ -17,6 +28,7 @@ title: "Ibiza Tracklist"
     </table>
   </div>
 </div>
+
 
 <script>
 // Function to fetch CSV data
