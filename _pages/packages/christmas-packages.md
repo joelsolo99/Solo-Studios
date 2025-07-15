@@ -27,7 +27,7 @@ Celebrate the festive season in style with our Christmas party packages. Whether
         <h3>All I want for Christmas is Sax</h3>
         <p><strong>Set:</strong> 2 x 45 mins</p>
         <p><strong>Total Duration:</strong> 2 hours</p>
-        <p><strong>Price:</strong> From £400</p>
+        <p><strong>Price:</strong> From £500</p>
         <p class="set-description">A mix of festive classics and party favourites, performed live on sax with backing tracks. Great for drinks receptions or dinner entertainment.</p>
     </div>
 
@@ -45,7 +45,7 @@ Celebrate the festive season in style with our Christmas party packages. Whether
         <h3>Sleigh My Name</h3>
         <p><strong>Set:</strong> 4 hours (sax + DJ)</p>
         <p><strong>Total Duration:</strong> 4 hours</p>
-        <p><strong>Price:</strong> From £1100</p>
+        <p><strong>Price:</strong> From £1200</p>
         <p class="set-description">A full evening of entertainment with live sax and DJ, featuring a mix of Christmas favourites and party anthems to keep the energy up all night.</p>
     </div>
 </div>
