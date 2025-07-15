@@ -116,29 +116,23 @@ body {
   }
 
 .tracklist-table td {
-  display: block;
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  text-align: right;
+  text-align: left; /* better for multiline */
   padding: 0.5rem 0.75rem;
-  position: relative;
   color: #f0f0e8;
-
-  /* Add this */
-  white-space: normal; /* Allow wrapping of long song names */
 }
 
 .tracklist-table td::before {
   content: attr(data-label);
   font-weight: bold;
-  position: absolute;
-  left: 0;
-  top: 0;
-  padding: 0.5rem 0.75rem;
   color: #ffcc70;
+  margin-bottom: 0.3rem;
   text-align: left;
-
-  /* Make the label on its own line */
-  width: 100%;
+  position: static; /* remove absolute */
+  padding: 0;
+  width: auto;
 }
 
 
