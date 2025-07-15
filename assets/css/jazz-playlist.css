@@ -115,26 +115,32 @@ body {
     padding: 0.75rem;
   }
 
-  .tracklist-table td {
-    display: block;
-    width: 100%;
-    text-align: right;
-    padding: 0.5rem 0.75rem;
-    position: relative;
-    color: #f0f0e8;
-  }
+.tracklist-table td {
+  display: block;
+  width: 100%;
+  text-align: right;
+  padding: 0.5rem 0.75rem;
+  position: relative;
+  color: #f0f0e8;
 
-  .tracklist-table td::before {
-    content: attr(data-label);
-    font-weight: bold;
-    position: absolute;
-    left: 0;
-    top: 0;
-    padding: 0.5rem 0.75rem;
-    color: #ffcc70;
-    text-align: left;
-  }
+  /* Add this */
+  white-space: normal; /* Allow wrapping of long song names */
 }
+
+.tracklist-table td::before {
+  content: attr(data-label);
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 0.5rem 0.75rem;
+  color: #ffcc70;
+  text-align: left;
+
+  /* Make the label on its own line */
+  width: 100%;
+}
+
 
 /* Neon Jazz Title Style */
 .neon-title {
