@@ -8,21 +8,25 @@ title: "Ibiza Tracklist"
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 
 
+
 <div class="tracklist-icons">
   <img src="{{ '/assets/img/vinyl.png' | relative_url }}" alt="Spinning Vinyl" class="vinyl-icon" />
   <img src="{{ '/assets/img/palm_tree.svg' | relative_url }}" alt="Palm Tree" class="palm-icon" />
 </div>
 
+
+
 <div class="tracklist-container">
   <div class="tracklist-section">
-    <table class="tracklist-table" id="tracklist-table">
-      <thead>
-        <tr>
-          <th>Artist</th>
-          <th>Song</th>
-        </tr>
-      </thead>
-      <tbody>
+    <h1 class="neon-title-ibiza">Ibiza Tracklist</h1>
+      <table class="tracklist-table" id="tracklist-table">
+        <thead>
+          <tr>
+            <th>Artist</th>
+            <th>Song</th>
+          </tr>
+        </thead>
+        <tbody>
         <!-- Tracklist data will be inserted here by JavaScript -->
       </tbody>
     </table>

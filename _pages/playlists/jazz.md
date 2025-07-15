@@ -1,7 +1,15 @@
 ---
-layout: page
+layout: default
 title: "Jazz Tracklist"
 ---
+
+<link rel="stylesheet" href="{{ '/assets/css/jazz-playlist.css' | relative_url }}">
+<link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
+
+
+<h1 class="neon-title">Jazz Setlist</h1>
+
+
 <div class="tracklist-container">
   <div class="tracklist-section">
     <table class="tracklist-table" id="tracklist-table">
@@ -16,6 +24,7 @@ title: "Jazz Tracklist"
     </table>
   </div>
 </div>
+
 
 <script>
 // Function to fetch CSV data

@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+
 body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   background: linear-gradient(to bottom, #e0f7f7, #fff);
@@ -274,4 +277,43 @@ body::after {
   font-size: 0.95rem;
 }
 
+.tracklist-section h1.neon-title-ibiza {
+  font-family: 'Pacifico', cursive !important;
+  font-size: 3rem !important;
+  color: #ff66cc !important;
+  text-shadow:
+    0 0 5px #ff66cc,
+    0 0 10px #ff66cc,
+    0 0 20px #ff66cc,
+    0 0 40px #ff33cc,
+    0 0 80px #ff33cc !important;
+  animation: neonFlicker 3s infinite alternate;
+}
 
+@media (max-width: 600px) {
+  .tracklist-section h1.neon-title-ibiza {
+    color: #ff66cc !important;
+    text-shadow:
+      0 0 5px #ff66cc,
+      0 0 10px #ff66cc,
+      0 0 20px #ff66cc,
+      0 0 40px #ff33cc,
+      0 0 80px #ff33cc !important;
+  }
+}
+
+@keyframes neonFlicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    text-shadow:
+      0 0 5px #ff66cc,
+      0 0 10px #ff66cc,
+      0 0 20px #ff66cc,
+      0 0 40px #ff33cc,
+      0 0 80px #ff33cc;
+    opacity: 1;
+  }
+  20%, 22%, 24%, 55% {
+    text-shadow: none;
+    opacity: 0.8;
+  }
+}
