@@ -307,3 +307,54 @@ body {
     color: #005c5c;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
+  
+  @media (max-width: 600px) {
+  #contact-us {
+    padding: 2rem 1rem;
+  }
+
+  #contact-us .container {
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+
+  form#contact-form {
+    padding: 1.5rem 1rem;
+    gap: 1.8rem;
+    border-radius: 16px;
+    box-shadow: none; /* lighter on mobile */
+  }
+
+  input,
+  textarea,
+  .custom-select-wrapper {
+    font-size: 1.2rem;
+    padding: 1rem 1.25rem;
+    width: 100%;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 0.07);
+    border-radius: 14px;
+  }
+
+  textarea {
+    min-height: 140px;
+  }
+
+  button[type="submit"] {
+    width: 100%;
+    padding: 1.2rem 0;
+    font-size: 1.25rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgb(0 128 128 / 0.3);
+  }
+
+  button[type="submit"]:hover {
+    box-shadow: 0 6px 16px rgb(0 128 128 / 0.45);
+  }
+
+  .thank-you-message {
+    font-size: 1.4rem;
+    padding: 2rem 1rem;
+    border-radius: 16px;
+    margin-top: 2rem;
+  }
+}
