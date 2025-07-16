@@ -516,3 +516,167 @@
       padding: 0.6rem 1.5rem;
     }
   }
+
+ /* Contact Section Base */
+#contact-us {
+  background: #f0f8f8;
+  padding: 4rem 1.5rem;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #003333;
+}
+
+#contact-us .container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Section Title & Subtitle */
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: teal;
+  text-align: center;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #005050;
+}
+
+/* Form Styling */
+form#contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  background: white;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgb(0 0 0 / 0.1);
+  font-size: 1rem;
+  color: #004040;
+}
+
+input,
+textarea {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
+  background: white;
+  color: #004040;
+  transition: border-color 0.3s ease;
+}
+
+input:focus,
+textarea:focus {
+  border-color: teal;
+  outline: none;
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+  font-family: inherit;
+}
+
+/* Custom dropdown styling */
+.custom-select-wrapper {
+  position: relative;
+  background: white;
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  color: #004040;
+  cursor: pointer;
+  user-select: none;
+  transition: border-color 0.3s ease;
+}
+
+.custom-select-wrapper:focus {
+  border-color: teal;
+  outline: none;
+}
+
+.custom-select-selected {
+  user-select: none;
+}
+
+.custom-select-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  max-height: 180px;
+  overflow-y: auto;
+  background: white;
+  border: 1.5px solid #ccc;
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 8px 20px rgb(0 0 0 / 0.1);
+  z-index: 10;
+  display: none;
+}
+
+.custom-select-list li {
+  padding: 0.7rem 1rem;
+  cursor: pointer;
+  color: #004040;
+  transition: background-color 0.3s ease;
+}
+
+.custom-select-list li:hover,
+.custom-select-list li[aria-selected="true"] {
+  background-color: teal;
+  color: white;
+}
+
+/* Submit Button */
+button[type="submit"] {
+  background: teal;
+  color: white;
+  font-weight: 700;
+  padding: 1rem 0;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  letter-spacing: 0.03em;
+}
+
+button[type="submit"]:hover {
+  background: #004d4d;
+}
+
+/* Thank you message */
+.thank-you-message {
+  background: #e0f2f2;
+  border-left: 6px solid teal;
+  border-radius: 12px;
+  color: #004040;
+  padding: 2rem;
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  #contact-us {
+    padding: 3rem 1rem;
+  }
+
+  form#contact-form {
+    padding: 1.5rem 1rem;
+  }
+
+  button[type="submit"] {
+    padding: 1rem;
+    font-size: 1.1rem;
+  }
+}

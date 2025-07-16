@@ -5,6 +5,7 @@ permalink: /
 ---
 
 <link rel="stylesheet" href="{{ '/assets/css/home.css' | relative_url }}">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <div class="hero-section">
@@ -21,7 +22,7 @@ permalink: /
 
 
 
-<div class="services-cards-wrapper">
+<div class="services-cards-wrkapper">
   <h2 class="services-section-title">Our Services</h2>
   <div class="services-cards-section">
 
@@ -154,8 +155,151 @@ permalink: /
 </section>
 
 
-<section class="contact-section">
-  <h2 class="section-title">Get in Touch</h2>
-  <p>Have questions or want a custom quote? We’re here to help make your event unforgettable.</p>
-  <a href="mailto:events@solostudios.uk" class="cta-button contact-button">Contact Us</a>
+<section id="contact-us" class="contact-section">
+  <div class="container">
+    <h2 class="section-title">Contact Us</h2>
+    <p class="section-subtitle">Got an event or enquiry? Get in touch!</p>
+
+    <form id="contact-form" novalidate>
+      <input type="text" name="from_name" placeholder="Your Name" required />
+
+      <!-- Hidden native select for submission -->
+      <select name="event_type" id="event_type" required style="display:none">
+        <option value="" disabled selected>Type of Event</option>
+        <option value="Wedding">Wedding</option>
+        <option value="Birthday">Birthday</option>
+        <option value="Corporate Event">Corporate Event</option>
+        <option value="Charity Event">Charity Event</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <!-- Custom dropdown UI -->
+      <div
+        class="custom-select-wrapper"
+        tabindex="0"
+        aria-haspopup="listbox"
+        aria-expanded="false"
+        role="combobox"
+        aria-owns="custom-select-list"
+        aria-label="Type of Event"
+      >
+        <div id="custom-select-selected" class="custom-select-selected">Type of Event</div>
+        <ul
+          id="custom-select-list"
+          class="custom-select-list"
+          role="listbox"
+          tabindex="-1"
+          aria-activedescendant=""
+        >
+          <li role="option" data-value="Wedding" tabindex="0">Wedding</li>
+          <li role="option" data-value="Birthday" tabindex="0">Birthday</li>
+          <li role="option" data-value="Corporate Event" tabindex="0">Corporate Event</li>
+          <li role="option" data-value="Charity Event" tabindex="0">Charity Event</li>
+          <li role="option" data-value="Other" tabindex="0">Other</li>
+        </ul>
+      </div>
+
+      <input
+        type="text"
+        name="event_date"
+        placeholder="Date of Event (dd/mm/yyyy)"
+        required
+        pattern="\d{1,2}/\d{1,2}/\d{4}"
+        title="Enter date as dd/mm/yyyy"
+      />
+
+      <input
+        type="email"
+        name="from_email"
+        placeholder="Your Email Address"
+        required
+      />
+
+      <textarea
+        name="message"
+        placeholder="Tell us about your event..."
+        required
+      ></textarea>
+
+      <!-- Honeypot Field (hidden from humans) -->
+      <input
+        type="text"
+        name="website"
+        style="display:none"
+        tabindex="-1"
+        autocomplete="off"
+      />
+
+      <button type="submit">Send Enquiry</button>
+    </form>
+
+    <div id="thank-you" style="display:none" class="thank-you-message">
+      <h3>Thank you!</h3>
+      <p>Your enquiry has been sent. I\u2019ll be in touch soon.</p>
+    </div>
+  </div>
 </section>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  emailjs.init("brJTI5NcxOOq3ZeV3");
+
+  const wrapper = document.querySelector(".custom-select-wrapper");
+  const selected = document.getElementById("custom-select-selected");
+  const list = document.getElementById("custom-select-list");
+  const nativeSelect = document.getElementById("event_type");
+  const options = list.querySelectorAll("li");
+
+  wrapper.addEventListener("click", () => {
+    const expanded = wrapper.getAttribute("aria-expanded") === "true";
+    wrapper.setAttribute("aria-expanded", !expanded);
+    list.style.display = expanded ? "none" : "block";
+  });
+
+  options.forEach((option) => {
+    option.addEventListener("click", () => {
+      selected.textContent = option.textContent;
+      nativeSelect.value = option.dataset.value;
+      options.forEach((opt) => opt.setAttribute("aria-selected", "false"));
+      option.setAttribute("aria-selected", "true");
+      wrapper.setAttribute("aria-expanded", "false");
+      list.style.display = "none";
+    });
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!wrapper.contains(e.target)) {
+      wrapper.setAttribute("aria-expanded", "false");
+      list.style.display = "none";
+    }
+  });
+
+  document.getElementById("contact-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    if (this.website.value) {
+      console.log("Honeypot triggered - not sending");
+      return;
+    }
+
+    if (!nativeSelect.value) {
+      alert("Please select the type of event.");
+      return;
+    }
+
+    this.subject = `${nativeSelect.value} ${this.event_date.value}`;
+
+    emailjs
+      .sendForm('service_pdrbr2j', 'template_iw7f4ro', this)
+      .then(() => {
+        this.style.display = "none";
+        document.querySelector("#contact-us .thank-you-message").style.display = "block";
+      })
+      .catch((error) => {
+        console.error("EmailJS error:", error);
+        alert("Error sending message. Please try again later.");
+      });
+  });
+</script>
+
+
