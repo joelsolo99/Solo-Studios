@@ -620,7 +620,13 @@ textarea {
   box-shadow: 0 8px 20px rgb(0 0 0 / 0.1);
   z-index: 10;
   display: none;
+
+  /* Remove bullets */
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
 }
+
 
 .custom-select-list li {
   padding: 0.7rem 1rem;
