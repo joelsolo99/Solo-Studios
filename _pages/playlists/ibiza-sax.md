@@ -22,8 +22,8 @@ title: "Ibiza Tracklist"
       <table class="tracklist-table" id="tracklist-table">
         <thead>
           <tr>
-            <th>Artist</th>
             <th>Song</th>
+            <th>Artist</th>
           </tr>
         </thead>
         <tbody>
@@ -44,22 +44,20 @@ function loadTracklist() {
       const tableBody = document.querySelector('#tracklist-table tbody');
       rows.forEach(row => {
         const cols = row.split(',');
-        if (cols.length > 1) {  // To avoid empty rows
+        if (cols.length > 1) {
           const tr = document.createElement('tr');
-          const songTd = document.createElement('td');
+
           const artistTd = document.createElement('td');
-
-          // Set text content for song and artist cells
-          songTd.textContent = cols[0].trim();
-          artistTd.textContent = cols[1].trim();
-
-          // Add data-label attributes for responsive design
-          songTd.setAttribute('data-label', 'Song');
+          artistTd.textContent = cols[0].trim();
           artistTd.setAttribute('data-label', 'Artist');
 
-          // Append cells to the row
+          const songTd = document.createElement('td');
+          songTd.textContent = cols[1].trim();
+          songTd.setAttribute('data-label', 'Song');
+
           tr.appendChild(songTd);
           tr.appendChild(artistTd);
+
           tableBody.appendChild(tr);
         }
       });
@@ -67,6 +65,8 @@ function loadTracklist() {
     .catch(error => console.error('Error loading tracklist:', error));
 }
 
-// Call the function on page load
 document.addEventListener('DOMContentLoaded', loadTracklist);
 </script>
+
+
+
