@@ -22,7 +22,7 @@ layout: default
 
   <section class="why-dj-sax fade-in-section right-offset">
     <div class="dj-image-wrapper">
-      <img src="{{ '/assets/img/why-sax-dj/2.png' | relative_url }}" alt="Versatility" class="dj-image">
+      <img src="{{ '/assets/img/why-sax-dj/2.webp' | relative_url }}" alt="Versatility" class="dj-image">
     </div>
     <div class="dj-overlay">
       <h2>Versatility</h2>
@@ -62,7 +62,7 @@ layout: default
 
   <section class="why-dj-sax fade-in-section right-offset">
     <div class="dj-image-wrapper">
-      <img src="{{ '/assets/img/why-sax-dj/6.png' | relative_url }}" alt="Tailored To You" class="dj-image">
+      <img src="{{ '/assets/img/why-sax-dj/6.webp' | relative_url }}" alt="Tailored To You" class="dj-image">
     </div>
     <div class="dj-overlay">
       <h2>Tailored To You</h2>

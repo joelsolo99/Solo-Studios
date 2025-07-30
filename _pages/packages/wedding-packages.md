@@ -40,7 +40,7 @@ permalink: /packages/wedding-packages/
 
   <section class="fade-in-section left-offset">
     <div class="package-section">
-      <img src="{{ '/assets/img/wedding_packages/3.webp' | relative_url }}" alt="Combo Deal Sax + DJ" class="package-image">
+      <img src="{{ '/assets/img/wedding_packages/5.webp' | relative_url }}" alt="Combo Deal Sax + DJ" class="package-image">
       <div class="package-content">
         <h2>Combo Deal (Sax + DJ)</h2>
         <p><strong>Set:</strong> 5pm – Midnight<br>
@@ -53,7 +53,7 @@ permalink: /packages/wedding-packages/
 
   <section class="fade-in-section right-offset">
     <div class="package-section">
-      <img src="{{ '/assets/img/wedding_packages/4.webp' | relative_url }}" alt="All-Day Package" class="package-image">
+      <img src="{{ '/assets/img/wedding_packages/6.webp' | relative_url }}" alt="All-Day Package" class="package-image">
       <div class="package-content">
         <h2>The All-Day Package</h2>
         <p><strong>Set:</strong> 12pm – Midnight<br>
