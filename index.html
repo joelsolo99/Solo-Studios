@@ -160,6 +160,65 @@ permalink: /
 </section>
 
 
+
+<link rel="stylesheet" href="{{ '/assets/css/testimonials.css' | relative_url }}">
+
+<section id="testimonials" class="testimonials-section">
+  <h2 class="section-title">What Our Clients Say</h2>
+  <div class="testimonials-container">
+
+    <div class="testimonial" itemscope itemtype="https://schema.org/Review">
+      <p class="testimonial-text" itemprop="reviewBody">
+        Joel was an absolute legend at our wedding. He worked really well with our DJ, chatting beforehand to plan the songs perfectly. He was super friendly, great on the dance floor, and communication with him was easy and smooth.
+        Massive thanks to Joel for literally saving the night when our venue speakers broke during the evening dancing. Luckily, he had his own professional speakers on hand and quickly set them up, getting the music going again after a brief pause. He then continued through the night. We were both feeling pretty merry by then and really appreciated his quick thinking and organisation. Don’t hesitate to book him if you get the chance, he’s brilliant!
+      </p>
+      <p class="testimonial-author">
+        — <span itemprop="author">Jess R</span>, 
+        <span itemprop="datePublished" content="2025-05-26">26th May 2025</span>
+      </p>
+      <meta itemprop="itemReviewed" content="Solo Studios" />
+      <meta itemprop="reviewRating" content="5" />
+    </div>
+
+    <div class="testimonial" itemscope itemtype="https://schema.org/Review">
+      <p class="testimonial-text" itemprop="reviewBody">
+        Joel was amazing and made my daughter's hen party a memorable experience.
+      </p>
+      <p class="testimonial-author">
+        — <span itemprop="author">Sue C</span>, 
+        <span itemprop="datePublished" content="2025-05-28">28th May 2025</span>
+      </p>
+      <meta itemprop="itemReviewed" content="Solo Studios" />
+      <meta itemprop="reviewRating" content="5" />
+    </div>
+
+    <div class="testimonial" itemscope itemtype="https://schema.org/Review">
+      <p class="testimonial-text" itemprop="reviewBody">
+        Wow, what can I say. Joel (saxophonist) came highly recommended to us, and we were not disappointed. Communication from start to finish was second to none. We asked for an Ibiza party vibe for our wedding to kick start the evening and this is exactly what Joel brought to the table. We had nothing but positive feedback from our guests. I would definitely use him again.
+      </p>
+      <p class="testimonial-author">
+        — <span itemprop="author">Trudi J</span>, 
+        <span itemprop="datePublished" content="2024-09-10">10th September 2024</span>
+      </p>
+      <meta itemprop="itemReviewed" content="Solo Studios" />
+      <meta itemprop="reviewRating" content="5" />
+    </div>
+
+  </div>
+</section>
+
+
+<script>
+document.querySelectorAll('.testimonial').forEach(card => {
+  card.addEventListener('click', () => {
+    card.classList.toggle('expanded');
+  });
+});
+</script>
+
+
+
+
 <section id="contact-us" class="contact-section">
   <div class="container">
     <h2 class="section-title">Contact Us</h2>
