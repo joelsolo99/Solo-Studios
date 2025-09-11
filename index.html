@@ -1,6 +1,6 @@
 ---
 layout: home
-title: Live Saxophone & DJ for Hire in Plynouth and the South West
+title: Live Saxophone & DJ for Hire in Plymouth and the South West
 permalink: /
 ---
 
@@ -126,6 +126,11 @@ permalink: /
       <img src="{{ '/assets/img/venues/Mapperton-House.webp' | relative_url }}" alt="Mapperton House, Dorset">
       <div class="venue-caption">Mapperton House, Dorset</div>
     </div>
+    
+    <div class="venue-card">
+      <img src="{{ '/assets/img/venues/Salcombe-Harbour-Hotel.webp' | relative_url }}" alt="Harbour Hotel, Salcombe">
+      <div class="venue-caption">Harbour Hotel, Salcombe</div>
+    </div>
 
     <div class="venue-card">
       <img src="{{ '/assets/img/venues/Ash-barton.webp' | relative_url }}" alt="Ash Barton House, Devon">
@@ -148,6 +153,42 @@ permalink: /
 </div>
   
 </section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const container = document.querySelector('.gallery-scroll-container');
+
+    // Clone children for seamless scroll
+    const children = Array.from(container.children);
+    children.forEach(child => {
+      const clone = child.cloneNode(true);
+      container.appendChild(clone);
+    });
+
+    let scrollSpeed = 0.5; // px per frame, adjust for speed
+    let isHovered = false;
+
+    // Pause on hover
+    container.parentElement.addEventListener('mouseenter', () => { isHovered = true; });
+    container.parentElement.addEventListener('mouseleave', () => { isHovered = false; });
+
+    function step() {
+      if (!isHovered) {
+        container.scrollLeft += scrollSpeed;
+
+        // Reset scroll when we've scrolled past the original content
+        if (container.scrollLeft >= container.scrollWidth / 2) {
+          container.scrollLeft = 0;
+        }
+      }
+      requestAnimationFrame(step);
+    }
+
+    // Start the animation loop
+    step();
+  });
+</script>
+
 
 <section class="ibiza-promo-simple">
   <div class="container">
