@@ -314,7 +314,6 @@
 
 
 
-/* Venues Scrolling Gallery */
 .venues-gallery {
   padding: 2rem 1rem;
   background-color: #f9f9f9;
@@ -327,28 +326,25 @@
   color: #004D4D;
 }
 
-/* Outer wrapper to enable both auto-scroll and manual scroll */
 .auto-scroll-wrapper {
-  overflow: hidden;
+  overflow-x: auto;  /* enable native horizontal scrolling */
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: #008080 transparent;
   position: relative;
+  cursor: grab;
 }
 
-/* Scroll container (scrollable manually, animated automatically) */
+.auto-scroll-wrapper:active {
+  cursor: grabbing;
+}
+
 .gallery-scroll-container {
   display: flex;
   gap: 1rem;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  animation: scrollGallery 60s linear infinite;
   width: max-content;
-  padding-bottom: 1rem;
 }
 
-.gallery-scroll-container:hover {
-  animation-play-state: paused;
-}
-
-/* Scrollbar styling */
 .gallery-scroll-container::-webkit-scrollbar {
   height: 6px;
 }
@@ -358,14 +354,13 @@
   border-radius: 4px;
 }
 
-/* Individual venue cards */
 .venue-card {
   position: relative;
   flex: 0 0 auto;
-  scroll-snap-align: start;
   border-radius: 0.75rem;
   overflow: hidden;
   transition: transform 0.3s ease;
+  width: 220px;  /* fixed width helps keep layout consistent */
 }
 
 .venue-card img {
@@ -374,13 +369,161 @@
   display: block;
   border-radius: 0.75rem;
   transition: transform 0.3s ease;
+  width: 100%;
 }
 
 .venue-card:hover img {
   transform: scale(1.05);
 }
 
-/* Caption overlay */
+.venue-caption {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  text-align: center;
+  padding: 0.4rem 0.6rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  backdrop-filter: blur(2px);
+}
+.venues-gallery {
+  padding: 2rem 1rem;
+  background-color: #f9f9f9;
+}
+
+.venues-gallery .section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #004D4D;
+}
+
+.auto-scroll-wrapper {
+  overflow-x: auto;  /* enable native horizontal scrolling */
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: #008080 transparent;
+  position: relative;
+  cursor: grab;
+}
+
+.auto-scroll-wrapper:active {
+  cursor: grabbing;
+}
+
+.gallery-scroll-container {
+  display: flex;
+  gap: 1rem;
+  width: max-content;
+}
+
+.gallery-scroll-container::-webkit-scrollbar {
+  height: 6px;
+}
+
+.gallery-scroll-container::-webkit-scrollbar-thumb {
+  background: #008080;
+  border-radius: 4px;
+}
+
+.venue-card {
+  position: relative;
+  flex: 0 0 auto;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  width: 220px;  /* fixed width helps keep layout consistent */
+}
+
+.venue-card img {
+  height: 160px;
+  object-fit: cover;
+  display: block;
+  border-radius: 0.75rem;
+  transition: transform 0.3s ease;
+  width: 100%;
+}
+
+.venue-card:hover img {
+  transform: scale(1.05);
+}
+
+.venue-caption {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  text-align: center;
+  padding: 0.4rem 0.6rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  backdrop-filter: blur(2px);
+}
+.venues-gallery {
+  padding: 2rem 1rem;
+  background-color: #f9f9f9;
+}
+
+.venues-gallery .section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #004D4D;
+}
+
+.auto-scroll-wrapper {
+  overflow-x: auto;  /* enable native horizontal scrolling */
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: #008080 transparent;
+  position: relative;
+  cursor: grab;
+}
+
+.auto-scroll-wrapper:active {
+  cursor: grabbing;
+}
+
+.gallery-scroll-container {
+  display: flex;
+  gap: 1rem;
+  width: max-content;
+}
+
+.gallery-scroll-container::-webkit-scrollbar {
+  height: 6px;
+}
+
+.gallery-scroll-container::-webkit-scrollbar-thumb {
+  background: #008080;
+  border-radius: 4px;
+}
+
+.venue-card {
+  position: relative;
+  flex: 0 0 auto;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  width: 220px;  /* fixed width helps keep layout consistent */
+}
+
+.venue-card img {
+  height: 160px;
+  object-fit: cover;
+  display: block;
+  border-radius: 0.75rem;
+  transition: transform 0.3s ease;
+  width: 100%;
+}
+
+.venue-card:hover img {
+  transform: scale(1.05);
+}
+
 .venue-caption {
   position: absolute;
   bottom: 0;
@@ -394,7 +537,18 @@
   backdrop-filter: blur(2px);
 }
 
-/* Auto-scrolling animation */
+
+/* Scrollbar styling */
+.auto-scroll-wrapper::-webkit-scrollbar {
+  height: 6px;
+}
+
+.auto-scroll-wrapper::-webkit-scrollbar-thumb {
+  background: #008080;
+  border-radius: 4px;
+}
+
+/* Seamless scrolling animation */
 @keyframes scrollGallery {
   0% {
     transform: translateX(0);
@@ -403,6 +557,7 @@
     transform: translateX(-50%);
   }
 }
+
 
 
 
