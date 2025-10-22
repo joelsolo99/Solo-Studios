@@ -19,7 +19,7 @@ permalink: /packages/wedding-packages/
         <h2>Sax + Backings Only</h2>
         <p><strong>Set:</strong> 2 × 45 mins<br>
            <strong>Total Duration:</strong> 2 hours<br>
-           <strong>Price:</strong> From £500</p>
+           <strong>Price:</strong> From £450</p>
         <p>Ideal for a drinks reception or relaxed background music during photos — smooth sax backed by pro tracks that blend perfectly into the vibe of your afternoon.</p>
       </div>
     </div>
@@ -29,11 +29,11 @@ permalink: /packages/wedding-packages/
     <div class="package-section">
       <img src="{{ '/assets/img/wedding_packages/2.webp' | relative_url }}" alt="Sax + Backings Only – 5x45min" class="package-image">
       <div class="package-content">
-        <h2>Sax + Backings Only (Full Day Flex)</h2>
-        <p><strong>Set:</strong> 5 × 45 mins (any time)<br>
+        <h2>Sax + Playlist Service</h2>
+        <p><strong>Set:</strong> Your favourite tunes for 5 hours, with sax!<br>
            <strong>Total Duration:</strong> 5 hours<br>
-           <strong>Price:</strong> From £1000</p>
-        <p>A flexible option — tell us your timings, and we’ll take care of the rest. Perfect if you want music across multiple parts of the day without going full DJ.</p>
+           <strong>Price:</strong> From £800</p>
+        <p>A flexible option. Tell us your timings, and we’ll take care of the rest. Includes a professional PA, vibrant and customisable lighting and a live sax set at a time of your choosing. We'll be there for 5 hours and you .exi</p>
       </div>
     </div>
   </section>
@@ -45,8 +45,8 @@ permalink: /packages/wedding-packages/
         <h2>Combo Deal (Sax + DJ)</h2>
         <p><strong>Set:</strong> 5pm – Midnight<br>
            <strong>Total Duration:</strong> 7 hours<br>
-           <strong>Price:</strong> From £1200</p>
-        <p>Smooth sax for cocktails, background music over dinner, a first-dance performance, and a full DJ set to keep the party going. This is our most popular package for a reason.</p>
+           <strong>Price:</strong> From £1100</p>
+        <p>Smooth sax for cocktails, background music over dinner, a first-dance performance, and a full DJ set to keep the party going. Stage lighting, high-tech equipment and only the finest tunes. If you want a talented duo with *chemistry* then this is the package for you. This is our most popular package for a reason.</p>
       </div>
     </div>
   </section>
@@ -59,7 +59,7 @@ permalink: /packages/wedding-packages/
         <p><strong>Set:</strong> 12pm – Midnight<br>
            <strong>Total Duration:</strong> 12 hours<br>
            <strong>Price:</strong> From £1600</p>
-        <p>Everything in the Combo Deal, plus ceremony music, travel between locations, and a custom request, like learning a special song just for your moment.</p>
+        <p>Everything in the Combo Deal, plus ceremony music, travel between locations, and custom requests, like learning a special song just for your moment.</p>
       </div>
     </div>
   </section>
