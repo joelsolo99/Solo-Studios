@@ -24,7 +24,7 @@ layout: home
 
 <div class="dj-section">
     <div class="dj-image-wrapper">
-        <img src="{{ '/assets/img/jovan-black-and-white.jpg' | relative_url }}" alt="Jovan DJing" class="dj-image">
+        <img src="{{ '/assets/img/dj-dancefloor.webp' | relative_url }}" alt="Jovan DJing" class="dj-image">
     </div>
 
     <!-- Desktop overlay: stays inside the image -->
