@@ -7,10 +7,28 @@ permalink: /packages/wedding-packages/
 <link rel="stylesheet" href="{{ '/assets/css/packages.css' | relative_url }}">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<div class="wrapper">
-  <h1>Wedding Packages</h1>
 
-  <p>If you're planning a wedding in the South West, Solo Studios offers live saxophone music and DJ services that feel personal, professional, and completely tailored to your day. Whether it's a relaxed ceremony in Devon, a lively evening party in Cornwall, or a full wedding celebration in Plymouth, our sax and DJ packages are designed to create the perfect vibe, and memories that last.</p>
+
+<section class="fade-in-section left-offset">
+  <div class="package-section">
+    <img src="{{ '/assets/img/wedding_packages/sax_lift_cropped.webp' | relative_url }}" alt="Wedding DJ & Sax Performance Packages" class="package-image">
+    <div class="package-content">
+      <h2>We want your dream wedding to come true!</h2>
+      <p>Our DJ and saxophone packages are designed to elevate your celebration with unforgettable musical moments. Here's what we offer to make your big day truly spectacular:</p>
+      <ul>
+        <li>
+          <strong>Grand Entrance:</strong> Kick off your reception in style with a personalized musical welcome. As the DJ announces, "Please welcome Mr and Mrs", your chosen song fills the room. Our saxophonist accompanies your entrance, wowing your guests from the start.
+        </li>
+        <li>
+          <strong>The First Dance:</strong> Your first dance deserves to be unforgettable. We'll tailor a sax performance to your chosen song, complete with lighting and atmosphere to match. Give the DJ a nod, and we'll invite your loved ones to join you on the dance floor.
+        </li>
+        <li>
+          <strong>Your Signature Set:</strong> Whether it's rock ballads, swinging soundtracks, or Ibiza bangers, your night should sound like you. Share your favourite tracks and we'll build a custom set, either woven throughout the evening or delivered as a high-energy, uninterrupted playlist.
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
 
   <section class="fade-in-section left-offset">
     <div class="package-section">
