@@ -358,3 +358,16 @@ body {
     margin-top: 2rem;
   }
 }
+
+
+@media (max-width: 768px) {
+  .dj-image {
+    object-position: center top !important; /* centres horizontally while keeping the top aligned */
+  }
+
+  .dj-image-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
