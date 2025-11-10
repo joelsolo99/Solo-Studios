@@ -370,4 +370,10 @@ body {
     justify-content: center;
     align-items: center;
   }
+
+    /* Focus the Meet Our DJ image on the left */
+  .dj-section:first-of-type .dj-image {
+    object-position: left top !important;
+  }
 }
+
