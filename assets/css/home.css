@@ -10,10 +10,9 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: auto;
-  min-height: 150vh; /* Original desktop setting */
-  object-fit: contain;
-  object-position: center -6vh; /* Original desktop setting */
+  height: 100%; /* instead of auto */
+  object-fit: cover; /* instead of contain */
+  object-position: center; /* keep the framing centred */
   z-index: -2;
 }
 
