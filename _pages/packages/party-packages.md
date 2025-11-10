@@ -19,7 +19,7 @@ permalink: /packages/party-packages/
         <h2>The Classic</h2>
         <p><strong>Set:</strong> 2 x 45 mins<br>
            <strong>Total Duration:</strong> 2 hours<br>
-           <strong>Price:</strong> From £500</p>
+           <strong>Price:</strong> From £450</p>
         <p>Perfect for setting the mood at a birthday or celebration. We' tailor a playlist to your preferred genres and decades of music.</p>
       </div>
     </div>

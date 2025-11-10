@@ -22,8 +22,8 @@ Celebrate the festive season in style with our Christmas party packages. Whether
         <p class="set-description">A calm and traditional sax performance with backing tracks. Ideal for setting the perfect Christmas atmosphere.</p>
     </div>
 
-    <!-- Second Package -->
-    <div class="service">
+<!-- Second Package -->
+<div class="service">
         <h3>All I want for Christmas is Sax</h3>
         <p><strong>Set:</strong> 2 x 45 mins</p>
         <p><strong>Total Duration:</strong> 2 hours</p>
@@ -32,7 +32,7 @@ Celebrate the festive season in style with our Christmas party packages. Whether
     </div>
 
     <!-- Third Package -->
-    <div class="service">
+<div class="service">
         <h3>Deck the Dancefloor</h3>
         <p><strong>Set:</strong> 2 x 45 mins (sax) + DJ throughout</p>
         <p><strong>Total Duration:</strong> 2 hours</p>
@@ -41,7 +41,7 @@ Celebrate the festive season in style with our Christmas party packages. Whether
     </div>
     
     <!-- Fourth Package -->
-    <div class="service">
+<div class="service">
         <h3>Sleigh My Name</h3>
         <p><strong>Set:</strong> 4 hours (sax + DJ)</p>
         <p><strong>Total Duration:</strong> 4 hours</p>

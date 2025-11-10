@@ -19,7 +19,7 @@ permalink: /packages/events-packages/
         <h2>Background Sax</h2>
         <p><strong>Set:</strong> 2 x 45 mins</p>
         <p><strong>Total Duration:</strong> 2 hours</p>
-        <p><strong>Price:</strong> From £500</p>
+        <p><strong>Price:</strong> From £450</p>
         <p>Perfect for networking events, drinks receptions, or black-tie dinners. Smooth, elegant saxophone playing to set the right atmosphere.</p>
       </div>
     </div>
@@ -32,7 +32,7 @@ permalink: /packages/events-packages/
         <h2>Sax & DJ Energiser</h2>
         <p><strong>Set:</strong> 2 x 45 mins (sax) + DJ throughout</p>
         <p><strong>Total Duration:</strong> 2 hours</p>
-        <p><strong>Price:</strong> From £1000</p>
+        <p><strong>Price:</strong> From £800</p>
         <p>Designed to get the energy up! Great for product launches, networking after-parties, and team celebrations. Includes a stage lighting rig for a professional setup.</p>
       </div>
     </div>
@@ -58,7 +58,7 @@ permalink: /packages/events-packages/
         <h2>The Main Event</h2>
         <p><strong>Set:</strong> From start to finish</p>
         <p><strong>Total Duration:</strong> Full event duration</p>
-        <p><strong>Price:</strong> From £1500</p>
+        <p><strong>Price:</strong> From £1200</p>
         <p>We'll provide music throughout your entire event, from the welcome drinks to the final song. Includes request-taking (if provided in advance) for a fully tailored experience.</p>
       </div>
     </div>

@@ -12,8 +12,8 @@
   width: 100%;
   height: auto;
   min-height: 150vh; /* Original desktop setting */
-  object-fit: cover;
-  object-position: center -25vh; /* Original desktop setting */
+  object-fit: contain;
+  object-position: center -6vh; /* Original desktop setting */
   z-index: -2;
 }
 
