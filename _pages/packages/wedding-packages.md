@@ -20,7 +20,7 @@ permalink: /packages/wedding-packages/
           <strong>Grand Entrance:</strong> Kick off your reception in style with a personalized musical welcome. As the DJ announces, "Please welcome Mr and Mrs", your chosen song fills the room. Our saxophonist accompanies your entrance, wowing your guests from the start.
         </li>
         <li>
-          <strong>The First Dance:</strong> Your first dance deserves to be unforgettable. We'll tailor a sax performance to your chosen song, complete with lighting and atmosphere to match. Give the DJ a nod, and we'll invite your loved ones to join you on the dance floor.
+          <strong>The First Dance:</strong> Your first dance deserves to be unforgettable. We'll tailor a sax performance to your chosen song, complete with lighting and atmosphere to match. Give the DJ a nod, and we'll invite your loved ones to join you on the dance floor. If you want sax in your first dance song, we can record it for you to practice to so there are no surprises on the big day!
         </li>
         <li>
           <strong>Your Signature Set:</strong> Whether it's rock ballads, swinging soundtracks, or Ibiza bangers, your night should sound like you. Share your favourite tracks and we'll build a custom set, either woven throughout the evening or delivered as a high-energy, uninterrupted playlist.
