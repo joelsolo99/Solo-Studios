@@ -1,193 +1,181 @@
-/* Wrapper and Title */
-.wrapper {
-  max-width: 1200px;
-  margin: auto;
-  padding: 30px 15px;
-}
+/* =========================
+   Global sanity
+   ========================= */
 
-h1 {
-  text-align: center;
-  font-size: 2.4em;
-  margin-bottom: 30px;
-  color: #008080;
-}
-
-/* Gallery Grid */
-.gallery-grid {
-  display: flex;
-  flex-wrap: wrap;
-  margin: -10px;
-}
-
-/* Gallery Item */
-.gallery-item {
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-  overflow: hidden;
-  margin: 10px;
-  transition: transform 0.3s ease;
-  cursor: pointer;
-  width: calc(25% - 20px);
+* {
   box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
-/* Landscape / Portrait classes for orientation */
-.gallery-item.landscape {
-  /* optional styling if you want to tweak landscape items */
+
+/* =========================
+   Page layout
+   ========================= */
+
+.gallery-wrapper {
+  max-width: 1300px;
+  /* slightly wider wrapper */
+  margin: 0 auto;
+  padding: 1.75rem 1.25rem;
 }
 
-.gallery-item.portrait {
-  /* optional styling if you want to tweak portrait items */
+.gallery-wrapper h1 {
+  text-align: center;
+  font-size: 1.95rem;
+  font-weight: 500;
+  margin-bottom: 2.25rem;
+  color: #005f5f;
+  letter-spacing: 0.02em;
 }
 
-/* Image Styling */
-.gallery-item img {
+
+/* =========================
+   PHOTO GRID
+   Fixed columns for true uniformity
+   ========================= */
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  /* slightly larger tiles */
+  gap: 12px;
+}
+
+/* Clean, deterministic breakpoints */
+@media (max-width: 1200px) {
+  .photo-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .photo-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .photo-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+/* =========================
+   THUMBNAILS
+   Identical geometry, calm look
+   ========================= */
+
+.photo-tile {
   width: 100%;
-  height: auto;
-  display: block;
-  opacity: 0;
-  transition: opacity 0.6s ease;
-  border-bottom: 1px solid #eee;
+  aspect-ratio: 1 / 1;
+  /* square contact‑sheet style */
+  background: #e8e8e8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  cursor: pointer;
 }
 
-.gallery-item img.loaded {
-  opacity: 1;
+/*
+  Intentional design choice:
+  - Thumbnails always fill the square
+  - Cropping is allowed and expected
+  - No stretching, ever
+*/
+.photo-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Subtle, non-showy affordance */
+.photo-tile:hover {
+  outline: 2px solid rgba(0, 95, 95, 0.35);
+  outline-offset: -2px;
+}
+
+
+/* =========================
+   LIGHTBOX
+   Restrained, letterboxed viewing
+   ========================= */
+
+#lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.88);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+#lightbox[hidden] {
+  display: none;
+}
+
+/*
+  Hard size limits:
+  - Portrait images never fill the screen
+  - Landscape images stay contained
+*/
+#lightbox img {
+  max-width: 68vw;
+  /* slightly larger than before */
+  max-height: 62vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  background: #111;
 }
 
 /* Caption */
-.caption {
-  padding: 10px 15px;
-  font-family: 'Segoe UI', Roboto, sans-serif;
-  font-size: 0.9em;
-  color: #333;
-  text-align: center;
-  font-weight: 600;
-}
-
-/* Hover Effect */
-.gallery-item:hover {
-  transform: translateY(-4px);
-}
-
-/* Responsive Grid Breakpoints */
-@media (max-width: 992px) {
-  .gallery-item {
-    width: calc(33.333% - 20px);
-  }
-}
-
-@media (max-width: 768px) {
-  .gallery-item {
-    width: calc(50% - 20px);
-  }
-}
-
-@media (max-width: 500px) {
-  .gallery-item {
-    width: calc(100% - 20px);
-  }
-}
-
-/* Lightbox Modal */
-.lightbox {
-  display: none;
-  position: fixed;
-  z-index: 999;
-  left: 0;
-  top: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.8);
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  box-sizing: border-box;
-}
-
-/* Lightbox Inner Container */
-.lightbox-inner {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 100%;
-  max-height: 100%;
-  text-align: center;
-}
-
-/* Lightbox Content: Image + Caption */
-.lightbox-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+#lb-caption {
+  position: absolute;
+  bottom: 1.1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #ccc;
+  font-size: 0.9rem;
   max-width: 90%;
-  max-height: 85vh;
-  border-radius: 6px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-}
-
-/* Lightbox Image */
-.lightbox-inner img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  margin: 0 auto;
-}
-
-/* Lightbox Caption */
-.lightbox-caption {
-  margin-top: 12px;
-  color: white;
   text-align: center;
-  font-size: 1.1em;
-  font-weight: 400;
-  font-family: 'Segoe UI', Roboto, sans-serif;
-  width: 100%;
 }
 
-/* Close Button */
-.close {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  font-size: 2.5em;
-  color: white;
-  cursor: pointer;
-  transition: color 0.2s ease;
-  z-index: 1000;
-}
 
-.close:hover {
-  color: #aaa;
-}
+/* =========================
+   LIGHTBOX CONTROLS
+   Quiet and functional
+   ========================= */
 
-/* Navigation Arrows */
-.nav-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 3em;
-  color: white;
+#lightbox button {
   background: none;
   border: none;
+  color: #fff;
+  font-size: 2.1rem;
+  padding: 0.75rem;
   cursor: pointer;
-  z-index: 1001;
-  padding: 0 12px;
   user-select: none;
 }
 
-.nav-arrow.left {
-  left: 20px;
+#lb-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 1rem;
+  font-size: 2.4rem;
 }
 
-.nav-arrow.right {
-  right: 20px;
+#lb-prev {
+  position: absolute;
+  left: 0.6rem;
 }
 
-.nav-arrow:hover {
+#lb-next {
+  position: absolute;
+  right: 0.6rem;
+}
+
+#lightbox button:hover {
   color: #aaa;
 }

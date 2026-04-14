@@ -7,147 +7,69 @@ custom_css: photos.css
 
 <link rel="stylesheet" href="{{ '/assets/css/photos.css' | relative_url }}">
 
-<div class="wrapper">
+
+<div class="gallery-wrapper">
   <h1>Photo Gallery</h1>
 
-  <div class="gallery-grid">
+  <div class="photo-grid">
     {% assign gallery_images = site.static_files | where_exp: "file", "file.path contains 'assets/img/photo_gallery'" %}
     {% for image in gallery_images %}
-      <div class="gallery-item">
-        <img 
-          src="{{ site.baseurl }}{{ image.path }}" 
-          alt="{{ image.name | replace: '-', ' ' | replace: '_', ' ' | replace: '.jpg', '' | replace: '.jpeg', '' | replace: '.png', '' | replace: '.gif', '' }}" 
+      <figure class="photo-tile">
+        <img
+          src="{{ site.baseurl }}{{ image.path }}"
+          alt="{{ image.name | replace: '-', ' ' | replace: '_', ' ' | replace: '.jpg', '' | replace: '.jpeg', '' | replace: '.png', '' | replace: '.gif', '' }}"
           loading="lazy"
         >
-        <div class="caption"><strong>{{ image.name | replace: '-', ' ' | replace: '_', ' ' | replace: '.jpg', '' | replace: '.jpeg', '' | replace: '.png', '' | replace: '.gif', '' }}</strong></div>
-      </div>
+      </figure>
     {% endfor %}
   </div>
 </div>
 
-<!-- Lightbox Modal -->
-<div id="lightbox-modal" class="lightbox">
-  <div class="lightbox-inner">
-    <span id="lightbox-close" class="close">&times;</span>
-    <button id="lightbox-prev" class="nav-arrow left">&#10094;</button>
-    <button id="lightbox-next" class="nav-arrow right">&#10095;</button>
-    <div class="lightbox-content">
-      <img id="lightbox-img" alt="">
-      <div id="lightbox-caption" class="lightbox-caption"></div>
-    </div>
-  </div>
+<!-- Lightbox -->
+<div id="lightbox" hidden>
+  <button id="lb-close" aria-label="Close">×</button>
+  <button id="lb-prev" aria-label="Previous">‹</button>
+  <img id="lb-image" alt="">
+  <button id="lb-next" aria-label="Next">›</button>
+  <div id="lb-caption"></div>
 </div>
-
-<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-  const lightbox = document.getElementById("lightbox-modal");
-  const lightboxImg = document.getElementById("lightbox-img");
-  const lightboxCaption = document.getElementById("lightbox-caption");
-  const closeBtn = document.getElementById("lightbox-close");
-  const prevBtn = document.getElementById("lightbox-prev");
-  const nextBtn = document.getElementById("lightbox-next");
+  const images = [...document.querySelectorAll(".photo-tile img")];
+  const lightbox = document.getElementById("lightbox");
+  const lbImg = document.getElementById("lb-image");
+  const lbCaption = document.getElementById("lb-caption");
 
-  const grid = document.querySelector('.gallery-grid');
+  let index = 0;
 
-  const masonry = new Masonry(grid, {
-    itemSelector: '.gallery-item',
-    percentPosition: true,
-    gutter: 12
-  });
-
-  imagesLoaded(grid, () => {
-    masonry.layout();
-  });
-
-  const images = Array.from(document.querySelectorAll('.gallery-item img'));
-  let currentIndex = -1;
-
-  const showImageAt = (index) => {
-    const img = images[index];
-    if (!img) return;
-    lightboxImg.src = img.src;
-    lightboxCaption.textContent = img.alt || "";
-    currentIndex = index;
+  const open = i => {
+    index = i;
+    lbImg.src = images[i].src;
+    lbCaption.textContent = images[i].alt || "";
+    lightbox.hidden = false;
+    document.body.style.overflow = "hidden";
   };
 
-  images.forEach((img, index) => {
-    const parent = img.closest('.gallery-item');
+  const close = () => {
+    lightbox.hidden = true;
+    lbImg.src = "";
+    document.body.style.overflow = "";
+  };
 
-    // Orientation class
-    const setOrientation = () => {
-      if (img.naturalWidth >= img.naturalHeight) {
-        parent.classList.add('landscape');
-      } else {
-        parent.classList.add('portrait');
-      }
-    };
-
-    if (img.complete) {
-      setOrientation();
-      img.classList.add('loaded');
-    } else {
-      img.addEventListener('load', () => {
-        setOrientation();
-        img.classList.add('loaded');
-      });
-    }
-
-    // Lightbox open
-    img.addEventListener('click', () => {
-      lightbox.style.display = "flex";
-      showImageAt(index);
-    });
+  images.forEach((img, i) => {
+    img.addEventListener("click", () => open(i));
   });
 
-  // Close lightbox
-  closeBtn.addEventListener('click', () => lightbox.style.display = "none");
-  lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) lightbox.style.display = "none";
-  });
-  document.addEventListener('keydown', e => {
-    if (e.key === "Escape") lightbox.style.display = "none";
-  });
+  document.getElementById("lb-close").onclick = close;
+  document.getElementById("lb-prev").onclick = () => index > 0 && open(index - 1);
+  document.getElementById("lb-next").onclick = () => index < images.length - 1 && open(index + 1);
 
-  // Arrow buttons
-  prevBtn.addEventListener("click", () => {
-    if (currentIndex > 0) showImageAt(currentIndex - 1);
-  });
-
-  nextBtn.addEventListener("click", () => {
-    if (currentIndex < images.length - 1) showImageAt(currentIndex + 1);
-  });
-
-  // Keyboard arrow support
   document.addEventListener("keydown", e => {
-    if (lightbox.style.display === "flex") {
-      if (e.key === "ArrowLeft" && currentIndex > 0) {
-        showImageAt(currentIndex - 1);
-      } else if (e.key === "ArrowRight" && currentIndex < images.length - 1) {
-        showImageAt(currentIndex + 1);
-      }
-    }
-  });
-
-  // Touch swipe support
-  let touchStartX = 0;
-  lightbox.addEventListener("touchstart", e => {
-    touchStartX = e.changedTouches[0].screenX;
-  });
-
-  lightbox.addEventListener("touchend", e => {
-    const touchEndX = e.changedTouches[0].screenX;
-    const deltaX = touchEndX - touchStartX;
-
-    if (Math.abs(deltaX) > 50) {
-      if (deltaX > 0 && currentIndex > 0) {
-        showImageAt(currentIndex - 1);
-      } else if (deltaX < 0 && currentIndex < images.length - 1) {
-        showImageAt(currentIndex + 1);
-      }
-    }
+    if (lightbox.hidden) return;
+    if (e.key === "Escape") close();
+    if (e.key === "ArrowLeft" && index > 0) open(index - 1);
+    if (e.key === "ArrowRight" && index < images.length - 1) open(index + 1);
   });
 });
 </script>
