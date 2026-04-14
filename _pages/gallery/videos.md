@@ -10,111 +10,91 @@ Take a look at some of our latest performances and highlights!
 
 ---
 
-### Jump to:
-- [Party Vibes](#party-vibes)
-- [Solo Sax](#solo-sax)
+### Have a look at:
+- [Party Vibes](#party-vibes) (perfect for your evening party)
+- [Chilled Vibes](#chilled-vibes) (perfect for a drinks reception)
 
 ---
 
 ## <a id="party-vibes"></a>Party Vibes
 
 <div class="video-grid">
-  <div class="service" id="video-roswarne">
-    <h3 class="song-title">Ibiza Vibes!</h3>
-    <p class="artist-name">Wedding: Roswarne House, Cornwall</p>
-    <div class="video-wrapper">
-      <iframe src="https://www.youtube.com/embed/XGTYujEmczU" 
-              title="June 2025 Wedding: Highlight Reel"
-              frameborder="0" allowfullscreen></iframe>
-    </div>
-  </div>
-  
-  <div class="service" id="video-argyle">
-    <h3 class="song-title">Pre-Match Entertainment!</h3>
-    <p class="artist-name">Argyle Football Club</p>
-    <div class="video-wrapper">
-      <iframe src="https://www.youtube.com/embed/ZwwMZKdkLHU" 
-              title="Entertainment at Argyle Match"
-              frameborder="0" allowfullscreen></iframe>
-    </div>
-  </div>
-  
-
-  <div class="service" id="video-henparty">
-    <h3 class="song-title">Hen Party Reel</h3>
-    <p class="artist-name">Bristol 2025</p>
-    <div class="video-wrapper">
-      <iframe src="https://www.youtube.com/embed/vPPcldkjnSk" 
-              title="June 2025 Hen Party: Highlight Reel"
-              frameborder="0" allowfullscreen></iframe>
-    </div>
-  </div>
-
-  <div class="service" id="video-palhawn">
-    <h3 class="song-title">Sax and DJ Highlights</h3>
-    <p class="artist-name">Wedding: Palhawn Fort, Cornwall</p>
-    <div class="video-wrapper">
-      <iframe src="https://www.youtube.com/embed/P2BvXQ27y0o" 
-              title="June 2025 DJ Demo"
-              frameborder="0" allowfullscreen></iframe>
-    </div>
-  </div>
-  
-  <div class="service" id="video-boconnion">
-    <h3 class="song-title">A Collection of Audience Footage</h3>
-    <p class="artist-name">Wedding: Boconnion</p>
-    <div class="video-wrapper">
-      <iframe src="https://www.youtube.com/embed/6fGYSNSIO5w" 
-              title="July 2025, Boconnion"
-              frameborder="0" allowfullscreen></iframe>
-    </div>
-  </div>
-</div>
-
-
-## <a id="solo-sax"></a>Solo Sax
-
-<div class="video-grid">
   <div class="service" id="video-jubel">
-    <h3 class="song-title">Jubel</h3>
+    <h3 class="song-title">Jubel (LIVE)</h3>
     <p class="artist-name">Klingande</p>
     <div class="video-wrapper">
-      <iframe src="https://www.youtube.com/embed/8h6FA_lBQIQ" 
-              title="Klingande: Jubel"
+      <iframe src="https://youtube.com/embed/uuDLdVoHLs4" 
+              title="Jubel Live!"
               frameborder="0" allowfullscreen></iframe>
     </div>
   </div>
-
-  <div class="service" id="video-elvis">
-    <h3 class="song-title">Can't Help Falling in Love</h3>
-    <p class="artist-name">Elvis Presley</p>
-    <div class="video-wrapper">
-      <iframe src="https://www.youtube.com/embed/7wbCDQSyBmc" 
-              title="Elvis: Can't Help Falling in Love"
-              frameborder="0" allowfullscreen></iframe>
-    </div>
-  </div>
-
+  
   <div class="service" id="video-madness">
-    <h3 class="song-title">One Step Beyond</h3>
+    <h3 class="song-title">One Step Beyond (LIVE)</h3>
     <p class="artist-name">Madness</p>
     <div class="video-wrapper">
-      <iframe src="https://www.youtube.com/embed/V9XAYfDN2Gs" 
+      <iframe src="https://www.youtube.com/embed/uAOytebiu8E" 
+              title="Madness: One Step Beyond"
+              frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+  
+
+  <div class="service" id="video-pitbull">
+    <h3 class="song-title">Fireball (LIVE Wedding Entrance)</h3>
+    <p class="artist-name">Pitbull</p>
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/uC-EWWkLyy0" 
+              title="Fireball Wedding Entrance"
+              frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <div class="service" id="video-club">
+    <h3 class="song-title">Club Classics</h3>
+    <p class="artist-name">Party Vibes</p>
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/xnP7DbxwX60" 
+              title="18th Birthday Party"
+              frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+  
+</div>
+
+## <a id="chilled-vibes"></a>Chilled Vibes 
+
+<div class="video-grid">
+  <div class="service" id="video-valerie">
+    <h3 class="song-title">Valerie</h3>
+    <p class="artist-name">Mark Ronson Ft. Amy Winehouse</p>
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/2Tvs8UwSdmw" 
+              title="Valerie"
+              frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <div class="service" id="video-honky-tonk">
+    <h3 class="song-title">Christmas Party</h3>
+    <p class="artist-name">Chilled set at the Honky Tonk Wine Library</p>
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/ZieWvyfOLJw" 
+              title="Honky Tonk Set"
+              frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <div class="service" id="outdoor-pop">
+    <h3 class="song-title">Garden Party Pop Collection</h3>
+    <p class="artist-name">A collection of footage from a hen party</p>
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/vPPcldkjnSk" 
               title="Madness: One Step Beyond"
               frameborder="0" allowfullscreen></iframe>
     </div>
   </div>
 
-  <div class="service" id="video-norah">
-    <h3 class="song-title">Don't Know Why</h3>
-    <p class="artist-name">Norah Jones</p>
-    <div class="video-wrapper">
-      <iframe src="https://www.youtube.com/embed/90Bn9xfTXaY" 
-              title="Norah Jones: Don't Know Why"
-              frameborder="0" allowfullscreen></iframe>
-    </div>
-  </div>
-</div>
 
 
 ---
