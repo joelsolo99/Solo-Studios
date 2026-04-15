@@ -41,6 +41,7 @@ navbar-links:
     - Parties: "packages/party-packages"
     - Christmas: "packages/christmas-party-packages"
     - Events: "packages/events-packages"
+    - Power Hour: "packages/power-hour"
     - Terms: "packages/terms"
   
 
