@@ -30,41 +30,62 @@ permalink: /packages/wedding-packages/
   </div>
 </section>
 
-  <section class="fade-in-section left-offset">
-    <div class="package-section">
-      <img src="{{ '/assets/img/wedding_packages/1.webp' | relative_url }}" alt="Sax + Backings Only – 2x45min" class="package-image">
-      <div class="package-content">
-        <h2>Sax + Backings Only</h2>
-        <p><strong>Set:</strong> 2 × 45 mins<br>
-           <strong>Total Duration:</strong> 2 hours<br>
-           <strong>Price:</strong> From £450</p>
-        <p>Ideal for a drinks reception or relaxed background music during photos — smooth sax backed by pro tracks that blend perfectly into the vibe of your afternoon.</p>
-      </div>
+<section class="fade-in-section left-offset">
+  <div class="package-section">
+    <video
+      class="package-image package-video-cropped"
+      autoplay
+      muted
+      loop
+      playsinline
+      aria-label="Drinks reception saxophone performance video"
+    >
+      <source src="{{ '/assets/img/wedding_packages/drinks_reception_loop.mp4' | relative_url }}" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <div class="package-content">
+      <h2>Drinks Reception Package</h2>
+      <p>
+        <strong>Set:</strong> 2 × 45 mins<br>
+        <strong>Total Duration:</strong> 2 hours<br>
+        <strong>Price:</strong> From £450
+      </p>
+      <p>
+        Ideal for a drinks reception, arrival music, or relaxed background music during photos.
+        Smooth live sax backed by professional tracks that sit perfectly in the atmosphere
+        without overpowering the moment.
+      </p>
+      <p>
+        This package is designed to add style, warmth, and a polished live feel to the earlier
+        part of your day, helping guests settle in while keeping everything feeling special.
+      </p>
     </div>
-  </section>
+  </div>
+</section>
 
   <section class="fade-in-section right-offset">
     <div class="package-section">
-      <img src="{{ '/assets/img/wedding_packages/2.webp' | relative_url }}" alt="Sax + Backings Only – 5x45min" class="package-image">
+      <img src="{{ '/assets/img/wedding_packages/5.webp' | relative_url }}" alt="Sax + Backings Only – 5x45min" class="package-image">
       <div class="package-content">
         <h2>Sax + Playlist Service</h2>
         <p><strong>Set:</strong> Your favourite tunes for 5 hours, with sax!<br>
            <strong>Total Duration:</strong> 5 hours<br>
            <strong>Price:</strong> From £800</p>
-        <p>A flexible option. Tell us your timings, and we’ll take care of the rest. Includes a professional PA, vibrant and customisable lighting and a live sax set at a time of your choosing. We'll be there for 5 hours and you .exi</p>
+        <p>A flexible option. Tell us your timings, and we’ll take care of the rest. Includes a professional PA, vibrant and customisable lighting and a live sax set at a time of your choosing. We'll be there for 5 hours.</p>
       </div>
     </div>
   </section>
 
   <section class="fade-in-section left-offset">
     <div class="package-section">
-      <img src="{{ '/assets/img/wedding_packages/5.webp' | relative_url }}" alt="Combo Deal Sax + DJ" class="package-image">
+      <img src="{{ '/assets/img/wedding_packages/2.webp' | relative_url }}" alt="Combo Deal Sax + DJ" class="package-image">
       <div class="package-content">
         <h2>Combo Deal (Sax + DJ)</h2>
         <p><strong>Set:</strong> 5pm – Midnight<br>
            <strong>Total Duration:</strong> 7 hours<br>
            <strong>Price:</strong> From £1100</p>
-        <p>Smooth sax for cocktails, background music over dinner, a first-dance performance, and a full DJ set to keep the party going. Stage lighting, high-tech equipment and only the finest tunes. If you want a talented duo with *chemistry* then this is the package for you. This is our most popular package for a reason.</p>
+        <p>Smooth sax for cocktails, background music over dinner, a first-dance performance, and a full DJ set to keep the party going. Stage lighting, high-tech equipment and only the finest tunes. If you want a talented duo with <strong>chemistry</strong> then this is the package for you. This is our most popular package for a reason.</p>
       </div>
     </div>
   </section>
@@ -85,7 +106,6 @@ permalink: /packages/wedding-packages/
   <div style="text-align: center; margin-top: 3rem;">
     <a href="/packages/terms/" style="font-size: 0.8rem; opacity: 0.6;">See terms and conditions</a><br>
     <a href="mailto:events@solostudios.uk" style="font-size: 0.8rem; opacity: 0.6;">Get in touch to tailor your package</a>
-  </div>
 </div>
 
 <script>
