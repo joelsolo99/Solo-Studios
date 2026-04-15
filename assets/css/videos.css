@@ -1,168 +1,447 @@
-/* videos.css with Solo Studios teal and branding */
+/* videos.css */
+/* Scoped to .videos-page so the site-wide header/menu keeps its default styling */
 
-body {
+.videos-page {
+  --teal: #008080;
+  --teal-dark: #006666;
+  --teal-soft: #e8f7f6;
+  --teal-soft-2: #dff3f1;
+  --text: #2f3337;
+  --muted: #5f6b73;
+  --white: #ffffff;
+  --border: rgba(0, 128, 128, 0.14);
+  --border-strong: rgba(0, 128, 128, 0.24);
+  --shadow: 0 10px 30px rgba(0, 128, 128, 0.10);
+  --shadow-hover: 0 18px 42px rgba(0, 128, 128, 0.18);
+  --button-shadow: 0 8px 20px rgba(0, 128, 128, 0.12);
+  --radius: 18px;
+  --radius-sm: 12px;
+  --max-width: 1320px;
+
+  color: var(--text);
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: clamp(1rem, 2vw, 2rem);
+  line-height: 1.6;
+  background:
+    radial-gradient(circle at top left, rgba(0, 128, 128, 0.05), transparent 26%),
+    linear-gradient(180deg, #ffffff 0%, #fbfdfd 100%);
+  border-radius: 20px;
+}
+
+/* Typography */
+.videos-page h2,
+.videos-page h3 {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  color: #333333;
-  background: #ffffff;
-  margin: 0;
-  padding: 2rem;
-}
-
-h2, h3 {
-  font-weight: 600;
-  color: #008080; /* Teal */
+  font-weight: 700;
+  color: var(--teal);
   margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
 }
 
-h3.song-title {
-  margin-top: 0;
-  font-size: 1.2rem;
-  min-height: 3rem; /* Reserve space so short titles don't shrink card */
+.videos-page h2 {
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  line-height: 1.15;
 }
 
-p.artist-name {
+.videos-page h3.song-title {
   margin-top: 0;
-  font-style: italic;
-  color: #4a4a4a;
-  font-size: 0.9rem;
+  margin-bottom: 0.35rem;
+  font-size: clamp(1.15rem, 2vw, 1.4rem);
+  line-height: 1.3;
+  color: #104848;
+  min-block-size: calc(1.3em * 2);
+}
+
+.videos-page p.artist-name {
+  margin-top: 0;
   margin-bottom: 1rem;
-  min-height: 1.2rem; /* Reserve space for consistent height */
+  font-style: italic;
+  color: var(--muted);
+  font-size: 0.98rem;
+  line-height: 1.45;
+  min-block-size: calc(1.45em * 2);
 }
 
-a {
-  color: #008080;
+.videos-page p,
+.videos-page li {
+  color: var(--text);
+}
+
+.videos-page a {
+  color: var(--teal);
   text-decoration: none;
   font-weight: 600;
 }
 
-a:hover {
+.videos-page a:hover,
+.videos-page a:focus-visible {
+  color: var(--teal-dark);
   text-decoration: underline;
 }
 
-/* Container for each video card */
-.service {
-  display: block; /* replaces inline-block if previously set */
-  width: 100%;
-  background: #e0f2f1;
-  border-radius: 10px;
-  padding: 1rem;
-  box-shadow: 0 2px 8px rgba(0, 128, 128, 0.2);
-  margin-bottom: 20px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-sizing: border-box;
+/* Intro text */
+.videos-page>p:first-of-type {
+  font-size: 1.05rem;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
 }
 
-
-.service:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 15px rgba(0, 128, 128, 0.3);
+/* Jump links container */
+.videos-page ul {
+  padding-left: 0;
+  margin: 1.5rem 0 2.5rem;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
 }
 
-/* Responsive video wrapper for 16:9 ratio */
-.video-wrapper {
+.videos-page ul li {
+  margin-bottom: 0;
+}
+
+/* Default list links inside videos page */
+.videos-page ul li a {
+  color: var(--teal);
+  text-decoration: none;
+}
+
+/* Strong, explicit styling for in-page section links */
+.videos-page a[href="#party-vibes"],
+.videos-page a[href="#chilled-vibes"] {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  min-height: 48px;
+  padding: 0.85rem 1.2rem;
+  background: linear-gradient(180deg, #ffffff 0%, #f4fbfb 100%);
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  box-shadow: var(--button-shadow);
+  color: var(--teal-dark) !important;
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none !important;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.videos-page a[href="#party-vibes"]::before,
+.videos-page a[href="#chilled-vibes"]::before {
+  content: "";
+  inline-size: 1rem;
+  block-size: 1rem;
+  flex: 0 0 1rem;
+  background-color: currentColor;
+  opacity: 0.95;
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-position: center;
+  mask-size: contain;
+  -webkit-mask-size: contain;
+  mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='black' d='M8 5v14l11-7zM4 5h2v14H4z'/></svg>");
+  -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='black' d='M8 5v14l11-7zM4 5h2v14H4z'/></svg>");
+}
+
+.videos-page a[href="#party-vibes"]:hover,
+.videos-page a[href="#party-vibes"]:focus-visible,
+.videos-page a[href="#chilled-vibes"]:hover,
+.videos-page a[href="#chilled-vibes"]:focus-visible {
+  background: linear-gradient(180deg, var(--teal-soft) 0%, var(--teal-soft-2) 100%);
+  border-color: rgba(0, 128, 128, 0.34);
+  box-shadow: 0 12px 24px rgba(0, 128, 128, 0.16);
+  transform: translateY(-2px);
+  text-decoration: none !important;
+  color: var(--teal-dark) !important;
+}
+
+/* Horizontal rules */
+.videos-page hr {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(0, 128, 128, 0.22), transparent);
+  margin: 2rem 0;
+}
+
+/* Section headings */
+.videos-page h2#party-vibes,
+.videos-page h2#chilled-vibes {
+  margin-top: 3.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid rgba(0, 128, 128, 0.18);
   position: relative;
-  padding-bottom: 56.25%; /* 16:9 */
-  height: 0;
-  overflow: hidden;
-  border-radius: 8px;
-  box-shadow: inset 0 0 10px rgba(0, 128, 128, 0.1);
-  flex-grow: 1; /* fill remaining space */
 }
 
-.video-wrapper iframe {
+.videos-page h2#party-vibes::after,
+.videos-page h2#chilled-vibes::after {
+  content: "";
   position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-  border-radius: 8px;
+  left: 0;
+  bottom: -2px;
+  width: 88px;
+  height: 2px;
+  background: var(--teal);
 }
 
-/* Masonry container styling */
-.video-grid {
-  margin-top: 1rem;
-}
-
-/* Smooth layout adjustment */
-@media (min-width: 768px) {
-  .video-grid {
-    column-count: 3;
-    column-gap: 1.5rem;
-  }
-  
-  .service {
-    display: inline-block;
-    width: 100%;
-    margin-bottom: 1.5rem;
-  }
-}
-
-
-
-/* Section jump links styling */
-h2#party-vibes,
-h2#solo-sax {
-  margin-top: 3rem;
-  border-bottom: 2px solid #008080; /* teal border */
-  padding-bottom: 0.5rem;
-}
-
-/* Add a bit more spacing below jump links */
-h2#party-vibes + .video-grid,
-h2#solo-sax + .video-grid {
+.videos-page h2#party-vibes+.video-grid,
+.videos-page h2#chilled-vibes+.video-grid {
   margin-bottom: 4rem;
 }
 
-/* Styling the "Jump to:" links */
-ul {
-  padding-left: 1.5rem;
-  margin-bottom: 2rem;
+/* Grid layout for showcased videos */
+.videos-page .video-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  align-items: stretch;
 }
 
-ul li {
-  margin-bottom: 0.4rem;
+/* Video cards */
+.videos-page .service {
+  grid-column: span 6;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+  background: linear-gradient(180deg, var(--white) 0%, #f9fdfd 100%);
+  border-radius: var(--radius);
+  padding: 1rem;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  box-sizing: border-box;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  overflow: hidden;
 }
 
+/* Featured first card in each section */
+.videos-page .video-grid>.service:first-child {
+  grid-column: 1 / -1;
+  padding: 1.2rem;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 253, 253, 0.98)),
+    var(--teal-soft);
+}
+
+.videos-page .video-grid>.service:first-child h3.song-title {
+  font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+}
+
+.videos-page .video-grid>.service:first-child p.artist-name {
+  font-size: 1rem;
+}
+
+/* Hover state */
+.videos-page .service:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(0, 128, 128, 0.24);
+}
+
+/* Hide the video tag completely */
+.videos-page .video-tag {
+  display: none !important;
+}
+
+/* Alignment fix: push the video to the bottom */
+.videos-page .video-wrapper {
+  margin-top: auto;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+  background: #dceeee;
+  box-shadow: inset 0 0 0 1px rgba(0, 128, 128, 0.08);
+}
+
+.videos-page .video-wrapper iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: var(--radius-sm);
+  display: block;
+}
+
+/* Social links as obvious CTA buttons */
+.videos-page a[href*="youtube.com"],
+.videos-page a[href*="instagram.com"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  min-height: 48px;
+  padding: 0.85rem 1.15rem;
+  margin-top: 0.4rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-strong);
+  background: linear-gradient(180deg, #ffffff 0%, #f6fbfb 100%);
+  box-shadow: var(--button-shadow);
+  color: var(--teal-dark);
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.videos-page a[href*="youtube.com"]:hover,
+.videos-page a[href*="youtube.com"]:focus-visible,
+.videos-page a[href*="instagram.com"]:hover,
+.videos-page a[href*="instagram.com"]:focus-visible {
+  background: linear-gradient(180deg, var(--teal-soft) 0%, var(--teal-soft-2) 100%);
+  border-color: rgba(0, 128, 128, 0.34);
+  box-shadow: 0 12px 24px rgba(0, 128, 128, 0.16);
+  transform: translateY(-2px);
+  text-decoration: none;
+  color: var(--teal-dark);
+}
+
+/* YouTube icon */
+.videos-page a[href*="youtube.com"]::before {
+  content: "";
+  inline-size: 1.1rem;
+  block-size: 1.1rem;
+  flex: 0 0 1.1rem;
+  background-color: currentColor;
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-position: center;
+  mask-size: contain;
+  -webkit-mask-size: contain;
+  mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='black' d='M23.5 6.2a3 3 0 0 0-2.1-2.1C19.4 3.5 12 3.5 12 3.5s-7.4 0-9.4.6A3 3 0 0 0 .5 6.2 31.8 31.8 0 0 0 0 12a31.8 31.8 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c2 .6 9.4.6 9.4.6s7.4 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.8 31.8 0 0 0 24 12a31.8 31.8 0 0 0-.5-5.8zM9.75 15.5v-7L16 12l-6.25 3.5z'/></svg>");
+  -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='black' d='M23.5 6.2a3 3 0 0 0-2.1-2.1C19.4 3.5 12 3.5 12 3.5s-7.4 0-9.4.6A3 3 0 0 0 .5 6.2 31.8 31.8 0 0 0 0 12a31.8 31.8 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c2 .6 9.4.6 9.4.6s7.4 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.8 31.8 0 0 0 24 12a31.8 31.8 0 0 0-.5-5.8zM9.75 15.5v-7L16 12l-6.25 3.5z'/></svg>");
+}
+
+/* Instagram icon */
+.videos-page a[href*="instagram.com"]::before {
+  content: "";
+  inline-size: 1.1rem;
+  block-size: 1.1rem;
+  flex: 0 0 1.1rem;
+  background-color: currentColor;
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-position: center;
+  mask-size: contain;
+  -webkit-mask-size: contain;
+  mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='black' d='M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2.2A2.8 2.8 0 0 0 4.2 7v10A2.8 2.8 0 0 0 7 19.8h10a2.8 2.8 0 0 0 2.8-2.8V7A2.8 2.8 0 0 0 17 4.2H7zm10.75 1.65a1.05 1.05 0 1 1 0 2.1 1.05 1.05 0 0 1 0-2.1zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2.2A2.8 2.8 0 1 0 12 14.8 2.8 2.8 0 0 0 12 9.2z'/></svg>");
+  -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='black' d='M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2.2A2.8 2.8 0 0 0 4.2 7v10A2.8 2.8 0 0 0 7 19.8h10a2.8 2.8 0 0 0 2.8-2.8V7A2.8 2.8 0 0 0 17 4.2H7zm10.75 1.65a1.05 1.05 0 1 1 0 2.1 1.05 1.05 0 0 1 0-2.1zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2.2A2.8 2.8 0 1 0 12 14.8 2.8 2.8 0 0 0 12 9.2z'/></svg>");
+}
+
+/* Space the bottom social links nicely if they appear inline in a paragraph */
+.videos-page p a[href*="youtube.com"],
+.videos-page p a[href*="instagram.com"] {
+  margin-right: 0.65rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Footer links section */
+.videos-page>p:last-of-type {
+  margin-top: 2rem;
+  font-size: 1rem;
+}
+
+/* Make anchor jumps land neatly if your theme has a sticky header */
+.videos-page #party-vibes,
+.videos-page #chilled-vibes,
+.videos-page #video-jubel,
+.videos-page #video-madness,
+.videos-page #video-pitbull,
+.videos-page #video-club,
+.videos-page #video-valerie,
+.videos-page #video-honky-tonk,
+.videos-page #outdoor-pop {
+  scroll-margin-top: 100px;
+}
+
+/* Tablet */
+@media (max-width: 980px) {
+  .videos-page .service {
+    grid-column: span 12;
+  }
+
+  .videos-page .video-grid {
+    gap: 1.25rem;
+  }
+}
+
+/* Mobile */
 @media (max-width: 767px) {
-  body {
+  .videos-page {
     padding: 1rem;
+    border-radius: 14px;
   }
 
-  .video-grid {
-    column-count: 1;
-    column-gap: 0;
+  .videos-page ul {
+    display: grid;
+    gap: 0.75rem;
   }
 
-  .service {
-    display: block;
+  .videos-page a[href="#party-vibes"],
+  .videos-page a[href="#chilled-vibes"] {
     width: 100%;
-    box-sizing: border-box;
-    margin-bottom: 1.5rem;
+    justify-content: center;
+    text-align: center;
   }
 
-  .video-wrapper {
-    padding-bottom: 56.25%; /* Maintain 16:9 ratio */
-    height: 0;
-    overflow: hidden;
-    border-radius: 8px;
+  .videos-page .video-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
 
-  .video-wrapper iframe {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0; left: 0;
-    border: none;
+  .videos-page .service,
+  .videos-page .video-grid>.service:first-child {
+    grid-column: auto;
+    padding: 0.9rem;
   }
 
-  h2, h3.song-title {
+  .videos-page h2 {
+    text-align: left;
+  }
+
+  .videos-page h3.song-title {
     font-size: 1.1rem;
-    text-align: center;
+    text-align: left;
+    min-block-size: 0;
   }
 
-  p.artist-name {
-    font-size: 0.9rem;
-    text-align: center;
+  .videos-page p.artist-name {
+    font-size: 0.95rem;
+    text-align: left;
+    min-block-size: 0;
+  }
+
+  .videos-page a[href*="youtube.com"],
+  .videos-page a[href*="instagram.com"] {
+    width: 100%;
+    justify-content: center;
+    margin-right: 0;
   }
 }
 
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+
+  .videos-page .service,
+  .videos-page a[href="#party-vibes"],
+  .videos-page a[href="#chilled-vibes"],
+  .videos-page a[href*="youtube.com"],
+  .videos-page a[href*="instagram.com"] {
+    transition: none;
+  }
+}
