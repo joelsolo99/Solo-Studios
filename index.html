@@ -22,65 +22,85 @@ permalink: /
 
 
 
-<div class="services-cards-wrkapper">
+<div class="services-cards-wrapper">
   <h2 class="services-section-title">Our Services</h2>
+
   <div class="services-cards-section">
-
-
-<div class="services-cards-section">
-  <div class="service-card">
-    <div class="image-container">
-      <img src="{{ '/assets/img/homepage/1.webp' | relative_url }}" alt="Weddings" class="service-image">
-      <a href="/packages/wedding-packages/" class="service-label">Weddings</a>
+    <div class="service-card">
+      <a href="/packages/wedding-packages/" class="service-card-link">
+        <div class="image-container">
+          <img src="{{ '/assets/img/homepage/1.webp' | relative_url }}" alt="Weddings" class="service-image">
+          <span class="service-label">Weddings</span>
+        </div>
+      </a>
     </div>
-  </div>
 
-  <div class="service-card">
-    <div class="image-container">
-      <img src="{{ '/assets/img/homepage/2.webp' | relative_url }}" alt="Parties" class="service-image">
-      <a href="/packages/party-packages/" class="service-label">Parties</a>
+    <div class="service-card">
+      <a href="/packages/party-packages/" class="service-card-link">
+        <div class="image-container">
+          <img src="{{ '/assets/img/homepage/2.webp' | relative_url }}" alt="Parties" class="service-image">
+          <span class="service-label">Parties</span>
+        </div>
+      </a>
     </div>
-  </div>
 
-  <div class="service-card">
-    <div class="image-container">
-      <img src="{{ '/assets/img/homepage/3.webp' | relative_url }}" alt="Events" class="service-image">
-      <a href="/packages/events-packages/" class="service-label">Events</a>
+    <div class="service-card">
+      <a href="/packages/events-packages/" class="service-card-link">
+        <div class="image-container">
+          <img src="{{ '/assets/img/homepage/3.webp' | relative_url }}" alt="Events" class="service-image">
+          <span class="service-label">Events</span>
+        </div>
+      </a>
     </div>
-  </div>
-</div>
 
-
+    <div class="service-card">
+      <a href="/packages/power-hour/" class="service-card-link">
+        <div class="image-container">
+          <img src="{{ '/assets/img/homepage/4.webp' | relative_url }}" alt="Power Hour" class="service-image">
+          <span class="service-label">Power Hour</span>
+        </div>
+      </a>
+    </div>
   </div>
 </div>
 
 <section class="video-gallery-preview">
   <h2 class="section-title">See us in Action!</h2>
+
   <div class="video-cards-container">
+    <a href="/gallery/videos/#video-jubel" class="video-card" aria-label="Watch Jubel live performance">
+      <img src="https://i.ytimg.com/vi/uuDLdVoHLs4/hqdefault.jpg" alt="Jubel live performance thumbnail"
+        class="video-thumb youtube-thumb crop-high">
+      <div class="video-overlay">
+        <span>Watch Video</span>
+      </div>
+    </a>
 
-<a href="/gallery/videos/#video-henparty?autoplay=true" class="video-card" aria-label="Watch Hen Party Video">
-  <img src="{{ '/assets/img/video_thumbs/1.webp' | relative_url }}" alt="Hen Party Highlight" class="video-thumb">
-  <div class="video-overlay">
-    <span>Watch Video</span>
+    <a href="/gallery/videos/#video-pitbull" class="video-card" aria-label="Watch Fireball wedding entrance">
+      <img src="https://i.ytimg.com/vi/uC-EWWkLyy0/hqdefault.jpg" alt="Fireball wedding entrance thumbnail"
+        class="video-thumb youtube-thumb crop-high">
+      <div class="video-overlay">
+        <span>Watch Video</span>
+      </div>
+    </a>
+
+    <a href="/gallery/videos/#video-club" class="video-card" aria-label="Watch Club Classics party highlights">
+      <img src="https://i.ytimg.com/vi/xnP7DbxwX60/hqdefault.jpg" alt="Club Classics party highlights thumbnail"
+        class="video-thumb youtube-thumb crop-mid">
+      <div class="video-overlay">
+        <span>Watch Video</span>
+      </div>
+    </a>
+
+    <a href="/gallery/videos/#video-valerie" class="video-card" aria-label="Watch Valerie live performance">
+      <img src="https://i.ytimg.com/vi/2Tvs8UwSdmw/hqdefault.jpg" alt="Valerie live performance thumbnail"
+        class="video-thumb youtube-thumb crop-mid">
+      <div class="video-overlay">
+        <span>Watch Video</span>
+      </div>
+    </a>
   </div>
-</a>
 
-<a href="/gallery/videos/#video-roswarne?autoplay=true" class="video-card" aria-label="Watch Roswarne Wedding Video">
-  <img src="{{ '/assets/img/video_thumbs/2.webp' | relative_url }}" alt="Roswarne Wedding Highlight" class="video-thumb">
-  <div class="video-overlay">
-    <span>Watch Video</span>
-  </div>
-</a>
-
-<a href="/gallery/videos/#video-boconnion?autoplay=true" class="video-card" aria-label="Watch Boconnion Wedding Video">
-  <img src="{{ '/assets/img/video_thumbs/3.webp' | relative_url }}" alt="Boconnion Wedding Highlight" class="video-thumb">
-  <div class="video-overlay">
-    <span>Watch Video</span>
-  </div>
-</a>
-
-
-  </div>
   <div class="video-gallery-cta">
     <a href="/gallery/videos/" class="cta-button">See All Videos</a>
   </div>
@@ -194,9 +214,9 @@ permalink: /
   <div class="container">
     <img src="/assets/img/palm_tree.svg" alt="" class="palm-top-left" />
     <img src="/assets/img/palm_tree.svg" alt="" class="palm-bottom-right" />
-    <h2>Looking for our Ibiza mix?</h2>
-    <p>Our set goes <strong>hard</strong>. If you want to bring the sound of Ibiza to your event, then you're in the right place! Why not have a look at our custom tracklist?</p>
-    <a href="/playlists/ibiza-sax" class="btn-ibiza-simple">Check out the Ibiza Tracklist &rarr;</a>
+    <h2>Looking for an Ibiza Sax set?</h2>
+    <p>Our set goes <strong>hard</strong>. If you want to bring the sound of Ibiza to your event, then you're in the right place! Have a look at our power hour package.</p>
+    <a href="/packages/power-hour" class="btn-ibiza-simple">Check out the Ibiza Set &rarr;</a>
   </div>
 </section>
 
