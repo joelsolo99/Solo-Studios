@@ -32,7 +32,6 @@ navbar-links:
     - Modern Pop: "playlists/modern-pop"    
     - Classics: "playlists/classics"
     - Jazz: "playlists/jazz"
-    - Evening Party Sample Setlist: "playlists/evening-party"
     - Ibiza Sax Mix: "playlists/ibiza-sax"
   Gallery:
   - Videos: "/gallery/videos"
@@ -57,7 +56,7 @@ round-avatar: true
 
 # If you want to have an image logo in the top-left corner instead of having the title of the website,
 # then specify the following parameter
-# title-img: /assets/img/website-title.png
+# title-img: "/assets/img/website-title-navbar.png"
 
 
 #####################################

@@ -60,40 +60,52 @@
 }
 
 .hero-overlay {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  right: 12px;
-  bottom: 12px;
-  width: calc(100% - 24px);
-  height: calc(100% - 24px);
-  background: linear-gradient(rgba(0, 0, 0, 0.28), rgba(0, 0, 0, 0.5));
-  z-index: -1;
-  border-radius: 18px;
+  display: none;
 }
 
 .hero-content {
   position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-  text-align: center;
+  height: 100%;
   color: #ffffff;
   padding: 0 1.25rem;
-  width: min(100%, 820px);
+  width: min(100%, 1100px);
   margin: 0 auto;
 }
 
-.hero-content h1 {
-  font-size: clamp(2.2rem, 6vw, 3.6rem);
-  margin: 0 0 0.6rem;
-  line-height: 1.05;
+/* Top-right logo */
+.hero-title-image {
+  position: absolute;
+  bottom: 28px;
+  right: 28px;
+  z-index: 2;
+  filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.22));
+}
+
+.hero-title-img {
+  display: block;
+  width: min(32vw, 220px);
+  height: auto;
 }
 
 .hero-content p {
+  position: absolute;
+  left: 50%;
+  top: 15px;
+  transform: translateX(-50%);
+  width: min(calc(100% - 2rem), 760px);
+  margin: 0;
+  text-align: center;
   font-size: clamp(1.05rem, 2.5vw, 1.45rem);
   line-height: 1.4;
-  max-width: 760px;
-  margin: 0 auto;
+  color: #ffffff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.28);
+
+  background: rgba(0, 0, 0, 0.16);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  padding: 0.5rem 0.5rem;
+  border-radius: 14px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
 }
 
 @media (max-width: 767px) {
@@ -102,30 +114,32 @@
     min-height: 300px;
   }
 
-  .hero-video,
-  .hero-overlay {
+  .hero-video {
     top: 8px;
     left: 8px;
     right: 8px;
     bottom: 8px;
     width: calc(100% - 16px);
     height: calc(100% - 16px);
+    object-position: center 25%;
     border-radius: 12px;
   }
 
-  .hero-video {
-    object-position: center 25%;
+  .hero-title-image {
+    top: 18px;
+    right: 18px;
   }
 
-  .hero-content h1 {
-    font-size: 1.95rem;
+  .hero-title-img {
+    width: min(46vw, 200px);
   }
 
   .hero-content p {
+    bottom: 34px;
+    width: min(100% - 1.5rem, 520px);
     font-size: 1rem;
   }
 }
-
 /* =========================
    Services cards
    ========================= */
