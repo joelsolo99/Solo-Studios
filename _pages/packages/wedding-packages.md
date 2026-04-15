@@ -11,7 +11,7 @@ permalink: /packages/wedding-packages/
 
 <section class="fade-in-section left-offset">
   <div class="package-section">
-    <img src="{{ '/assets/img/wedding_packages/sax_lift_cropped.webp' | relative_url }}" alt="Wedding DJ & Sax Performance Packages" class="package-image">
+    <img src="{{ '/assets/img/wedding_packages/drinks_reception.webp' | relative_url }}" alt="Wedding DJ & Sax Performance Packages" class="package-image">
     <div class="package-content">
       <h2>We want your dream wedding to come true!</h2>
       <p>Our DJ and saxophone packages are designed to elevate your celebration with unforgettable musical moments. Here's what we offer to make your big day truly spectacular:</p>
@@ -45,7 +45,7 @@ permalink: /packages/wedding-packages/
     </video>
 
     <div class="package-content">
-      <h2>Drinks Reception Package</h2>
+      <h2>Drinks Reception</h2>
       <p>
         <strong>Set:</strong> 2 × 45 mins<br>
         <strong>Total Duration:</strong> 2 hours<br>
@@ -68,7 +68,7 @@ permalink: /packages/wedding-packages/
     <div class="package-section">
       <img src="{{ '/assets/img/wedding_packages/5.webp' | relative_url }}" alt="Sax + Backings Only – 5x45min" class="package-image">
       <div class="package-content">
-        <h2>Sax + Playlist Service</h2>
+        <h2>Sax & Tracks</h2>
         <p><strong>Set:</strong> Your favourite tunes for 5 hours, with sax!<br>
            <strong>Total Duration:</strong> 5 hours<br>
            <strong>Price:</strong> From £800</p>
@@ -79,7 +79,7 @@ permalink: /packages/wedding-packages/
 
   <section class="fade-in-section left-offset">
     <div class="package-section">
-      <img src="{{ '/assets/img/wedding_packages/2.webp' | relative_url }}" alt="Combo Deal Sax + DJ" class="package-image">
+      <img src="{{ '/assets/img/wedding_packages/combo_deal.webp' | relative_url }}" alt="Combo Deal Sax + DJ" class="package-image">
       <div class="package-content">
         <h2>Combo Deal (Sax + DJ)</h2>
         <p><strong>Set:</strong> 5pm – Midnight<br>
