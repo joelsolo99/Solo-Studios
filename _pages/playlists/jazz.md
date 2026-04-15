@@ -1,61 +1,155 @@
 ---
 layout: default
-title: "Jazz Tracklist"
+title: Jazz Tracklist"
 ---
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{ '/assets/css/jazz-playlist.css' | relative_url }}">
-<link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
 
+<div class="jazz-tracklist-page">
+  <header class="tracklist-hero" aria-labelledby="jazz-tracklist-title">
+    <h1 id="jazz-tracklist-title">Jazz Setlist</h1>
+  </header>
 
-<h1 class="neon-title">Jazz Setlist</h1>
+  <section class="tracklist-card" aria-label="Jazz tracklist">
+    <p class="sr-only" id="tracklist-status" aria-live="polite">Loading tracks...</p>
 
-
-<div class="tracklist-container">
-  <div class="tracklist-section">
-    <table class="tracklist-table" id="tracklist-table">
-      <thead>
-        <tr>
-          <th>Song</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- Tracklist data will be inserted here by JavaScript -->
-      </tbody>
-    </table>
-  </div>
+    <div class="tracklist-table-wrap">
+      <table class="tracklist-table" id="tracklist-table">
+        <caption class="sr-only">Jazz setlist showing song titles</caption>
+        <thead>
+          <tr>
+            <th scope="col">Song</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="is-placeholder">
+            <td>Loading setlist...</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
 </div>
 
-
 <script>
-// Function to fetch CSV data
-function loadTracklist() {
-  fetch('/assets/tracklists/jazz.csv')
-    .then(response => response.text())
-    .then(csvData => {
-      const rows = csvData.split('\n').slice(1); // Remove header row
-      const tableBody = document.querySelector('#tracklist-table tbody');
-      rows.forEach(row => {
-        const cols = row.split(',').map(col => col.replace(/(^"|"$)/g, '').trim()); // Remove quotes and trim
+(function () {
+  const csvUrl = "{{ '/assets/tracklists/jazz.csv' | relative_url }}";
+  const tableBody = document.querySelector('#tracklist-table tbody');
+  const statusEl = document.getElementById('tracklist-status');
 
-        if (cols.length > 0) {  // Only check for the song column
-          const tr = document.createElement('tr');
-          const songTd = document.createElement('td');
+  function parseCSVLine(line) {
+    const result = [];
+    let current = '';
+    let inQuotes = false;
 
-          // Set text content for song cell
-          songTd.textContent = cols[0]; // Only one column for song
+    for (let i = 0; i < line.length; i++) {
+      const char = line[i];
+      const next = line[i + 1];
 
-          // Add data-label attributes for responsive design
-          songTd.setAttribute('data-label', 'Song');
+      if (char === '"' && inQuotes && next === '"') {
+        current += '"';
+        i++;
+      } else if (char === '"') {
+        inQuotes = !inQuotes;
+      } else if (char === ',' && !inQuotes) {
+        result.push(current.trim());
+        current = '';
+      } else {
+        current += char;
+      }
+    }
 
-          // Append cell to the row
-          tr.appendChild(songTd);
-          tableBody.appendChild(tr);
+    result.push(current.trim());
+    return result;
+  }
+
+  function cleanCell(value) {
+    return value.replace(/(^"|"$)/g, '').trim();
+  }
+
+  function setMessageRow(message, className = '') {
+    tableBody.innerHTML = '';
+
+    const row = document.createElement('tr');
+    if (className) row.className = className;
+
+    const cell = document.createElement('td');
+    cell.textContent = message;
+
+    row.appendChild(cell);
+    tableBody.appendChild(row);
+  }
+
+  function createTrackRow(song) {
+    const row = document.createElement('tr');
+
+    const songCell = document.createElement('td');
+    songCell.className = 'song-cell';
+    songCell.setAttribute('data-label', 'Song');
+    songCell.textContent = song;
+
+    row.appendChild(songCell);
+
+    return row;
+  }
+
+  async function loadTracklist() {
+    try {
+      const response = await fetch(csvUrl);
+
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`);
+      }
+
+      const csvText = await response.text();
+      const lines = csvText
+        .split(/\r?\n/)
+        .map(line => line.trim())
+        .filter(Boolean);
+
+      if (lines.length <= 1) {
+        setMessageRow('No tracks available right now.', 'is-empty');
+        statusEl.textContent = '0 tracks available';
+        return;
+      }
+
+      const rows = lines.slice(1);
+      const fragment = document.createDocumentFragment();
+      let count = 0;
+
+      rows.forEach(line => {
+        const cols = parseCSVLine(line);
+
+        if (cols.length >= 1) {
+          const song = cleanCell(cols[0]);
+
+          if (song) {
+            fragment.appendChild(createTrackRow(song));
+            count += 1;
+          }
         }
       });
-    })
-    .catch(error => console.error('Error loading tracklist:', error));
-}
 
-// Call the function on page load
-document.addEventListener('DOMContentLoaded', loadTracklist);
+      tableBody.innerHTML = '';
+
+      if (count === 0) {
+        setMessageRow('No tracks available right now.', 'is-empty');
+        statusEl.textContent = '0 tracks available';
+        return;
+      }
+
+      tableBody.appendChild(fragment);
+      statusEl.textContent = `${count} ${count === 1 ? 'track' : 'tracks'} loaded`;
+    } catch (error) {
+      console.error('Error loading tracklist:', error);
+      setMessageRow('Sorry, the setlist could not be loaded.', 'is-error');
+      statusEl.textContent = 'Setlist unavailable';
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', loadTracklist);
+})();
 </script>
