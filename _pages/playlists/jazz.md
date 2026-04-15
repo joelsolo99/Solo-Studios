@@ -6,7 +6,7 @@ title: Jazz Tracklist"
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{{ '/assets/css/jazz-playlist.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/tracklist.css' | relative_url }}">
 
 <div class="jazz-tracklist-page">
   <header class="tracklist-hero" aria-labelledby="jazz-tracklist-title">

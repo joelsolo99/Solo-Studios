@@ -1,39 +1,41 @@
 :root {
-  --ibiza-teal-900: #0f4f56;
-  --ibiza-teal-800: #13636b;
-  --ibiza-teal-700: #1b7b84;
-  --ibiza-teal-600: #2496a1;
-  --ibiza-teal-500: #38b7c2;
+  --tracklist-teal-900: #0f4f56;
+  --tracklist-teal-800: #13636b;
+  --tracklist-teal-700: #1b7b84;
+  --tracklist-teal-600: #2496a1;
+  --tracklist-teal-500: #38b7c2;
 
-  --ibiza-text: #18343a;
-  --ibiza-text-soft: #5b7277;
-  --ibiza-surface: rgba(255, 255, 255, 0.94);
-  --ibiza-surface-strong: #ffffff;
-  --ibiza-border: rgba(15, 79, 86, 0.12);
-  --ibiza-border-strong: rgba(15, 79, 86, 0.18);
-  --ibiza-hover: rgba(36, 150, 161, 0.06);
-  --ibiza-shadow:
+  --tracklist-text: #18343a;
+  --tracklist-text-soft: #5b7277;
+  --tracklist-surface: rgba(255, 255, 255, 0.94);
+  --tracklist-surface-strong: #ffffff;
+  --tracklist-border: rgba(15, 79, 86, 0.12);
+  --tracklist-border-strong: rgba(15, 79, 86, 0.18);
+  --tracklist-hover: rgba(36, 150, 161, 0.06);
+  --tracklist-shadow:
     0 14px 36px rgba(15, 79, 86, 0.10),
     0 4px 10px rgba(15, 79, 86, 0.05);
 
-  --ibiza-radius-lg: 22px;
-  --ibiza-radius-md: 16px;
-  --ibiza-max-width: 980px;
+  --tracklist-radius-lg: 22px;
+  --tracklist-radius-md: 16px;
+  --tracklist-max-width: 980px;
 }
 
-.ibiza-tracklist-page,
-.ibiza-tracklist-page * {
+/* Shared page wrapper for all tracklist pages */
+.tracklist-page,
+.tracklist-page * {
   box-sizing: border-box;
 }
 
-.ibiza-tracklist-page {
-  max-width: var(--ibiza-max-width);
+.tracklist-page {
+  max-width: var(--tracklist-max-width);
   margin: 0 auto;
   padding: clamp(1.75rem, 4vw, 3.5rem) 1rem 3rem;
   font-family: 'Manrope', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  color: var(--ibiza-text);
+  color: var(--tracklist-text);
 }
 
+/* Header */
 .tracklist-hero {
   margin-bottom: 1.25rem;
 }
@@ -44,7 +46,7 @@
   line-height: 1.02;
   font-weight: 800;
   letter-spacing: -0.04em;
-  color: var(--ibiza-teal-900);
+  color: var(--tracklist-teal-900);
   text-wrap: balance;
 }
 
@@ -55,17 +57,18 @@
   height: 4px;
   margin-top: 0.8rem;
   border-radius: 999px;
-  background: linear-gradient(90deg, var(--ibiza-teal-700), var(--ibiza-teal-500));
+  background: linear-gradient(90deg, var(--tracklist-teal-700), var(--tracklist-teal-500));
   opacity: 0.95;
 }
 
+/* Card */
 .tracklist-card {
   position: relative;
   overflow: hidden;
-  background: var(--ibiza-surface);
-  border: 1px solid var(--ibiza-border);
-  border-radius: var(--ibiza-radius-lg);
-  box-shadow: var(--ibiza-shadow);
+  background: var(--tracklist-surface);
+  border: 1px solid var(--tracklist-border);
+  border-radius: var(--tracklist-radius-lg);
+  box-shadow: var(--tracklist-shadow);
 }
 
 .tracklist-card::before {
@@ -73,10 +76,11 @@
   position: absolute;
   inset: 0 0 auto 0;
   height: 3px;
-  background: linear-gradient(90deg, var(--ibiza-teal-800), var(--ibiza-teal-500));
+  background: linear-gradient(90deg, var(--tracklist-teal-800), var(--tracklist-teal-500));
   z-index: 2;
 }
 
+/* Scroll container */
 .tracklist-table-wrap {
   max-height: min(72vh, 860px);
   overflow: auto;
@@ -99,6 +103,7 @@
   background: rgba(15, 79, 86, 0.04);
 }
 
+/* Table */
 .tracklist-table {
   width: 100%;
   border-collapse: separate;
@@ -116,11 +121,11 @@
   font-weight: 800;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--ibiza-teal-800);
+  color: var(--tracklist-teal-800);
   background: rgba(245, 252, 252, 0.96);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--ibiza-border-strong);
+  border-bottom: 1px solid var(--tracklist-border-strong);
   box-shadow: 0 1px 0 rgba(15, 79, 86, 0.05);
 }
 
@@ -129,7 +134,7 @@
 }
 
 .tracklist-table tbody tr:hover {
-  background: var(--ibiza-hover);
+  background: var(--tracklist-hover);
 }
 
 .tracklist-table tbody tr+tr td {
@@ -141,18 +146,18 @@
   vertical-align: middle;
   font-size: 1rem;
   line-height: 1.55;
-  color: var(--ibiza-text);
+  color: var(--tracklist-text);
   background: transparent;
 }
 
 .tracklist-table .song-cell {
   font-weight: 700;
-  color: var(--ibiza-text);
+  color: var(--tracklist-text);
 }
 
 .tracklist-table .artist-cell {
   font-weight: 500;
-  color: var(--ibiza-text-soft);
+  color: var(--tracklist-text-soft);
 }
 
 .tracklist-table .is-placeholder td,
@@ -160,13 +165,14 @@
 .tracklist-table .is-error td {
   padding: 1.2rem 1.5rem 1.35rem;
   font-weight: 600;
-  color: var(--ibiza-text-soft);
+  color: var(--tracklist-text-soft);
 }
 
 .tracklist-table .is-error td {
   color: #8a4f57;
 }
 
+/* Accessibility */
 .sr-only {
   position: absolute !important;
   width: 1px !important;
@@ -179,19 +185,20 @@
   border: 0 !important;
 }
 
-.ibiza-tracklist-page a:focus-visible,
-.ibiza-tracklist-page button:focus-visible,
-.ibiza-tracklist-page input:focus-visible,
-.ibiza-tracklist-page select:focus-visible,
-.ibiza-tracklist-page textarea:focus-visible,
-.ibiza-tracklist-page th:focus-visible,
-.ibiza-tracklist-page td:focus-visible {
+.tracklist-page a:focus-visible,
+.tracklist-page button:focus-visible,
+.tracklist-page input:focus-visible,
+.tracklist-page select:focus-visible,
+.tracklist-page textarea:focus-visible,
+.tracklist-page th:focus-visible,
+.tracklist-page td:focus-visible {
   outline: 2px solid rgba(36, 150, 161, 0.65);
   outline-offset: 2px;
 }
 
+/* Mobile */
 @media (max-width: 720px) {
-  .ibiza-tracklist-page {
+  .tracklist-page {
     padding: 1.25rem 0.75rem 2.25rem;
   }
 
@@ -228,8 +235,8 @@
     margin: 0 0 0.7rem;
     padding: 0.95rem 1rem;
     border: 1px solid rgba(15, 79, 86, 0.10);
-    border-radius: var(--ibiza-radius-md);
-    background: var(--ibiza-surface-strong);
+    border-radius: var(--tracklist-radius-md);
+    background: var(--tracklist-surface-strong);
     box-shadow:
       0 8px 20px rgba(15, 79, 86, 0.08),
       0 2px 6px rgba(15, 79, 86, 0.04);
@@ -255,7 +262,7 @@
     font-weight: 800;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--ibiza-teal-700);
+    color: var(--tracklist-teal-700);
   }
 
   .tracklist-table .song-cell {
