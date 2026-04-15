@@ -1,319 +1,286 @@
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+:root {
+  --ibiza-teal-900: #0f4f56;
+  --ibiza-teal-800: #13636b;
+  --ibiza-teal-700: #1b7b84;
+  --ibiza-teal-600: #2496a1;
+  --ibiza-teal-500: #38b7c2;
 
+  --ibiza-text: #18343a;
+  --ibiza-text-soft: #5b7277;
+  --ibiza-surface: rgba(255, 255, 255, 0.94);
+  --ibiza-surface-strong: #ffffff;
+  --ibiza-border: rgba(15, 79, 86, 0.12);
+  --ibiza-border-strong: rgba(15, 79, 86, 0.18);
+  --ibiza-hover: rgba(36, 150, 161, 0.06);
+  --ibiza-shadow:
+    0 14px 36px rgba(15, 79, 86, 0.10),
+    0 4px 10px rgba(15, 79, 86, 0.05);
 
-body {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  background: linear-gradient(to bottom, #e0f7f7, #fff);
-  color: #333;
-  margin: 0;
-  padding: 2rem 1rem;
-  overflow-x: hidden;
-  position: relative;
+  --ibiza-radius-lg: 22px;
+  --ibiza-radius-md: 16px;
+  --ibiza-max-width: 980px;
 }
 
-/* Smooth fade-in for tracklist */
-.tracklist-container {
-  animation: fadeIn 1.2s ease;
-  max-width: 900px;
+.ibiza-tracklist-page,
+.ibiza-tracklist-page * {
+  box-sizing: border-box;
+}
+
+.ibiza-tracklist-page {
+  max-width: var(--ibiza-max-width);
   margin: 0 auto;
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 1.5rem;
-  padding: 2rem;
-  box-shadow: 0 8px 20px rgba(0, 128, 128, 0.3), 0 0 10px rgba(0, 128, 128, 0.1);
-  border: 2px solid rgba(0, 128, 128, 0.2);
+  padding: clamp(1.75rem, 4vw, 3.5rem) 1rem 3rem;
+  font-family: 'Manrope', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: var(--ibiza-text);
+}
+
+.tracklist-hero {
+  margin-bottom: 1.25rem;
+}
+
+.tracklist-hero h1 {
+  margin: 0;
+  font-size: clamp(2.2rem, 4.8vw, 3.8rem);
+  line-height: 1.02;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: var(--ibiza-teal-900);
+  text-wrap: balance;
+}
+
+.tracklist-hero h1::after {
+  content: "";
+  display: block;
+  width: 88px;
+  height: 4px;
+  margin-top: 0.8rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--ibiza-teal-700), var(--ibiza-teal-500));
+  opacity: 0.95;
+}
+
+.tracklist-card {
   position: relative;
   overflow: hidden;
-  z-index: 1;
+  background: var(--ibiza-surface);
+  border: 1px solid var(--ibiza-border);
+  border-radius: var(--ibiza-radius-lg);
+  box-shadow: var(--ibiza-shadow);
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+.tracklist-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--ibiza-teal-800), var(--ibiza-teal-500));
+  z-index: 2;
 }
 
-/* Section title */
-.tracklist-section h1 {
-  font-family: 'Pacifico', cursive;
-  font-weight: normal;
-  font-size: 2.8rem;
-  color: #00796b;
-  text-shadow: 0 0 10px rgba(0, 121, 107, 0.4);
+.tracklist-table-wrap {
+  max-height: min(72vh, 860px);
+  overflow: auto;
+  border-radius: inherit;
+  background: transparent;
 }
 
+.tracklist-table-wrap::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
 
-/* Table */
+.tracklist-table-wrap::-webkit-scrollbar-thumb {
+  background: rgba(27, 123, 132, 0.35);
+  border: 2px solid rgba(255, 255, 255, 0.92);
+  border-radius: 999px;
+}
+
+.tracklist-table-wrap::-webkit-scrollbar-track {
+  background: rgba(15, 79, 86, 0.04);
+}
+
 .tracklist-table {
   width: 100%;
-  border-collapse: collapse;
-  font-size: 1.1rem;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: transparent;
 }
 
-.tracklist-table thead {
-  background: #008080;
-  color: white;
-  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
-}
-
-.tracklist-table th,
-.tracklist-table td {
-  padding: 0.75rem 1rem;
+.tracklist-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  padding: 1rem 1.5rem;
   text-align: left;
-  border-bottom: 1px solid #ccc;
-  transition: background 0.3s ease, transform 0.2s ease;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ibiza-teal-800);
+  background: rgba(245, 252, 252, 0.96);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--ibiza-border-strong);
+  box-shadow: 0 1px 0 rgba(15, 79, 86, 0.05);
 }
 
-.tracklist-table tr:hover {
-  background: #fff3f0;
-  transform: scale(1.02);
-  box-shadow: 0 0 12px rgba(255, 111, 97, 0.4);
+.tracklist-table tbody tr {
+  transition: background-color 160ms ease;
 }
 
-
-
-
-/* Palm tree silhouette background */
-body::after {
-  content: '';
-  position: absolute;
-  bottom: -50px;
-  right: -50px;
-  width: 400px;
-  height: 400px;
-  background: url('/assets/img/palm_tree.svg') no-repeat center;
-  background-size: contain;
-  opacity: 0.05;
-  z-index: 0;
-  pointer-events: none;
+.tracklist-table tbody tr:hover {
+  background: var(--ibiza-hover);
 }
 
-/* Floating music notes */
-.tracklist-container::before {
-  content: "🎷🎶🎵";  position: absolute;
-  top: -20px;
-  right: 20px;
-  font-size: 2.5rem;
-  opacity: 0.55;
-  color: rgba(0, 128, 128, 0.8);
-  text-shadow: 0 0 4px rgba(0, 128, 128, 0.15);
-  animation: floatNotes 6s ease-in-out infinite;
-  pointer-events: none;
-  user-select: none;
+.tracklist-table tbody tr+tr td {
+  border-top: 1px solid rgba(15, 79, 86, 0.08);
 }
 
-@keyframes floatNotes {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(10px) rotate(5deg); }
+.tracklist-table td {
+  padding: 1rem 1.5rem;
+  vertical-align: middle;
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--ibiza-text);
+  background: transparent;
 }
 
-/* Mobile styling */
-@media (max-width: 600px) {
-  .tracklist-table {
-    font-size: 0.95rem;
+.tracklist-table .song-cell {
+  font-weight: 700;
+  color: var(--ibiza-text);
+}
+
+.tracklist-table .artist-cell {
+  font-weight: 500;
+  color: var(--ibiza-text-soft);
+}
+
+.tracklist-table .is-placeholder td,
+.tracklist-table .is-empty td,
+.tracklist-table .is-error td {
+  padding: 1.2rem 1.5rem 1.35rem;
+  font-weight: 600;
+  color: var(--ibiza-text-soft);
+}
+
+.tracklist-table .is-error td {
+  color: #8a4f57;
+}
+
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.ibiza-tracklist-page a:focus-visible,
+.ibiza-tracklist-page button:focus-visible,
+.ibiza-tracklist-page input:focus-visible,
+.ibiza-tracklist-page select:focus-visible,
+.ibiza-tracklist-page textarea:focus-visible,
+.ibiza-tracklist-page th:focus-visible,
+.ibiza-tracklist-page td:focus-visible {
+  outline: 2px solid rgba(36, 150, 161, 0.65);
+  outline-offset: 2px;
+}
+
+@media (max-width: 720px) {
+  .ibiza-tracklist-page {
+    padding: 1.25rem 0.75rem 2.25rem;
+  }
+
+  .tracklist-hero {
+    margin-bottom: 1rem;
+  }
+
+  .tracklist-card {
+    border-radius: 18px;
+  }
+
+  .tracklist-table-wrap {
+    max-height: none;
+    overflow: visible;
   }
 
   .tracklist-table thead {
     display: none;
   }
 
-  .tracklist-table tr {
-    display: block;
-    margin-bottom: 1.2rem;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    padding: 0.75rem;
-    background: #ffffff;
-    box-shadow: 0 3px 8px rgba(0, 128, 128, 0.15);
-  }
-
+  .tracklist-table,
+  .tracklist-table tbody,
+  .tracklist-table tr,
   .tracklist-table td {
     display: block;
     width: 100%;
-    text-align: right;
-    padding: 0.5rem 0.75rem;
-    position: relative;
+  }
+
+  .tracklist-table tbody {
+    padding: 0.45rem;
+  }
+
+  .tracklist-table tbody tr {
+    margin: 0 0 0.7rem;
+    padding: 0.95rem 1rem;
+    border: 1px solid rgba(15, 79, 86, 0.10);
+    border-radius: var(--ibiza-radius-md);
+    background: var(--ibiza-surface-strong);
+    box-shadow:
+      0 8px 20px rgba(15, 79, 86, 0.08),
+      0 2px 6px rgba(15, 79, 86, 0.04);
+  }
+
+  .tracklist-table tbody tr+tr td {
+    border-top: 0;
+  }
+
+  .tracklist-table td {
+    padding: 0;
+  }
+
+  .tracklist-table td+td {
+    margin-top: 0.75rem;
   }
 
   .tracklist-table td::before {
     content: attr(data-label);
-    font-weight: bold;
-    position: absolute;
-    left: 0;
-    top: 0;
-    padding: 0.5rem 0.75rem;
-    color: #008080;
-    text-align: left;
-  }
-}
-
-.tracklist-icons {
-  position: relative;
-  height: 0;
-  z-index: 2;
-}
-
-.vinyl-icon {
-  position: fixed;
-  top: 100px;
-  left: 20px;
-  width: 50px;
-  height: 50px;
-  animation: spin 8s linear infinite;
-  z-index: 9999;  /* make sure it's higher than your menu's z-index */
-  pointer-events: none;
-  opacity: 0.35;
-}
-
-
-
-.palm-icon {
-  position: fixed;
-  bottom: 15px;
-  right: 15px;
-  width: 200px;
-  height: auto;
-  animation: sway 5s ease-in-out infinite alternate;
-  z-index: 999;
-  pointer-events: none;
-  opacity: 0.3;
-  filter: drop-shadow(0 2px 2px rgba(0,0,0,0.05));
-}
-
-/* Animation keyframes */
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
-}
-
-@keyframes sway {
-  from { transform: rotate(-5deg); }
-  to   { transform: rotate(5deg); }
-}
-
-/* Colours for tracklist text */
-.tracklist-table td, 
-.tracklist-table th,
-.tracklist-table .song-title,
-.tracklist-table .artist-name {
-  color: #004d4d !important;  /* Dark teal */
-}
-
-.tracklist-table td.artist-name {
-  color: #336666 !important;  /* Lighter teal */
-}
-.tracklist-table td p.artist-name {
-  color: #336666 !important;
-}
-
-
-/* Mobile friendly adjustments */
-@media (max-width: 600px) {
-  body {
-    padding: 1rem 0.5rem;
-  }
-  
-  /* Smaller vinyl icon, moved slightly */
-  .vinyl-icon {
-    top: 70px;      /* move it down a bit on mobile */
-    left: 10px;
-    width: 40px;
-    height: 40px;
-    opacity: 0.3;
-  }
-  
-  /* Slightly smaller palm icon */
-  .palm-icon {
-    width: 50px;
-    bottom: 10px;
-    right: 10px;
-    opacity: 0.15;
-  }
-  
-  /* Tracklist container narrower padding for mobile */
-  .tracklist-container {
-    padding: 1.2rem 1rem;
-    max-width: 100%;
-    margin: 1rem 0;
-    border-radius: 1rem;
-  }
-  
-  /* Table font size smaller and responsive format */
-  .tracklist-table {
-    font-size: 0.95rem;
-  }
-  
-  /* Hide thead and make rows block */
-  .tracklist-table thead {
-    display: none;
-  }
-  
-  .tracklist-table tr {
     display: block;
-    margin-bottom: 1.2rem;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    padding: 0.75rem;
-    background: #ffffff;
-    box-shadow: 0 3px 8px rgba(0, 128, 128, 0.15);
+    margin-bottom: 0.3rem;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ibiza-teal-700);
   }
-  
-  /* Table cells block with labels on left */
-.tracklist-table td {
-  display: block;
-  width: 100%;
-  text-align: left;
-  padding: 1rem 0.75rem 0.5rem 0.75rem;
-  position: relative;
-  padding-top: 2.5rem;
-  color: #004d4d !important;
-  box-sizing: border-box;
-}
 
-.tracklist-table td::before {
-  content: attr(data-label);
-  display: block;
-  font-weight: bold;
-  margin-bottom: 1.5rem; !important;
-  color: #008080;
-  font-size: 0.95rem;
-}
+  .tracklist-table .song-cell {
+    font-size: 1rem;
+  }
 
-.tracklist-section h1.neon-title-ibiza {
-  font-family: 'Pacifico', cursive !important;
-  font-size: 3rem !important;
-  color: #ff66cc !important;
-  text-shadow:
-    0 0 5px #ff66cc,
-    0 0 10px #ff66cc,
-    0 0 20px #ff66cc,
-    0 0 40px #ff33cc,
-    0 0 80px #ff33cc !important;
-  animation: neonFlicker 3s infinite alternate;
-}
+  .tracklist-table .artist-cell {
+    font-size: 0.96rem;
+  }
 
-@media (max-width: 600px) {
-  .tracklist-section h1.neon-title-ibiza {
-    color: #ff66cc !important;
-    text-shadow:
-      0 0 5px #ff66cc,
-      0 0 10px #ff66cc,
-      0 0 20px #ff66cc,
-      0 0 40px #ff33cc,
-      0 0 80px #ff33cc !important;
+  .tracklist-table .is-placeholder td,
+  .tracklist-table .is-empty td,
+  .tracklist-table .is-error td {
+    padding: 0;
+  }
+
+  .tracklist-table .is-placeholder td::before,
+  .tracklist-table .is-empty td::before,
+  .tracklist-table .is-error td::before {
+    content: none;
   }
 }
 
-@keyframes neonFlicker {
-  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-    text-shadow:
-      0 0 5px #ff66cc,
-      0 0 10px #ff66cc,
-      0 0 20px #ff66cc,
-      0 0 40px #ff33cc,
-      0 0 80px #ff33cc;
-    opacity: 1;
-  }
-  20%, 22%, 24%, 55% {
-    text-shadow: none;
-    opacity: 0.8;
+@media (prefers-reduced-motion: reduce) {
+  .tracklist-table tbody tr {
+    transition: none;
   }
 }

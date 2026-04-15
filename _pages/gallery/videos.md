@@ -26,7 +26,6 @@ permalink: gallery/videos/
   <section class="videos-section" id="party-vibes" aria-labelledby="party-vibes-heading">
     <div class="section-heading">
       <div>
-        <p class="section-kicker">Perfect for evening celebrations</p>
         <h2 id="party-vibes-heading">Party Vibes</h2>
       </div>
       <p class="section-description">
@@ -112,7 +111,6 @@ permalink: gallery/videos/
   <section class="videos-section" id="chilled-vibes" aria-labelledby="chilled-vibes-heading">
     <div class="section-heading">
       <div>
-        <p class="section-kicker">Perfect for drinks receptions and laid-back events</p>
         <h2 id="chilled-vibes-heading">Chilled Vibes</h2>
       </div>
       <p class="section-description">
