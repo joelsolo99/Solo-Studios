@@ -9,13 +9,16 @@ permalink: /packages/wedding-packages/
 
 <div class="wrapper">
   <h1>Wedding Packages</h1>
+    <p class="packages-intro">
+      Music for every part of your wedding day, from the first drinks to the last dance.
+    </p>
 
   <section class="fade-in-section left-offset">
     <div class="package-section">
       <img src="{{ '/assets/img/wedding_packages/drinks_reception.webp' | relative_url }}" alt="Wedding DJ and sax performance packages" class="package-image package-image--drinks">
       <div class="package-content">
         <h2>We want your dream wedding to come true!</h2>
-        <p>Our DJ and saxophone packages are designed to elevate your celebration with unforgettable musical moments. Here's what we offer to make your big day truly spectacular:</p>
+        <p>Our DJ and saxophone packages are designed to cover every moment of your wedding, from relaxed daytime sets to high‑energy evening celebrations. Everything is planned around your timings, your taste, and the flow of your day.</p>
         <ul>
           <li>
             <strong>Grand Entrance:</strong> Kick off your reception in style with a personalized musical welcome. As the DJ announces, "Please welcome Mr and Mrs", your chosen song fills the room. Our saxophonist accompanies your entrance, wowing your guests from the start.

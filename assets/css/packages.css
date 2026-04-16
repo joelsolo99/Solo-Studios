@@ -78,6 +78,15 @@
   color: var(--packages-text-soft);
 }
 
+.packages-intro {
+  max-width: 760px;
+  margin: 0 auto 2.75rem;
+  text-align: center;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--packages-text-soft);
+}
+
 /* =========================
    Package section cards
    ========================= */
