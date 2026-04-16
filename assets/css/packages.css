@@ -263,6 +263,12 @@
     padding: 1.25rem 0.75rem 2.25rem;
   }
 
+  .package-image--drinks {
+    height: 260px;
+    min-height: 260px;
+    object-position: center top;
+  }
+
   .wrapper>h1 {
     margin-bottom: 1rem;
   }
@@ -299,6 +305,8 @@
     line-height: 1.65;
   }
 }
+
+
 
 /* =========================
    Bottom CTA card

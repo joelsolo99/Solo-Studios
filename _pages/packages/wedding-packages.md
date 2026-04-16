@@ -12,7 +12,7 @@ permalink: /packages/wedding-packages/
 
   <section class="fade-in-section left-offset">
     <div class="package-section">
-      <img src="{{ '/assets/img/wedding_packages/drinks_reception.webp' | relative_url }}" alt="Wedding DJ and sax performance packages" class="package-image">
+      <img src="{{ '/assets/img/wedding_packages/drinks_reception.webp' | relative_url }}" alt="Wedding DJ and sax performance packages" class="package-image package-image--drinks">
       <div class="package-content">
         <h2>We want your dream wedding to come true!</h2>
         <p>Our DJ and saxophone packages are designed to elevate your celebration with unforgettable musical moments. Here's what we offer to make your big day truly spectacular:</p>
