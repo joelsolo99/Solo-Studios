@@ -46,6 +46,72 @@ layout: default
       </div>
     </section>
 
+    <section class="about-section fade-in-section right-offset">
+      <div class="about-image-wrapper">
+        <img src="{{ '/assets/img/about/2.webp' | relative_url }}" alt="Guests dancing at an event" class="about-image">
+      </div>
+      <div class="about-overlay">
+        <h2>What Customers Value About Us</h2>
+        <ul class="about-values-list">
+          <li>
+            <strong>Clear communication:</strong> From first enquiry to final set times, clients value knowing that everything has been thought through properly.
+          </li>
+          <li>
+            <strong>Music that fits the moment:</strong> Whether it is a relaxed daytime drinks reception or a packed evening dancefloor, the music is shaped around the room and the event.
+          </li>
+          <li>
+            <strong>A professional setup:</strong> Sound, timing, and flow all need to work smoothly in the background. The best feedback is often that the whole thing felt easy.
+          </li>
+          <li>
+            <strong>Flexibility:</strong> We are always happy to tailor timings, take requests, and shape the set around the kind of atmosphere you want.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+
+    <section class="about-process fade-in-section">
+  <div class="about-process__inner">
+    <div class="about-process__heading">
+      <p class="about-process__eyebrow">How We Work</p>
+      <h2>Clear planning, flexible music, and a smooth setup on the day</h2>
+      <p class="about-process__intro">
+        We keep things straightforward. The aim is always to make the music feel personal,
+        well-timed, and easy from your side.
+      </p>
+    </div>
+
+    <div class="about-process__grid">
+      <article class="about-process__card">
+        <span class="about-process__number">1</span>
+        <h3>Tell us about your event</h3>
+        <p>
+          Share your date, venue, timings, and the kind of atmosphere you want. Whether you already
+          know exactly what you need or just want some guidance, we can help shape the right setup.
+        </p>
+      </article>
+
+      <article class="about-process__card">
+        <span class="about-process__number">2</span>
+        <h3>We tailor the music around your plans</h3>
+        <p>
+          From daytime drinks receptions to first dances and full evening sets, we build the music
+          around the flow of the event so each part of the day feels right.
+        </p>
+      </article>
+
+      <article class="about-process__card">
+        <span class="about-process__number">3</span>
+        <h3>We handle the performance on the day</h3>
+        <p>
+          Setup, sound, timing, and delivery are all handled professionally so the music feels smooth
+          in the background and strong where it needs to.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
     <section class="about-cta">
       <div class="about-cta__inner">
         <p class="about-cta__eyebrow">Let's plan your event</p>

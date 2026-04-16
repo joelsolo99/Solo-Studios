@@ -51,7 +51,7 @@ permalink: /packages/power-hour/
 
       <div class="packages-cta__actions">
         <a href="mailto:events@solostudios.uk" class="packages-cta__button">Get in touch</a>
-        <a href="/tracklists/ibiza-tracklist/" class="packages-cta__link">See the Ibiza tracklist</a>
+        <a href="/tracklists/ibiza-sax/" class="packages-cta__link">See the Ibiza tracklist</a>
       </div>
     </div>
   </section>

@@ -37,7 +37,7 @@ permalink: /packages/party-packages/
 
   <section class="fade-in-section right-offset">
     <div class="package-section">
-      <img src="{{ '/assets/img/party_packages/2.webp' | relative_url }}" alt="The Party Starter package" class="package-image">
+      <img src="{{ '/assets/img/jovan-decks.jpg' | relative_url }}" alt="The Party Starter package" class="package-image">
       <div class="package-content">
         <h2>The Party Starter</h2>
         <p>

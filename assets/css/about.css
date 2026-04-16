@@ -167,6 +167,38 @@
     margin-top: 0.9rem;
 }
 
+/* =========================
+   What customers value list
+   ========================= */
+
+.about-values-list {
+    margin: 0.8rem 0 0;
+    padding-left: 1.2rem;
+    list-style-type: disc;
+}
+
+.about-values-list li {
+    margin-bottom: 0.95rem;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: inherit;
+}
+
+.about-values-list li strong {
+    color: #18343a;
+}
+
+@media (max-width: 640px) {
+    .about-values-list {
+        padding-left: 1.1rem;
+    }
+
+    .about-values-list li {
+        font-size: 0.98rem;
+        line-height: 1.65;
+    }
+}
+
 @media (max-width: 1100px) {
     .about-image--dj-focus {
         object-position: left center;
@@ -178,6 +210,143 @@
         object-position: 22% center;
     }
 }
+
+
+=========================How we work=========================*/ .about-process {
+    margin-top: 3rem;
+}
+
+.about-process__inner {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(1.5rem, 3vw, 2.25rem);
+    border-radius: 22px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(244, 251, 251, 0.96));
+    border: 1px solid rgba(15, 79, 86, 0.10);
+    box-shadow:
+        0 14px 36px rgba(15, 79, 86, 0.10),
+        0 4px 10px rgba(15, 79, 86, 0.05);
+}
+
+.about-process__inner::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 3px;
+    background: linear-gradient(90deg, #13636b, #38b7c2);
+}
+
+.about-process__heading {
+    max-width: 760px;
+    margin: 0 auto 2rem;
+    text-align: center;
+}
+
+.about-process__eyebrow {
+    margin: 0 0 0.5rem;
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #1b7b84;
+}
+
+.about-process__heading h2 {
+    margin: 0;
+    font-size: clamp(1.7rem, 3.5vw, 2.4rem);
+    line-height: 1.15;
+    color: #0f4f56;
+}
+
+.about-process__intro {
+    max-width: 42rem;
+    margin: 1rem auto 0;
+    font-size: 1.02rem;
+    line-height: 1.7;
+    color: #5b7277;
+}
+
+.about-process__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.about-process__card {
+    background: #ffffff;
+    border: 1px solid rgba(15, 79, 86, 0.08);
+    border-radius: 16px;
+    padding: 1.15rem 1rem 1.2rem;
+    box-shadow:
+        0 8px 18px rgba(15, 79, 86, 0.06),
+        0 3px 8px rgba(15, 79, 86, 0.03);
+}
+
+.about-process__number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 999px;
+    background: rgba(56, 183, 194, 0.12);
+    color: #0f4f56;
+    font-size: 0.95rem;
+    font-weight: 800;
+    margin-bottom: 0.8rem;
+}
+
+.about-process__card h3 {
+    margin: 0 0 0.6rem;
+    font-size: 1.08rem;
+    line-height: 1.25;
+    color: #18343a;
+}
+
+.about-process__card p {
+    margin: 0;
+    font-size: 0.98rem;
+    line-height: 1.65;
+    color: #5b7277;
+}
+
+@media (max-width: 900px) {
+    .about-process__grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .about-process {
+        margin-top: 2rem;
+    }
+
+    .about-process__inner {
+        padding: 1.25rem 1rem 1.35rem;
+        border-radius: 18px;
+    }
+
+    .about-process__heading {
+        margin-bottom: 1.5rem;
+    }
+
+    .about-process__intro {
+        font-size: 0.98rem;
+        line-height: 1.65;
+    }
+
+    .about-process__card {
+        padding: 1rem 0.95rem 1.05rem;
+        border-radius: 14px;
+    }
+
+    .about-process__card p {
+        font-size: 0.96rem;
+        line-height: 1.6;
+    }
+}
+
+
 
 /* =========================
    Bottom CTA card
