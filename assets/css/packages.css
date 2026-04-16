@@ -287,11 +287,11 @@
   .package-image,
   .package-video-cropped {
     min-height: 220px;
-    height: 220px;
+    height: 300px;
   }
 
   .package-video-cropped {
-    object-position: center 32%;
+    object-position: center 40%;
     transform: scale(1.05);
   }
 
