@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Party Packages
+title: Ibiza Sax & DJ Set for Parties | Solo Studios
 permalink: /packages/party-packages/
 ---
 

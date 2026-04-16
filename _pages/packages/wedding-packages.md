@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Wedding Packages
+title: Wedding DJ & Sax Packages in Devon & Cornwall | Solo Studios
 permalink: /packages/wedding-packages/
 ---
 

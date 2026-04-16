@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Power Hour
+title: Ibiza Sax & DJ Set for Weddings and Parties | Solo Studios
 permalink: /packages/power-hour/
 ---
 
