@@ -1,5 +1,7 @@
 ---
 layout: default
+title: "Classics Tracklist"
+permalink: /playlists/classics/
 ---
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -7,17 +9,31 @@ layout: default
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{ '/assets/css/tracklist.css' | relative_url }}">
 
-<div class="tracklist-page">
-  <header class="tracklist-hero" aria-labelledby="modern-pop-tracklist-title">
-    <h1 id="modern-pop-tracklist-title">Classics Tracklist</h1>
+<div class="tracklist-page classics-tracklist-page">
+  <header class="tracklist-hero" aria-labelledby="classics-tracklist-title">
+    <p class="tracklist-hero__eyebrow">Timeless crowd-pleasers</p>
+    <h1 id="classics-tracklist-title">Classics Tracklist</h1>
+
+    <div class="tracklist-hero__intro">
+      <p class="tracklist-hero__text">
+        A guide to the well-known favourites we can draw from when you want the set to feel familiar,
+        upbeat, and easy for all ages to enjoy.
+      </p>
+
+      <div class="tracklist-hero__meta" aria-label="Classics tracklist details">
+        <span class="tracklist-hero__pill">Mixed-age crowds</span>
+        <span class="tracklist-hero__pill">Well-known favourites</span>
+        <span class="tracklist-hero__pill">Reliable dancefloor tracks</span>
+      </div>
+    </div>
   </header>
 
-  <section class="tracklist-card" aria-label="Modern pop tracklist">
+  <section class="tracklist-card" aria-label="Classics tracklist">
     <p class="sr-only" id="tracklist-status" aria-live="polite">Loading tracks...</p>
 
     <div class="tracklist-table-wrap">
       <table class="tracklist-table" id="tracklist-table">
-        <caption class="sr-only">Modern pop tracklist showing song title and artist</caption>
+        <caption class="sr-only">Classics tracklist showing song title and artist</caption>
         <thead>
           <tr>
             <th scope="col">Song</th>

@@ -1,6 +1,7 @@
 ---
 layout: default
 title: "Ibiza Tracklist"
+permalink: /playlists/ibiza/
 ---
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -8,9 +9,23 @@ title: "Ibiza Tracklist"
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{ '/assets/css/tracklist.css' | relative_url }}">
 
-<div class="ibiza-tracklist-page">
+<div class="tracklist-page ibiza-tracklist-page">
   <header class="tracklist-hero" aria-labelledby="ibiza-tracklist-title">
+    <p class="tracklist-hero__eyebrow">Full-energy party music</p>
     <h1 id="ibiza-tracklist-title">Ibiza Tracklist</h1>
+
+    <div class="tracklist-hero__intro">
+      <p class="tracklist-hero__text">
+        A guide to the house, dance, and Ibiza-style tracks we can draw from when you want the set to feel bigger,
+        later, and built for the dancefloor.
+      </p>
+
+      <div class="tracklist-hero__meta" aria-label="Ibiza tracklist details">
+        <span class="tracklist-hero__pill">Evening parties</span>
+        <span class="tracklist-hero__pill">House and Ibiza classics</span>
+        <span class="tracklist-hero__pill">Big dancefloor moments</span>
+      </div>
+    </div>
   </header>
 
   <section class="tracklist-card" aria-label="Ibiza tracklist">
@@ -65,6 +80,10 @@ title: "Ibiza Tracklist"
 
     result.push(current.trim());
     return result;
+  }
+
+  function cleanCell(value) {
+    return value.replace(/(^"|"$)/g, '').trim();
   }
 
   function setMessageRow(message, className = '') {
@@ -128,8 +147,8 @@ title: "Ibiza Tracklist"
         const cols = parseCSVLine(line);
 
         if (cols.length >= 2) {
-          const artist = cols[0];
-          const song = cols[1];
+          const artist = cleanCell(cols[0]);
+          const song = cleanCell(cols[1]);
 
           if (song || artist) {
             fragment.appendChild(createTrackRow(song, artist));

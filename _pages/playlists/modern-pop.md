@@ -1,5 +1,6 @@
 ---
 layout: default
+title: "Modern Pop Tracklist"
 ---
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -7,9 +8,23 @@ layout: default
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{ '/assets/css/tracklist.css' | relative_url }}">
 
-<div class="tracklist-page">
+<div class="tracklist-page modern-pop-tracklist-page">
   <header class="tracklist-hero" aria-labelledby="modern-pop-tracklist-title">
+    <p class="tracklist-hero__eyebrow">Contemporary favourites</p>
     <h1 id="modern-pop-tracklist-title">Modern Pop Tracklist</h1>
+
+    <div class="tracklist-hero__intro">
+      <p class="tracklist-hero__text">
+        A guide to the newer pop tracks we can draw from when you want the set to feel current,
+        upbeat, and easy for a crowd to get into.
+      </p>
+
+      <div class="tracklist-hero__meta" aria-label="Modern pop tracklist details">
+        <span class="tracklist-hero__pill">Evening parties</span>
+        <span class="tracklist-hero__pill">Current pop and chart tracks</span>
+        <span class="tracklist-hero__pill">Upbeat but flexible</span>
+      </div>
+    </div>
   </header>
 
   <section class="tracklist-card" aria-label="Modern pop tracklist">

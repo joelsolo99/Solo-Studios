@@ -28,11 +28,11 @@ collections:
 navbar-links:
   About Us: "about/"
   Why Sax and DJ?: "why-sax-and-dj/"
-  Playlists:
+  Reportoire:
     - Modern Pop: "playlists/modern-pop"    
     - Classics: "playlists/classics"
     - Jazz: "playlists/jazz"
-    - Ibiza Sax Mix: "playlists/ibiza-sax"
+    - Ibiza Mix: "playlists/ibiza"
   Gallery:
   - Videos: "/gallery/videos"
   - Photos: "/gallery/photos"

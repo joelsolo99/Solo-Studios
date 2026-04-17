@@ -1,6 +1,7 @@
 ---
 layout: default
-title: Jazz Tracklist"
+title: "Jazz Tracklist"
+permalink: /playlists/jazz/
 ---
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -8,9 +9,23 @@ title: Jazz Tracklist"
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{ '/assets/css/tracklist.css' | relative_url }}">
 
-<div class="jazz-tracklist-page">
+<div class="tracklist-page jazz-tracklist-page">
   <header class="tracklist-hero" aria-labelledby="jazz-tracklist-title">
+    <p class="tracklist-hero__eyebrow">Relaxed daytime music</p>
     <h1 id="jazz-tracklist-title">Jazz Setlist</h1>
+
+    <div class="tracklist-hero__intro">
+      <p class="tracklist-hero__text">
+        A smoother set built for drinks receptions, dinners, and elegant daytime moments.
+        This tracklist gives a feel for the kind of songs we can draw from when shaping a more relaxed live sax set.
+      </p>
+
+      <div class="tracklist-hero__meta" aria-label="Jazz setlist details">
+        <span class="tracklist-hero__pill">Drinks receptions</span>
+        <span class="tracklist-hero__pill">Wedding breakfasts</span>
+        <span class="tracklist-hero__pill">Private dinners</span>
+      </div>
+    </div>
   </header>
 
   <section class="tracklist-card" aria-label="Jazz tracklist">
