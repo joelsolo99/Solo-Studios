@@ -384,6 +384,21 @@ footer a[href*="api.whatsapp.com"] .fa-whatsapp,
     color: #ffffff !important;
 }
 
+/* Email*/
+footer a[href^="mailto:"] .fa-circle,
+.beautiful-jekyll-footer a[href^="mailto:"] .fa-circle {
+    color: #0f4f56 !important;
+}
+
+footer a[href^="mailto:"] .fa-envelope,
+footer a[href^="mailto:"] .fa-envelope-o,
+footer a[href^="mailto:"] .fa-at,
+.beautiful-jekyll-footer a[href^="mailto:"] .fa-envelope,
+.beautiful-jekyll-footer a[href^="mailto:"] .fa-envelope-o,
+.beautiful-jekyll-footer a[href^="mailto:"] .fa-at {
+    color: #ffffff !important;
+}
+
 /* =========================
    Footer polish
    ========================= */

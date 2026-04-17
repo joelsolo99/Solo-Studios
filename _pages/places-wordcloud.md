@@ -135,7 +135,7 @@ permalink: /places/
         View wedding packages
       </a>
 
-      <a href="mailto:events@solostudios.uk" class="places-cta__link">
+      <a href="/contact" class="places-cta__link">
         Get in touch
       </a>
     </div>
