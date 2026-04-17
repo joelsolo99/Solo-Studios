@@ -122,7 +122,7 @@ layout: default
         </p>
 
         <div class="about-cta__actions">
-          <a href="mailto:events@solostudios.uk" class="about-cta__button">Get in touch</a>
+          <a href="/contact" class="about-cta__button">Get in touch</a>
           <a href="/packages/wedding-packages/" class="about-cta__link">See our wedding packages</a>
         </div>
       </div>

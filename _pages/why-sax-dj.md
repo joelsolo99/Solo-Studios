@@ -98,7 +98,7 @@ layout: default
     </p>
 
     <div class="why-sax-dj-cta__actions">
-      <a href="mailto:events@solostudios.uk" class="why-sax-dj-cta__button">
+      <a href="/contact" class="why-sax-dj-cta__button">
         Contact Us
       </a>
       <a href="/places/" class="why-sax-dj-cta__link">

@@ -43,6 +43,7 @@ navbar-links:
     - Events: "packages/events-packages"
     - Power Hour: "packages/power-hour"
     - Terms: "packages/terms"
+  Contact Us: "contact"
   
 
 ################

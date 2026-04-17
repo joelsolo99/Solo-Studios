@@ -50,7 +50,7 @@ permalink: /packages/power-hour/
       </p>
 
       <div class="packages-cta__actions">
-        <a href="mailto:events@solostudios.uk" class="packages-cta__button">Get in touch</a>
+        <a href="/contact" class="packages-cta__button">Get in touch</a>
         <a href="/tracklists/ibiza-sax/" class="packages-cta__link">See the Ibiza tracklist</a>
       </div>
     </div>
@@ -58,7 +58,7 @@ permalink: /packages/power-hour/
 
   <div class="package-footer-links">
     <a href="/packages/terms/">See terms and conditions</a><br>
-    <a href="mailto:events@solostudios.uk">Get in touch to book Power Hour</a>
+    <a href="/contact">Get in touch to book Power Hour</a>
   </div>
 </div>
 

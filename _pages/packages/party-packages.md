@@ -102,7 +102,7 @@ permalink: /packages/party-packages/
       </p>
 
       <div class="packages-cta__actions">
-        <a href="mailto:events@solostudios.uk" class="packages-cta__button">Get in touch</a>
+        <a href="/contact" class="packages-cta__button">Get in touch</a>
         <a href="/packages/power-hour/" class="packages-cta__link">Looking for an Ibiza Power Hour?</a>
       </div>
     </div>
@@ -110,7 +110,7 @@ permalink: /packages/party-packages/
 
   <div class="package-footer-links">
     <a href="/packages/terms/">See terms and conditions</a><br>
-    <a href="mailto:events@solostudios.uk">Get in touch to tailor your package</a>
+    <a href="/contact">Get in touch to tailor your package</a>
   </div>
 </div>
 
