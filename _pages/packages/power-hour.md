@@ -51,7 +51,7 @@ permalink: /packages/power-hour/
 
       <div class="packages-cta__actions">
         <a href="/contact" class="packages-cta__button">Get in touch</a>
-        <a href="/tracklists/ibiza/" class="packages-cta__link">See the Ibiza tracklist</a>
+        <a href="/playlists/ibiza/" class="packages-cta__link">See the Ibiza tracklist</a>
       </div>
     </div>
   </section>
