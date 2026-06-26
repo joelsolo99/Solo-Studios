@@ -101,7 +101,25 @@ title: "Videos"
           </iframe>
         </div>
       </article>
+
+
+<article class="service video-card" id="video-dj-sax-holt">
+    <div class="video-card__meta">
+      <h3 class="song-title">DJ & Sax Set (LIVE)</h3>
+      <p class="artist-name">The Holt, Budleigh Salterton</p>
     </div>
+    <div class="video-wrapper">
+      <iframe
+        src="https://www.youtube.com/embed/nk0fF9S6Hm8"
+        title="DJ and Sax set at The Holt, Budleigh Salterton"
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </article>
+</div>
   </section>
 
   <section class="videos-section" id="drinks-daytime" aria-labelledby="chilled-vibes-heading">
