@@ -1,0 +1,573 @@
+/* =========================
+   Solo Studios location pages
+   Shared: assets/css/locations.css
+   ========================= */
+
+.location-page {
+    --loc-teal-900: #0f4f56;
+    --loc-teal-800: #13636b;
+    --loc-teal-700: #1b7b84;
+    --loc-teal-500: #38b7c2;
+
+    --loc-text: #18343a;
+    --loc-text-soft: #5b7277;
+    --loc-surface: #ffffff;
+    --loc-surface-soft: #f7fbfb;
+    --loc-border: rgba(15, 79, 86, 0.1);
+
+    --loc-shadow-sm:
+        0 8px 18px rgba(15, 79, 86, 0.08),
+        0 3px 8px rgba(15, 79, 86, 0.04);
+
+    --loc-shadow-md:
+        0 14px 36px rgba(15, 79, 86, 0.1),
+        0 4px 10px rgba(15, 79, 86, 0.05);
+
+    --loc-shadow-lg:
+        0 18px 42px rgba(15, 79, 86, 0.13),
+        0 6px 14px rgba(15, 79, 86, 0.07);
+
+    --loc-radius-lg: 24px;
+    --loc-radius-md: 18px;
+    --loc-max-width: 1200px;
+
+    max-width: var(--loc-max-width);
+    margin: 0 auto;
+    padding: clamp(1.25rem, 3vw, 2.5rem) 1rem 4rem;
+    color: var(--loc-text);
+    line-height: 1.65;
+}
+
+.location-page h1,
+.location-page h2,
+.location-page h3 {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* =========================
+   Common elements
+   ========================= */
+
+.location-eyebrow {
+    margin: 0 0 0.55rem;
+    font-size: 0.82rem;
+    font-weight: 900;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--loc-teal-700);
+}
+
+.location-accent-card {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(180deg,
+            rgba(255, 255, 255, 0.98),
+            rgba(244, 251, 251, 0.96));
+    border: 1px solid var(--loc-border);
+    border-radius: var(--loc-radius-lg);
+    box-shadow: var(--loc-shadow-md);
+}
+
+.location-accent-card::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--loc-teal-800), var(--loc-teal-500));
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* =========================
+   Hero
+   ========================= */
+
+.location-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+    gap: clamp(1.5rem, 4vw, 2.4rem);
+    align-items: center;
+    margin-top: clamp(1rem, 3vw, 2rem);
+}
+
+.location-hero__image {
+    aspect-ratio: 16 / 10;
+    background: #dceeee;
+    border-radius: var(--loc-radius-md);
+    box-shadow:
+        0 16px 38px rgba(15, 79, 86, 0.1),
+        0 5px 14px rgba(15, 79, 86, 0.05);
+}
+
+.location-hero__image img,
+.location-venue-card__image img,
+.location-package-card__image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.location-hero__content {
+    padding: clamp(0.25rem, 1.3vw, 0.85rem);
+}
+
+.location-hero h1 {
+    max-width: 540px;
+    margin: 0;
+    color: var(--loc-teal-900);
+    font-size: clamp(2.15rem, 5vw, 3.45rem);
+    line-height: 1.04;
+    letter-spacing: -0.045em;
+}
+
+.location-hero h1::after {
+    content: "";
+    display: block;
+    width: 88px;
+    height: 4px;
+    margin: 0.9rem 0 0;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--loc-teal-800), var(--loc-teal-500));
+}
+
+.location-hero__text {
+    max-width: 34rem;
+    margin: 1.15rem 0 0;
+    color: var(--loc-text-soft);
+    font-size: 1.04rem;
+    line-height: 1.75;
+}
+
+/* =========================
+   Meta chips
+   ========================= */
+
+.location-meta-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    margin-top: 1rem;
+}
+
+.location-meta-strip span {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.38rem 0.68rem;
+    border-radius: 999px;
+    background: rgba(56, 183, 194, 0.1);
+    color: var(--loc-teal-900);
+    font-size: 0.84rem;
+    font-weight: 800;
+}
+
+/* =========================
+   Buttons
+   ========================= */
+
+.location-hero__actions,
+.location-video-cta__actions,
+.location-final-cta__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 1.35rem;
+}
+
+.location-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0.82rem 1.25rem;
+    border-radius: 999px;
+    text-decoration: none !important;
+    font-weight: 800;
+    line-height: 1.15;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background-color 0.25s ease,
+        border-color 0.25s ease,
+        color 0.25s ease;
+}
+
+.location-button--primary {
+    background: var(--loc-teal-900);
+    color: #ffffff !important;
+    box-shadow: 0 8px 18px rgba(15, 79, 86, 0.22);
+}
+
+.location-button--primary:hover,
+.location-button--primary:focus {
+    background: var(--loc-teal-800);
+    color: #ffffff !important;
+    box-shadow: 0 12px 24px rgba(15, 79, 86, 0.28);
+}
+
+.location-button--secondary {
+    background: #ffffff;
+    color: var(--loc-teal-900) !important;
+    border: 1px solid rgba(15, 79, 86, 0.14);
+    box-shadow: var(--loc-shadow-sm);
+}
+
+.location-button--secondary:hover,
+.location-button--secondary:focus {
+    background: rgba(244, 251, 251, 0.96);
+    border-color: rgba(15, 79, 86, 0.24);
+    color: var(--loc-teal-900) !important;
+}
+
+.location-button:hover,
+.location-button:focus {
+    transform: translateY(-2px);
+}
+
+.location-button__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.55rem;
+}
+
+.location-button__icon svg {
+    width: 1.05rem;
+    height: 1.05rem;
+    display: block;
+}
+
+/* =========================
+   Intro and CTA cards
+   ========================= */
+
+.location-intro-card,
+.location-video-cta,
+.location-final-cta {
+    margin-top: clamp(2rem, 4vw, 3rem);
+    padding: clamp(1.35rem, 3vw, 2.1rem);
+}
+
+.location-intro-card {
+    display: grid;
+    grid-template-columns: 300px minmax(0, 1fr);
+    gap: clamp(1.25rem, 3vw, 2rem);
+    align-items: start;
+}
+
+.location-intro-card h2,
+.location-section-heading h2,
+.location-video-cta h2,
+.location-final-cta h2 {
+    margin: 0;
+    color: var(--loc-teal-900);
+    line-height: 1.14;
+}
+
+.location-intro-card h2 {
+    font-size: clamp(1.55rem, 3vw, 2.1rem);
+    letter-spacing: -0.025em;
+}
+
+.location-intro-card>p,
+.location-section-heading p,
+.location-video-cta p,
+.location-final-cta p,
+.location-package-card p,
+.location-venue-card p {
+    color: var(--loc-text-soft);
+}
+
+.location-intro-card>p {
+    margin: 0;
+    font-size: 1.04rem;
+    line-height: 1.75;
+}
+
+/* =========================
+   Packages and venues
+   ========================= */
+
+.location-packages,
+.location-venues {
+    margin-top: clamp(3rem, 5vw, 4rem);
+}
+
+.location-section-heading {
+    max-width: 780px;
+    margin: 0 auto 1.65rem;
+    text-align: center;
+}
+
+.location-section-heading h2 {
+    font-size: clamp(1.8rem, 4vw, 2.45rem);
+    letter-spacing: -0.025em;
+}
+
+.location-section-heading p {
+    margin: 0.85rem auto 0;
+    font-size: 1.02rem;
+    line-height: 1.7;
+}
+
+.location-package-grid,
+.location-venue-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+}
+
+/* =========================
+   Package cards
+   ========================= */
+
+.location-package-card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 0;
+    min-height: 100%;
+    text-decoration: none !important;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.location-package-card:hover,
+.location-package-card:focus {
+    transform: translateY(-4px);
+    border-color: rgba(15, 79, 86, 0.18);
+    box-shadow: var(--loc-shadow-lg);
+}
+
+.location-package-card__image {
+    aspect-ratio: 16 / 10;
+    background: #dceeee;
+}
+
+.location-package-card__body {
+    padding: 1.25rem;
+}
+
+.location-package-card__label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    min-height: 42px;
+    padding: 0.68rem 1rem;
+    border-radius: 999px;
+    background: var(--loc-teal-900);
+    color: #ffffff;
+    font-weight: 800;
+    box-shadow: 0 8px 18px rgba(15, 79, 86, 0.18);
+}
+
+.location-package-card__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: currentColor;
+}
+
+.location-package-card__icon svg {
+    width: 1.05rem;
+    height: 1.05rem;
+    display: block;
+}
+
+.location-package-card p {
+    margin: 1rem 0 0;
+    line-height: 1.65;
+}
+
+/* =========================
+   Venue cards
+   ========================= */
+
+.location-venue-card {
+    display: flex;
+    flex-direction: column;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.location-venue-card:hover,
+.location-venue-card:focus-within {
+    transform: translateY(-4px);
+    border-color: rgba(15, 79, 86, 0.18);
+    box-shadow: var(--loc-shadow-lg);
+}
+
+.location-venue-card__image {
+    aspect-ratio: 16 / 10;
+    background: #dceeee;
+}
+
+.location-venue-card__body {
+    padding: 1.15rem;
+}
+
+.location-venue-card h3 {
+    margin: 0;
+    color: var(--loc-teal-900);
+    font-size: 1.18rem;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+}
+
+.location-venue-card h3 a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.location-venue-card h3 a:hover,
+.location-venue-card h3 a:focus {
+    text-decoration: underline;
+}
+
+.location-venue-card p {
+    margin: 0.65rem 0 0;
+    line-height: 1.65;
+}
+
+/* =========================
+   Video CTA
+   ========================= */
+
+.location-video-cta {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.location-video-cta h2,
+.location-final-cta h2 {
+    font-size: clamp(1.65rem, 3.5vw, 2.3rem);
+    letter-spacing: -0.025em;
+}
+
+.location-video-cta p,
+.location-final-cta p {
+    margin: 0.85rem 0 0;
+    max-width: 44rem;
+    line-height: 1.7;
+}
+
+/* =========================
+   Final CTA
+   ========================= */
+
+.location-final-cta {
+    text-align: center;
+}
+
+.location-final-cta p {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.location-final-cta__actions {
+    justify-content: center;
+}
+
+/* =========================
+   Focus states
+   ========================= */
+
+.location-button:focus-visible,
+.location-package-card:focus-visible,
+.location-venue-card a:focus-visible {
+    outline: 3px solid rgba(56, 183, 194, 0.65);
+    outline-offset: 4px;
+}
+
+/* =========================
+   Responsive styles
+   ========================= */
+
+@media (max-width: 980px) {
+
+    .location-hero,
+    .location-intro-card {
+        grid-template-columns: 1fr;
+    }
+
+    .location-hero__content {
+        max-width: 720px;
+    }
+
+    .location-video-cta {
+        display: block;
+    }
+
+    .location-package-grid,
+    .location-venue-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .location-page {
+        padding: 1.25rem 0.75rem 2.75rem;
+    }
+
+    .location-hero {
+        margin-top: 0.75rem;
+    }
+
+    .location-hero__image,
+    .location-accent-card {
+        border-radius: 18px;
+    }
+
+    .location-hero__content {
+        padding: 0.5rem 0;
+        text-align: center;
+    }
+
+    .location-hero h1 {
+        font-size: clamp(2rem, 12vw, 2.8rem);
+    }
+
+    .location-hero h1::after {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .location-hero__actions,
+    .location-video-cta__actions,
+    .location-final-cta__actions {
+        width: 100%;
+    }
+
+    .location-button {
+        width: 100%;
+    }
+
+    .location-intro-card,
+    .location-final-cta {
+        text-align: center;
+    }
+
+    .location-meta-strip {
+        justify-content: center;
+    }
+}
+
+/* =========================
+   Reduced motion
+   ========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .location-button,
+    .location-package-card,
+    .location-venue-card {
+        transition: none;
+    }
+}

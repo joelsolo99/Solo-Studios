@@ -1,0 +1,266 @@
+{
+  "devon": {
+    "name": "Devon",
+    "county": "Devon",
+    "intro": "Live saxophone and DJ sets for weddings, private parties and events across Devon, from relaxed daytime receptions to full evening celebrations.",
+    "angle": "Devon is a great fit for flexible live music, with venues ranging from countryside houses to coastal celebrations."
+  },
+  "cornwall": {
+    "name": "Cornwall",
+    "county": "Cornwall",
+    "intro": "Live saxophone and DJ sets for weddings, private parties and events across Cornwall, from relaxed daytime receptions to full evening celebrations.",
+    "angle": "Cornwall is a great fit for flexible live music, with venues ranging from countryside houses to coastal celebrations."
+  },
+  "dorset": {
+    "name": "Dorset",
+    "county": "Dorset",
+    "intro": "Live saxophone and DJ sets for weddings, private parties and events across Dorset, from relaxed daytime receptions to full evening celebrations.",
+    "angle": "Dorset is a great fit for flexible live music, with venues ranging from countryside houses to coastal celebrations."
+  },
+  "somerset": {
+    "name": "Somerset",
+    "county": "Somerset",
+    "intro": "Live saxophone and DJ sets for weddings, private parties and events across Somerset, from relaxed daytime receptions to full evening celebrations.",
+    "angle": "Somerset is a great fit for flexible live music, with venues ranging from countryside houses to coastal celebrations."
+  },
+  "plymouth": {
+    "name": "Plymouth",
+    "county": "Devon",
+    "intro": "Live saxophone and DJ sets in Plymouth for weddings, private parties, drinks receptions and evening celebrations.",
+    "angle": "Plymouth celebrations can move from relaxed live sax during the day to a polished sax and DJ party set in the evening."
+  },
+  "exeter": {
+    "name": "Exeter",
+    "county": "Devon",
+    "intro": "Live saxophone and DJ sets in Exeter for weddings, private parties, drinks receptions and evening celebrations.",
+    "angle": "Exeter celebrations can move from relaxed live sax during the day to a polished sax and DJ party set in the evening."
+  },
+  "torquay": {
+    "name": "Torquay",
+    "county": "Devon",
+    "intro": "Live saxophone and DJ sets in Torquay for weddings, private parties, drinks receptions and evening celebrations.",
+    "angle": "Torquay celebrations can move from relaxed live sax during the day to a polished sax and DJ party set in the evening."
+  },
+  "paignton": {
+    "name": "Paignton",
+    "county": "Devon",
+    "intro": "Live saxophone and DJ sets in Paignton for weddings, private parties, drinks receptions and evening celebrations.",
+    "angle": "Paignton celebrations can move from relaxed live sax during the day to a polished sax and DJ party set in the evening."
+  },
+  "newton-abbot": {
+    "name": "Newton Abbot",
+    "county": "Devon",
+    "intro": "Live saxophone and DJ sets in Newton Abbot for weddings, private parties, drinks receptions and evening celebrations.",
+    "angle": "Newton Abbot celebrations can move from relaxed live sax during the day to a polished sax and DJ party set in the evening."
+  },
+  "barnstaple": {
+    "name": "Barnstaple",
+    "county": "Devon",
+    "intro": "Live saxophone and DJ sets in Barnstaple for weddings, private parties, drinks receptions and evening celebrations.",
+    "angle": "Barnstaple celebrations can move from relaxed live sax during the day to a polished sax and DJ party set in the evening."
+  },
+  "exmouth": {
+    "name": "Exmouth",
+    "county": "Devon",
+    "intro": "Live saxophone and DJ sets in Exmouth for weddings, private parties, drinks receptions and evening celebrations.",
+    "angle": "Exmouth celebrations can move from relaxed live sax during the day to a polished sax and DJ party set in the evening."
+  },
+  "tiverton": {
+    "name": "Tiverton",
+    "county": "Devon",
+    "intro": "Live saxophone and DJ sets in Tiverton for weddings, private parties, drinks receptions and evening celebrations.",
+    "angle": "Tiverton celebrations can move from relaxed live sax during the day to a polished sax and DJ party set in the evening."
+  },
+  "dartmouth": {
+    "name": "Dartmouth",
+    "county": "Devon",
+    "intro": "Live saxophone and DJ sets in Dartmouth for weddings, private parties, drinks receptions and evening celebrations.",
+    "angle": "Dartmouth celebrations can move from relaxed live sax during the day to a polished sax and DJ party set in the evening."
+  },
+  "totnes": {
+    "name": "Totnes",
+    "county": "Devon",
+    "intro": "Live saxophone and DJ sets in Totnes for weddings, private parties, drinks receptions and evening celebrations.",
+    "angle": "Totnes celebrations can move from relaxed live sax during the day to a polished sax and DJ party set in the evening."
+  },
+  "truro": {
+    "name": "Truro",
+    "county": "Cornwall",
+    "intro": "Live saxophone and DJ sets in Truro for weddings, private parties, drinks receptions and evening celebrations.",
+    "angle": "Truro celebrations can move from relaxed live sax during the day to a polished sax and DJ party set in the evening."
+  },
+  "newquay": {
+    "name": "Newquay",
+    "county": "Cornwall",
+    "intro": "Live saxophone and DJ sets in Newquay for weddings, private parties, drinks receptions and evening celebrations.",
+    "angle": "Newquay celebrations can move from relaxed live sax during the day to a polished sax and DJ party set in the evening."
+  },
+  "falmouth": {
+    "name": "Falmouth",
+    "county": "Cornwall",
+    "intro": "Live saxophone and DJ sets in Falmouth for weddings, private parties, drinks receptions and evening celebrations.",
+    "angle": "Falmouth celebrations can move from relaxed live sax during the day to a polished sax and DJ party set in the evening."
+  },
+  "st-ives": {
+    "name": "St Ives",
+    "county": "Cornwall",
+    "intro": "Live saxophone and DJ sets in St Ives for weddings, private parties, drinks receptions and evening celebrations.",
+    "angle": "St Ives celebrations can move from relaxed live sax during the day to a polished sax and DJ party set in the evening."
+  },
+  "penzance": {
+    "name": "Penzance",
+    "county": "Cornwall",
+    "intro": "Live saxophone and DJ sets in Penzance for weddings, private parties, drinks receptions and evening celebrations.",
+    "angle": "Penzance celebrations can move from relaxed live sax during the day to a polished sax and DJ party set in the evening."
+  },
+  "st-austell": {
+    "name": "St Austell",
+    "county": "Cornwall",
+    "intro": "Live saxophone and DJ sets in St Austell for weddings, private parties, drinks receptions and evening celebrations.",
+    "angle": "St Austell celebrations can move from relaxed live sax during the day to a polished sax and DJ party set in the evening."
+  },
+  "bodmin": {
+    "name": "Bodmin",
+    "county": "Cornwall",
+    "intro": "Live saxophone and DJ sets in Bodmin for weddings, private parties, drinks receptions and evening celebrations.",
+    "angle": "Bodmin celebrations can move from relaxed live sax during the day to a polished sax and DJ party set in the evening."
+  },
+  "camborne": {
+    "name": "Camborne",
+    "county": "Cornwall",
+    "intro": "Live saxophone and DJ sets in Camborne for weddings, private parties, drinks receptions and evening celebrations.",
+    "angle": "Camborne celebrations can move from relaxed live sax during the day to a polished sax and DJ party set in the evening."
+  },
+  "redruth": {
+    "name": "Redruth",
+    "county": "Cornwall",
+    "intro": "Live saxophone and DJ sets in Redruth for weddings, private parties, drinks receptions and evening celebrations.",
+    "angle": "Redruth celebrations can move from relaxed live sax during the day to a polished sax and DJ party set in the evening."
+  },
+  "launceston": {
+    "name": "Launceston",
+    "county": "Cornwall",
+    "intro": "Live saxophone and DJ sets in Launceston for weddings, private parties, drinks receptions and evening celebrations.",
+    "angle": "Launceston celebrations can move from relaxed live sax during the day to a polished sax and DJ party set in the evening."
+  },
+  "liskeard": {
+    "name": "Liskeard",
+    "county": "Cornwall",
+    "intro": "Live saxophone and DJ sets in Liskeard for weddings, private parties, drinks receptions and evening celebrations.",
+    "angle": "Liskeard celebrations can move from relaxed live sax during the day to a polished sax and DJ party set in the evening."
+  },
+  "bristol": {
+    "name": "Bristol",
+    "county": "Bristol",
+    "intro": "Live saxophone and DJ sets for weddings, private parties and events across Bristol, from relaxed daytime receptions to full evening celebrations.",
+    "angle": "Bristol is a great fit for flexible live music, with venues ranging from countryside houses to coastal celebrations."
+  },
+  "bath": {
+    "name": "Bath",
+    "county": "Somerset",
+    "intro": "Live saxophone and DJ sets in Bath for weddings, private parties, drinks receptions and evening celebrations.",
+    "angle": "Bath celebrations can move from relaxed live sax during the day to a polished sax and DJ party set in the evening."
+  },
+  "taunton": {
+    "name": "Taunton",
+    "county": "Somerset",
+    "intro": "Live saxophone and DJ sets in Taunton for weddings, private parties, drinks receptions and evening celebrations.",
+    "angle": "Taunton celebrations can move from relaxed live sax during the day to a polished sax and DJ party set in the evening."
+  },
+  "yeovil": {
+    "name": "Yeovil",
+    "county": "Somerset",
+    "intro": "Live saxophone and DJ sets in Yeovil for weddings, private parties, drinks receptions and evening celebrations.",
+    "angle": "Yeovil celebrations can move from relaxed live sax during the day to a polished sax and DJ party set in the evening."
+  },
+  "weston-super-mare": {
+    "name": "Weston-super-Mare",
+    "county": "Somerset",
+    "intro": "Live saxophone and DJ sets in Weston-super-Mare for weddings, private parties, drinks receptions and evening celebrations.",
+    "angle": "Weston-super-Mare celebrations can move from relaxed live sax during the day to a polished sax and DJ party set in the evening."
+  },
+  "wells": {
+    "name": "Wells",
+    "county": "Somerset",
+    "intro": "Live saxophone and DJ sets in Wells for weddings, private parties, drinks receptions and evening celebrations.",
+    "angle": "Wells celebrations can move from relaxed live sax during the day to a polished sax and DJ party set in the evening."
+  },
+  "frome": {
+    "name": "Frome",
+    "county": "Somerset",
+    "intro": "Live saxophone and DJ sets in Frome for weddings, private parties, drinks receptions and evening celebrations.",
+    "angle": "Frome celebrations can move from relaxed live sax during the day to a polished sax and DJ party set in the evening."
+  },
+  "bridgwater": {
+    "name": "Bridgwater",
+    "county": "Somerset",
+    "intro": "Live saxophone and DJ sets in Bridgwater for weddings, private parties, drinks receptions and evening celebrations.",
+    "angle": "Bridgwater celebrations can move from relaxed live sax during the day to a polished sax and DJ party set in the evening."
+  },
+  "glastonbury": {
+    "name": "Glastonbury",
+    "county": "Somerset",
+    "intro": "Live saxophone and DJ sets in Glastonbury for weddings, private parties, drinks receptions and evening celebrations.",
+    "angle": "Glastonbury celebrations can move from relaxed live sax during the day to a polished sax and DJ party set in the evening."
+  },
+  "bournemouth": {
+    "name": "Bournemouth",
+    "county": "Dorset",
+    "intro": "Live saxophone and DJ sets in Bournemouth for weddings, private parties, drinks receptions and evening celebrations.",
+    "angle": "Bournemouth celebrations can move from relaxed live sax during the day to a polished sax and DJ party set in the evening."
+  },
+  "poole": {
+    "name": "Poole",
+    "county": "Dorset",
+    "intro": "Live saxophone and DJ sets in Poole for weddings, private parties, drinks receptions and evening celebrations.",
+    "angle": "Poole celebrations can move from relaxed live sax during the day to a polished sax and DJ party set in the evening."
+  },
+  "dorchester": {
+    "name": "Dorchester",
+    "county": "Dorset",
+    "intro": "Live saxophone and DJ sets in Dorchester for weddings, private parties, drinks receptions and evening celebrations.",
+    "angle": "Dorchester celebrations can move from relaxed live sax during the day to a polished sax and DJ party set in the evening."
+  },
+  "weymouth": {
+    "name": "Weymouth",
+    "county": "Dorset",
+    "intro": "Live saxophone and DJ sets in Weymouth for weddings, private parties, drinks receptions and evening celebrations.",
+    "angle": "Weymouth celebrations can move from relaxed live sax during the day to a polished sax and DJ party set in the evening."
+  },
+  "bridport": {
+    "name": "Bridport",
+    "county": "Dorset",
+    "intro": "Live saxophone and DJ sets in Bridport for weddings, private parties, drinks receptions and evening celebrations.",
+    "angle": "Bridport celebrations can move from relaxed live sax during the day to a polished sax and DJ party set in the evening."
+  },
+  "sherborne": {
+    "name": "Sherborne",
+    "county": "Dorset",
+    "intro": "Live saxophone and DJ sets in Sherborne for weddings, private parties, drinks receptions and evening celebrations.",
+    "angle": "Sherborne celebrations can move from relaxed live sax during the day to a polished sax and DJ party set in the evening."
+  },
+  "cheltenham": {
+    "name": "Cheltenham",
+    "county": "Gloucestershire",
+    "intro": "Live saxophone and DJ sets in Cheltenham for weddings, private parties, drinks receptions and evening celebrations.",
+    "angle": "Cheltenham celebrations can move from relaxed live sax during the day to a polished sax and DJ party set in the evening."
+  },
+  "gloucester": {
+    "name": "Gloucester",
+    "county": "Gloucestershire",
+    "intro": "Live saxophone and DJ sets in Gloucester for weddings, private parties, drinks receptions and evening celebrations.",
+    "angle": "Gloucester celebrations can move from relaxed live sax during the day to a polished sax and DJ party set in the evening."
+  },
+  "salisbury": {
+    "name": "Salisbury",
+    "county": "Wiltshire",
+    "intro": "Live saxophone and DJ sets in Salisbury for weddings, private parties, drinks receptions and evening celebrations.",
+    "angle": "Salisbury celebrations can move from relaxed live sax during the day to a polished sax and DJ party set in the evening."
+  },
+  "swindon": {
+    "name": "Swindon",
+    "county": "Wiltshire",
+    "intro": "Live saxophone and DJ sets in Swindon for weddings, private parties, drinks receptions and evening celebrations.",
+    "angle": "Swindon celebrations can move from relaxed live sax during the day to a polished sax and DJ party set in the evening."
+  }
+}

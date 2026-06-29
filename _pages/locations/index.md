@@ -1,0 +1,123 @@
+---
+layout: default
+title: "Areas Covered | Solo Studios"
+permalink: /locations/
+description: "Live saxophone and DJ sets for weddings, parties and events across Plymouth, Devon, Cornwall, Somerset, Dorset and the South West."
+---
+
+<link rel="stylesheet" href="{{ '/assets/css/locations-index.css' | relative_url }}">
+
+<main class="locations-index-page">
+  <section class="locations-index-hero">
+    <div class="locations-index-hero__content">
+      <p class="locations-index-eyebrow">Areas covered</p>
+      <h1>Live saxophone and DJ sets across the South West</h1>
+      <p>
+        Solo Studios provides live saxophone, DJ and combined sax and DJ packages for weddings,
+        parties and private events across Plymouth, Devon, Cornwall, Somerset, Dorset and nearby areas.
+      </p>
+      <div class="locations-index-actions">
+        <a class="locations-index-button locations-index-button--primary" href="{{ '/#contact-us' | relative_url }}">Check availability</a>
+        <a class="locations-index-button locations-index-button--secondary" href="{{ '/gallery/videos/' | relative_url }}">Watch videos</a>
+      </div>
+    </div>
+
+    <div class="locations-index-hero__image">
+      <img src="{{ '/assets/img/photo_gallery/Party_Set.jpg' | relative_url }}" alt="Live saxophone and DJ set at an event">
+    </div>
+  </section>
+
+  <section class="locations-index-intro">
+    <p class="locations-index-eyebrow">Find your area</p>
+    <h2>Where Solo Studios performs</h2>
+    <p>
+      Choose a location below to see local package ideas, wedding venue inspiration and event music options.
+      If your exact town is not listed, get in touch anyway. Solo Studios regularly travels across the South West.
+    </p>
+  </section>
+
+  <section class="locations-index-groups" aria-label="Locations served">
+    <div class="locations-index-group">
+      <h2>Counties and main areas</h2>
+      <div class="locations-index-grid">
+        <a href="{{ '/locations/devon/' | relative_url }}">Devon</a>
+        <a href="{{ '/locations/cornwall/' | relative_url }}">Cornwall</a>
+        <a href="{{ '/locations/dorset/' | relative_url }}">Dorset</a>
+        <a href="{{ '/locations/somerset/' | relative_url }}">Somerset</a>
+        <a href="{{ '/locations/bristol/' | relative_url }}">Bristol</a>
+      </div>
+    </div>
+
+    <div class="locations-index-group">
+      <h2>Devon</h2>
+      <div class="locations-index-grid">
+        <a href="{{ '/locations/plymouth/' | relative_url }}">Plymouth</a>
+        <a href="{{ '/locations/exeter/' | relative_url }}">Exeter</a>
+        <a href="{{ '/locations/torquay/' | relative_url }}">Torquay</a>
+        <a href="{{ '/locations/paignton/' | relative_url }}">Paignton</a>
+        <a href="{{ '/locations/newton-abbot/' | relative_url }}">Newton Abbot</a>
+        <a href="{{ '/locations/barnstaple/' | relative_url }}">Barnstaple</a>
+        <a href="{{ '/locations/exmouth/' | relative_url }}">Exmouth</a>
+        <a href="{{ '/locations/tiverton/' | relative_url }}">Tiverton</a>
+        <a href="{{ '/locations/dartmouth/' | relative_url }}">Dartmouth</a>
+        <a href="{{ '/locations/totnes/' | relative_url }}">Totnes</a>
+        <a href="{{ '/locations/tavistock/' | relative_url }}">Tavistock</a>
+        <a href="{{ '/locations/ilfracombe/' | relative_url }}">Ilfracombe</a>
+
+
+      </div>
+    </div>
+
+    <div class="locations-index-group">
+      <h2>Cornwall</h2>
+      <div class="locations-index-grid">
+        <a href="{{ '/locations/truro/' | relative_url }}">Truro</a>
+        <a href="{{ '/locations/newquay/' | relative_url }}">Newquay</a>
+        <a href="{{ '/locations/falmouth/' | relative_url }}">Falmouth</a>
+        <a href="{{ '/locations/st-ives/' | relative_url }}">St Ives</a>
+        <a href="{{ '/locations/penzance/' | relative_url }}">Penzance</a>
+        <a href="{{ '/locations/st-austell/' | relative_url }}">St Austell</a>
+        <a href="{{ '/locations/bodmin/' | relative_url }}">Bodmin</a>
+        <a href="{{ '/locations/camborne/' | relative_url }}">Camborne</a>
+        <a href="{{ '/locations/redruth/' | relative_url }}">Redruth</a>
+        <a href="{{ '/locations/launceston/' | relative_url }}">Launceston</a>
+        <a href="{{ '/locations/liskeard/' | relative_url }}">Liskeard</a>
+        <a href="{{ '/locations/torpoint/' | relative_url }}">Torpoint</a>
+      </div>
+    </div>
+
+    <div class="locations-index-group">
+      <h2>Somerset and Bristol</h2>
+      <div class="locations-index-grid">
+        <a href="{{ '/locations/taunton/' | relative_url }}">Taunton</a>
+        <a href="{{ '/locations/yeovil/' | relative_url }}">Yeovil</a>
+        <a href="{{ '/locations/weston-super-mare/' | relative_url }}">Weston-super-Mare</a>
+        <a href="{{ '/locations/bridgwater/' | relative_url }}">Bridgwater</a>
+        <a href="{{ '/locations/bristol/' | relative_url }}">Bristol</a>
+      </div>
+    </div>
+
+    <div class="locations-index-group">
+      <h2>Dorset</h2>
+      <div class="locations-index-grid">
+        <a href="{{ '/locations/bournemouth/' | relative_url }}">Bournemouth</a>
+        <a href="{{ '/locations/poole/' | relative_url }}">Poole</a>
+        <a href="{{ '/locations/dorchester/' | relative_url }}">Dorchester</a>
+        <a href="{{ '/locations/weymouth/' | relative_url }}">Weymouth</a>
+        <a href="{{ '/locations/bridport/' | relative_url }}">Bridport</a>
+        <a href="{{ '/locations/sherborne/' | relative_url }}">Sherborne</a>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="locations-index-cta">
+    <p class="locations-index-eyebrow">Not sure if your venue is covered?</p>
+    <h2>Send over your date and location</h2>
+    <p>
+      If you are planning a wedding, party or private event somewhere nearby, send over the venue and rough timings.
+      Solo Studios can confirm availability and suggest the best setup for your day.
+    </p>
+    <a class="locations-index-button locations-index-button--primary" href="{{ '/#contact-us' | relative_url }}">Get in touch</a>
+  </section>
+</main>

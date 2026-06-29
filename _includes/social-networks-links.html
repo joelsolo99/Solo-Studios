@@ -1,7 +1,7 @@
 {% if site.social-network-links %}
 <ul class="list-inline text-center footer-links">
 
-{%- for network in site.social-network-links -%}
+  {%- for network in site.social-network-links -%}
 
   {%- if network[0] == "rss" and network[1] and site.rss-description -%}
   <li class="list-inline-item">
@@ -23,7 +23,7 @@
         <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
       </span>
       <span class="sr-only">Email me</span>
-   </a>
+    </a>
   </li>
   {%- endif -%}
 
@@ -35,7 +35,7 @@
         <i class="fas fa-calendar-check fa-stack-1x fa-inverse"></i>
       </span>
       <span class="sr-only">Schedule a meeting with me</span>
-   </a>
+    </a>
   </li>
   {%- endif -%}
 
@@ -47,7 +47,7 @@
         <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
       </span>
       <span class="sr-only">Facebook</span>
-   </a>
+    </a>
   </li>
   {%- endif -%}
 
@@ -83,7 +83,7 @@
         <i class="fab fa-github fa-stack-1x fa-inverse"></i>
       </span>
       <span class="sr-only">GitHub</span>
-   </a>
+    </a>
   </li>
   {%- endif -%}
 
@@ -95,7 +95,7 @@
         <i class="fab fa-gitlab fa-stack-1x fa-inverse"></i>
       </span>
       <span class="sr-only">GitLab</span>
-   </a>
+    </a>
   </li>
   {%- endif -%}
 
@@ -107,14 +107,14 @@
         <i class="fab fa-x-twitter fa-stack-1x fa-inverse"></i>
       </span>
       <span class="sr-only">X (Twitter)</span>
-   </a>
+    </a>
   </li>
   {%- endif -%}
 
   {%- if network[0] == "reddit" -%}
   {% assign reddit_start = network[1] | split: "/" | first -%}
   {% unless reddit_start == 'r' or reddit_start == 'u' -%}
-    {% assign reddit_url_prefix = 'u/' -%}
+  {% assign reddit_url_prefix = 'u/' -%}
   {% endunless -%}
   <li class="list-inline-item">
     <a href="https://reddit.com/{{ reddit_url_prefix }}{{ network[1] }}" title="Reddit">
@@ -123,7 +123,7 @@
         <i class="fab fa-reddit fa-stack-1x fa-inverse"></i>
       </span>
       <span class="sr-only">Reddit</span>
-   </a>
+    </a>
   </li>
   {%- endif -%}
 
@@ -135,7 +135,7 @@
         <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
       </span>
       <span class="sr-only">LinkedIn</span>
-   </a>
+    </a>
   </li>
   {%- endif -%}
 
@@ -147,7 +147,7 @@
         <i class="fab fa-xing fa-stack-1x fa-inverse"></i>
       </span>
       <span class="sr-only">Xing</span>
-   </a>
+    </a>
   </li>
   {%- endif -%}
 
@@ -159,7 +159,7 @@
         <i class="fab fa-stack-overflow fa-stack-1x fa-inverse"></i>
       </span>
       <span class="sr-only">StackOverflow</span>
-   </a>
+    </a>
   </li>
   {%- endif -%}
 
@@ -171,7 +171,7 @@
         <i class="fab fa-snapchat-ghost fa-stack-1x fa-inverse"></i>
       </span>
       <span class="sr-only">Snapchat</span>
-   </a>
+    </a>
   </li>
   {%- endif -%}
 
@@ -183,7 +183,7 @@
         <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
       </span>
       <span class="sr-only">Instagram</span>
-   </a>
+    </a>
   </li>
   {%- endif -%}
 
@@ -195,7 +195,7 @@
         <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
       </span>
       <span class="sr-only">YouTube</span>
-   </a>
+    </a>
   </li>
   {%- endif -%}
 
@@ -207,7 +207,7 @@
         <i class="fab fa-spotify fa-stack-1x fa-inverse"></i>
       </span>
       <span class="sr-only">Spotify</span>
-   </a>
+    </a>
   </li>
   {%- endif -%}
 
@@ -219,7 +219,7 @@
         <i class="fas fa-phone fa-stack-1x fa-inverse"></i>
       </span>
       <span class="sr-only">Phone</span>
-   </a>
+    </a>
   </li>
   {%- endif -%}
 
@@ -231,7 +231,7 @@
         <i class="fab fa-steam fa-stack-1x fa-inverse"></i>
       </span>
       <span class="sr-only">Steam</span>
-   </a>
+    </a>
   </li>
   {%- endif -%}
 
@@ -243,7 +243,7 @@
         <i class="fab fa-twitch fa-stack-1x fa-inverse"></i>
       </span>
       <span class="sr-only">Twitch</span>
-   </a>
+    </a>
   </li>
   {%- endif -%}
 
@@ -255,7 +255,7 @@
         <i class="fab fa-yelp fa-stack-1x fa-inverse"></i>
       </span>
       <span class="sr-only">Yelp</span>
-   </a>
+    </a>
   </li>
   {%- endif -%}
 
@@ -284,15 +284,15 @@
   {%- endif -%}
 
   {%- if network[0] == "ORCID" -%}
- <li class="list-inline-item">
-   <a href="https://orcid.org/{{ network[1] }}" title="ORCID">
-     <span class="fa-stack fa-lg" aria-hidden="true">
-       <i class="fas fa-circle fa-stack-2x"></i>
-       <i class="fab fa-orcid fa-stack-1x fa-inverse"></i>
-     </span>
-     <span class="sr-only">ORCID</span>
-   </a>
- </li>
+  <li class="list-inline-item">
+    <a href="https://orcid.org/{{ network[1] }}" title="ORCID">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fab fa-orcid fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">ORCID</span>
+    </a>
+  </li>
   {%- endif -%}
 
   {%- if network[0] == "google-scholar" -%}
@@ -339,23 +339,23 @@
         <i class="fab fa-itch-io fa-stack-1x fa-inverse"></i>
       </span>
       <span class="sr-only">Itchio</span>
-   </a>
+    </a>
   </li>
   {%- endif -%}
 
   {%- if network[0] == "discord" -%}
   {% assign discord_start = network[1] | split: "/" | first -%}
   {% unless discord_start == 'users' or discord_start == 'invite' -%}
-    {% assign discord_url_prefix = 'invite/' -%}
+  {% assign discord_url_prefix = 'invite/' -%}
   {% endunless -%}
   <li class="list-inline-item">
-    <a href="https://discord.com/{{discord_url_prefix}}{{network[1]}}" title="Discord">
+    <a href="https://discord.com/{{ discord_url_prefix }}{{ network[1] }}" title="Discord">
       <span class="fa-stack fa-lg" aria-hidden="true">
         <i class="fas fa-circle fa-stack-2x"></i>
         <i class="fab fa-discord fa-stack-1x fa-inverse"></i>
       </span>
       <span class="sr-only">Discord</span>
-   </a>
+    </a>
   </li>
   {%- endif -%}
 
@@ -367,7 +367,7 @@
         <i class="fab fa-kaggle fa-stack-1x fa-inverse"></i>
       </span>
       <span class="sr-only">Kaggle</span>
-   </a>
+    </a>
   </li>
   {%- endif -%}
 
@@ -379,7 +379,7 @@
         <i class="fab fa-hackerrank fa-stack-1x fa-inverse"></i>
       </span>
       <span class="sr-only">Hackerrank</span>
-   </a>
+    </a>
   </li>
   {%- endif -%}
 
@@ -391,11 +391,21 @@
         <i class="fab fa-untappd fa-stack-1x fa-inverse"></i>
       </span>
       <span class="sr-only">Untappd</span>
-   </a>
+    </a>
   </li>
   {%- endif -%}
 
-{%- endfor -%}
+  {%- endfor -%}
+
+  <li class="list-inline-item">
+    <a href="{{ '/locations/' | relative_url }}" title="Locations">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fas fa-map-marker-alt fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">Locations</span>
+    </a>
+  </li>
 
 </ul>
 {% endif %}
