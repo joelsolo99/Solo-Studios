@@ -1,29 +1,39 @@
 :root {
+  --tracklist-teal-950: #07363b;
   --tracklist-teal-900: #0f4f56;
   --tracklist-teal-800: #13636b;
   --tracklist-teal-700: #1b7b84;
   --tracklist-teal-600: #2496a1;
   --tracklist-teal-500: #38b7c2;
+  --tracklist-teal-100: #e8f7f8;
 
   --tracklist-text: #18343a;
   --tracklist-text-soft: #5b7277;
+  --tracklist-text-faint: #7f9397;
+
   --tracklist-surface: rgba(255, 255, 255, 0.94);
   --tracklist-surface-strong: #ffffff;
+  --tracklist-surface-tint: #f5fbfb;
+
   --tracklist-border: rgba(15, 79, 86, 0.12);
   --tracklist-border-strong: rgba(15, 79, 86, 0.18);
-  --tracklist-hover: rgba(36, 150, 161, 0.06);
-  --tracklist-shadow:
-    0 14px 36px rgba(15, 79, 86, 0.10),
-    0 4px 10px rgba(15, 79, 86, 0.05);
+  --tracklist-hover: rgba(36, 150, 161, 0.075);
 
-  --tracklist-radius-lg: 22px;
+  --tracklist-shadow:
+    0 18px 46px rgba(15, 79, 86, 0.12),
+    0 5px 14px rgba(15, 79, 86, 0.06);
+
+  --tracklist-shadow-soft:
+    0 10px 28px rgba(15, 79, 86, 0.08),
+    0 3px 8px rgba(15, 79, 86, 0.04);
+
+  --tracklist-radius-lg: 24px;
   --tracklist-radius-md: 16px;
+  --tracklist-radius-sm: 12px;
   --tracklist-max-width: 980px;
 }
 
-/* =========================
-   Page wrapper
-   ========================= */
+/* Page wrapper */
 
 .tracklist-page,
 .tracklist-page * {
@@ -31,65 +41,102 @@
 }
 
 .tracklist-page {
+  position: relative;
   max-width: var(--tracklist-max-width);
   margin: 0 auto;
-  padding: clamp(1.75rem, 4vw, 3.5rem) 1rem 3rem;
+  padding: clamp(1.75rem, 4vw, 3.75rem) 1rem 3.5rem;
   font-family: "Manrope", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: var(--tracklist-text);
 }
 
-/* =========================
-   Hero / intro
-   ========================= */
+.tracklist-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(56, 183, 194, 0.14), transparent 26rem),
+    radial-gradient(circle at 90% 20%, rgba(15, 79, 86, 0.08), transparent 24rem),
+    linear-gradient(180deg, rgba(245, 251, 251, 0.35), rgba(255, 255, 255, 0));
+}
+
+/* Hero */
 
 .tracklist-hero {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.65rem;
 }
 
 .tracklist-hero__eyebrow {
-  margin: 0 0 0.5rem;
-  font-size: 0.82rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0 0 0.65rem;
+  font-size: 0.8rem;
   font-weight: 800;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--tracklist-teal-700);
 }
 
+.tracklist-hero__eyebrow::before {
+  content: "";
+  width: 0.58rem;
+  height: 0.58rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--tracklist-teal-700), var(--tracklist-teal-500));
+  box-shadow: 0 0 0 5px rgba(56, 183, 194, 0.12);
+}
+
 .tracklist-hero h1 {
   margin: 0;
-  font-size: clamp(2.2rem, 4.8vw, 3.8rem);
-  line-height: 1.02;
+  font-size: clamp(2.25rem, 5vw, 4rem);
+  line-height: 0.98;
   font-weight: 800;
-  letter-spacing: -0.04em;
-  color: var(--tracklist-teal-900);
+  letter-spacing: -0.055em;
+  color: var(--tracklist-teal-950);
   text-wrap: balance;
 }
 
 .tracklist-hero h1::after {
   content: "";
   display: block;
-  width: 88px;
+  width: 96px;
   height: 4px;
-  margin-top: 0.8rem;
+  margin-top: 0.95rem;
   border-radius: 999px;
-  background: linear-gradient(90deg, var(--tracklist-teal-700), var(--tracklist-teal-500));
+  background: linear-gradient(90deg, var(--tracklist-teal-800), var(--tracklist-teal-500));
   opacity: 0.95;
 }
 
 .tracklist-hero__intro {
-  margin-top: 1.2rem;
-  padding: 1.15rem 1.2rem 1.2rem;
+  position: relative;
+  margin-top: 1.35rem;
+  padding: clamp(1rem, 2.5vw, 1.35rem);
   border-radius: var(--tracklist-radius-md);
-  background: linear-gradient(180deg,
-      rgba(255, 255, 255, 0.98),
-      rgba(244, 251, 251, 0.96));
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(245, 252, 252, 0.98));
   border: 1px solid var(--tracklist-border);
-  box-shadow:
-    0 10px 24px rgba(15, 79, 86, 0.08),
-    0 3px 8px rgba(15, 79, 86, 0.04);
+  box-shadow: var(--tracklist-shadow-soft);
+  overflow: hidden;
+}
+
+.tracklist-hero__intro::after {
+  content: "";
+  position: absolute;
+  top: -40px;
+  right: -50px;
+  width: 150px;
+  height: 150px;
+  border-radius: 999px;
+  background: rgba(56, 183, 194, 0.12);
+  pointer-events: none;
 }
 
 .tracklist-hero__text {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
   margin: 0;
   font-size: 1.03rem;
   line-height: 1.72;
@@ -97,30 +144,30 @@
 }
 
 .tracklist-hero__meta {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-wrap: wrap;
   gap: 0.65rem;
-  margin-top: 1rem;
+  margin-top: 1.05rem;
 }
 
 .tracklist-hero__pill {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.55rem 0.85rem;
+  padding: 0.58rem 0.88rem;
   border-radius: 999px;
-  background: rgba(56, 183, 194, 0.10);
+  background: rgba(56, 183, 194, 0.11);
   border: 1px solid rgba(15, 79, 86, 0.10);
   color: var(--tracklist-teal-900);
-  font-size: 0.88rem;
-  font-weight: 700;
+  font-size: 0.87rem;
+  font-weight: 800;
   line-height: 1.2;
   white-space: nowrap;
 }
 
-/* =========================
-   Tracklist card
-   ========================= */
+/* Card */
 
 .tracklist-card {
   position: relative;
@@ -135,20 +182,30 @@
   content: "";
   position: absolute;
   inset: 0 0 auto 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--tracklist-teal-800), var(--tracklist-teal-500));
-  z-index: 2;
+  height: 4px;
+  background: linear-gradient(90deg, var(--tracklist-teal-900), var(--tracklist-teal-500));
+  z-index: 3;
 }
 
-/* =========================
-   Scroll container
-   ========================= */
+.tracklist-card::after {
+  content: "";
+  position: absolute;
+  inset: 4px 0 auto 0;
+  height: 52px;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.62), transparent);
+  z-index: 1;
+}
+
+/* Scroll container */
 
 .tracklist-table-wrap {
   max-height: min(72vh, 860px);
   overflow: auto;
   border-radius: inherit;
   background: transparent;
+  scrollbar-color: rgba(27, 123, 132, 0.38) rgba(15, 79, 86, 0.04);
+  scrollbar-width: thin;
 }
 
 .tracklist-table-wrap::-webkit-scrollbar {
@@ -162,13 +219,15 @@
   border-radius: 999px;
 }
 
+.tracklist-table-wrap::-webkit-scrollbar-thumb:hover {
+  background: rgba(27, 123, 132, 0.52);
+}
+
 .tracklist-table-wrap::-webkit-scrollbar-track {
   background: rgba(15, 79, 86, 0.04);
 }
 
-/* =========================
-   Table
-   ========================= */
+/* Table */
 
 .tracklist-table {
   width: 100%;
@@ -180,23 +239,27 @@
 .tracklist-table thead th {
   position: sticky;
   top: 0;
-  z-index: 2;
-  padding: 1rem 1.5rem;
+  z-index: 4;
+  padding: 1.05rem 1.5rem;
   text-align: left;
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   font-weight: 800;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--tracklist-teal-800);
-  background: rgba(245, 252, 252, 0.96);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: rgba(245, 252, 252, 0.97);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--tracklist-border-strong);
-  box-shadow: 0 1px 0 rgba(15, 79, 86, 0.05);
+  box-shadow:
+    0 1px 0 rgba(15, 79, 86, 0.05),
+    0 8px 18px rgba(15, 79, 86, 0.04);
 }
 
 .tracklist-table tbody tr {
-  transition: background-color 160ms ease;
+  transition:
+    background-color 160ms ease,
+    transform 160ms ease;
 }
 
 .tracklist-table tbody tr:hover {
@@ -208,7 +271,7 @@
 }
 
 .tracklist-table td {
-  padding: 1rem 1.5rem;
+  padding: 1.05rem 1.5rem;
   vertical-align: middle;
   font-size: 1rem;
   line-height: 1.55;
@@ -217,8 +280,9 @@
 }
 
 .tracklist-table .song-cell {
-  font-weight: 700;
+  font-weight: 800;
   color: var(--tracklist-text);
+  letter-spacing: -0.01em;
 }
 
 .tracklist-table .artist-cell {
@@ -229,18 +293,33 @@
 .tracklist-table .is-placeholder td,
 .tracklist-table .is-empty td,
 .tracklist-table .is-error td {
-  padding: 1.2rem 1.5rem 1.35rem;
-  font-weight: 600;
+  padding: 1.35rem 1.5rem 1.45rem;
+  font-weight: 700;
   color: var(--tracklist-text-soft);
+}
+
+.tracklist-table .is-placeholder td::before,
+.tracklist-table .is-empty td::before,
+.tracklist-table .is-error td::before {
+  content: "";
+  display: inline-block;
+  width: 0.58rem;
+  height: 0.58rem;
+  margin-right: 0.55rem;
+  border-radius: 999px;
+  background: var(--tracklist-teal-500);
+  vertical-align: 0.04em;
 }
 
 .tracklist-table .is-error td {
   color: #8a4f57;
 }
 
-/* =========================
-   Accessibility
-   ========================= */
+.tracklist-table .is-error td::before {
+  background: #b66a74;
+}
+
+/* Accessibility */
 
 .sr-only {
   position: absolute !important;
@@ -261,31 +340,52 @@
 .tracklist-page textarea:focus-visible,
 .tracklist-page th:focus-visible,
 .tracklist-page td:focus-visible {
-  outline: 2px solid rgba(36, 150, 161, 0.65);
-  outline-offset: 2px;
+  outline: 2px solid rgba(36, 150, 161, 0.72);
+  outline-offset: 3px;
+  border-radius: 8px;
 }
 
-/* =========================
-   Mobile
-   ========================= */
+/* Mobile */
 
 @media (max-width: 720px) {
   .tracklist-page {
-    padding: 1.25rem 0.75rem 2.25rem;
+    padding: 1.25rem 0.75rem 2.35rem;
   }
 
   .tracklist-hero {
-    margin-bottom: 1rem;
+    margin-bottom: 1.05rem;
+  }
+
+  .tracklist-hero__eyebrow {
+    font-size: 0.74rem;
+  }
+
+  .tracklist-hero h1 {
+    font-size: clamp(2.1rem, 11vw, 3rem);
+    letter-spacing: -0.045em;
+  }
+
+  .tracklist-hero h1::after {
+    width: 74px;
+    height: 3px;
+    margin-top: 0.75rem;
   }
 
   .tracklist-hero__intro {
     margin-top: 1rem;
     padding: 1rem 0.95rem 1.05rem;
-    border-radius: 14px;
+    border-radius: 15px;
+  }
+
+  .tracklist-hero__intro::after {
+    width: 110px;
+    height: 110px;
+    top: -48px;
+    right: -46px;
   }
 
   .tracklist-hero__text {
-    font-size: 0.98rem;
+    font-size: 0.97rem;
     line-height: 1.66;
   }
 
@@ -295,12 +395,19 @@
   }
 
   .tracklist-hero__pill {
-    font-size: 0.84rem;
-    padding: 0.52rem 0.78rem;
+    font-size: 0.82rem;
+    padding: 0.52rem 0.76rem;
   }
 
   .tracklist-card {
     border-radius: 18px;
+    box-shadow:
+      0 12px 26px rgba(15, 79, 86, 0.10),
+      0 3px 8px rgba(15, 79, 86, 0.04);
+  }
+
+  .tracklist-card::after {
+    display: none;
   }
 
   .tracklist-table-wrap {
@@ -321,18 +428,37 @@
   }
 
   .tracklist-table tbody {
-    padding: 0.45rem;
+    padding: 0.5rem;
   }
 
   .tracklist-table tbody tr {
+    position: relative;
     margin: 0 0 0.7rem;
-    padding: 0.95rem 1rem;
+    padding: 0.95rem 1rem 1rem;
     border: 1px solid rgba(15, 79, 86, 0.10);
     border-radius: var(--tracklist-radius-md);
-    background: var(--tracklist-surface-strong);
+    background: linear-gradient(180deg, #ffffff, #f8fcfc);
     box-shadow:
       0 8px 20px rgba(15, 79, 86, 0.08),
       0 2px 6px rgba(15, 79, 86, 0.04);
+  }
+
+  .tracklist-table tbody tr::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 4px;
+    border-radius: var(--tracklist-radius-md) 0 0 var(--tracklist-radius-md);
+    background: linear-gradient(180deg, var(--tracklist-teal-700), var(--tracklist-teal-500));
+    opacity: 0.9;
+  }
+
+  .tracklist-table tbody tr:last-child {
+    margin-bottom: 0;
+  }
+
+  .tracklist-table tbody tr:hover {
+    background: linear-gradient(180deg, #ffffff, #f4fbfb);
   }
 
   .tracklist-table tbody tr+tr td {
@@ -350,20 +476,27 @@
   .tracklist-table td::before {
     content: attr(data-label);
     display: block;
-    margin-bottom: 0.3rem;
-    font-size: 0.72rem;
+    margin-bottom: 0.28rem;
+    font-size: 0.7rem;
     font-weight: 800;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.13em;
     text-transform: uppercase;
     color: var(--tracklist-teal-700);
   }
 
   .tracklist-table .song-cell {
     font-size: 1rem;
+    line-height: 1.45;
   }
 
   .tracklist-table .artist-cell {
     font-size: 0.96rem;
+  }
+
+  .tracklist-table .is-placeholder,
+  .tracklist-table .is-empty,
+  .tracklist-table .is-error {
+    padding-left: 1rem;
   }
 
   .tracklist-table .is-placeholder td,
@@ -379,8 +512,22 @@
   }
 }
 
+@media (max-width: 420px) {
+  .tracklist-page {
+    padding-left: 0.65rem;
+    padding-right: 0.65rem;
+  }
+
+  .tracklist-hero__pill {
+    width: 100%;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .tracklist-table tbody tr {
+
+  .tracklist-table tbody tr,
+  .tracklist-hero__pill,
+  .tracklist-card {
     transition: none;
   }
 }
