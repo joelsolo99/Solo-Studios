@@ -9,32 +9,53 @@ permalink: /packages/wedding-packages/
 
 <div class="wrapper">
   <h1>Wedding Packages</h1>
-    <p class="packages-intro">
-      Music for every part of your wedding day, from the first drinks to the last dance.
-    </p>
 
-  <section class="fade-in-section left-offset">
+  <p class="packages-intro">
+    Music for every part of your wedding day, from relaxed drinks reception sax to a full DJ and sax evening party.
+    Each package can be shaped around your venue, timings, and the atmosphere you want.
+  </p>
+
+  <section class="fade-in-section left-offset" aria-labelledby="wedding-packages-intro">
     <div class="package-section">
-      <img src="{{ '/assets/img/wedding_packages/drinks_reception.webp' | relative_url }}" alt="Wedding DJ and sax performance packages" class="package-image package-image--drinks">
+      <img
+        src="{{ '/assets/img/wedding_packages/drinks_reception.webp' | relative_url }}"
+        alt="Live saxophone wedding performance"
+        class="package-image package-image--drinks"
+        loading="lazy"
+        decoding="async"
+      >
+
       <div class="package-content">
-        <h2>We want your dream wedding to come true!</h2>
-        <p>Our DJ and saxophone packages are designed to cover every moment of your wedding, from relaxed daytime sets to high‑energy evening celebrations. Everything is planned around your timings, your taste, and the flow of your day.</p>
+        <h2 id="wedding-packages-intro">Wedding music shaped around your day</h2>
+
+        <p>
+          Your wedding soundtrack should feel personal, well-timed, and easy from your side.
+          Our DJ and saxophone packages can cover everything from ceremony moments and drinks reception music
+          to your first dance and the final song of the night.
+        </p>
+
         <ul>
           <li>
-            <strong>Grand Entrance:</strong> Kick off your reception in style with a personalized musical welcome. As the DJ announces, "Please welcome Mr and Mrs", your chosen song fills the room. Our saxophonist accompanies your entrance, wowing your guests from the start.
+            <strong>Grand entrance:</strong>
+            Make your reception entrance feel like a moment. Your chosen track plays as the DJ introduces you,
+            with live sax adding energy and atmosphere as you enter the room.
           </li>
           <li>
-            <strong>The First Dance:</strong> Your first dance deserves to be unforgettable. We'll tailor a sax performance to your chosen song, complete with lighting and atmosphere to match. Give the DJ a nod, and we'll invite your loved ones to join you on the dance floor. If you want sax in your first dance song, we can record it for you to practice to so there are no surprises on the big day!
+            <strong>First dance:</strong>
+            We can shape a live sax performance around your chosen first dance song. If useful, we can also
+            record the sax part in advance so you know exactly how it will feel before the day.
           </li>
           <li>
-            <strong>Your Signature Set:</strong> Whether it's rock ballads, swinging soundtracks, or Ibiza bangers, your night should sound like you. Share your favourite tracks and we'll build a custom set, either woven throughout the evening or delivered as a high-energy, uninterrupted playlist.
+            <strong>Your signature sound:</strong>
+            Whether you want Ibiza house, classic soul, pop favourites, garage, disco, rock ballads, or a mix
+            of everything, we can build the music around your taste.
           </li>
         </ul>
       </div>
     </div>
   </section>
 
-  <section class="fade-in-section left-offset">
+  <section class="fade-in-section left-offset" aria-labelledby="drinks-reception-package">
     <div class="package-section">
       <video
         class="package-image package-video-cropped"
@@ -49,86 +70,178 @@ permalink: /packages/wedding-packages/
       </video>
 
       <div class="package-content">
-        <h2>Drinks Reception</h2>
+        <h2 id="drinks-reception-package">Drinks Reception</h2>
+
         <p>
-          <strong>Set:</strong> 2 × 45 mins<br>
-          <strong>Total Duration:</strong> 2 hours<br>
+          <strong>Set:</strong> 2 × 45 minutes<br>
+          <strong>Total duration:</strong> 2 hours<br>
           <strong>Price:</strong> From £450
         </p>
+
         <p>
-          Ideal for a drinks reception, arrival music, or relaxed background music during photos.
-          Smooth live sax backed by professional tracks that sit perfectly in the atmosphere
-          without overpowering the moment.
+          A relaxed live saxophone set for arrival drinks, photos, canapés, or the early part of your reception.
+          This package adds warmth and style without overpowering conversation.
         </p>
+
         <p>
-          This package is designed to add style, warmth, and a polished live feel to the earlier
-          part of your day, helping guests settle in while keeping everything feeling special.
+          It is ideal if you want the day to feel polished from the moment guests arrive, while keeping the
+          atmosphere elegant, natural, and easy-going.
         </p>
       </div>
     </div>
   </section>
 
-  <section class="fade-in-section right-offset">
+  <section class="fade-in-section right-offset" aria-labelledby="sax-and-tracks-package">
     <div class="package-section">
-      <img src="{{ '/assets/img/wedding_packages/5.webp' | relative_url }}" alt="Sax and Tracks package" class="package-image">
+      <img
+        src="{{ '/assets/img/wedding_packages/5.webp' | relative_url }}"
+        alt="Wedding saxophone and tracks package"
+        class="package-image"
+        loading="lazy"
+        decoding="async"
+      >
+
       <div class="package-content">
-        <h2>Sax &amp; Tracks</h2>
+        <h2 id="sax-and-tracks-package">Sax &amp; Tracks</h2>
+
         <p>
-          <strong>Set:</strong> Your favourite tunes for 5 hours, with sax!<br>
-          <strong>Total Duration:</strong> 5 hours<br>
+          <strong>Set:</strong> Your favourite tunes for 5 hours, with live sax<br>
+          <strong>Total duration:</strong> 5 hours<br>
           <strong>Price:</strong> From £800
         </p>
+
         <p>
-          A flexible option. Tell us your timings, and we’ll take care of the rest. Includes a professional PA, vibrant and customisable lighting and a live sax set at a time of your choosing. We'll be there for 5 hours.
+          A flexible option for couples who want a strong evening soundtrack without booking a full DJ and sax duo.
+          We bring a professional PA, customisable lighting, carefully prepared music, and a live sax set at a
+          time that suits your wedding flow.
+        </p>
+
+        <p>
+          Tell us your timings, favourite tracks, and the kind of energy you want, and we will shape the music
+          around the evening.
         </p>
       </div>
     </div>
   </section>
 
-  <section class="fade-in-section left-offset">
+  <section class="fade-in-section left-offset" aria-labelledby="combo-deal-package">
     <div class="package-section">
-      <img src="{{ '/assets/img/wedding_packages/combo_deal.webp' | relative_url }}" alt="Combo Deal Sax and DJ" class="package-image">
+      <img
+        src="{{ '/assets/img/wedding_packages/combo_deal.webp' | relative_url }}"
+        alt="Wedding DJ and sax combo package"
+        class="package-image"
+        loading="lazy"
+        decoding="async"
+      >
+
       <div class="package-content">
-        <h2>Combo Deal (Sax + DJ)</h2>
+        <h2 id="combo-deal-package">Combo Deal: Sax + DJ</h2>
+
         <p>
-          <strong>Set:</strong> 5pm – Midnight<br>
-          <strong>Total Duration:</strong> 7 hours<br>
+          <strong>Set:</strong> 5pm to midnight<br>
+          <strong>Total duration:</strong> 7 hours<br>
           <strong>Price:</strong> From £1100
         </p>
+
         <p>
-          Smooth sax for cocktails, background music over dinner, a first-dance performance, and a full DJ set to keep the party going. Stage lighting, high-tech equipment and only the finest tunes. If you want a talented duo with <strong>chemistry</strong> then this is the package for you. This is our most popular package for a reason.
+          Our most popular wedding package. It gives you smooth sax for cocktails or dinner, a first-dance moment
+          if you would like one, and a full DJ set for the evening party.
+        </p>
+
+        <p>
+          This package is designed for couples who want the flexibility of a DJ with the impact of live sax.
+          You get strong dancefloor energy, professional sound and lighting, and a duo that can respond to the
+          room as the night builds.
         </p>
       </div>
     </div>
   </section>
 
-  <section class="fade-in-section right-offset">
+  <section class="fade-in-section right-offset" aria-labelledby="all-day-package">
     <div class="package-section">
-      <img src="{{ '/assets/img/wedding_packages/6.webp' | relative_url }}" alt="The All-Day Package" class="package-image">
+      <img
+        src="{{ '/assets/img/wedding_packages/6.webp' | relative_url }}"
+        alt="All-day wedding music package"
+        class="package-image"
+        loading="lazy"
+        decoding="async"
+      >
+
       <div class="package-content">
-        <h2>The All-Day Package</h2>
+        <h2 id="all-day-package">The All-Day Package</h2>
+
         <p>
-          <strong>Set:</strong> 12pm – Midnight<br>
-          <strong>Total Duration:</strong> 12 hours<br>
+          <strong>Set:</strong> 12pm to midnight<br>
+          <strong>Total duration:</strong> 12 hours<br>
           <strong>Price:</strong> From £1600
         </p>
+
         <p>
-          Everything in the Combo Deal, plus ceremony music, travel between locations, and custom requests, like learning a special song just for your moment.
+          A complete wedding soundtrack from ceremony to last dance. This includes everything in the Combo Deal,
+          plus ceremony music, extra daytime coverage, travel between locations where needed, and custom requests.
+        </p>
+
+        <p>
+          This is the best choice if you want one joined-up music plan for the whole day, with consistent sound,
+          smooth transitions, and live moments placed exactly where they matter.
         </p>
       </div>
     </div>
   </section>
 
-  <section class="packages-cta">
+  <section class="fade-in-section left-offset" aria-labelledby="which-package">
+    <div class="package-section">
+      <img
+        src="{{ '/assets/img/wedding_packages/7.webp' | relative_url }}"
+        alt="Wedding guests dancing during an evening celebration"
+        class="package-image"
+        loading="lazy"
+        decoding="async"
+      >
+
+      <div class="package-content">
+        <h2 id="which-package">Not sure which package fits?</h2>
+
+        <p>
+          If you are still working out timings, we can help. Most couples start by telling us the venue,
+          ceremony time, drinks reception plans, first dance ideas, and roughly when the evening party starts.
+        </p>
+
+        <ul>
+          <li>
+            <strong>For relaxed daytime music:</strong>
+            Drinks Reception is usually the best fit.
+          </li>
+          <li>
+            <strong>For evening atmosphere without a full duo:</strong>
+            Sax &amp; Tracks gives you music, lighting, and live sax in one flexible setup.
+          </li>
+          <li>
+            <strong>For the full party experience:</strong>
+            Combo Deal gives you the strongest DJ and sax evening package.
+          </li>
+          <li>
+            <strong>For one music plan across the whole day:</strong>
+            The All-Day Package keeps everything joined up from start to finish.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="packages-cta" aria-labelledby="packages-cta-title">
     <div class="packages-cta__inner">
       <p class="packages-cta__eyebrow">Let’s plan your wedding</p>
-      <h2>Music that feels personal, polished, and full of energy</h2>
+
+      <h2 id="packages-cta-title">Music that feels personal, polished, and full of energy</h2>
+
       <p class="packages-cta__text">
-        Whether you want elegant daytime music, a seamless evening flow, or an all-day soundtrack tailored around your plans, we can help you choose the right package for your celebration.
+        Whether you want elegant daytime sax, a seamless evening flow, or an all-day soundtrack tailored around
+        your plans, we can help you choose the right setup for your celebration.
       </p>
 
       <div class="packages-cta__actions">
-        <a href="/contact" class="packages-cta__button">Get in touch</a>
+        <a href="/#contact-us" class="packages-cta__button">Get in touch</a>
         <a href="/packages/power-hour/" class="packages-cta__link">Looking for Ibiza energy? Try the Power Hour</a>
       </div>
     </div>
@@ -136,28 +249,28 @@ permalink: /packages/wedding-packages/
 
   <div class="package-footer-links">
     <a href="/packages/terms/">See terms and conditions</a><br>
-    <a href="/contact">Get in touch to tailor your package</a>
+    <a href="/#contact-us">Get in touch to tailor your package</a>
   </div>
 </div>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const faders = document.querySelectorAll('.fade-in-section');
+  document.addEventListener("DOMContentLoaded", function () {
+    const faders = document.querySelectorAll(".fade-in-section");
 
     const appearOptions = {
       threshold: 0.1,
       rootMargin: "0px 0px -100px 0px"
     };
 
-    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
-      entries.forEach(entry => {
+    const appearOnScroll = new IntersectionObserver(function (entries, observer) {
+      entries.forEach(function (entry) {
         if (!entry.isIntersecting) return;
-        entry.target.classList.add('visible');
+        entry.target.classList.add("visible");
         observer.unobserve(entry.target);
       });
     }, appearOptions);
 
-    faders.forEach(fader => {
+    faders.forEach(function (fader) {
       appearOnScroll.observe(fader);
     });
   });
