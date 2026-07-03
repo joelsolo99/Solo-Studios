@@ -19,7 +19,7 @@ permalink: /packages/events-packages/
   <section class="fade-in-section left-offset" aria-labelledby="events-packages-intro">
     <div class="package-section">
       <img
-        src="{{ '/assets/img/events_packages/1.webp' | relative_url }}"
+        src="{{ '/assets/img/events_packages/5.webp' | relative_url }}"
         alt="Live saxophone performance for an event"
         class="package-image"
         loading="lazy"

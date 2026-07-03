@@ -18,7 +18,7 @@ permalink: /packages/wedding-packages/
   <section class="fade-in-section left-offset" aria-labelledby="wedding-packages-intro">
     <div class="package-section">
       <img
-        src="{{ '/assets/img/wedding_packages/drinks_reception.webp' | relative_url }}"
+        src="{{ '/assets/img/wedding_packages/1.webp' | relative_url }}"
         alt="Live saxophone wedding performance"
         class="package-image package-image--drinks"
         loading="lazy"
@@ -127,7 +127,7 @@ permalink: /packages/wedding-packages/
   <section class="fade-in-section left-offset" aria-labelledby="combo-deal-package">
     <div class="package-section">
       <img
-        src="{{ '/assets/img/wedding_packages/combo_deal.webp' | relative_url }}"
+        src="{{ '/assets/img/wedding_packages/2.webp' | relative_url }}"
         alt="Wedding DJ and sax combo package"
         class="package-image"
         loading="lazy"

@@ -58,7 +58,7 @@ layout: default
     <section class="about-section fade-in-section right-offset" aria-labelledby="about-dj">
       <div class="about-image-wrapper">
         <img
-          src="{{ '/assets/img/dj-dancefloor.webp' | relative_url }}"
+          src="{{ '/assets/img/about/3.webp' | relative_url }}"
           alt="DJ performance at an event"
           class="about-image about-image--dj-focus"
           loading="lazy"
