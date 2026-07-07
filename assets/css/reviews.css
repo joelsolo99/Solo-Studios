@@ -1,0 +1,482 @@
+/* =========================
+   Solo Studios reviews carousel
+   assets/css/reviews.css
+   ========================= */
+
+.reviews-carousel-section {
+  --reviews-teal-900: #0f4f56;
+  --reviews-teal-800: #13636b;
+  --reviews-teal-700: #1b7b84;
+  --reviews-teal-500: #38b7c2;
+
+  --reviews-text: #18343a;
+  --reviews-text-soft: #5b7277;
+  --reviews-surface: #ffffff;
+  --reviews-surface-soft: #f7fbfb;
+  --reviews-cream: #f7f3ed;
+  --reviews-border: rgba(15, 79, 86, 0.1);
+  --reviews-gold: #f3b300;
+
+  --reviews-shadow-md:
+    0 14px 36px rgba(15, 79, 86, 0.1),
+    0 4px 10px rgba(15, 79, 86, 0.05);
+
+  --reviews-shadow-lg:
+    0 18px 42px rgba(15, 79, 86, 0.13),
+    0 6px 14px rgba(15, 79, 86, 0.07);
+
+  --reviews-radius-lg: 24px;
+  --reviews-radius-md: 18px;
+  --reviews-max-width: 1200px;
+
+  max-width: var(--reviews-max-width);
+  margin: clamp(2.5rem, 5vw, 4rem) auto;
+  padding: clamp(2rem, 4vw, 3rem) 1rem;
+  background: var(--reviews-cream);
+  color: var(--reviews-text);
+  line-height: 1.65;
+}
+
+/* =========================
+   Header
+   ========================= */
+
+.reviews-carousel-section__header {
+  max-width: 760px;
+  margin: 0 auto clamp(1.6rem, 4vw, 2.4rem);
+  text-align: center;
+}
+
+.reviews-carousel-section__label {
+  margin: 0 0 0.55rem;
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--reviews-teal-700);
+}
+
+.reviews-carousel-section__header h2 {
+  max-width: 720px;
+  margin: 0 auto;
+  color: var(--reviews-teal-900);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: clamp(1.75rem, 3.7vw, 2.55rem);
+  font-weight: 900;
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+}
+
+.reviews-carousel-section__header h2::after {
+  content: "";
+  display: block;
+  width: 78px;
+  height: 4px;
+  margin: 0.8rem auto 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg,
+      var(--reviews-teal-800),
+      var(--reviews-teal-500));
+}
+
+.reviews-carousel-section__header p {
+  max-width: 640px;
+  margin: 0.95rem auto 0;
+  color: var(--reviews-text-soft);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+/* =========================
+   Carousel layout
+   ========================= */
+
+.reviews-carousel {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr) 42px;
+  gap: 0.9rem;
+  align-items: center;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.reviews-carousel__viewport {
+  overflow-x: auto;
+  overflow-y: visible;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.reviews-carousel__viewport::-webkit-scrollbar {
+  display: none;
+}
+
+.reviews-carousel__track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% - 1.25rem) / 2);
+  gap: 1.25rem;
+  align-items: stretch;
+  padding: 0.25rem;
+}
+
+/* =========================
+   Review cards
+   ========================= */
+
+.review-card {
+  scroll-snap-align: start;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-rows: auto 1fr auto;
+  column-gap: 1rem;
+  row-gap: 1rem;
+
+  min-height: 300px;
+  padding: 1.35rem;
+
+  background: linear-gradient(180deg,
+      rgba(255, 255, 255, 0.98),
+      rgba(244, 251, 251, 0.96));
+  border: 1px solid var(--reviews-border);
+  border-radius: var(--reviews-radius-lg);
+  box-shadow: var(--reviews-shadow-md);
+
+  color: var(--reviews-text);
+  overflow: hidden;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.review-card:hover,
+.review-card:focus-within {
+  transform: translateY(-4px);
+  border-color: rgba(15, 79, 86, 0.18);
+  box-shadow: var(--reviews-shadow-lg);
+}
+
+/* Let the footer children sit in the card grid.
+   This removes the ugly large teal footer block. */
+
+.review-card__footer {
+  display: contents;
+}
+
+/* Name and date at top left */
+
+.review-card__person {
+  grid-column: 1;
+  grid-row: 1;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.review-card__person strong {
+  color: var(--reviews-teal-900);
+  font-size: 0.98rem;
+  font-weight: 900;
+  line-height: 1.25;
+}
+
+.review-card__person span {
+  color: var(--reviews-text-soft);
+  font-size: 0.84rem;
+  line-height: 1.35;
+}
+
+/* Stars at top right */
+
+.review-card__stars {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: start;
+  justify-self: end;
+
+  margin: 0;
+  color: var(--reviews-gold);
+  font-size: 1rem;
+  line-height: 1;
+  letter-spacing: 0.055em;
+  white-space: nowrap;
+}
+
+/* Review text in the middle */
+
+.review-card__quote {
+  grid-column: 1 / -1;
+  grid-row: 2;
+
+  margin: 0;
+  color: var(--reviews-text);
+  font-size: 0.98rem;
+  font-style: italic;
+  line-height: 1.68;
+}
+
+/* Link button at the bottom */
+
+.review-card__link,
+.review-card__link:visited {
+  grid-column: 1 / -1;
+  grid-row: 3;
+  justify-self: start;
+  align-self: end;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 40px;
+  padding: 0.62rem 0.95rem;
+  border-radius: 999px;
+
+  background: var(--reviews-teal-900);
+  color: #ffffff !important;
+  box-shadow: 0 8px 18px rgba(15, 79, 86, 0.18);
+
+  font-size: 0.86rem;
+  font-weight: 850;
+  line-height: 1.15;
+  text-decoration: none !important;
+  white-space: nowrap;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.review-card__link:hover,
+.review-card__link:focus {
+  background: var(--reviews-teal-800);
+  color: #ffffff !important;
+  box-shadow: 0 12px 24px rgba(15, 79, 86, 0.28);
+  transform: translateY(-2px);
+}
+
+.review-card__link:focus-visible {
+  outline: 3px solid rgba(56, 183, 194, 0.65);
+  outline-offset: 4px;
+}
+
+/* =========================
+   Carousel buttons
+   ========================= */
+
+.reviews-carousel__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+
+  background: var(--reviews-teal-900);
+  color: #ffffff;
+
+  font-size: 1.7rem;
+  line-height: 1;
+  cursor: pointer;
+
+  box-shadow: 0 8px 18px rgba(15, 79, 86, 0.22);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.reviews-carousel__button:hover,
+.reviews-carousel__button:focus {
+  background: var(--reviews-teal-800);
+  color: #ffffff;
+  box-shadow: 0 12px 24px rgba(15, 79, 86, 0.28);
+  transform: translateY(-2px);
+}
+
+.reviews-carousel__button:focus-visible {
+  outline: 3px solid rgba(56, 183, 194, 0.65);
+  outline-offset: 4px;
+}
+
+/* =========================
+   Responsive
+   ========================= */
+
+@media (max-width: 980px) {
+  .reviews-carousel {
+    grid-template-columns: 1fr;
+  }
+
+  .reviews-carousel__button {
+    display: none;
+  }
+
+  .reviews-carousel__track {
+    grid-auto-columns: 86%;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .reviews-carousel-section {
+    margin: 2.5rem auto;
+    padding: 2.25rem 0.75rem;
+  }
+
+  .reviews-carousel-section__header {
+    margin-bottom: 1.4rem;
+  }
+
+  .reviews-carousel-section__header h2 {
+    font-size: clamp(1.8rem, 9vw, 2.25rem);
+  }
+
+  .reviews-carousel-section__header p {
+    font-size: 0.96rem;
+  }
+
+  .reviews-carousel__track {
+    grid-auto-columns: 92%;
+  }
+
+  .review-card {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr auto;
+    min-height: 285px;
+    padding: 1.15rem;
+    border-radius: var(--reviews-radius-md);
+  }
+
+  .review-card__person {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .review-card__stars {
+    grid-column: 1;
+    grid-row: 2;
+    justify-self: start;
+  }
+
+  .review-card__quote {
+    grid-column: 1;
+    grid-row: 3;
+    font-size: 0.95rem;
+    line-height: 1.62;
+  }
+
+  .review-card__link {
+    grid-column: 1;
+    grid-row: 4;
+    width: 100%;
+  }
+}
+
+/* =========================
+   Reduced motion
+   ========================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .reviews-carousel__viewport {
+    scroll-behavior: auto;
+  }
+
+  .review-card,
+  .review-card__link,
+  .reviews-carousel__button {
+    transition: none;
+  }
+}
+
+/* =========================
+   Collapsed and expanded review cards
+   ========================= */
+
+.review-card {
+  min-height: 245px;
+  cursor: pointer;
+}
+
+.review-card__quote {
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Expanded state after click */
+.review-card.is-expanded {
+  min-height: auto;
+}
+
+.review-card.is-expanded .review-card__quote {
+  display: block;
+  -webkit-line-clamp: unset;
+  line-clamp: unset;
+  overflow: visible;
+}
+
+/* Make the Google link feel separate from the card click */
+.review-card__link {
+  cursor: pointer;
+}
+
+/* Optional hint */
+.review-card::after {
+  content: "Read more";
+  grid-column: 1 / -1;
+  grid-row: 3;
+  justify-self: start;
+  align-self: end;
+
+  color: var(--reviews-teal-700);
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.review-card.is-expanded::after {
+  content: "Show less";
+}
+
+/* Move the Google button down one row because the read-more hint uses row 3 */
+.review-card__link,
+.review-card__link:visited {
+  grid-row: 4;
+}
+
+/* Add one more grid row for the collapsed/expanded hint */
+.review-card {
+  grid-template-rows: auto 1fr auto auto;
+}
+
+/* On mobile, keep the same order */
+@media (max-width: 640px) {
+  .review-card {
+    grid-template-rows: auto auto 1fr auto auto;
+  }
+
+  .review-card::after {
+    grid-column: 1;
+    grid-row: 4;
+  }
+
+  .review-card__link {
+    grid-column: 1;
+    grid-row: 5;
+  }
+}

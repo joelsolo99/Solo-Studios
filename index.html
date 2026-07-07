@@ -5,6 +5,7 @@ permalink: /
 ---
 
 <link rel="stylesheet" href="{{ '/assets/css/home.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/reviews.css' | relative_url }}">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <div class="home-page-title-wrap">
@@ -185,7 +186,6 @@ permalink: /
     </div>
   </div>
 </div>
-
 
 
 <section class="video-gallery-preview reveal-on-scroll">
@@ -429,61 +429,7 @@ permalink: /
     <a href="/packages/power-hour/" class="btn-ibiza-simple">See the Power Hour package</a>
   </div>
 </section>
-
-<link rel="stylesheet" href="{{ '/assets/css/testimonials.css' | relative_url }}">
-
-<section id="testimonials" class="testimonials-section reveal-on-scroll">
-  <h2 class="section-title">What Our Clients Say</h2>
-  <p class="section-intro">
-    A few words from recent performances.
-  </p>
-
-  <div class="testimonials-container">
-    <article class="testimonial">
-      <p class="testimonial-text">
-        <span class="testimonial-quote-mark" aria-hidden="true">“</span>
-        <span class="testimonial-quote">
-          Our wedding entrance song was just amazing and the talk of the wedding.
-        </span>
-        <span class="testimonial-quote-mark testimonial-quote-mark--close" aria-hidden="true">”</span>
-      </p>
-      <p class="testimonial-author">Jess, Wedding Party</p>
-    </article>
-
-    <article class="testimonial">
-      <p class="testimonial-text">
-        <span class="testimonial-quote-mark" aria-hidden="true">“</span>
-        <span class="testimonial-quote">
-          He entertained us and created a great atmosphere.
-        </span>
-        <span class="testimonial-quote-mark testimonial-quote-mark--close" aria-hidden="true">”</span>
-      </p>
-      <p class="testimonial-author">Ricky, Private Event</p>
-    </article>
-
-    <article class="testimonial">
-      <p class="testimonial-text">
-        <span class="testimonial-quote-mark" aria-hidden="true">“</span>
-        <span class="testimonial-quote">
-          Every one of our guests came to us to express how brilliant they thought he was.
-        </span>
-        <span class="testimonial-quote-mark testimonial-quote-mark--close" aria-hidden="true">”</span>
-      </p>
-      <p class="testimonial-author">Lily, Drinks Reception</p>
-    </article>
-  </div>
-</section>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.testimonial').forEach(card => {
-      card.addEventListener('click', () => {
-        card.classList.toggle('expanded');
-      });
-    });
-  });
-</script>
-
+{% include reviews.html %}
 <section id="contact-us" class="contact-section reveal-on-scroll">
   <div class="container">
     <h2 class="section-title">Get in Touch</h2>
@@ -602,6 +548,10 @@ permalink: /
     });
   });
 </script>
+
+
+<script src="{{ '/assets/js/reviews-carousel.js' | relative_url }}"></script>
+
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
