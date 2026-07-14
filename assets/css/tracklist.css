@@ -68,108 +68,97 @@
    ========================= */
 
 .tracklist-hero {
-  margin-bottom: 1.65rem;
+  margin-bottom: 2rem;
+  text-align: center;
 }
 
 .tracklist-hero__eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  margin: 0 0 0.65rem;
-  font-size: 0.8rem;
-  font-weight: 800;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
+  margin: 0 0 0.55rem;
+
   color: var(--tracklist-teal-700);
+
+  font-size: 0.82rem;
+  font-weight: 900;
+
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+
+  display: block;
 }
 
 .tracklist-hero__eyebrow::before {
-  content: "";
-  flex: 0 0 auto;
-  width: 0.58rem;
-  height: 0.58rem;
-  border-radius: 999px;
-  background: linear-gradient(135deg, var(--tracklist-teal-700), var(--tracklist-teal-500));
-  box-shadow: 0 0 0 5px rgba(56, 183, 194, 0.12);
+  display: none;
 }
 
 .tracklist-hero h1 {
   margin: 0;
-  font-size: clamp(2.25rem, 5vw, 4rem);
-  line-height: 0.98;
-  font-weight: 800;
-  letter-spacing: -0.055em;
+
   color: var(--tracklist-teal-950);
-  text-wrap: balance;
+
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 900;
+  line-height: 1.02;
+
+  letter-spacing: -0.05em;
 }
 
 .tracklist-hero h1::after {
-  content: "";
-  display: block;
-  width: 96px;
-  height: 4px;
-  margin-top: 0.95rem;
-  border-radius: 999px;
-  background: linear-gradient(90deg, var(--tracklist-teal-800), var(--tracklist-teal-500));
-  opacity: 0.95;
+  display: none;
 }
 
 .tracklist-hero__intro {
-  position: relative;
-  margin-top: 1.35rem;
-  padding: clamp(1rem, 2.5vw, 1.35rem);
-  border-radius: var(--tracklist-radius-md);
+  margin-top: 1.25rem;
+
+  padding: clamp(1.2rem, 3vw, 1.5rem);
+
+  border-radius: 22px;
+
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(245, 252, 252, 0.98));
-  border: 1px solid var(--tracklist-border);
+    linear-gradient(180deg,
+      rgba(255, 255, 255, 0.98),
+      rgba(245, 252, 252, 0.95));
+
+  border: 1px solid rgba(15, 79, 86, 0.08);
+
   box-shadow: var(--tracklist-shadow-soft);
-  overflow: hidden;
 }
 
 .tracklist-hero__intro::after {
-  content: "";
-  position: absolute;
-  top: -40px;
-  right: -50px;
-  width: 150px;
-  height: 150px;
-  border-radius: 999px;
-  background: rgba(56, 183, 194, 0.12);
-  pointer-events: none;
+  display: none;
 }
 
 .tracklist-hero__text {
-  position: relative;
-  z-index: 1;
   max-width: 760px;
-  margin: 0;
-  font-size: 1.03rem;
-  line-height: 1.72;
+
+  margin: 0 auto;
+
   color: var(--tracklist-text-soft);
+
+  font-size: 1.02rem;
+  line-height: 1.72;
 }
 
 .tracklist-hero__meta {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.65rem;
-  margin-top: 1.05rem;
+  justify-content: center;
+
+  gap: 0.55rem;
+
+  margin-top: 1rem;
 }
 
 .tracklist-hero__pill {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.58rem 0.88rem;
+  padding: 0.65rem 0.95rem;
+
   border-radius: 999px;
-  background: rgba(56, 183, 194, 0.11);
+
+  background: rgba(56, 183, 194, 0.08);
+
   border: 1px solid rgba(15, 79, 86, 0.10);
+
   color: var(--tracklist-teal-900);
-  font-size: 0.87rem;
+
+  font-size: 0.85rem;
   font-weight: 800;
-  line-height: 1.2;
-  white-space: nowrap;
 }
 
 /* =========================
@@ -177,31 +166,23 @@
    ========================= */
 
 .tracklist-card {
-  position: relative;
   overflow: hidden;
-  background: var(--tracklist-surface);
-  border: 1px solid var(--tracklist-border);
-  border-radius: var(--tracklist-radius-lg);
+
+  border-radius: 28px;
+
+  background:
+    linear-gradient(180deg,
+      rgba(255, 255, 255, 0.98),
+      rgba(245, 252, 252, 0.95));
+
+  border: 1px solid rgba(15, 79, 86, 0.08);
+
   box-shadow: var(--tracklist-shadow);
 }
 
-.tracklist-card::before {
-  content: "";
-  position: absolute;
-  inset: 0 0 auto 0;
-  height: 4px;
-  background: linear-gradient(90deg, var(--tracklist-teal-900), var(--tracklist-teal-500));
-  z-index: 3;
-}
-
+.tracklist-card::before,
 .tracklist-card::after {
-  content: "";
-  position: absolute;
-  inset: 4px 0 auto 0;
-  height: 52px;
-  pointer-events: none;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.62), transparent);
-  z-index: 1;
+  display: none;
 }
 
 /* =========================
@@ -248,23 +229,33 @@
 }
 
 .tracklist-table thead th {
-  position: sticky;
-  top: 0;
-  z-index: 4;
-  padding: 1.05rem 1.5rem;
-  text-align: left;
-  font-size: 0.76rem;
-  font-weight: 800;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
+  padding: 1rem 1.4rem;
+
+  font-size: 0.75rem;
+  font-weight: 900;
+
+  letter-spacing: 0.14em;
+
   color: var(--tracklist-teal-800);
-  background: rgba(245, 252, 252, 0.97);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--tracklist-border-strong);
-  box-shadow:
-    0 1px 0 rgba(15, 79, 86, 0.05),
-    0 8px 18px rgba(15, 79, 86, 0.04);
+
+  background:
+    rgba(245, 252, 252, 0.98);
+
+  border-bottom:
+    1px solid rgba(15, 79, 86, 0.10);
+
+  box-shadow: none;
+}
+
+.tracklist-table td {
+  padding: 1rem 1.4rem;
+
+  font-size: 0.98rem;
+}
+
+.tracklist-table tbody tr:hover {
+  background:
+    rgba(56, 183, 194, 0.05);
 }
 
 .tracklist-table tbody tr {
@@ -363,51 +354,31 @@
    ========================= */
 
 @media (max-width: 720px) {
+
   .tracklist-page {
-    padding: 1.2rem 0.75rem 2.4rem;
+    padding: 1.5rem 0.75rem 2.75rem;
   }
 
   .tracklist-hero {
-    margin-bottom: 1.15rem;
+    margin-bottom: 1.5rem;
     text-align: center;
   }
 
   .tracklist-hero__eyebrow {
-    justify-content: center;
-    font-size: 0.72rem;
-    letter-spacing: 0.135em;
-  }
-
-  .tracklist-hero__eyebrow::before {
-    width: 0.5rem;
-    height: 0.5rem;
-    box-shadow: 0 0 0 4px rgba(56, 183, 194, 0.11);
+    font-size: 0.74rem;
+    letter-spacing: 0.13em;
   }
 
   .tracklist-hero h1 {
-    font-size: clamp(2.05rem, 10.5vw, 3rem);
+    font-size: clamp(2rem, 10vw, 3rem);
     line-height: 1;
-    letter-spacing: -0.045em;
-  }
-
-  .tracklist-hero h1::after {
-    width: 74px;
-    height: 3px;
-    margin: 0.75rem auto 0;
   }
 
   .tracklist-hero__intro {
     margin-top: 1rem;
-    padding: 1rem 0.95rem 1.05rem;
-    border-radius: 16px;
+    padding: 1rem;
+    border-radius: 18px;
     text-align: left;
-  }
-
-  .tracklist-hero__intro::after {
-    width: 105px;
-    height: 105px;
-    top: -48px;
-    right: -46px;
   }
 
   .tracklist-hero__text {
@@ -416,35 +387,38 @@
   }
 
   .tracklist-hero__meta {
-    gap: 0.5rem;
-    margin-top: 0.9rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 0.45rem;
+
+    margin-top: 1rem;
   }
 
   .tracklist-hero__pill {
-    flex: 1 1 auto;
-    min-width: min(100%, 9.5rem);
-    padding: 0.5rem 0.72rem;
-    font-size: 0.8rem;
-    text-align: center;
+    flex: 0 0 auto;
+
+    width: auto;
+
+    min-width: 0;
+
+    padding: 0.5rem 0.7rem;
+
+    font-size: 0.75rem;
+    font-weight: 800;
+
+    line-height: 1.2;
+
+    white-space: nowrap;
   }
 
   .tracklist-card {
-    overflow: hidden;
-    border-radius: 18px;
-    background:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(250, 253, 253, 0.96));
-    border-color: rgba(15, 79, 86, 0.10);
+    border-radius: 22px;
+
     box-shadow:
-      0 12px 26px rgba(15, 79, 86, 0.10),
+      0 12px 28px rgba(15, 79, 86, 0.10),
       0 3px 8px rgba(15, 79, 86, 0.04);
-  }
-
-  .tracklist-card::before {
-    height: 3px;
-  }
-
-  .tracklist-card::after {
-    display: none;
   }
 
   .tracklist-table-wrap {
@@ -466,83 +440,75 @@
 
   .tracklist-table tbody {
     counter-reset: tracklist-counter;
-    padding: 0.18rem 0;
   }
 
   .tracklist-table tbody tr {
     counter-increment: tracklist-counter;
+
     position: relative;
-    display: block;
-    margin: 0;
-    padding: 0.86rem 0.95rem 0.86rem 3rem;
-    border: 0 !important;
-    border-radius: 0 !important;
-    outline: 0 !important;
-    box-shadow: none !important;
-    background: transparent !important;
-    transition:
-      background-color 160ms ease,
-      padding-left 160ms ease;
+
+    padding: 0.95rem 1rem 0.95rem 3rem;
+
+    transition: background-color 0.2s ease;
   }
 
   .tracklist-table tbody tr+tr {
-    border-top: 1px solid rgba(15, 79, 86, 0.075) !important;
+    border-top: 1px solid rgba(15, 79, 86, 0.07);
   }
 
   .tracklist-table tbody tr:hover {
-    background: rgba(36, 150, 161, 0.052) !important;
+    background: rgba(56, 183, 194, 0.05);
   }
 
   .tracklist-table tbody tr::before {
     content: counter(tracklist-counter);
+
     position: absolute;
+
     left: 0.95rem;
-    top: 0.92rem;
-    width: 1.35rem;
-    height: 1.35rem;
-    display: inline-flex;
+    top: 0.95rem;
+
+    width: 1.5rem;
+    height: 1.5rem;
+
+    display: flex;
     align-items: center;
     justify-content: center;
+
     border-radius: 999px;
-    background:
-      linear-gradient(180deg, rgba(56, 183, 194, 0.15), rgba(56, 183, 194, 0.08));
-    border: 1px solid rgba(15, 79, 86, 0.08);
-    color: var(--tracklist-teal-800);
+
+    background: rgba(56, 183, 194, 0.08);
+
+    border: 1px solid rgba(15, 79, 86, 0.10);
+
+    color: var(--tracklist-teal-900);
+
     font-size: 0.72rem;
     font-weight: 800;
-    line-height: 1;
   }
 
   .tracklist-table td {
-    display: block;
     padding: 0 !important;
     margin: 0 !important;
+
     border: 0 !important;
-    outline: 0 !important;
-    box-shadow: none !important;
     background: transparent !important;
   }
 
-  .tracklist-table td::before {
-    content: none !important;
-  }
-
   .tracklist-table td+td {
-    margin-top: 0.18rem !important;
+    margin-top: 0.2rem !important;
   }
 
   .tracklist-table .song-cell {
-    font-size: 0.99rem;
+    font-size: 1rem;
     font-weight: 800;
     line-height: 1.38;
-    color: var(--tracklist-text);
     letter-spacing: -0.012em;
   }
 
   .tracklist-table .artist-cell {
     font-size: 0.9rem;
-    font-weight: 500;
-    line-height: 1.35;
+    line-height: 1.45;
     color: var(--tracklist-text-soft);
   }
 
@@ -550,31 +516,16 @@
   .tracklist-table .is-empty,
   .tracklist-table .is-error {
     counter-increment: none;
+
     padding: 1rem !important;
+
     text-align: center;
-    border: 0 !important;
-    box-shadow: none !important;
-    background: transparent !important;
   }
 
   .tracklist-table .is-placeholder::before,
   .tracklist-table .is-empty::before,
   .tracklist-table .is-error::before {
-    content: none !important;
-  }
-
-  .tracklist-table .is-placeholder td,
-  .tracklist-table .is-empty td,
-  .tracklist-table .is-error td {
-    padding: 0 !important;
-    font-size: 0.95rem;
-    line-height: 1.5;
-  }
-
-  .tracklist-table .is-placeholder td::before,
-  .tracklist-table .is-empty td::before,
-  .tracklist-table .is-error td::before {
-    content: none !important;
+    display: none;
   }
 }
 
@@ -583,26 +534,40 @@
    ========================= */
 
 @media (max-width: 420px) {
+
   .tracklist-page {
     padding-left: 0.65rem;
     padding-right: 0.65rem;
   }
 
-  .tracklist-hero__pill {
-    width: 100%;
+  .tracklist-hero h1 {
+    font-size: clamp(1.8rem, 8.5vw, 2.45rem);
   }
 
-  .tracklist-table tbody {
-    padding: 0.12rem 0;
+  .tracklist-hero__meta {
+    gap: 0.35rem;
+  }
+
+  .tracklist-hero__pill {
+    font-size: 0.72rem;
+    padding: 0.45rem 0.65rem;
   }
 
   .tracklist-table tbody tr {
-    padding: 0.8rem 0.75rem 0.8rem 2.75rem;
+    padding: 0.85rem 0.8rem 0.85rem 2.8rem;
   }
 
   .tracklist-table tbody tr::before {
     left: 0.8rem;
-    top: 0.86rem;
+    top: 0.85rem;
+  }
+
+  .tracklist-table .song-cell {
+    font-size: 0.96rem;
+  }
+
+  .tracklist-table .artist-cell {
+    font-size: 0.88rem;
   }
 }
 
@@ -615,6 +580,6 @@
   .tracklist-table tbody tr,
   .tracklist-hero__pill,
   .tracklist-card {
-    transition: none;
+    transition: none !important;
   }
 }

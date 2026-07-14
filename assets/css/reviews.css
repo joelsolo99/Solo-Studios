@@ -12,27 +12,26 @@
   --reviews-text: #18343a;
   --reviews-text-soft: #5b7277;
   --reviews-surface: #ffffff;
-  --reviews-surface-soft: #f7fbfb;
-  --reviews-cream: #f7f3ed;
-  --reviews-border: rgba(15, 79, 86, 0.1);
+  --reviews-surface-soft: #f5fcfc;
+  --reviews-border: rgba(15, 79, 86, 0.08);
   --reviews-gold: #f3b300;
 
   --reviews-shadow-md:
-    0 14px 36px rgba(15, 79, 86, 0.1),
-    0 4px 10px rgba(15, 79, 86, 0.05);
+    0 18px 44px rgba(15, 79, 86, 0.08),
+    0 5px 14px rgba(15, 79, 86, 0.04);
 
   --reviews-shadow-lg:
-    0 18px 42px rgba(15, 79, 86, 0.13),
-    0 6px 14px rgba(15, 79, 86, 0.07);
+    0 22px 52px rgba(15, 79, 86, 0.12),
+    0 7px 18px rgba(15, 79, 86, 0.06);
 
   --reviews-radius-lg: 24px;
   --reviews-radius-md: 18px;
   --reviews-max-width: 1200px;
 
   max-width: var(--reviews-max-width);
-  margin: clamp(2.5rem, 5vw, 4rem) auto;
-  padding: clamp(2rem, 4vw, 3rem) 1rem;
-  background: var(--reviews-cream);
+  margin: 0 auto;
+  padding: clamp(3rem, 6vw, 5rem) 1rem;
+  background: #ffffff;
   color: var(--reviews-text);
   line-height: 1.65;
 }
@@ -61,22 +60,14 @@
   margin: 0 auto;
   color: var(--reviews-teal-900);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  font-size: clamp(1.75rem, 3.7vw, 2.55rem);
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
   font-weight: 900;
   line-height: 1.08;
   letter-spacing: -0.04em;
 }
 
 .reviews-carousel-section__header h2::after {
-  content: "";
-  display: block;
-  width: 78px;
-  height: 4px;
-  margin: 0.8rem auto 0;
-  border-radius: 999px;
-  background: linear-gradient(90deg,
-      var(--reviews-teal-800),
-      var(--reviews-teal-500));
+  display: none;
 }
 
 .reviews-carousel-section__header p {
@@ -84,7 +75,7 @@
   margin: 0.95rem auto 0;
   color: var(--reviews-text-soft);
   font-size: 1rem;
-  line-height: 1.65;
+  line-height: 1.68;
 }
 
 /* =========================
@@ -106,6 +97,7 @@
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   scrollbar-width: none;
+  padding: 0.15rem;
 }
 
 .reviews-carousel__viewport::-webkit-scrollbar {
@@ -118,7 +110,7 @@
   grid-auto-columns: calc((100% - 1.25rem) / 2);
   gap: 1.25rem;
   align-items: stretch;
-  padding: 0.25rem;
+  padding: 0.35rem;
 }
 
 /* =========================
@@ -130,44 +122,46 @@
 
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: auto 1fr auto auto;
   column-gap: 1rem;
   row-gap: 1rem;
 
-  min-height: 300px;
+  min-height: 245px;
   padding: 1.35rem;
 
-  background: linear-gradient(180deg,
-      rgba(255, 255, 255, 0.98),
-      rgba(244, 251, 251, 0.96));
+  background:
+    linear-gradient(180deg,
+      rgba(255, 255, 255, 0.96),
+      rgba(245, 252, 252, 0.92));
   border: 1px solid var(--reviews-border);
   border-radius: var(--reviews-radius-lg);
   box-shadow: var(--reviews-shadow-md);
 
   color: var(--reviews-text);
   overflow: hidden;
+  cursor: pointer;
 
   transition:
     transform 0.25s ease,
     box-shadow 0.25s ease,
-    border-color 0.25s ease;
+    border-color 0.25s ease,
+    background-color 0.25s ease;
 }
 
 .review-card:hover,
 .review-card:focus-within {
   transform: translateY(-4px);
-  border-color: rgba(15, 79, 86, 0.18);
+  border-color: rgba(15, 79, 86, 0.16);
   box-shadow: var(--reviews-shadow-lg);
 }
 
-/* Let the footer children sit in the card grid.
-   This removes the ugly large teal footer block. */
+/* Let the footer children sit in the card grid */
 
 .review-card__footer {
   display: contents;
 }
 
-/* Name and date at top left */
+/* Name and date */
 
 .review-card__person {
   grid-column: 1;
@@ -192,7 +186,7 @@
   line-height: 1.35;
 }
 
-/* Stars at top right */
+/* Stars */
 
 .review-card__stars {
   grid-column: 2;
@@ -208,7 +202,7 @@
   white-space: nowrap;
 }
 
-/* Review text in the middle */
+/* Review text */
 
 .review-card__quote {
   grid-column: 1 / -1;
@@ -219,14 +213,54 @@
   font-size: 0.98rem;
   font-style: italic;
   line-height: 1.68;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
-/* Link button at the bottom */
+/* Expanded state */
+
+.review-card.is-expanded {
+  min-height: auto;
+}
+
+.review-card.is-expanded .review-card__quote {
+  display: block;
+  -webkit-line-clamp: unset;
+  line-clamp: unset;
+  overflow: visible;
+}
+
+/* Read more hint */
+
+.review-card::after {
+  content: "Read more";
+  grid-column: 1 / -1;
+  grid-row: 3;
+  justify-self: start;
+  align-self: end;
+
+  color: var(--reviews-teal-700);
+  font-size: 0.82rem;
+  font-weight: 850;
+  line-height: 1.2;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.review-card.is-expanded::after {
+  content: "Show less";
+}
+
+/* Google link */
 
 .review-card__link,
 .review-card__link:visited {
   grid-column: 1 / -1;
-  grid-row: 3;
+  grid-row: 4;
   justify-self: start;
   align-self: end;
 
@@ -240,13 +274,16 @@
 
   background: var(--reviews-teal-900);
   color: #ffffff !important;
-  box-shadow: 0 8px 18px rgba(15, 79, 86, 0.18);
+  box-shadow:
+    0 8px 18px rgba(15, 79, 86, 0.18),
+    0 3px 8px rgba(15, 79, 86, 0.08);
 
   font-size: 0.86rem;
   font-weight: 850;
   line-height: 1.15;
   text-decoration: none !important;
   white-space: nowrap;
+  cursor: pointer;
 
   transition:
     transform 0.25s ease,
@@ -258,7 +295,9 @@
 .review-card__link:focus {
   background: var(--reviews-teal-800);
   color: #ffffff !important;
-  box-shadow: 0 12px 24px rgba(15, 79, 86, 0.28);
+  box-shadow:
+    0 12px 24px rgba(15, 79, 86, 0.25),
+    0 4px 10px rgba(15, 79, 86, 0.08);
   transform: translateY(-2px);
 }
 
@@ -279,29 +318,37 @@
   width: 42px;
   height: 42px;
   padding: 0;
-  border: 0;
+  border: 1px solid rgba(15, 79, 86, 0.08);
   border-radius: 999px;
 
-  background: var(--reviews-teal-900);
-  color: #ffffff;
+  background:
+    linear-gradient(180deg,
+      rgba(255, 255, 255, 0.98),
+      rgba(245, 252, 252, 0.94));
+  color: var(--reviews-teal-900);
 
   font-size: 1.7rem;
   line-height: 1;
   cursor: pointer;
 
-  box-shadow: 0 8px 18px rgba(15, 79, 86, 0.22);
+  box-shadow:
+    0 10px 24px rgba(15, 79, 86, 0.10),
+    0 3px 8px rgba(15, 79, 86, 0.04);
 
   transition:
     transform 0.25s ease,
     box-shadow 0.25s ease,
-    background-color 0.25s ease;
+    background-color 0.25s ease,
+    color 0.25s ease;
 }
 
 .reviews-carousel__button:hover,
 .reviews-carousel__button:focus {
-  background: var(--reviews-teal-800);
+  background: var(--reviews-teal-900);
   color: #ffffff;
-  box-shadow: 0 12px 24px rgba(15, 79, 86, 0.28);
+  box-shadow:
+    0 12px 26px rgba(15, 79, 86, 0.22),
+    0 4px 10px rgba(15, 79, 86, 0.08);
   transform: translateY(-2px);
 }
 
@@ -331,8 +378,8 @@
 
 @media (max-width: 640px) {
   .reviews-carousel-section {
-    margin: 2.5rem auto;
-    padding: 2.25rem 0.75rem;
+    margin: 0 auto;
+    padding: clamp(3rem, 8vw, 4rem) 0.75rem;
   }
 
   .reviews-carousel-section__header {
@@ -353,7 +400,7 @@
 
   .review-card {
     grid-template-columns: 1fr;
-    grid-template-rows: auto auto 1fr auto;
+    grid-template-rows: auto auto 1fr auto auto;
     min-height: 285px;
     padding: 1.15rem;
     border-radius: var(--reviews-radius-md);
@@ -377,9 +424,15 @@
     line-height: 1.62;
   }
 
-  .review-card__link {
+  .review-card::after {
     grid-column: 1;
     grid-row: 4;
+  }
+
+  .review-card__link,
+  .review-card__link:visited {
+    grid-column: 1;
+    grid-row: 5;
     width: 100%;
   }
 }
@@ -398,85 +451,13 @@
   .reviews-carousel__button {
     transition: none;
   }
-}
 
-/* =========================
-   Collapsed and expanded review cards
-   ========================= */
-
-.review-card {
-  min-height: 245px;
-  cursor: pointer;
-}
-
-.review-card__quote {
-  display: -webkit-box;
-  -webkit-line-clamp: 5;
-  line-clamp: 5;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-/* Expanded state after click */
-.review-card.is-expanded {
-  min-height: auto;
-}
-
-.review-card.is-expanded .review-card__quote {
-  display: block;
-  -webkit-line-clamp: unset;
-  line-clamp: unset;
-  overflow: visible;
-}
-
-/* Make the Google link feel separate from the card click */
-.review-card__link {
-  cursor: pointer;
-}
-
-/* Optional hint */
-.review-card::after {
-  content: "Read more";
-  grid-column: 1 / -1;
-  grid-row: 3;
-  justify-self: start;
-  align-self: end;
-
-  color: var(--reviews-teal-700);
-  font-size: 0.82rem;
-  font-weight: 800;
-  text-decoration: underline;
-  text-underline-offset: 0.18em;
-}
-
-.review-card.is-expanded::after {
-  content: "Show less";
-}
-
-/* Move the Google button down one row because the read-more hint uses row 3 */
-.review-card__link,
-.review-card__link:visited {
-  grid-row: 4;
-}
-
-/* Add one more grid row for the collapsed/expanded hint */
-.review-card {
-  grid-template-rows: auto 1fr auto auto;
-}
-
-/* On mobile, keep the same order */
-@media (max-width: 640px) {
-  .review-card {
-    grid-template-rows: auto auto 1fr auto auto;
-  }
-
-  .review-card::after {
-    grid-column: 1;
-    grid-row: 4;
-  }
-
-  .review-card__link {
-    grid-column: 1;
-    grid-row: 5;
+  .review-card:hover,
+  .review-card:focus-within,
+  .review-card__link:hover,
+  .review-card__link:focus,
+  .reviews-carousel__button:hover,
+  .reviews-carousel__button:focus {
+    transform: none;
   }
 }

@@ -1,627 +1,743 @@
 #!/usr/bin/env python3
-"""Generate Solo Studios location pages.
 
-Inputs:
-  assets/data/location_venues.csv
-  assets/data/location_copy.json
-
-Outputs:
-  _pages/locations/<location-slug>.html
-
-Usage:
-  python generate_location_pages.py
-  python generate_location_pages.py --include-unpublished
-  python generate_location_pages.py --include-unpublished --single plymouth
-  python generate_location_pages.py --include-unpublished --single plymouth --refresh-image-cache
-
-Behaviour:
-  - Generates a page for every location_slug present in the CSV.
-  - If location_copy.json has matching copy, uses it.
-  - If location_copy.json does not have matching copy, creates safe fallback copy from the CSV.
-  - Populates empty CSV columns with known or derived information.
-  - Prefers existing local venue_image files on generated pages.
-  - Never overwrites existing real venue_image_url values.
-  - If venue_image_url is blank, discovers an image from venue_url.
-  - If a real image URL exists or is discovered, downloads it and converts it to WebP.
-  - Saves downloaded images to assets/img/locations/venues/<venue-name>.webp.
-  - Updates venue_image to the local WebP path.
-  - If no image URL can be found, writes "not found" to venue_image_url.
-  - Existing "not found" rows are skipped unless --refresh-image-cache is used.
-  - Supports any number of venues per location.
-"""
-
-from __future__ import annotations
-
-import argparse
 import csv
-import io
-import json
-import re
-import urllib.request
-from html import unescape
+import html
+from collections import defaultdict
 from pathlib import Path
-from urllib.parse import urljoin
-
-ROOT = Path(__file__).resolve().parent
-VENUE_CSV = ROOT / "assets" / "data" / "location_venues.csv"
-LOCATION_COPY_JSON = ROOT / "assets" / "data" / "location_copy.json"
-IMAGE_CACHE_JSON = ROOT / "assets" / "data" / "location_image_cache.json"
-OUTPUT_DIR = ROOT / "_pages" / "locations"
-LOCAL_VENUE_IMAGE_DIR = ROOT / "assets" / "img" / "locations" / "venues"
-
-HERO_IMAGE = "/assets/img/photo_gallery/Party_Set.jpg"
-HOMEPAGE_VIDEO = "/assets/video/intro_loop.mp4"
-SERVICE_WEDDINGS_IMAGE = "/assets/img/homepage/1.webp"
-SERVICE_PARTIES_IMAGE = "/assets/img/homepage/2.webp"
-SERVICE_EVENTS_IMAGE = "/assets/img/homepage/3.webp"
-SERVICE_POWER_HOUR_IMAGE = "/assets/img/homepage/blur.webp"
-
-NOT_FOUND = "not found"
-USER_AGENT = "Mozilla/5.0 (compatible; SoloStudiosLocationGenerator/1.0; +https://solostudios.uk)"
-
-NEARBY_CHIPS = {
-    "plymouth": ["Plymouth", "South Hams", "Ivybridge", "Tavistock", "Saltash", "Torpoint"],
-    "devon": ["Plymouth", "Exeter", "Torquay", "Barnstaple", "Totnes", "Dartmouth"],
-    "cornwall": ["Truro", "Newquay", "Falmouth", "St Ives", "Penzance", "Bodmin"],
-    "dorset": ["Bournemouth", "Poole", "Dorchester", "Weymouth", "Bridport", "Sherborne"],
-    "somerset": ["Bath", "Taunton", "Yeovil", "Wells", "Frome", "Glastonbury"],
-    "bristol": ["Bristol", "Bath", "Clifton", "Redland", "Portishead", "Keynsham"],
-    "exeter": ["Exeter", "Topsham", "Exmouth", "Crediton", "Honiton", "Newton Abbot"],
-    "torquay": ["Torquay", "Paignton", "Brixham", "Newton Abbot", "Totnes", "Dartmouth"],
-    "paignton": ["Paignton", "Torquay", "Brixham", "Totnes", "Newton Abbot", "Dartmouth"],
-    "newton-abbot": ["Newton Abbot", "Torquay", "Totnes", "Teignmouth", "Dawlish", "Ashburton"],
-    "barnstaple": ["Barnstaple", "Bideford", "Ilfracombe", "Braunton", "South Molton", "North Devon"],
-    "exmouth": ["Exmouth", "Exeter", "Budleigh Salterton", "Topsham", "Sidmouth", "East Devon"],
-    "tiverton": ["Tiverton", "Cullompton", "Crediton", "Exeter", "Mid Devon", "Taunton"],
-    "dartmouth": ["Dartmouth", "Kingsbridge", "Totnes", "Salcombe", "Brixham", "South Hams"],
-    "totnes": ["Totnes", "Dartmouth", "Kingsbridge", "Paignton", "Newton Abbot", "South Hams"],
-    "truro": ["Truro", "Falmouth", "Newquay", "Redruth", "St Austell", "Mid Cornwall"],
-    "newquay": ["Newquay", "Truro", "Perranporth", "Padstow", "St Austell", "Wadebridge"],
-    "falmouth": ["Falmouth", "Truro", "Penryn", "Helston", "Redruth", "St Mawes"],
-    "st-ives": ["St Ives", "Penzance", "Hayle", "Camborne", "Redruth", "West Cornwall"],
-    "penzance": ["Penzance", "St Ives", "Marazion", "Mousehole", "Hayle", "West Cornwall"],
-    "st-austell": ["St Austell", "Truro", "Bodmin", "Fowey", "Newquay", "Mid Cornwall"],
-    "bodmin": ["Bodmin", "Wadebridge", "Liskeard", "St Austell", "Launceston", "Mid Cornwall"],
-    "camborne": ["Camborne", "Redruth", "Hayle", "St Ives", "Penzance", "West Cornwall"],
-    "redruth": ["Redruth", "Camborne", "Truro", "Falmouth", "Hayle", "West Cornwall"],
-    "launceston": ["Launceston", "Bodmin", "Liskeard", "Tavistock", "North Cornwall", "Devon border"],
-    "liskeard": ["Liskeard", "Bodmin", "Looe", "Saltash", "Launceston", "South East Cornwall"],
-    "bath": ["Bath", "Frome", "Bristol", "Bradford-on-Avon", "Trowbridge", "Somerset"],
-    "taunton": ["Taunton", "Bridgwater", "Wellington", "Tiverton", "Yeovil", "Somerset"],
-    "yeovil": ["Yeovil", "Sherborne", "Dorchester", "Taunton", "Glastonbury", "South Somerset"],
-    "weston-super-mare": ["Weston-super-Mare", "Bristol", "Clevedon", "Wells", "Bridgwater", "North Somerset"],
-    "wells": ["Wells", "Glastonbury", "Frome", "Bath", "Shepton Mallet", "Somerset"],
-    "frome": ["Frome", "Bath", "Wells", "Trowbridge", "Warminster", "Somerset"],
-    "bridgwater": ["Bridgwater", "Taunton", "Burnham-on-Sea", "Glastonbury", "Wells", "Somerset"],
-    "glastonbury": ["Glastonbury", "Wells", "Bridgwater", "Street", "Frome", "Somerset"],
-    "bournemouth": ["Bournemouth", "Poole", "Christchurch", "Highcliffe", "Wimborne", "Dorset"],
-    "poole": ["Poole", "Bournemouth", "Wimborne", "Wareham", "Swanage", "Dorset"],
-    "dorchester": ["Dorchester", "Weymouth", "Bridport", "Sherborne", "Wareham", "Dorset"],
-    "weymouth": ["Weymouth", "Dorchester", "Portland", "Bridport", "Wareham", "Dorset"],
-    "bridport": ["Bridport", "Dorchester", "Lyme Regis", "Weymouth", "Beaminster", "Dorset"],
-    "sherborne": ["Sherborne", "Yeovil", "Dorchester", "Bridport", "South Somerset", "Dorset"],
-    "cheltenham": ["Cheltenham", "Gloucester", "Cotswolds", "Tewkesbury", "Cirencester", "Gloucestershire"],
-    "gloucester": ["Gloucester", "Cheltenham", "Stroud", "Cotswolds", "Tewkesbury", "Gloucestershire"],
-    "salisbury": ["Salisbury", "Amesbury", "Andover", "Warminster", "New Forest", "Wiltshire"],
-    "swindon": ["Swindon", "Marlborough", "Cirencester", "Chippenham", "Cotswolds", "Wiltshire"],
-}
-
-REQUIRED_VENUE_FIELDS = [
-    "location_slug",
-    "location_name",
-    "publish",
-    "rank",
-    "venue_name",
-    "venue_url",
-    "venue_note",
-    "venue_image",
-    "venue_image_url",
-    "source_note",
-]
 
 
-def slugify(value: object) -> str:
-    text = str(value or "").strip().lower()
-    text = text.replace("&", "and")
-    text = re.sub(r"[^a-z0-9]+", "-", text)
-    return text.strip("-") or "venue"
+CSV_FILE = Path("assets/data/location_venues.csv")
+OUTPUT_DIR = Path("_pages/locations")
 
 
-def normalise_slug(value: object) -> str:
-    return slugify(value)
+OUTPUT_FILE = Path("_pages/locations/locations_index.html")
+
+PAGE_TEMPLATE = r"""---
+layout: default
+title: Live Saxophone & DJ for Parties and Weddings in __LOCATION_NAME__ 
+permalink: /locations/__LOCATION_SLUG__/
+---
 
 
-def display_name_from_slug(slug: str) -> str:
-    small_words = {"and", "of", "the"}
-    parts = slug.split("-")
-    titled = []
-    for index, part in enumerate(parts):
-        if index > 0 and part in small_words:
-            titled.append(part)
-        else:
-            titled.append(part.capitalize())
-    return " ".join(titled)
+<link rel="stylesheet" href="{{ '/assets/css/home.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/reviews.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/form.css' | relative_url }}">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<div class="home-page-title-wrap">
+  <h1 class="page-title home-page-title">Solo Studios</h1>
+</div>
 
 
-def is_not_found_marker(value: str) -> bool:
-    return str(value or "").strip().lower() == NOT_FOUND
+
+<section class="hero-section hero-section--split">
+
+  <video autoplay muted loop playsinline class="hero-video">
+    <source src="{{ '/assets/video/intro_loop.mp4' | relative_url }}" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
 
 
-def is_real_image_url(value: str) -> bool:
-    value = str(value or "").strip()
-    return bool(value) and not is_not_found_marker(value)
+  <div class="hero-overlay"></div>
+
+<div class="hero-title-image">
+  <img src="{{ '/assets/img/website-title-ivory.png' | relative_url }}" alt="Solo Studios" class="hero-title-img">
+</div>
+
+  <div class="hero-inner">
+
+    <div class="hero-copy">
 
 
-def esc(value: object) -> str:
-    return str(value).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;")
+
+      <p class="hero-tagline">
+        Live Saxophone & DJ Entertainment
+      </p>
+
+      <h2 class="hero-main-heading">
+        Weddings, Parties & Events in __LOCATION_NAME__
+      </h2>
+
+      
+      <p class="hero-subtext">
+        Packed dancefloors, Ibiza-inspired sax sets and music tailored around your event from the first guest arrival
+        through to the final song.
+      </p>
+
+      <div class="hero-badges">
+        <span>Weddings</span>
+        <span>Private Parties</span>
+        <span>Corporate Events</span>
+      </div>
+
+    </div>
+<div class="hero-form-card">
+
+  <h3>Check Availability</h3>
+
+  <p>
+    Tell us about your event and we'll get back to you quickly.
+  </p>
+
+  <form id="hero-contact-form" novalidate>
+
+    <input type="text" name="from_name" placeholder="Your Name" required>
+
+    <input type="email" name="from_email" placeholder="Email Address" required>
+
+    <select name="event_type" required>
+      <option value="" disabled selected>Type of Event</option>
+      <option value="Wedding">Wedding</option>
+      <option value="Birthday">Birthday</option>
+      <option value="Corporate Event">Corporate Event</option>
+      <option value="Charity Event">Charity Event</option>
+      <option value="Private Party">Private Party</option>
+      <option value="Other">Other</option>
+    </select>
+
+    <input type="text" name="event_date" placeholder="Date of Event">
+
+    <input type="text" name="location" placeholder="Event Location or Venue">
+
+    <textarea name="message" placeholder="Tell us about your event" required></textarea>
+
+    <input type="hidden" name="subject" value="Homepage availability enquiry">
+
+    <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off">
+
+    <button type="submit">
+      Check Availability
+    </button>
+
+  </form>
+
+</div>
 
 
-def liquid_url(path: str) -> str:
-    return "{{ '" + path + "' | relative_url }}"
+  <div class="hero-trust-carousel" aria-label="Solo Studios booking reassurance">
+    <div class="hero-trust-track">
+  
+      <span class="hero-trust-item">
+      <img src="{{ '/assets/img/icons/shield.svg' | relative_url }}" alt="Star">
+        <span>PLI to £10 Million</span>
+      </span>
+  
+      <span class="hero-trust-item">
+      <img src="{{ '/assets/img/icons/star.svg' | relative_url }}" alt="Star">
+      <span> 5 Star Reviews</span>
+      </span>
+  
+      <span class="hero-trust-item">
+      <img src="{{ '/assets/img/icons/map-pin.svg' | relative_url }}" alt="Star">
+        <span>Travel Throughout The South West</span>
+      </span>
+  
+      <span class="hero-trust-item">
+      <img src="{{ '/assets/img/icons/price-tag.svg' | relative_url }}" alt="Star">
+        <span>Clear Prices</span>
+      </span>
+  
+      <span class="hero-trust-item">
+      <img src="{{ '/assets/img/icons/speaker.svg' | relative_url }}" alt="Star">
+        <span>Professional Sound Equipment</span>
+      </span>
+  
+      <span class="hero-trust-item">
+      <img src="{{ '/assets/img/icons/calendar-check.svg' | relative_url }}" alt="Star">
+        <span>Easy Booking</span>
+      </span>
+  
+      <span class="hero-trust-item">
+      <img src="{{ '/assets/img/icons/saxophone.svg' | relative_url }}" alt="Star">
+        <span>Live Sax Performances</span>
+      </span>
+  
+      <span class="hero-trust-item">
+      <img src="{{ '/assets/img/icons/sparkles.svg' | relative_url }}" alt="Star">
+        <span>DJ Sets Available</span>
+      </span>
+  
+      <span class="hero-trust-item">
+      <img src="{{ '/assets/img/icons/headphones.svg' | relative_url }}" alt="Star">
+        <span>Wedding and Party Specialists</span>
+      </span>
+  
+      <span class="hero-trust-item">
+        <img src="{{ '/assets/img/icons/shield.svg' | relative_url }}" alt="Star">
+        <span>PLI to £10 Million</span>
+      </span>
+      
+      <span class="hero-trust-item">
+        <img src="{{ '/assets/img/icons/star.svg' | relative_url }}" alt="Star">
+        <span> 5 Star Reviews</span>
+      </span>
+      
+      <span class="hero-trust-item">
+        <img src="{{ '/assets/img/icons/map-pin.svg' | relative_url }}" alt="Star">
+        <span>Travel Throughout The South West</span>
+      </span>
+      
+      <span class="hero-trust-item">
+        <img src="{{ '/assets/img/icons/price-tag.svg' | relative_url }}" alt="Star">
+        <span>Clear Prices</span>
+      </span>
+      
+      <span class="hero-trust-item">
+        <img src="{{ '/assets/img/icons/speaker.svg' | relative_url }}" alt="Star">
+        <span>Professional Sound Equipment</span>
+      </span>
+      
+      <span class="hero-trust-item">
+        <img src="{{ '/assets/img/icons/calendar-check.svg' | relative_url }}" alt="Star">
+        <span>Easy Booking</span>
+      </span>
+      
+      <span class="hero-trust-item">
+        <img src="{{ '/assets/img/icons/saxophone.svg' | relative_url }}" alt="Star">
+        <span>Live Sax Performances</span>
+      </span>
+      
+      <span class="hero-trust-item">
+ <span class="hero-trust-item">
+      <img src="{{ '/assets/img/icons/shield.svg' | relative_url }}" alt="Star">
+        <span>PLI to £10 Million</span>
+      </span>
+  
+      <span class="hero-trust-item">
+      <img src="{{ '/assets/img/icons/star.svg' | relative_url }}" alt="Star">
+      <span> 5 Star Reviews</span>
+      </span>
+  
+      <span class="hero-trust-item">
+      <img src="{{ '/assets/img/icons/map-pin.svg' | relative_url }}" alt="Star">
+        <span>Travel Throughout The South West</span>
+      </span>
+  
+      <span class="hero-trust-item">
+      <img src="{{ '/assets/img/icons/price-tag.svg' | relative_url }}" alt="Star">
+        <span>Clear Prices</span>
+      </span>
+  
+      <span class="hero-trust-item">
+      <img src="{{ '/assets/img/icons/speaker.svg' | relative_url }}" alt="Star">
+        <span>Professional Sound Equipment</span>
+      </span>
+  
+      <span class="hero-trust-item">
+      <img src="{{ '/assets/img/icons/calendar-check.svg' | relative_url }}" alt="Star">
+        <span>Easy Booking</span>
+      </span>
+  
+      <span class="hero-trust-item">
+      <img src="{{ '/assets/img/icons/saxophone.svg' | relative_url }}" alt="Star">
+        <span>Live Sax Performances</span>
+      </span>
+  
+      
+      <span class="hero-trust-item">
+        <img src="{{ '/assets/img/icons/headphones.svg' | relative_url }}" alt="Star">
+        <span>Wedding and Party Specialists</span>
+      </span>
+  
+    </div>
+  </div>
+
+</section>
+
+<section class="services-showcase-wrapper reveal-on-scroll">
+  <div class="services-showcase-header">
+    <p class="services-showcase-eyebrow">Live music, your way</p>
+
+    <h2 class="services-section-title">Choose the soundtrack for your event</h2>
+
+    <p class="services-section-intro">
+      From relaxed daytime sax sets to full evening parties, shape the music around the atmosphere you want to create.
+    </p>
+  </div>
+
+  <div class="services-showcase">
+    <div class="services-showcase__media" aria-hidden="true">
+      <video autoplay muted loop playsinline class="services-showcase__video">
+        <source
+          src="{{ '/assets/video/services-loop.mp4' | relative_url }}"
+          type="video/mp4"
+        >
+      </video>
+
+      <div class="services-showcase__media-overlay"></div>
+
+      <div class="services-showcase__media-caption">
+        <span>Live saxophone and DJ entertainment</span>
+      </div>
+    </div>
+
+    <div class="services-showcase__list">
+
+      <a href="{{ '/packages/wedding-packages/' | relative_url }}" class="services-showcase__item">
+        <span class="services-showcase__content">
+          <span class="services-showcase__title">Weddings</span>
+          <span class="services-showcase__text">From the ceremony to the last dance.</span>
+
+          <span class="services-showcase__chips" aria-label="Wedding package options">
+            <span>Ceremony</span>
+            <span>Drinks</span>
+            <span>Evening</span>
+          </span>
+        </span>
+
+        <span class="services-showcase__arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a href="{{ '/packages/party-packages/' | relative_url }}" class="services-showcase__item">
+        <span class="services-showcase__content">
+          <span class="services-showcase__title">Parties</span>
+          <span class="services-showcase__text">Big tunes, live sax, proper energy.</span>
+
+          <span class="services-showcase__chips" aria-label="Party package options">
+            <span>Birthdays</span>
+            <span>Hen dos</span>
+            <span>Private parties</span>
+          </span>
+        </span>
+
+        <span class="services-showcase__arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a href="{{ '/packages/events-packages/' | relative_url }}" class="services-showcase__item">
+        <span class="services-showcase__content">
+          <span class="services-showcase__title">Private Events</span>
+          <span class="services-showcase__text">Polished music for every kind of crowd.</span>
+
+          <span class="services-showcase__chips" aria-label="Private event options">
+            <span>Corporate</span>
+            <span>Venues</span>
+            <span>Brand events</span>
+          </span>
+        </span>
+
+        <span class="services-showcase__arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a href="{{ '/packages/power-hour/' | relative_url }}" class="services-showcase__item">
+        <span class="services-showcase__content">
+          <span class="services-showcase__title">Power Hour</span>
+          <span class="services-showcase__text">Ibiza classics, live sax, full-on energy.</span>
+
+          <span class="services-showcase__chips" aria-label="Power Hour options">
+            <span>Ibiza classics</span>
+            <span>Live sax</span>
+            <span>Peak energy</span>
+          </span>
+        </span>
+
+        <span class="services-showcase__arrow" aria-hidden="true">→</span>
+      </a>
+
+    </div>
+  </div>
+
+  <div class="services-help-cta">
+    <div class="services-help-cta__text">
+      <h3>Not sure what fits your event?</h3>
+      <p>Tell us what you are planning and we will point you towards the right package.</p>
+    </div>
+
+    <div class="services-help-cta__actions">
+      <a href="/contact" class="btn btn-primary">Get a recommendation</a>
+      <a href="{{ '/gallery/videos/' | relative_url }}" class="btn btn-secondary">View videos</a>
+    </div>
+  </div>
+</section>
 
 
-def root_relative_url(path: Path) -> str:
-    return "/" + path.relative_to(ROOT).as_posix()
+<section class="video-showcase-section reveal-on-scroll">
+  <div class="video-showcase-header">
+    <p class="video-showcase-eyebrow">Real event moments</p>
+
+    <h2 class="section-title">See the energy before you book</h2>
+
+    <p class="section-intro">
+      Watch a few live sax and DJ moments from weddings, parties and dancefloors across the South West.
+    </p>
+  </div>
+
+  <div class="video-showcase">
+
+    <a href="{{ '/gallery/videos/#video-jubel' | relative_url }}" class="video-showcase-feature">
+      <img src="https://i.ytimg.com/vi/uuDLdVoHLs4/hqdefault.jpg" alt="Jubel live sax dancefloor performance thumbnail"
+        class="video-showcase-img youtube-thumb crop-high">
+
+      <div class="video-showcase-gradient"></div>
+
+      <div class="video-showcase-badge">
+        <span>Featured performance</span>
+      </div>
+
+      <div class="video-showcase-play" aria-hidden="true">
+        <span>▶</span>
+      </div>
+
+      <div class="video-showcase-caption">
+        <p class="video-showcase-kicker">Live sax dancefloor set</p>
+        <h3>Jubel live performance</h3>
+        <p>Ibiza-style sax energy built for a packed dancefloor.</p>
+      </div>
+    </a>
+
+    <div class="video-showcase-list">
+
+      <a href="{{ '/gallery/videos/#video-pitbull' | relative_url }}" class="video-showcase-row">
+        <span class="video-showcase-row__thumb">
+          <img src="https://i.ytimg.com/vi/uC-EWWkLyy0/hqdefault.jpg" alt="Fireball wedding entrance thumbnail"
+            class="youtube-thumb crop-high">
+          <span class="video-showcase-row__play" aria-hidden="true">▶</span>
+        </span>
+
+        <span class="video-showcase-row__content">
+          <span class="video-showcase-row__label">Wedding entrance</span>
+          <strong>Fireball live entrance</strong>
+          <span>Big arrival energy for the start of the party.</span>
+        </span>
+
+        <span class="video-showcase-row__arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a href="{{ '/gallery/videos/#video-club' | relative_url }}" class="video-showcase-row">
+        <span class="video-showcase-row__thumb">
+          <img src="https://i.ytimg.com/vi/xnP7DbxwX60/hqdefault.jpg" alt="Club Classics party highlights thumbnail"
+            class="youtube-thumb crop-mid">
+          <span class="video-showcase-row__play" aria-hidden="true">▶</span>
+        </span>
+
+        <span class="video-showcase-row__content">
+          <span class="video-showcase-row__label">Party highlights</span>
+          <strong>Club Classics</strong>
+          <span>Dancefloor favourites with live sax over the top.</span>
+        </span>
+
+        <span class="video-showcase-row__arrow" aria-hidden="true">→</span>
+      </a>
+
+      <a href="{{ '/gallery/videos/#video-valerie' | relative_url }}" class="video-showcase-row">
+        <span class="video-showcase-row__thumb">
+          <img src="https://i.ytimg.com/vi/2Tvs8UwSdmw/hqdefault.jpg" alt="Valerie live drinks reception thumbnail"
+            class="youtube-thumb crop-mid">
+          <span class="video-showcase-row__play" aria-hidden="true">▶</span>
+        </span>
+
+        <span class="video-showcase-row__content">
+          <span class="video-showcase-row__label">Drinks reception</span>
+          <strong>Valerie live performance</strong>
+          <span>A relaxed live moment for daytime celebrations.</span>
+        </span>
+
+        <span class="video-showcase-row__arrow" aria-hidden="true">→</span>
+      </a>
+
+    </div>
+  </div>
+
+  <div class="video-showcase-cta">
+
+    <a href="{{ '/gallery/videos/' | relative_url }}" class="cta-button">
+      <span class="cta-button__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <rect x="3" y="6" width="13" height="12" rx="2" ry="2"></rect>
+          <polygon points="16 10 21 7 21 17 16 14 16 10"></polygon>
+        </svg>
+      </span>
+      <span>Watch more performances</span>
+    </a>
+
+    <a href="{{ '/gallery/photos/' | relative_url }}" class="cta-button">
+      <span class="cta-button__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <path d="M4 7h3l1.5-2h7L17 7h3a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2z"></path>
+          <circle cx="12" cy="13" r="4"></circle>
+        </svg>
+      </span>
+      <span>View event photos</span>
+    </a>
+
+  </div>
+</section>
+
+{% include reviews.html %}
+
+<section class="venues-gallery reveal-on-scroll"> 
+<h2 class="section-title">We'll travel to  __LOCATION_NAME__'s Finest</h2> 
+<p class="section-intro"> Some of the venues in __LOCATION_NAME__ that are suited to weddings, parties and private events. </p> 
+
+    <div class="auto-scroll-wrapper"> 
+        <div class="gallery-scroll-container"> 
+        __VENUE_CARDS__ 
+        </div> 
+    </div> 
+</section> 
 
 
-def local_path_from_csv(value: str) -> Path:
-    return ROOT / str(value or "").strip().lstrip("/")
 
 
-def existing_local_image_url(row: dict[str, str]) -> str:
-    raw_path = str(row.get("venue_image", "") or "").strip()
-    if not raw_path or raw_path.startswith(("http://", "https://")):
-        return ""
-    image_path = local_path_from_csv(raw_path)
-    if image_path.exists():
-        return root_relative_url(image_path)
-    return ""
+<section class="location-seo-section reveal-on-scroll" aria-labelledby="location-seo-heading">
+  <div class="location-seo-section__inner">
+    <p class="location-seo-section__eyebrow">Local live music</p>
+    <h2 id="location-seo-heading">Live Saxophone and DJ Sets in Plymouth, Cornwall and the South West</h2>
 
+    <div class="location-seo-section__grid">
+      <div class="location-seo-section__copy">
+        <p>
+          Solo Studios provides live saxophone and DJ sets for weddings, private parties and events in
+          <strong>__LOCATION_NAME__</strong>, across <strong>Devon and Cornwall</strong>, and throughout the wider
+          <strong>South West</strong>. Whether you are planning a wedding reception, a birthday party,
+          a corporate event, a drinks reception or a full evening celebration, the music can be shaped
+          around the atmosphere you want to create.
+        </p>
 
-def preferred_local_image_path(row: dict[str, str]) -> Path:
-    existing = existing_local_image_url(row)
-    if existing:
-        return local_path_from_csv(existing)
+        <p>
+          Sets can be tailored for relaxed daytime moments, high-energy dancefloors, Ibiza-style party
+          sets and polished private events. If you are planning an event in Plymouth, Cornwall, Devon
+          or elsewhere in the South West, send over a few details and we will help you choose the right
+          live sax and DJ option for the day.
+        </p>
+      </div>
 
-    location_slug = normalise_slug(row.get("location_slug", ""))
-    venue_slug = slugify(row.get("venue_name", "venue"))
-    filename = f"{location_slug}-{venue_slug}.webp" if location_slug else f"{venue_slug}.webp"
-    target_path = LOCAL_VENUE_IMAGE_DIR / filename
-    row["venue_image"] = target_path.relative_to(ROOT).as_posix()
-    return target_path
+      <div class="location-seo-section__areas" aria-label="Areas covered">
+        <h3>Popular areas</h3>
+        <ul>
+          <li>Plymouth</li>
+          <li>Cornwall</li>
+          <li>Devon</li>
+          <li>Exeter</li>
+          <li>Newquay</li>
+          <li>Truro</li>
+          <li>South Hams</li>
+          <li>The wider South West</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const container = document.querySelector('.gallery-scroll-container');
 
-def download_image_to_webp(image_url: str, output_path: Path) -> bool:
-    try:
-        from PIL import Image
-    except ImportError as error:
-        raise RuntimeError("Pillow is required. Install it with: python -m pip install pillow") from error
+    if (!container) return;
 
-    request = urllib.request.Request(
-        image_url,
-        headers={"User-Agent": USER_AGENT, "Accept": "image/avif,image/webp,image/apng,image/*,*/*;q=0.8"},
-    )
-    with urllib.request.urlopen(request, timeout=20) as response:
-        data = response.read()
+    const children = Array.from(container.children);
+    children.forEach(child => {
+      const clone = child.cloneNode(true);
+      container.appendChild(clone);
+    });
 
-    image = Image.open(io.BytesIO(data))
-    try:
-        image.seek(0)
-    except EOFError:
-        pass
+    let scrollSpeed = 0.5;
+    let isHovered = false;
 
-    if image.mode in ("RGBA", "LA"):
-        rgba = image.convert("RGBA")
-        background = Image.new("RGB", rgba.size, (255, 255, 255))
-        background.paste(rgba, mask=rgba.getchannel("A"))
-        image = background
-    else:
-        image = image.convert("RGB")
+    container.parentElement.addEventListener('mouseenter', () => {
+      isHovered = true;
+    });
 
-    output_path.parent.mkdir(parents=True, exist_ok=True)
-    image.save(output_path, "WEBP", quality=84, method=6)
-    return output_path.exists()
+    container.parentElement.addEventListener('mouseleave', () => {
+      isHovered = false;
+    });
 
+    function step() {
+      if (!isHovered) {
+        container.scrollLeft += scrollSpeed;
 
-def ensure_local_image(row: dict[str, str], image_url: str) -> bool:
-    if not is_real_image_url(image_url):
-        return False
-    if existing_local_image_url(row):
-        return True
+        if (container.scrollLeft >= container.scrollWidth / 2) {
+          container.scrollLeft = 0;
+        }
+      }
 
-    output_path = preferred_local_image_path(row)
-    if output_path.exists():
-        row["venue_image"] = output_path.relative_to(ROOT).as_posix()
-        return True
-
-    try:
-        if download_image_to_webp(image_url, output_path):
-            row["venue_image"] = output_path.relative_to(ROOT).as_posix()
-            print(f"Saved local venue image for {row.get('venue_name', 'Venue')}: {row['venue_image']}")
-            return True
-    except Exception as error:
-        print(f"Could not save local image for {row.get('venue_name', image_url)}: {error}")
-    return False
-
-
-def populate_empty_columns(rows: list[dict[str, str]], fieldnames: list[str]) -> int:
-    changed = 0
-    next_rank_by_slug: dict[str, int] = {}
-
-    for field in REQUIRED_VENUE_FIELDS:
-        if field not in fieldnames:
-            fieldnames.append(field)
-            for row in rows:
-                row[field] = ""
-                changed += 1
-
-    for row in rows:
-        original = dict(row)
-
-        slug = normalise_slug(row.get("location_slug", ""))
-        if slug:
-            row["location_slug"] = slug
-
-        if not row.get("location_name", "").strip() and slug:
-            row["location_name"] = display_name_from_slug(slug)
-
-        if not row.get("publish", "").strip():
-            row["publish"] = "0"
-
-        if slug not in next_rank_by_slug:
-            existing_ranks = []
-            for candidate in rows:
-                if normalise_slug(candidate.get("location_slug", "")) == slug:
-                    try:
-                        existing_ranks.append(int(str(candidate.get("rank", "")).strip()))
-                    except ValueError:
-                        pass
-            next_rank_by_slug[slug] = max(existing_ranks or [0]) + 1
-
-        if not str(row.get("rank", "")).strip():
-            row["rank"] = str(next_rank_by_slug[slug])
-            next_rank_by_slug[slug] += 1
-
-        if not row.get("venue_note", "").strip():
-            venue_name = row.get("venue_name", "venue").strip() or "venue"
-            location_name = row.get("location_name", "the area").strip() or "the area"
-            row["venue_note"] = f"A local venue option for weddings, parties and private events in {location_name}: {venue_name}."
-
-        if not row.get("venue_image", "").strip() and row.get("venue_name", "").strip():
-            row["venue_image"] = preferred_local_image_path(row).relative_to(ROOT).as_posix()
-
-        if not row.get("source_note", "").strip():
-            row["source_note"] = "CSV candidate. Check venue suitability, availability and image rights before setting publish=1."
-
-        if row != original:
-            changed += 1
-
-    return changed
-
-
-def icon_svg(icon: str) -> str:
-    icons = {
-        "weddings": "<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z'></path></svg>",
-        "parties": "<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M8 22h8'></path><path d='M12 11v11'></path><path d='M19 3H5l2 8a5 5 0 0 0 10 0l2-8z'></path></svg>",
-        "events": "<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='3' y='7' width='18' height='13' rx='2'></rect><path d='M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2'></path></svg>",
-        "power-hour": "<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M13 2L3 14h8l-1 8 10-12h-8l1-8z'></path></svg>",
+      requestAnimationFrame(step);
     }
-    return icons[icon]
+
+    step();
+  });
+</script>
+
+<section class="ibiza-promo-simple reveal-on-scroll">
+  <div class="container">
+    <img src="{{ '/assets/img/palm_tree.svg' | relative_url }}" alt="" class="palm-top-left">
+    <img src="{{ '/assets/img/palm_tree.svg' | relative_url }}" alt="" class="palm-bottom-right">
+
+    <h2>After something bigger?</h2>
+    <p>
+      If you want the Ibiza feel, our <strong>Power Hour</strong> package brings house favourites,
+      live sax, and a full-energy set built to get the party going.
+    </p>
+    <a href="/packages/power-hour/" class="btn-ibiza-simple">See the Power Hour package</a>
+  </div>
+</section>
 
 
-def icon_span(icon: str, class_name: str = "service-icon") -> str:
-    return f'<span class="{class_name}" aria-hidden="true">{icon_svg(icon)}</span>'
 
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    emailjs.init("brJTI5NcxOOq3ZeV3");
 
-def fetch_html(url: str, timeout: int = 12) -> str:
-    request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT, "Accept": "text/html,application/xhtml+xml"})
-    with urllib.request.urlopen(request, timeout=timeout) as response:
-        return response.read().decode("utf-8", errors="replace")
+    const serviceId = "service_pdrbr2j";
+    const templateId = "template_iw7f4ro";
 
+    const heroForm = document.getElementById("hero-contact-form");
+    const contactForm = document.getElementById("contact-form");
 
-def attribute_value(tag: str, attribute: str) -> str:
-    pattern = rf"\b{re.escape(attribute)}\s*=\s*([\"'])(.*?)\1"
-    match = re.search(pattern, tag, flags=re.IGNORECASE | re.DOTALL)
-    return unescape(match.group(2).strip()) if match else ""
+    function setSubmitState(form, isSending) {
+      const submitButton = form.querySelector('button[type="submit"]');
 
+      if (!submitButton) return;
 
-def best_srcset_url(srcset: str) -> str:
-    parts = [part.strip() for part in srcset.split(",") if part.strip()]
-    if not parts:
-        return ""
-    weighted = []
-    for part in parts:
-        bits = part.split()
-        url = bits[0]
-        width = 0
-        if len(bits) > 1 and bits[1].endswith("w"):
-            try:
-                width = int(bits[1][:-1])
-            except ValueError:
-                width = 0
-        weighted.append((width, url))
-    weighted.sort()
-    return weighted[-1][1]
-
-
-def looks_like_bad_image(url: str, context: str = "") -> bool:
-    haystack = f"{url} {context}".lower()
-    bad_terms = ["logo", "brand", "monogram", "favicon", "icon", "badge", "mark", "symbol", "crest", "seal", "transparent", "placeholder", "sprite", "avatar", "profile"]
-    if any(term in haystack for term in bad_terms):
-        return True
-    return url.lower().split("?")[0].endswith((".svg", ".ico"))
-
-
-def score_image(url: str, context: str = "") -> int:
-    haystack = f"{url} {context}".lower()
-    score = 10
-    for term in ["venue", "wedding", "hotel", "manor", "house", "hall", "estate", "garden", "grounds", "barn", "ceremony", "reception", "gallery", "hero", "banner", "room", "interior", "exterior", "celebration"]:
-        if term in haystack:
-            score += 8
-    for term in ["thumb", "thumbnail", "small", "150x", "200x", "300x"]:
-        if term in haystack:
-            score -= 10
-    return score
-
-
-def normalise_image_url(url: str, base_url: str) -> str:
-    return urljoin(base_url, unescape(url.strip()))
-
-
-def extract_image_candidates(html: str, base_url: str) -> list[dict[str, str | int]]:
-    candidates: list[dict[str, str | int]] = []
-    for tag in re.findall(r"<meta\b[^>]*>", html, flags=re.IGNORECASE | re.DOTALL):
-        key = (attribute_value(tag, "property") or attribute_value(tag, "name")).lower()
-        content = attribute_value(tag, "content")
-        if content and key in {"og:image", "og:image:url", "og:image:secure_url", "twitter:image", "twitter:image:src"}:
-            url = normalise_image_url(content, base_url)
-            candidates.append({"url": url, "context": tag, "score": score_image(url, tag) + 25})
-
-    jsonld_blocks = re.findall(r'<script[^>]+type=["\']application/ld\+json["\'][^>]*>(.*?)</script>', html, flags=re.IGNORECASE | re.DOTALL)
-    for block in jsonld_blocks:
-        for match in re.finditer(r'"image"\s*:\s*"([^"]+)"', block):
-            url = normalise_image_url(match.group(1), base_url)
-            candidates.append({"url": url, "context": block[:700], "score": score_image(url, block) + 20})
-        for match in re.finditer(r'"image"\s*:\s*\[\s*"([^"]+)"', block):
-            url = normalise_image_url(match.group(1), base_url)
-            candidates.append({"url": url, "context": block[:700], "score": score_image(url, block) + 20})
-
-    for tag in re.findall(r"<img\b[^>]*>", html, flags=re.IGNORECASE | re.DOTALL):
-        src = ""
-        for attr in ["srcset", "data-srcset", "src", "data-src", "data-lazy-src", "data-original"]:
-            value = attribute_value(tag, attr)
-            if value:
-                src = best_srcset_url(value) if "srcset" in attr else value
-                break
-        if src:
-            url = normalise_image_url(src, base_url)
-            candidates.append({"url": url, "context": tag, "score": score_image(url, tag)})
-
-    for match in re.finditer(r"background(?:-image)?\s*:\s*url\((['\"]?)(.*?)\1\)", html, flags=re.IGNORECASE):
-        raw_url = match.group(2).strip()
-        if raw_url:
-            url = normalise_image_url(raw_url, base_url)
-            context = html[max(0, match.start() - 250): match.end() + 250]
-            candidates.append({"url": url, "context": context, "score": score_image(url, context) + 5})
-
-    return candidates
-
-
-def choose_best_image(candidates: list[dict[str, str | int]]) -> str:
-    filtered = []
-    seen = set()
-    for candidate in candidates:
-        url = str(candidate["url"])
-        context = str(candidate.get("context", ""))
-        if url in seen:
-            continue
-        seen.add(url)
-        if looks_like_bad_image(url, context):
-            continue
-        if not re.search(r"\.(jpg|jpeg|png|webp)(\?|$)", url, flags=re.IGNORECASE):
-            continue
-        filtered.append(candidate)
-    if not filtered:
-        return ""
-    filtered.sort(key=lambda item: int(item.get("score", 0)), reverse=True)
-    return str(filtered[0]["url"])
-
-
-def load_image_cache() -> dict[str, str]:
-    if not IMAGE_CACHE_JSON.exists():
-        return {}
-    try:
-        return json.loads(IMAGE_CACHE_JSON.read_text(encoding="utf-8"))
-    except json.JSONDecodeError:
-        return {}
-
-
-def save_image_cache(cache: dict[str, str]) -> None:
-    IMAGE_CACHE_JSON.parent.mkdir(parents=True, exist_ok=True)
-    IMAGE_CACHE_JSON.write_text(json.dumps(cache, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-
-
-def discover_image_for_venue(row: dict[str, str], cache: dict[str, str], refresh: bool) -> str:
-    existing = row.get("venue_image_url", "").strip()
-    if is_real_image_url(existing):
-        ensure_local_image(row, existing)
-        return existing
-    if is_not_found_marker(existing) and not refresh:
-        return NOT_FOUND
-
-    venue_url = row.get("venue_url", "").strip()
-    if not venue_url:
-        return NOT_FOUND
-
-    cached = cache.get(venue_url, "").strip()
-    if cached and not refresh:
-        if is_real_image_url(cached):
-            ensure_local_image(row, cached)
-        return cached
-
-    try:
-        html = fetch_html(venue_url)
-        image_url = choose_best_image(extract_image_candidates(html, venue_url))
-        if image_url:
-            cache[venue_url] = image_url
-            ensure_local_image(row, image_url)
-            print(f"Found image for {row.get('venue_name', venue_url)}: {image_url}")
-            return image_url
-    except Exception as error:
-        print(f"Could not fetch image for {venue_url}: {error}")
-
-    cache[venue_url] = NOT_FOUND
-    return NOT_FOUND
-
-
-def fallback_image_js() -> str:
-    return "'{{ '/assets/img/photo_gallery/Party_Set.jpg' | relative_url }}'"
-
-
-def venue_card(row: dict[str, str]) -> str:
-    venue_name = esc(row.get("venue_name", "Venue"))
-    url = row.get("venue_url", "").strip()
-    local_image_url = existing_local_image_url(row)
-    remote_image_url = row.get("venue_image_url", "").strip()
-    image_url = local_image_url or (remote_image_url if is_real_image_url(remote_image_url) else HERO_IMAGE)
-    href_open = f'<a href="{esc(url)}" target="_blank" rel="noopener noreferrer">' if url else ""
-    href_close = "</a>" if url else ""
-    return "\n".join([
-        '      <div class="venue-card">',
-        f'        {href_open}<img src="{esc(image_url)}" alt="{venue_name}" loading="lazy" onerror="this.onerror=null;this.src={fallback_image_js()};">{href_close}',
-        f'        <div class="venue-caption">{venue_name}</div>',
-        '      </div>',
-    ])
-
-
-def service_card(href: str, image_path: str, alt: str, icon: str, title: str, tagline: str, chips: list[str]) -> str:
-    chip_html = "\n".join(f"            <span>{esc(chip)}</span>" for chip in chips)
-    return "\n".join([
-        '    <div class="service-card">',
-        f'      <a href="{href}" class="service-card-link">',
-        '        <div class="image-container">',
-        f'          <img src="{liquid_url(image_path)}" alt="{esc(alt)}" class="service-image">',
-        '        </div>',
-        '        <div class="service-card-text">',
-        '          <div class="service-title-button">',
-        icon_span(icon, "service-icon"),
-        f'            <h3 class="service-title">{esc(title)}</h3>',
-        '          </div>',
-        f'          <p class="service-tagline">{esc(tagline)}</p>',
-        '          <div class="service-chips">',
-        chip_html,
-        '          </div>',
-        '        </div>',
-        '      </a>',
-        '    </div>',
-    ])
-
-
-def load_venue_rows() -> tuple[list[dict[str, str]], list[str]]:
-    if not VENUE_CSV.exists():
-        raise FileNotFoundError(f"Missing venue CSV: {VENUE_CSV}")
-    with VENUE_CSV.open(newline="", encoding="utf-8") as file:
-        reader = csv.DictReader(file)
-        rows = list(reader)
-        fieldnames = list(reader.fieldnames or [])
-    populate_empty_columns(rows, fieldnames)
-    return rows, fieldnames
-
-
-def save_venue_rows(rows: list[dict[str, str]], fieldnames: list[str]) -> None:
-    VENUE_CSV.parent.mkdir(parents=True, exist_ok=True)
-    with VENUE_CSV.open("w", newline="", encoding="utf-8") as file:
-        writer = csv.DictWriter(file, fieldnames=fieldnames, extrasaction="ignore")
-        writer.writeheader()
-        writer.writerows(rows)
-
-
-def group_venues(rows: list[dict[str, str]]) -> dict[str, list[dict[str, str]]]:
-    grouped: dict[str, list[dict[str, str]]] = {}
-    for row in rows:
-        slug = normalise_slug(row.get("location_slug", ""))
-        if slug:
-            row["location_slug"] = slug
-            grouped.setdefault(slug, []).append(row)
-    for slug in grouped:
-        grouped[slug] = sorted(grouped[slug], key=lambda row: int(row.get("rank") or 999))
-    return grouped
-
-
-def load_location_copy() -> dict[str, dict[str, str]]:
-    if not LOCATION_COPY_JSON.exists():
-        return {}
-    raw = json.loads(LOCATION_COPY_JSON.read_text(encoding="utf-8"))
-    return {normalise_slug(slug): value for slug, value in raw.items()}
-
-
-def default_location_copy(slug: str, rows: list[dict[str, str]]) -> dict[str, str]:
-    location_name = ""
-    for row in rows:
-        location_name = str(row.get("location_name", "") or "").strip()
-        if location_name:
-            break
-    if not location_name:
-        location_name = display_name_from_slug(slug)
-    return {
-        "name": location_name,
-        "county": location_name,
-        "intro": f"Live saxophone and DJ sets for weddings, parties and private events in {location_name} and the surrounding area.",
-        "angle": f"From relaxed venue arrivals to full evening dancefloors, {location_name} celebrations work well with flexible live sax and DJ options.",
+      if (isSending) {
+        submitButton.dataset.originalText = submitButton.textContent.trim();
+        submitButton.disabled = true;
+        submitButton.textContent = "Sending...";
+      } else {
+        submitButton.disabled = false;
+        submitButton.textContent = submitButton.dataset.originalText || "Send Enquiry";
+      }
     }
 
-
-def location_page_copy(slug: str, rows: list[dict[str, str]], location_copy: dict[str, dict[str, str]]) -> dict[str, str]:
-    fallback = default_location_copy(slug, rows)
-    custom = location_copy.get(slug, {})
-    return {
-        "name": custom.get("name") or fallback["name"],
-        "county": custom.get("county") or fallback["county"],
-        "intro": custom.get("intro") or fallback["intro"],
-        "angle": custom.get("angle") or fallback["angle"],
+    function getFieldValue(form, fieldName) {
+      const field = form.querySelector(`[name="${fieldName}"]`);
+      return field ? field.value.trim() : "";
     }
 
+    function ensureSubjectField(form) {
+      let subjectField = form.querySelector('input[name="subject"]');
 
-def location_chips(slug: str, name: str, county: str) -> list[str]:
-    return NEARBY_CHIPS.get(slug, [name, county, "Weddings", "Parties", "DJ & sax", "South West"])[:6]
+      if (!subjectField) {
+        subjectField = document.createElement("input");
+        subjectField.type = "hidden";
+        subjectField.name = "subject";
+        form.appendChild(subjectField);
+      }
+
+      return subjectField;
+    }
+
+    function handleEmailForm(form, options = {}) {
+      if (!form) return;
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const honeypot = form.querySelector('input[name="website"]');
+
+        if (honeypot && honeypot.value) {
+          console.log("Honeypot triggered - not sending");
+          return;
+        }
+
+        const eventType = getFieldValue(form, "event_type");
+        const eventDate = getFieldValue(form, "event_date");
+        const location = getFieldValue(form, "location");
+
+        if (!eventType) {
+          alert("Please select the type of event.");
+          return;
+        }
+
+        const subjectField = ensureSubjectField(form);
+
+        subjectField.value = [
+          eventType,
+          eventDate,
+          location
+        ].filter(Boolean).join(" - ");
+
+        setSubmitState(form, true);
+
+        emailjs
+          .sendForm(serviceId, templateId, form)
+          .then(() => {
+            if (options.successType === "hero") {
+              form.innerHTML = `
+                <div class="hero-form-success">
+                  <h3>Thank you</h3>
+                  <p>Your enquiry has been sent. We will be in touch soon.</p>
+                </div>
+              `;
+              return;
+            }
+
+            form.style.display = "none";
+
+            const thankYouMessage = document.querySelector("#contact-us .thank-you-message");
+
+            if (thankYouMessage) {
+              thankYouMessage.style.display = "block";
+            }
+          })
+          .catch((error) => {
+            console.error("EmailJS error:", error);
+            alert("Error sending message. Please try again later.");
+            setSubmitState(form, false);
+          });
+      });
+    }
+
+    handleEmailForm(heroForm, {
+      successType: "hero"
+    });
+
+    const wrapper = document.querySelector(".custom-select-wrapper");
+    const selected = document.getElementById("custom-select-selected");
+    const list = document.getElementById("custom-select-list");
+    const nativeSelect = document.getElementById("event_type");
+
+    if (wrapper && selected && list && nativeSelect) {
+      const options = list.querySelectorAll("li");
+
+      wrapper.addEventListener("click", () => {
+        const expanded = wrapper.getAttribute("aria-expanded") === "true";
+        wrapper.setAttribute("aria-expanded", String(!expanded));
+        list.style.display = expanded ? "none" : "block";
+      });
+
+      options.forEach((option) => {
+        option.addEventListener("click", (event) => {
+          event.stopPropagation();
+
+          selected.textContent = option.textContent;
+          nativeSelect.value = option.dataset.value;
+
+          options.forEach((opt) => opt.setAttribute("aria-selected", "false"));
+          option.setAttribute("aria-selected", "true");
+
+          wrapper.setAttribute("aria-expanded", "false");
+          list.style.display = "none";
+        });
+      });
+
+      document.addEventListener("click", (event) => {
+        if (!wrapper.contains(event.target)) {
+          wrapper.setAttribute("aria-expanded", "false");
+          list.style.display = "none";
+        }
+      });
+    }
+
+    handleEmailForm(contactForm, {
+      successType: "contact"
+    });
+  });
+</script>
 
 
-def location_is_ready(rows: list[dict[str, str]]) -> bool:
-    return len(rows) >= 1 and all(str(row.get("publish", "0")).strip() == "1" for row in rows)
+<script src="{{ '/assets/js/reviews-carousel.js' | relative_url }}"></script>
 
 
-def should_generate_location(rows: list[dict[str, str]], include_unpublished: bool) -> bool:
-    return include_unpublished or location_is_ready(rows)
-
-
-def inline_location_css() -> str:
-    return """<style>
-  .location-venue-wrapper { overflow: visible; }
-  .location-venue-grid-static {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1.5rem;
-    overflow: visible;
-  }
-  .location-venue-grid-static .venue-card { min-width: 0; }
-  .location-venue-grid-static .venue-card img {
-    width: 100%;
-    height: 260px;
-    object-fit: cover;
-    display: block;
-  }
-  @media (max-width: 640px) {
-    .location-venue-grid-static { grid-template-columns: 1fr; }
-    .location-venue-grid-static .venue-card img { height: 240px; }
-  }
-</style>"""
-
-
-def reveal_script() -> str:
-    return """<script>
+<script>
   document.addEventListener('DOMContentLoaded', () => {
     const revealItems = document.querySelectorAll('.reveal-on-scroll');
+
     if (!revealItems.length) return;
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -629,210 +745,291 @@ def reveal_script() -> str:
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.14 });
+    }, {
+      threshold: 0.14
+    });
+
     revealItems.forEach(item => observer.observe(item));
   });
 </script>"""
 
+def is_published(value: str) -> bool:
+    """Return True when a CSV row is marked for publication."""
+    return value.strip().lower() in {"1", "true", "yes", "y"}
 
-def render_page(slug: str, rows: list[dict[str, str]], info: dict[str, str]) -> str:
-    raw_name = info["name"]
-    raw_county = info["county"]
-    name = esc(raw_name)
-    county = esc(raw_county)
-    intro = esc(info["intro"])
-    angle = esc(info["angle"])
-    chips = location_chips(slug, raw_name, raw_county)
-    chip_spans = "\n".join(f"    <span>{esc(chip)}</span>" for chip in chips)
-    nearby_items = "".join(f"<li>{esc(chip)}</li>" for chip in chips)
-    service_cards = "\n".join([
-        service_card("/packages/wedding-packages/", SERVICE_WEDDINGS_IMAGE, f"Weddings in {raw_name}", "weddings", "Weddings", f"Ceremony, reception and evening music in {raw_name}.", ["Ceremony", "Drinks", "Evening"]),
-        service_card("/packages/party-packages/", SERVICE_PARTIES_IMAGE, f"Parties in {raw_name}", "parties", "Parties", f"Big tunes, live sax and proper energy for {raw_name} celebrations.", ["Birthdays", "Private parties", "DJ & sax"]),
-        service_card("/packages/events-packages/", SERVICE_EVENTS_IMAGE, f"Private events in {raw_name}", "events", "Private Events", f"Polished music for venues, functions and private events around {raw_name}.", ["Venues", "Functions", "Corporate"]),
-        service_card("/packages/power-hour/", SERVICE_POWER_HOUR_IMAGE, f"Power Hour in {raw_name}", "power-hour", "Power Hour", "Ibiza classics, live sax and full-on dancefloor energy.", ["Ibiza classics", "Live sax", "Peak energy"]),
-    ])
-    venue_cards = "\n".join(venue_card(row) for row in rows)
-    parts = [
-        "---",
-        "layout: default",
-        f'title: "Wedding Saxophonist & DJ in {name} | Solo Studios"',
-        f"permalink: /locations/{slug}/",
-        f'description: "Live saxophone and DJ sets for weddings, parties and events in {name}, {county}."',
-        "---",
-        "",
-        "<link rel=\"stylesheet\" href=\"{{ '/assets/css/home.css' | relative_url }}\">",
-        "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
-        "",
-        inline_location_css(),
-        "",
-        '<section class="hero-section location-hero-section">',
-        '  <video autoplay muted loop playsinline class="hero-video">',
-        f'    <source src="{liquid_url(HOMEPAGE_VIDEO)}" type="video/mp4">',
-        '    Your browser does not support the video tag.',
-        '  </video>',
-        '  <div class="hero-overlay"></div>',
-        '  <div class="hero-content">',
-        '    <div class="hero-title-image">',
-        "      <img src=\"{{ '/assets/img/website-title-ivory.png' | relative_url }}\" alt=\"Solo Studios\" class=\"hero-title-img\">",
-        '    </div>',
-        '    <div class="hero-copy">',
-        f'      <p class="hero-tagline">Wedding saxophonist &amp; DJ in {name}</p>',
-        f'      <p class="hero-subtext">{intro}</p>',
-        '      <div class="hero-actions" aria-label="Location page actions">',
-        '        <a href="/#contact-us" class="hero-button hero-button--primary">Check availability</a>',
-        '        <a href="/gallery/videos/" class="hero-button hero-button--secondary">Watch videos</a>',
-        '      </div>',
-        '    </div>',
-        '  </div>',
-        '</section>',
-        "",
-        '<section class="trust-strip" aria-label="Areas and event options">',
-        '  <div class="trust-strip__inner">',
-        chip_spans,
-        '  </div>',
-        '</section>',
-        "",
-        '<div class="services-cards-wrapper reveal-on-scroll">',
-        f'  <h2 class="services-section-title">Live music for {name} weddings and events</h2>',
-        '  <p class="services-section-intro">',
-        f'    {angle} Choose a relaxed daytime sax set, a DJ and sax evening party, or a full package that carries the music through the whole day.',
-        '  </p>',
-        '  <div class="services-cards-section">',
-        service_cards,
-        '  </div>',
-        '  <div class="services-help-cta">',
-        '    <div class="services-help-cta__text">',
-        f'      <h3>Planning an event in {name}?</h3>',
-        '      <p>Tell us the venue, date and timings and we will point you towards the right live sax and DJ setup.</p>',
-        '    </div>',
-        '    <div class="services-help-cta__actions">',
-        '      <a href="/#contact-us" class="mini-cta mini-cta--primary">Get a recommendation</a>',
-        '      <a href="/gallery/videos/" class="mini-cta mini-cta--secondary">View videos</a>',
-        '    </div>',
-        '  </div>',
-        '</div>',
-        "",
-        '<section class="venues-gallery reveal-on-scroll">',
-        f'  <h2 class="section-title">Wedding venues around {name}</h2>',
-        '  <p class="section-intro">',
-        f'    A few useful venue ideas if you are planning a wedding, party or private event in {name} and the surrounding area.',
-        '  </p>',
-        '  <div class="auto-scroll-wrapper location-venue-wrapper">',
-        '    <div class="gallery-scroll-container location-venue-grid-static">',
+
+def parse_rank(value: str) -> int:
+    """Convert a CSV rank to an integer, placing invalid ranks last."""
+    try:
+        return int(value.strip())
+    except (AttributeError, ValueError):
+        return 999999
+
+
+def load_venues_by_location(
+    csv_file: Path,
+) -> dict[str, list[dict[str, str]]]:
+    """
+    Load published venues and group them by location slug.
+
+    Venues within each location are ordered by rank and then venue name.
+    """
+    if not csv_file.is_file():
+        raise FileNotFoundError(f"Location venue CSV file not found: {csv_file}")
+
+    venues_by_location: dict[str, list[dict[str, str]]] = defaultdict(list)
+
+    with csv_file.open(
+        mode="r",
+        newline="",
+        encoding="utf-8-sig",
+    ) as file:
+        reader = csv.DictReader(file)
+
+        required_columns = {
+            "location_slug",
+            "location_name",
+            "publish",
+            "rank",
+            "venue_name",
+            "venue_url",
+            "venue_image",
+        }
+
+        available_columns = set(reader.fieldnames or [])
+        missing_columns = required_columns - available_columns
+
+        if missing_columns:
+            missing = ", ".join(sorted(missing_columns))
+            raise ValueError(f"The CSV file is missing required columns: {missing}")
+
+        for row in reader:
+            if not is_published(row.get("publish", "")):
+                continue
+
+            slug = row.get("location_slug", "").strip()
+            location_name = row.get("location_name", "").strip()
+            venue_name = row.get("venue_name", "").strip()
+
+            if not slug:
+                print("Skipped a published venue with no location_slug.")
+                continue
+
+            if not location_name:
+                print(f"Skipped a published venue in {slug!r} with no location_name.")
+                continue
+
+            if not venue_name:
+                print(f"Skipped a published venue in {slug!r} with no venue_name.")
+                continue
+
+            venues_by_location[slug].append(row)
+
+    for venues in venues_by_location.values():
+        venues.sort(
+            key=lambda venue: (
+                parse_rank(venue.get("rank", "")),
+                venue.get("venue_name", "").strip().casefold(),
+            )
+        )
+
+    return dict(venues_by_location)
+
+
+def make_liquid_image_path(image_path: str) -> str:
+    """
+    Convert a repository-relative image path into a Jekyll relative_url tag.
+
+    Example input:
+        assets/img/locations/venues/ash-barton-estate.webp
+
+    Example output:
+        {{ '/assets/img/locations/venues/ash-barton-estate.webp' | relative_url }}
+    """
+    cleaned_path = image_path.strip()
+
+    if not cleaned_path:
+        return ""
+
+    if not cleaned_path.startswith("/"):
+        cleaned_path = "/" + cleaned_path
+
+    return "{{ '" + cleaned_path + "' | relative_url }}"
+
+
+def build_venue_card(venue: dict[str, str]) -> str:
+    """
+    Generate one linked venue card.
+    """
+    venue_name = venue.get("venue_name", "").strip()
+    venue_url = venue.get("venue_url", "").strip()
+    venue_image = venue.get("venue_image", "").strip()
+    location_name = venue.get("location_name", "").strip()
+
+    if not venue_name:
+        raise ValueError("A published venue has no venue_name.")
+
+    if not venue_url:
+        raise ValueError(f"Published venue {venue_name!r} has no venue_url.")
+
+    if not venue_image:
+        raise ValueError(f"Published venue {venue_name!r} has no venue_image.")
+
+    safe_name = html.escape(venue_name, quote=True)
+    safe_location = html.escape(location_name, quote=True)
+
+    safe_url = html.escape(
+        html.unescape(venue_url),
+        quote=True,
+    )
+
+    liquid_image_path = make_liquid_image_path(venue_image)
+
+    if safe_location:
+        caption = f"{safe_name}, {safe_location}"
+        alt_text = f"{safe_name}, {safe_location}"
+    else:
+        caption = safe_name
+        alt_text = safe_name
+
+    return (
+        f'      <a class="venue-card" href="{safe_url}" target="_blank" rel="noopener">\n'
+        f'        <img src="{liquid_image_path}" alt="{alt_text}" loading="lazy">\n'
+        f'        <div class="venue-caption">{caption}</div>\n'
+        f"      </a>"
+    )
+
+
+def build_venue_cards(
+    venues: list[dict[str, str]],
+) -> str:
+    """Generate all venue cards for one location."""
+    if not venues:
+        return """      <p class="venues-gallery-empty">
+        Venue information for this area will be added soon.
+      </p>"""
+
+    return "\n\n".join(build_venue_card(venue) for venue in venues)
+
+
+def render_page(
+    template: str,
+    location_slug: str,
+    location_name: str,
+    venues: list[dict[str, str]],
+) -> str:
+    """
+    Render one location page without using str.format().
+
+    Explicit placeholder replacement preserves Jekyll Liquid expressions,
+    JavaScript braces, template literals, and other brace-based syntax.
+    """
+    if template.count("__LOCATION_SLUG__") == 0:
+        raise ValueError(
+            "The __LOCATION_SLUG__ placeholder was not found in PAGE_TEMPLATE."
+        )
+
+    if template.count("__LOCATION_NAME__") == 0:
+        raise ValueError(
+            "The __LOCATION_NAME__ placeholder was not found in PAGE_TEMPLATE."
+        )
+
+    if template.count("__VENUE_CARDS__") != 1:
+        raise ValueError(
+            "PAGE_TEMPLATE must contain exactly one __VENUE_CARDS__ placeholder."
+        )
+
+    rendered = template.replace("__LOCATION_SLUG__", location_slug).replace(
+        "__LOCATION_NAME__", location_name
+    )
+
+    # Find the closing delimiter of the YAML front matter.
+    front_matter_end = rendered.find("---", 3)
+
+    if front_matter_end == -1:
+        raise ValueError("Could not find the closing '---' for the YAML front matter.")
+
+    front_matter_end += 3
+
+    front_matter = rendered[:front_matter_end]
+    page_body = rendered[front_matter_end:]
+
+    # Preserve entities in the YAML front matter, but turn the escaped page
+    # body into functional HTML and JavaScript.
+    decoded_page_body = html.unescape(page_body)
+
+    # The cards are already functional HTML, so insert them after unescaping
+    # the static portion of the template.
+    venue_cards = build_venue_cards(venues)
+
+    decoded_page_body = decoded_page_body.replace(
+        "__VENUE_CARDS__",
         venue_cards,
-        '    </div>',
-        '  </div>',
-        '</section>',
-        "",
-        '<section class="location-seo-section reveal-on-scroll" aria-labelledby="location-seo-heading">',
-        '  <div class="location-seo-section__inner">',
-        '    <p class="location-seo-section__eyebrow">Local live music</p>',
-        f'    <h2 id="location-seo-heading">Live Saxophone and DJ Sets in {name}</h2>',
-        '    <div class="location-seo-section__grid">',
-        '      <div class="location-seo-section__copy">',
-        '        <p>',
-        f'          Solo Studios provides live saxophone and DJ sets for weddings, parties and private events in <strong>{name}</strong> and across <strong>{county}</strong>. Sets can be shaped around relaxed arrivals, drinks receptions, wedding breakfasts, evening parties and full dancefloor moments.',
-        '        </p>',
-        '        <p>',
-        f'          If you are planning a celebration near {name}, send over your venue, date and rough timings. We will help you choose the right live sax, DJ or combined sax and DJ option for the atmosphere you want.',
-        '        </p>',
-        '      </div>',
-        f'      <div class="location-seo-section__areas" aria-label="Areas covered near {name}">',
-        '        <h3>Popular nearby areas</h3>',
-        f'        <ul>{nearby_items}</ul>',
-        '      </div>',
-        '    </div>',
-        '  </div>',
-        '</section>',
-        "",
-        '<section class="ibiza-promo-simple reveal-on-scroll">',
-        '  <div class="container">',
-        "    <img src=\"{{ '/assets/img/palm_tree.svg' | relative_url }}\" alt=\"\" class=\"palm-top-left\">",
-        "    <img src=\"{{ '/assets/img/palm_tree.svg' | relative_url }}\" alt=\"\" class=\"palm-bottom-right\">",
-        '    <h2>Want the big party moment?</h2>',
-        f'    <p>The <strong>Power Hour</strong> package brings house favourites, live sax and full-energy party tracks for weddings and events in {name}.</p>',
-        '    <a href="/packages/power-hour/" class="btn-ibiza-simple">See the Power Hour package</a>',
-        '  </div>',
-        '</section>',
-        "",
-        reveal_script(),
-        "",
-    ]
-    return "\n".join(parts)
+        1,
+    )
 
-
-def populate_missing_images(rows: list[dict[str, str]], refresh: bool, single: str | None) -> int:
-    cache = load_image_cache()
-    updated = 0
-    target_slug = normalise_slug(single) if single else None
-    for row in rows:
-        row_slug = normalise_slug(row.get("location_slug", ""))
-        if target_slug and row_slug != target_slug:
-            continue
-        before_url = row.get("venue_image_url", "").strip()
-        before_local = row.get("venue_image", "").strip()
-        if is_real_image_url(before_url):
-            ensure_local_image(row, before_url)
-        elif is_not_found_marker(before_url) and not refresh:
-            pass
-        else:
-            found = discover_image_for_venue(row, cache, refresh)
-            if found and found != before_url:
-                row["venue_image_url"] = found
-            if is_real_image_url(found):
-                ensure_local_image(row, found)
-        if row.get("venue_image_url", "").strip() != before_url or row.get("venue_image", "").strip() != before_local:
-            updated += 1
-    save_image_cache(cache)
-    return updated
-
-
-def generate(include_unpublished: bool, single: str | None, refresh_image_cache: bool) -> None:
-    location_copy = load_location_copy()
-    venue_rows, fieldnames = load_venue_rows()
-    target_slug = normalise_slug(single) if single else None
-
-    populated = populate_empty_columns(venue_rows, fieldnames)
-    updated_images = populate_missing_images(venue_rows, refresh_image_cache, target_slug)
-    if populated or updated_images:
-        save_venue_rows(venue_rows, fieldnames)
-        print(f"Updated {populated + updated_images} CSV value group(s) in {VENUE_CSV}")
-
-    grouped_venues = group_venues(venue_rows)
-    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-    made = 0
-    skipped = 0
-
-    for slug, rows in sorted(grouped_venues.items()):
-        if target_slug and slug != target_slug:
-            continue
-        selected_rows = [row for row in rows if normalise_slug(row.get("location_slug", "")) == slug]
-        selected_rows = sorted(selected_rows, key=lambda row: int(row.get("rank") or 999))
-        if not should_generate_location(selected_rows, include_unpublished):
-            skipped += 1
-            continue
-        info = location_page_copy(slug, selected_rows, location_copy)
-        if slug not in location_copy:
-            print(f"Using generated copy for new location slug: {slug}")
-        venue_names = ", ".join(row.get("venue_name", "Venue") for row in selected_rows)
-        print(f"Generating {slug} with {len(selected_rows)} venue(s): {venue_names}")
-        output_file = OUTPUT_DIR / f"{slug}.html"
-        output_file.write_text(render_page(slug, selected_rows, info), encoding="utf-8")
-        made += 1
-
-    print(f"Generated {made} page(s); skipped {skipped} unpublished location(s).")
-    print(f"Output directory: {OUTPUT_DIR}")
-    print(f"Image cache: {IMAGE_CACHE_JSON}")
-    print(f"Local image directory: {LOCAL_VENUE_IMAGE_DIR}")
+    return front_matter + decoded_page_body
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Generate Solo Studios location pages")
-    parser.add_argument("--include-unpublished", action="store_true", help="Generate pages even where publish is still 0")
-    parser.add_argument("--single", help="Generate just one location slug, e.g. plymouth")
-    parser.add_argument("--refresh-image-cache", action="store_true", help="Retry rows marked 'not found' and blank rows, but never overwrite real URLs")
-    args = parser.parse_args()
-    generate(args.include_unpublished, args.single, args.refresh_image_cache)
+    venues_by_location = load_venues_by_location(CSV_FILE)
+
+    OUTPUT_DIR.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
+
+    generated_pages = 0
+
+    for slug, venues in sorted(venues_by_location.items()):
+        if not venues:
+            continue
+
+        location_name = venues[0].get("location_name", "").strip()
+
+        if not location_name:
+            print(f"Skipped location {slug!r} because it has no location_name.")
+            continue
+
+        # Ensure all venues grouped under a slug have the same displayed
+        # location name.
+        location_names = {
+            venue.get("location_name", "").strip()
+            for venue in venues
+            if venue.get("location_name", "").strip()
+        }
+
+        if len(location_names) > 1:
+            names = ", ".join(sorted(location_names))
+
+            raise ValueError(
+                f"Location slug {slug!r} has multiple location names: {names}"
+            )
+
+        output_file = OUTPUT_DIR / f"{slug}.html"
+
+        page_content = render_page(
+            template=PAGE_TEMPLATE,
+            location_slug=slug,
+            location_name=location_name,
+            venues=venues,
+        )
+
+        output_file.write_text(
+            page_content,
+            encoding="utf-8",
+            newline="\n",
+        )
+
+        generated_pages += 1
+
+        print(
+            f"Created {output_file} with "
+            f"{len(venues)} published venue card(s) "
+            f"and permalink /locations/{slug}/"
+        )
+
+    print(f"Generated {generated_pages} location page(s).")
 
 
 if __name__ == "__main__":

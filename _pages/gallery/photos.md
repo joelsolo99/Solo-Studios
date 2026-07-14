@@ -4,26 +4,34 @@ title: "Photo Gallery"
 permalink: /gallery/photos/
 ---
 
+
 <link rel="stylesheet" href="{{ '/assets/css/photos.css' | relative_url }}">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <div class="gallery-page">
   <div class="gallery-wrapper">
-    <header class="gallery-hero">
-      <p class="gallery-hero__eyebrow">Recent moments</p>
-      <h1>Photo Gallery</h1>
+<header class="gallery-hero">
 
-      <p class="gallery-hero__intro">
-        A selection of moments from weddings, parties, and live sets across the South West.
-        Tap any image to open it larger, then swipe through the gallery.
-      </p>
+  <p class="gallery-hero__eyebrow">
+    Recent moments
+  </p>
 
-      <div class="gallery-hero__meta" aria-label="Photo gallery details">
-        <span class="gallery-hero__pill">Weddings</span>
-        <span class="gallery-hero__pill">Private parties</span>
-        <span class="gallery-hero__pill">Live event moments</span>
-      </div>
-    </header>
+  <h1>
+    Photo Gallery
+  </h1>
+
+  <p class="gallery-hero__intro">
+    A collection of weddings, private parties, corporate events, and live performances across the South West.
+  </p>
+
+  <div class="gallery-hero__meta">
+    <span class="gallery-hero__pill">Weddings</span>
+    <span class="gallery-hero__pill">Private parties</span>
+    <span class="gallery-hero__pill">Corporate events</span>
+    <span class="gallery-hero__pill">Live sax & DJ</span>
+  </div>
+
+</header>
 
     <section class="gallery-grid-section" aria-label="Photo gallery">
       <div class="photo-grid">

@@ -7,252 +7,488 @@ layout: default
 <link rel="stylesheet" href="{{ '/assets/css/why-sax-dj.css' | relative_url }}">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<div class="why-sax-dj-page">
-  <div class="wrapper">
-    <header class="why-sax-dj-hero" aria-labelledby="why-sax-dj-title">
-      <p class="why-sax-dj-hero__eyebrow">Live saxophone and DJ entertainment</p>
+<main class="why-sax-dj-page">
 
-      <h1 id="why-sax-dj-title" class="page-title">Why Sax and DJ?</h1>
+  <section class="why-sax-dj-hero">
 
-      <p class="page-intro">
-        A sax and DJ setup gives you the flexibility of a curated DJ set with the excitement of live performance.
-        It is polished enough for a wedding, energetic enough for a party, and flexible enough to shape around
-        the exact atmosphere you want.
+    <div class="why-sax-dj-hero__media">
+
+      <img
+        src="{{ '/assets/img/why-sax-dj/1.webp' | relative_url }}"
+        alt="Live saxophone and DJ performance"
+        loading="eager"
+        decoding="async"
+      >
+
+      <div class="why-sax-dj-hero__overlay"></div>
+
+    </div>
+
+    <div class="why-sax-dj-hero__inner">
+
+      <div class="why-sax-dj-hero__copy">
+
+        <p class="why-sax-dj-hero__eyebrow">
+          Live saxophone and DJ entertainment
+        </p>
+
+        <h1>
+          Why Sax and DJ?
+        </h1>
+
+        <p class="why-sax-dj-hero__intro">
+          A sax and DJ setup gives you the flexibility of a curated DJ set with the excitement of live
+          performance. It is polished enough for a wedding, energetic enough for a party, and flexible
+          enough to adapt around the atmosphere you want.
+        </p>
+
+        <div
+          class="why-sax-dj-hero__badges"
+          aria-label="Sax and DJ benefits"
+        >
+          <span>Live performance energy</span>
+          <span>DJ flexibility</span>
+          <span>Weddings and parties</span>
+          <span>Tailored music</span>
+        </div>
+
+        <div class="why-sax-dj-hero__actions">
+
+          <a
+            href="{{ '/contact/#contact-us' | relative_url }}"
+            class="why-sax-dj-hero__button"
+          >
+            Check availability
+          </a>
+
+          <a
+            href="#why-sax-dj-benefits"
+            class="why-sax-dj-hero__button why-sax-dj-hero__button--secondary"
+          >
+            Why it works
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section
+    id="why-sax-dj-benefits"
+    class="why-sax-dj-intro-section"
+  >
+
+    <div class="why-sax-dj-intro-section__inner">
+
+      <p class="why-sax-dj-intro-section__eyebrow">
+        Why people choose it
       </p>
 
-      <div class="why-sax-dj-hero__pills" aria-label="Sax and DJ benefits">
-        <span>Live performance energy</span>
-        <span>Full DJ flexibility</span>
-        <span>Great for weddings and parties</span>
-        <span>Tailored around your event</span>
-      </div>
-    </header>
+      <h2>
+        A complete entertainment setup without losing the live feel
+      </h2>
 
-    <section class="why-dj-sax fade-in-section left-offset" aria-labelledby="best-of-both-worlds">
-      <div class="dj-image-wrapper">
-        <img
-          src="{{ '/assets/img/why-sax-dj/3.webp' | relative_url }}"
-          alt="Saxophone and DJ performance setup"
-          class="dj-image"
-          loading="lazy"
-          decoding="async">
+      <p>
+        A great event needs flexibility, energy, and smooth transitions. A saxophone and DJ setup
+        combines all three, which is why it has become such a popular choice for weddings,
+        corporate events, venue nights, and private celebrations.
+      </p>
+
+      <div class="why-sax-dj-intro-grid">
+
+        <article class="why-sax-dj-feature-card">
+
+          <h3>
+            Live performance
+          </h3>
+
+          <p>
+            The saxophone adds movement, personality, spontaneity, and genuine interaction that
+            recorded music alone cannot provide.
+          </p>
+
+        </article>
+
+        <article class="why-sax-dj-feature-card">
+
+          <h3>
+            DJ flexibility
+          </h3>
+
+          <p>
+            The DJ can move effortlessly between genres, handle requests, and adapt to the room
+            as the atmosphere changes.
+          </p>
+
+        </article>
+
+        <article class="why-sax-dj-feature-card">
+
+          <h3>
+            Guest engagement
+          </h3>
+
+          <p>
+            The live element helps create memorable moments and often draws guests onto the dancefloor.
+          </p>
+
+        </article>
+
       </div>
 
-      <div class="dj-overlay">
-        <p class="dj-overlay__eyebrow">The combination</p>
-        <h2 id="best-of-both-worlds">Best of Both Worlds</h2>
+    </div>
+
+  </section>
+<section class="why-story-section">
+
+  <div class="why-story-section__inner">
+
+    <div class="why-story-section__media">
+
+      <img
+        src="{{ '/assets/img/why-sax-dj/3.webp' | relative_url }}"
+        alt="Saxophone and DJ performance setup"
+        loading="lazy"
+        decoding="async"
+      >
+
+      <div class="why-story-section__media-overlay"></div>
+
+
+      <div class="why-story-section__content">
+
+        <div>
+          <p class="why-story-section__eyebrow">
+            The best of both worlds
+          </p>
+
+          <h2>
+            The flexibility of a DJ with the excitement of live music
+          </h2>
+        </div>
+
+
         <p>
-          The DJ brings the flow, the transitions, and the range of music. The saxophone brings the live,
-          expressive edge that makes the performance feel special. Together, they create a setup that feels
-          controlled, exciting, and personal.
+          The DJ provides the soundtrack, music library, transitions, and flexibility.
+          The saxophone brings personality, movement, and live performance energy.
+          Together they create a polished, adaptable entertainment experience.
         </p>
-      </div>
-    </section>
 
-    <section class="why-dj-sax fade-in-section right-offset" aria-labelledby="versatility">
-      <div class="dj-image-wrapper">
-        <img
-          src="{{ '/assets/img/why-sax-dj/2.webp' | relative_url }}"
-          alt="Live saxophone performance at an event"
-          class="dj-image"
-          loading="lazy"
-          decoding="async">
       </div>
 
-      <div class="dj-overlay">
-        <p class="dj-overlay__eyebrow">Flexible music</p>
-        <h2 id="versatility">Versatility</h2>
+    </div>
+
+
+    <div class="why-story-list">
+
+      <div class="why-story-item">
+
+        <span>Flexible music</span>
+
         <p>
-          From Ibiza-style house to garage, disco, soul, pop, and classic party tracks, a sax and DJ setup can
-          move with the room. It works just as well for a beach wedding, marquee party, evening reception,
-          private event, or corporate celebration.
+          House, garage, disco, soul, pop, Ibiza classics, and party favourites.
         </p>
-      </div>
-    </section>
 
-    <section class="why-dj-sax fade-in-section left-offset" aria-labelledby="high-energy-performance">
-      <div class="dj-image-wrapper">
-        <img
-          src="{{ '/assets/img/why-sax-dj/1.webp' | relative_url }}"
-          alt="High-energy saxophone performance with a crowd"
-          class="dj-image"
-          loading="lazy"
-          decoding="async">
       </div>
 
-      <div class="dj-overlay">
-        <p class="dj-overlay__eyebrow">Dancefloor impact</p>
-        <h2 id="high-energy-performance">High-Energy Performance</h2>
+
+      <div class="why-story-item">
+
+        <span>Live interaction</span>
+
         <p>
-          A good live sax set does more than add melody. It lifts the room, responds to the music, and gives
-          guests something to connect with. The saxophone can move through the crowd, build energy, and make
-          key moments feel bigger.
+          The saxophone becomes part of the event rather than simply background music.
         </p>
-      </div>
-    </section>
 
-    <section class="why-dj-sax fade-in-section right-offset" aria-labelledby="memorable-moments">
-      <div class="dj-image-wrapper">
-        <img
-          src="{{ '/assets/img/why-sax-dj/4.png' | relative_url }}"
-          alt="Live saxophone and DJ event moment"
-          class="dj-image"
-          loading="lazy"
-          decoding="async">
       </div>
 
-      <div class="dj-overlay">
-        <p class="dj-overlay__eyebrow">Standout moments</p>
-        <h2 id="memorable-moments">Memorable Moments</h2>
+
+      <div class="why-story-item">
+
+        <span>Memorable moments</span>
+
         <p>
-          From a first dance to a big sax solo over a favourite track, sax and DJ can turn the important parts
-          of the night into real moments. The live element gives the music a sense of occasion that guests remember.
+          Perfect for first dances, crowd interaction, and standout moments throughout the night.
         </p>
-      </div>
-    </section>
 
-    <section class="why-dj-sax fade-in-section left-offset" aria-labelledby="all-day-entertainment">
-      <div class="dj-image-wrapper">
-        <img
-          src="{{ '/assets/img/why-sax-dj/5.webp' | relative_url }}"
-          alt="DJ and saxophone setup for all-day entertainment"
-          class="dj-image"
-          loading="lazy"
-          decoding="async">
       </div>
 
-      <div class="dj-overlay">
-        <p class="dj-overlay__eyebrow">Smooth flow</p>
-        <h2 id="all-day-entertainment">All-Day Entertainment, No Interruptions</h2>
-        <p>
-          A DJ can keep the soundtrack moving throughout the event, while live sax moments can be placed where
-          they will have the most impact. That means fewer gaps, fewer awkward silences, and a smoother musical
-          flow from relaxed daytime moments to the evening party.
-        </p>
-      </div>
-    </section>
+    </div>
 
-    <section class="why-dj-sax fade-in-section right-offset" aria-labelledby="tailored-to-you">
-      <div class="dj-image-wrapper">
+  </div>
+
+</section>
+
+    <section class="why-benefits-section">
+
+    <div class="why-benefits-section__header">
+
+      <p class="why-benefits-section__eyebrow">
+        Why it works so well
+      </p>
+
+      <h2>
+        More than background music
+      </h2>
+
+      <p>
+        Sax and DJ is designed to enhance the atmosphere throughout an event while still delivering
+        the excitement and energy of live entertainment.
+      </p>
+
+    </div>
+
+    <div class="why-benefits-grid">
+
+      <article class="why-benefit-card">
+
         <img
           src="{{ '/assets/img/why-sax-dj/6.webp' | relative_url }}"
-          alt="Tailored saxophone and DJ performance"
-          class="dj-image"
+          alt="Live saxophone performance"
           loading="lazy"
-          decoding="async">
-      </div>
+          decoding="async"
+        >
 
-      <div class="dj-overlay">
-        <p class="dj-overlay__eyebrow">Personal planning</p>
-        <h2 id="tailored-to-you">Tailored To You</h2>
-        <p>
-          Your entrance music, drinks reception, first dance, evening set, and late-night favourites can all be
-          shaped around your plans. You can be as specific or relaxed as you like, and the music can still respond
-          naturally to the room on the day.
-        </p>
-      </div>
-    </section>
+        <div class="why-benefit-card__content">
 
-    <section class="why-dj-sax fade-in-section left-offset" aria-labelledby="incredible-value">
-      <div class="dj-image-wrapper">
-        <img
-          src="{{ '/assets/img/why-sax-dj/7.png' | relative_url }}"
-          alt="Sax and DJ performance for a celebration"
-          class="dj-image"
-          loading="lazy"
-          decoding="async">
-      </div>
+          <h3>
+            Versatility
+          </h3>
 
-      <div class="dj-overlay">
-        <p class="dj-overlay__eyebrow">Practical value</p>
-        <h2 id="incredible-value">Incredible Value</h2>
-        <p>
-          A sax and DJ setup gives you the feeling of live music with the range and practicality of a DJ.
-          For many weddings and events, it is a strong balance between impact, flexibility, and budget.
-        </p>
-      </div>
-    </section>
-
-    <section class="why-sax-dj-summary fade-in-section" aria-labelledby="why-sax-dj-summary-title">
-      <div class="why-sax-dj-summary__inner">
-        <div class="why-sax-dj-summary__heading">
-          <p class="why-sax-dj-summary__eyebrow">At a glance</p>
-          <h2 id="why-sax-dj-summary-title">What makes sax and DJ work so well?</h2>
           <p>
-            It gives you a complete entertainment setup without losing the feeling of something live,
-            responsive, and personal.
+            Equally suitable for weddings, parties, corporate events, venue nights,
+            and private celebrations.
           </p>
+
         </div>
 
-        <div class="why-sax-dj-summary__grid">
-          <article class="why-sax-dj-summary__card">
-            <h3>More flexible than a band</h3>
-            <p>
-              The DJ can move across genres, take requests, and adjust quickly to the dancefloor.
-            </p>
-          </article>
+      </article>
 
-          <article class="why-sax-dj-summary__card">
-            <h3>More live than a playlist</h3>
-            <p>
-              The sax adds presence, movement, and a performance element that recorded music alone cannot create.
-            </p>
-          </article>
+      <article class="why-benefit-card">
 
-          <article class="why-sax-dj-summary__card">
-            <h3>Easy to shape around the day</h3>
-            <p>
-              The setup can work for drinks, dinner, first dance, evening party, and high-energy party moments.
-            </p>
-          </article>
+        <img
+          src="{{ '/assets/img/why-sax-dj/4.webp' | relative_url }}"
+          alt="Saxophone and DJ event moment"
+          loading="lazy"
+          decoding="async"
+        >
+
+        <div class="why-benefit-card__content">
+
+          <h3>
+            Memorable moments
+          </h3>
+
+          <p>
+            The live element gives important moments more impact and creates experiences
+            guests genuinely remember.
+          </p>
+
         </div>
-      </div>
-    </section>
 
-    <section class="why-sax-dj-cta" aria-labelledby="why-sax-dj-cta-title">
-      <div class="why-sax-dj-cta__inner">
-        <p class="why-sax-dj-cta__eyebrow">Ready to plan your event?</p>
+      </article>
 
-        <h2 id="why-sax-dj-cta-title">Bring live energy to your wedding, party, or event</h2>
+      <article class="why-benefit-card">
 
-        <p class="why-sax-dj-cta__text">
-          If you like the sound of a sax and DJ setup, we would love to hear about your plans.
-          Tell us your date, venue, timings, and the kind of atmosphere you want, and we can recommend
-          the right package for you.
+        <img
+          src="{{ '/assets/img/why-sax-dj/5.webp' | relative_url }}"
+          alt="Dancefloor with saxophone and DJ"
+          loading="lazy"
+          decoding="async"
+        >
+
+        <div class="why-benefit-card__content">
+
+          <h3>
+            Smooth event flow
+          </h3>
+
+          <p>
+            The music can move naturally from relaxed daytime atmosphere to full evening
+            party energy.
+          </p>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </section>
+
+  <section class="why-timeline-section">
+
+    <div class="why-timeline-section__inner">
+
+      <div class="why-timeline-section__header">
+
+        <p class="why-timeline-section__eyebrow">
+          Throughout your event
         </p>
 
-        <div class="why-sax-dj-cta__actions">
-          <a href="/#contact-us" class="why-sax-dj-cta__button">
-            Contact Us
-          </a>
-          <a href="/places/" class="why-sax-dj-cta__link">
-            See where we've played
-          </a>
-        </div>
+        <h2>
+          A setup that works from arrival to final track
+        </h2>
+
       </div>
-    </section>
-  </div>
-</div>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const faders = document.querySelectorAll(".fade-in-section");
+      <div class="why-timeline-grid">
 
-    const appearOptions = {
-      threshold: 0.1,
-      rootMargin: "0px 0px -100px 0px"
-    };
+        <article class="why-timeline-card">
 
-    const appearOnScroll = new IntersectionObserver(function (entries, observer) {
-      entries.forEach(function (entry) {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add("visible");
-        observer.unobserve(entry.target);
-      });
-    }, appearOptions);
+          <span class="why-timeline-card__number">
+            01
+          </span>
 
-    faders.forEach(function (fader) {
-      appearOnScroll.observe(fader);
-    });
-  });
-</script>
+          <h3>
+            Drinks and arrivals
+          </h3>
+
+          <p>
+            Relaxed background music and live sax create atmosphere without dominating conversation.
+          </p>
+
+        </article>
+
+        <article class="why-timeline-card">
+
+          <span class="why-timeline-card__number">
+            02
+          </span>
+
+          <h3>
+            Key moments
+          </h3>
+
+          <p>
+            First dances, favourite songs, and special moments feel more personal with live performance.
+          </p>
+
+        </article>
+
+        <article class="why-timeline-card">
+
+          <span class="why-timeline-card__number">
+            03
+          </span>
+
+          <h3>
+            The evening party
+          </h3>
+
+          <p>
+            DJ flexibility combined with live sax keeps the energy building throughout the night.
+          </p>
+
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="why-comparison-section">
+
+    <div class="why-comparison-section__header">
+
+      <p class="why-comparison-section__eyebrow">
+        Quick comparison
+      </p>
+
+      <h2>
+        Why couples and venues choose sax and DJ
+      </h2>
+
+    </div>
+
+    <div class="why-comparison-grid">
+
+      <article class="why-comparison-card">
+
+        <h3>
+          Playlist
+        </h3>
+
+        <p>
+          Flexible and affordable, but lacks live interaction, energy, and performance.
+        </p>
+
+      </article>
+
+      <article class="why-comparison-card">
+
+        <h3>
+          Live band
+        </h3>
+
+        <p>
+          Great live presence, but often less flexible when moving between genres and requests.
+        </p>
+
+      </article>
+
+      <article class="why-comparison-card why-comparison-card--featured">
+
+        <h3>
+          Sax and DJ
+        </h3>
+
+        <p>
+          Live performance, huge music choice, crowd interaction, smooth transitions,
+          and entertainment that adapts to the room.
+        </p>
+
+      </article>
+
+    </div>
+
+  </section>
+   
+
+  <section
+    class="why-sax-dj-cta-section"
+    aria-labelledby="why-sax-dj-cta-title"
+  >
+
+    <div class="why-sax-dj-cta-section__inner">
+
+      <p class="why-sax-dj-cta-section__eyebrow">
+        Ready to plan your event?
+      </p>
+
+      <h2 id="why-sax-dj-cta-title">
+        Bring live energy to your wedding, party, or event
+      </h2>
+
+      <p class="why-sax-dj-cta-section__text">
+        Tell us your date, venue, timings, and the atmosphere you want,
+        and we can recommend the right sax and DJ package for your event.
+      </p>
+
+      <div class="why-sax-dj-cta-section__actions">
+
+        <a
+          href="{{ '/contact/#contact-us' | relative_url }}"
+          class="why-sax-dj-cta-section__button"
+        >
+          Check availability
+        </a>
+
+        <a
+          href="{{ '/packages/wedding-packages/' | relative_url }}"
+          class="why-sax-dj-cta-section__button why-sax-dj-cta-section__button--secondary"
+        >
+          View packages
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+  </main>
+

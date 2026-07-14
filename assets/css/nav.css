@@ -1,0 +1,726 @@
+/* =========================
+   Solo Studios solid navbar
+   Existing Bootstrap navbar include
+   ========================= */
+
+:root {
+    --ss-nav-height: 74px;
+
+    --ss-nav-bg: #0f4f56;
+    --ss-nav-bg-scrolled: #0b4248;
+    --ss-nav-bg-mobile: #ffffff;
+
+    --ss-nav-border: rgba(255, 255, 255, 0.12);
+    --ss-nav-text: #ffffff;
+
+    --ss-nav-teal-950: #03393d;
+    --ss-nav-teal-900: #0f4f56;
+    --ss-nav-teal-800: #13636b;
+    --ss-nav-teal-700: #1b7b84;
+    --ss-nav-aqua: #38b7c2;
+
+    --ss-nav-mobile-hover: rgba(56, 183, 194, 0.12);
+
+    --ss-nav-shadow:
+        0 12px 28px rgba(0, 0, 0, 0.18),
+        0 4px 10px rgba(0, 0, 0, 0.10);
+
+    --ss-nav-dropdown-shadow:
+        0 18px 38px rgba(0, 0, 0, 0.16),
+        0 5px 12px rgba(0, 0, 0, 0.08);
+
+    --ss-nav-font: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* =========================
+   Reset theme/navbar clashes
+   ========================= */
+
+.navbar-custom.ss-glass-navbar,
+.navbar-custom.ss-glass-navbar * {
+    box-sizing: border-box;
+}
+
+.navbar-custom.ss-glass-navbar a {
+    text-decoration: none;
+}
+
+.navbar-custom.ss-glass-navbar button {
+    font: inherit;
+}
+
+/* =========================
+   Main navbar shell
+   ========================= */
+
+.navbar-custom.ss-glass-navbar {
+    width: 100vw !important;
+    max-width: none !important;
+    min-height: var(--ss-nav-height) !important;
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: calc(50% - 50vw) !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+
+    font-family: var(--ss-nav-font);
+
+    background: var(--ss-nav-bg) !important;
+    background-color: var(--ss-nav-bg) !important;
+
+    border-bottom: 1px solid var(--ss-nav-border) !important;
+    box-shadow: var(--ss-nav-shadow);
+
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+
+    transition:
+        background-color 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.navbar-custom.ss-glass-navbar::before {
+    display: none;
+}
+
+/* Theme scrolled/short states */
+
+.navbar-custom.ss-glass-navbar.top-nav-short,
+.navbar-custom.ss-glass-navbar.top-nav-short-permanent,
+.navbar-custom.ss-glass-navbar.navbar-shrink {
+    background: var(--ss-nav-bg-scrolled) !important;
+    background-color: var(--ss-nav-bg-scrolled) !important;
+    border-bottom-color: rgba(255, 255, 255, 0.14) !important;
+    box-shadow: var(--ss-nav-shadow);
+}
+
+/* =========================
+   Inner layout
+   ========================= */
+
+.navbar-custom__inner {
+    position: relative;
+
+    width: 100% !important;
+    max-width: none !important;
+    min-height: var(--ss-nav-height) !important;
+    margin: 0 !important;
+    padding: 0 clamp(1rem, 2vw, 2rem) !important;
+
+    display: flex !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+    gap: 1rem !important;
+}
+
+/* =========================
+   Brand and circular logo
+   ========================= */
+
+.navbar-brand,
+.navbar-brand:visited {
+    color: #ffffff !important;
+}
+
+.navbar-brand {
+    flex: 0 0 auto !important;
+    margin-right: 1rem !important;
+
+    font-family: var(--ss-nav-font);
+    font-weight: 900;
+    letter-spacing: -0.015em;
+    text-shadow: none;
+}
+
+.navbar-brand:hover,
+.navbar-brand:focus {
+    color: #ffffff !important;
+    text-decoration: none;
+}
+
+.navbar-brand-logo.ss-navbar-logo {
+    position: relative;
+    z-index: 3;
+
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    width: 4.15rem !important;
+    height: 4.15rem !important;
+    min-width: 4.15rem !important;
+    padding: 0 !important;
+    margin: 0 1rem 0 0 !important;
+
+    border-radius: 999px !important;
+    overflow: hidden !important;
+
+    background:
+        radial-gradient(circle at 32% 18%,
+            rgba(56, 183, 194, 0.20),
+            transparent 34%),
+        #07363b;
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    box-shadow:
+        0 8px 18px rgba(0, 0, 0, 0.22),
+        0 3px 8px rgba(0, 0, 0, 0.12);
+}
+
+.navbar-brand-logo.ss-navbar-logo img,
+.ss-navbar-logo__img {
+    display: block !important;
+
+    width: 72% !important;
+    height: 72% !important;
+    max-width: none !important;
+    aspect-ratio: 1 / 1 !important;
+
+    object-fit: cover !important;
+    object-position: center center !important;
+
+    border-radius: 999px !important;
+    overflow: hidden !important;
+}
+
+/* =========================
+   Desktop collapse and links
+   ========================= */
+
+.ss-navbar-collapse.navbar-collapse,
+.navbar-collapse.ss-navbar-collapse {
+    flex: 1 1 auto !important;
+    flex-basis: auto !important;
+    width: auto !important;
+    min-height: var(--ss-nav-height) !important;
+    align-items: center !important;
+}
+
+.ss-navbar-links.navbar-nav,
+.navbar-nav.ss-navbar-links {
+    width: 100% !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+
+    gap: 0.28rem !important;
+    margin-left: auto !important;
+}
+
+.ss-nav-item {
+    flex: 0 0 auto !important;
+}
+
+/* Top-level nav links */
+
+.ss-nav-link {
+    position: relative;
+
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.35rem !important;
+
+    min-height: 42px !important;
+    padding: 0.62rem 0.72rem !important;
+    border-radius: 999px !important;
+
+    color: #ffffff !important;
+    background: transparent !important;
+
+    font-family: var(--ss-nav-font);
+    font-size: 0.74rem !important;
+    font-weight: 900 !important;
+    line-height: 1.2;
+    letter-spacing: 0.055em !important;
+    text-transform: uppercase;
+    white-space: nowrap !important;
+
+    text-shadow: none;
+
+    transition:
+        background-color 0.22s ease,
+        color 0.22s ease,
+        transform 0.22s ease,
+        box-shadow 0.22s ease;
+}
+
+.ss-nav-link:hover,
+.ss-nav-link:focus,
+.ss-nav-item.show>.ss-nav-link {
+    background: rgba(255, 255, 255, 0.12) !important;
+    color: #ffffff !important;
+    text-decoration: none;
+    outline: none;
+}
+
+/* Make dropdown directory links premium rather than chunky grey pills */
+
+.ss-nav-link.dropdown-toggle {
+    padding-right: 0.82rem !important;
+    background: rgba(255, 255, 255, 0.04) !important;
+    border: 1px solid rgba(255, 255, 255, 0.10) !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.ss-nav-link.dropdown-toggle:hover,
+.ss-nav-link.dropdown-toggle:focus,
+.ss-nav-item.show>.ss-nav-link.dropdown-toggle {
+    background: rgba(255, 255, 255, 0.13) !important;
+    border-color: rgba(255, 255, 255, 0.18) !important;
+}
+
+/* Bootstrap caret polish */
+
+.ss-nav-link.dropdown-toggle::after {
+    margin-left: 0.42rem !important;
+    vertical-align: 0.12em !important;
+    border-top-color: currentColor !important;
+    opacity: 0.86;
+}
+
+/* Contact CTA on desktop */
+
+.ss-nav-link--cta {
+    margin-left: 0.25rem !important;
+    background: #ffffff !important;
+    color: var(--ss-nav-teal-900) !important;
+    text-shadow: none !important;
+
+    border: 1px solid rgba(255, 255, 255, 0.20) !important;
+
+    box-shadow:
+        0 7px 16px rgba(0, 0, 0, 0.14),
+        0 3px 8px rgba(0, 0, 0, 0.08);
+}
+
+.ss-nav-link--cta:hover,
+.ss-nav-link--cta:focus {
+    background: #e0f7f7 !important;
+    color: var(--ss-nav-teal-950) !important;
+    transform: translateY(-1px);
+}
+
+/* =========================
+   Desktop dropdown menus
+   ========================= */
+
+.ss-dropdown-menu.dropdown-menu {
+    min-width: 240px;
+    padding: 0.5rem;
+    margin-top: 0.6rem;
+
+    border-radius: 18px;
+    background:
+        linear-gradient(180deg, #ffffff, #f6fbfb);
+
+    border: 1px solid rgba(15, 79, 86, 0.10);
+
+    box-shadow: var(--ss-nav-dropdown-shadow);
+
+    overflow: hidden;
+}
+
+.ss-dropdown-menu.dropdown-menu::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--ss-nav-teal-800), var(--ss-nav-aqua));
+    pointer-events: none;
+}
+
+.ss-dropdown-item.dropdown-item {
+    display: flex;
+    align-items: center;
+
+    min-height: 42px;
+    margin: 0.1rem 0;
+    padding: 0.72rem 0.85rem;
+    border-radius: 13px;
+
+    color: var(--ss-nav-teal-900) !important;
+    background: transparent !important;
+
+    font-family: var(--ss-nav-font);
+    font-size: 0.92rem;
+    font-weight: 850;
+    line-height: 1.2;
+
+    text-decoration: none;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.ss-dropdown-item.dropdown-item:hover,
+.ss-dropdown-item.dropdown-item:focus {
+    background: rgba(56, 183, 194, 0.12) !important;
+    color: var(--ss-nav-teal-950) !important;
+    transform: translateX(2px);
+    outline: none;
+}
+
+/* =========================
+   Toggler
+   ========================= */
+
+.ss-navbar-toggler.navbar-toggler {
+    flex: 0 0 auto !important;
+
+    width: 2.8rem;
+    height: 2.8rem;
+    padding: 0;
+
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 999px;
+
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+}
+
+.ss-navbar-toggler .navbar-toggler-icon {
+    filter: brightness(0) invert(1);
+}
+
+/* =========================
+   Avatar, if enabled
+   ========================= */
+
+.ss-avatar-container.avatar-container {
+    margin-left: 0.75rem;
+}
+
+.ss-avatar-img-border.avatar-img-border {
+    border-radius: 999px;
+    overflow: hidden;
+
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.ss-avatar-img.avatar-img {
+    border-radius: 999px;
+    object-fit: cover;
+}
+
+/* =========================
+   Desktop compression
+   ========================= */
+
+@media (max-width: 1320px) {
+    .ss-nav-link {
+        padding-left: 0.58rem !important;
+        padding-right: 0.58rem !important;
+        font-size: 0.69rem !important;
+        letter-spacing: 0.045em !important;
+    }
+
+    .navbar-brand-logo.ss-navbar-logo {
+        width: 3.85rem !important;
+        height: 3.85rem !important;
+        min-width: 3.85rem !important;
+        margin-right: 0.75rem !important;
+    }
+}
+
+@media (max-width: 1220px) {
+    .ss-nav-link {
+        padding-left: 0.48rem !important;
+        padding-right: 0.48rem !important;
+        font-size: 0.66rem !important;
+        letter-spacing: 0.035em !important;
+    }
+}
+
+/* =========================
+   Mobile navbar
+   Bootstrap switches at xl because navbar-expand-xl is used
+   ========================= */
+
+@media (max-width: 1199.98px) {
+    :root {
+        --ss-nav-height: 66px;
+    }
+
+    .navbar-custom.ss-glass-navbar {
+        width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    .navbar-custom__inner {
+        width: min(100% - 1.5rem, 760px) !important;
+        max-width: 760px !important;
+        min-height: var(--ss-nav-height) !important;
+        margin: 0 auto !important;
+        padding: 0 !important;
+
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        flex-wrap: nowrap !important;
+    }
+
+    .navbar-brand,
+    .navbar-brand-logo.ss-navbar-logo {
+        order: 1 !important;
+        flex: 0 0 auto !important;
+        margin-right: 0.75rem !important;
+    }
+
+    .navbar-brand-logo.ss-navbar-logo {
+        width: 3.35rem !important;
+        height: 3.35rem !important;
+        min-width: 3.35rem !important;
+    }
+
+    .navbar-brand-logo.ss-navbar-logo img,
+    .ss-navbar-logo__img {
+        width: 72% !important;
+        height: 72% !important;
+    }
+
+    .ss-navbar-toggler.navbar-toggler,
+    .navbar-toggler.ss-navbar-toggler,
+    .navbar-custom__inner>.navbar-toggler {
+        order: 3 !important;
+        flex: 0 0 auto !important;
+
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+
+        margin-left: auto !important;
+        margin-right: 0 !important;
+    }
+
+    .ss-navbar-collapse.navbar-collapse,
+    .navbar-collapse.ss-navbar-collapse {
+        order: 4 !important;
+
+        position: absolute !important;
+        top: calc(100% + 0.7rem) !important;
+        left: auto !important;
+        right: 0 !important;
+        z-index: 20 !important;
+
+        width: min(320px, calc(100vw - 1.5rem)) !important;
+        max-width: min(320px, calc(100vw - 1.5rem)) !important;
+        min-width: 0 !important;
+        min-height: 0 !important;
+        flex-basis: auto !important;
+
+        padding: 0.55rem !important;
+        border-radius: 18px !important;
+
+        background: var(--ss-nav-bg-mobile) !important;
+        border: 1px solid rgba(15, 79, 86, 0.10) !important;
+
+        box-shadow:
+            0 18px 38px rgba(0, 0, 0, 0.16),
+            0 5px 12px rgba(0, 0, 0, 0.08) !important;
+
+        text-align: right !important;
+    }
+
+    .ss-navbar-links.navbar-nav,
+    .navbar-nav.ss-navbar-links {
+        width: 100% !important;
+
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        justify-content: flex-start !important;
+
+        gap: 0.18rem !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+
+        text-align: right !important;
+    }
+
+    .ss-nav-item {
+        width: 100% !important;
+        display: block !important;
+        text-align: right !important;
+    }
+
+    .ss-nav-link,
+    .ss-nav-link.dropdown-toggle {
+        width: 100% !important;
+        max-width: none !important;
+        min-height: 42px !important;
+
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-end !important;
+
+        margin: 0 !important;
+        padding: 0.72rem 0.8rem !important;
+        border-radius: 13px !important;
+
+        color: var(--ss-nav-teal-900) !important;
+        background: transparent !important;
+        border: 0 !important;
+        box-shadow: none !important;
+
+        text-align: right !important;
+        text-shadow: none !important;
+
+        font-size: 0.82rem !important;
+        line-height: 1.2 !important;
+        letter-spacing: 0.04em !important;
+    }
+
+    .ss-nav-link:hover,
+    .ss-nav-link:focus,
+    .ss-nav-link.dropdown-toggle:hover,
+    .ss-nav-link.dropdown-toggle:focus {
+        background: var(--ss-nav-mobile-hover) !important;
+        color: var(--ss-nav-teal-950) !important;
+        text-decoration: none !important;
+        outline: none !important;
+    }
+
+    .ss-nav-link--cta {
+        width: 100% !important;
+        max-width: none !important;
+
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-end !important;
+
+        margin: 0 !important;
+        padding: 0.72rem 0.8rem !important;
+        border-radius: 13px !important;
+
+        background: transparent !important;
+        color: var(--ss-nav-teal-900) !important;
+        box-shadow: none !important;
+
+        text-align: right !important;
+        text-shadow: none !important;
+    }
+
+    .ss-nav-link--cta:hover,
+    .ss-nav-link--cta:focus {
+        background: var(--ss-nav-mobile-hover) !important;
+        color: var(--ss-nav-teal-950) !important;
+        transform: none !important;
+    }
+
+    .ss-nav-item--dropdown {
+        width: 100% !important;
+        display: block !important;
+        text-align: right !important;
+    }
+
+    .ss-dropdown-menu.dropdown-menu {
+        position: static !important;
+        float: none !important;
+
+        width: 100% !important;
+        max-width: none !important;
+        min-width: 0 !important;
+
+        margin: 0.15rem 0 0.25rem !important;
+        padding: 0.25rem !important;
+
+        border-radius: 14px !important;
+
+        background: rgba(15, 79, 86, 0.05) !important;
+        border: 1px solid rgba(15, 79, 86, 0.08) !important;
+        box-shadow: none !important;
+
+        text-align: right !important;
+    }
+
+    .ss-dropdown-menu.dropdown-menu::before {
+        display: none;
+    }
+
+    .ss-dropdown-item.dropdown-item {
+        width: 100% !important;
+        min-height: 38px !important;
+
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-end !important;
+
+        padding: 0.6rem 0.7rem !important;
+        border-radius: 11px !important;
+
+        color: var(--ss-nav-teal-900) !important;
+        background: transparent !important;
+
+        text-align: right !important;
+        font-size: 0.84rem !important;
+        line-height: 1.2 !important;
+    }
+
+    .ss-dropdown-item.dropdown-item:hover,
+    .ss-dropdown-item.dropdown-item:focus {
+        background: var(--ss-nav-mobile-hover) !important;
+        color: var(--ss-nav-teal-950) !important;
+        transform: none;
+        outline: none !important;
+    }
+}
+
+@media (max-width: 420px) {
+    .navbar-custom__inner {
+        width: min(100% - 1rem, 760px) !important;
+    }
+
+    .navbar-brand-logo.ss-navbar-logo {
+        width: 3rem !important;
+        height: 3rem !important;
+        min-width: 3rem !important;
+    }
+
+    .ss-navbar-collapse.navbar-collapse,
+    .navbar-collapse.ss-navbar-collapse {
+        width: min(300px, calc(100vw - 1rem)) !important;
+        max-width: min(300px, calc(100vw - 1rem)) !important;
+    }
+}
+
+/* =========================
+   Focus states
+   ========================= */
+
+.ss-glass-navbar a:focus-visible,
+.ss-glass-navbar button:focus-visible {
+    outline: 3px solid rgba(56, 183, 194, 0.65);
+    outline-offset: 4px;
+}
+
+/* =========================
+   Reduced motion
+   ========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .navbar-custom.ss-glass-navbar,
+    .ss-nav-link,
+    .ss-dropdown-item,
+    .ss-navbar-toggler {
+        transition: none;
+    }
+
+    .ss-nav-link:hover,
+    .ss-nav-link:focus,
+    .ss-nav-link--cta:hover,
+    .ss-nav-link--cta:focus,
+    .ss-dropdown-item.dropdown-item:hover,
+    .ss-dropdown-item.dropdown-item:focus {
+        transform: none;
+    }
+}
