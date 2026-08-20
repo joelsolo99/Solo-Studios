@@ -24,7 +24,7 @@ permalink: /packages/terms/
       <article class="terms-section-card">
         <h2>Travel Fees</h2>
         <p>
-          Travel within 70 miles of our base is included in the quoted package price. For venues located more than 70 miles away, a fuel charge of <strong>£0.45 per mile</strong> will apply to the excess mileage only.
+          Travel within 70 miles of our base is included in the quoted package price. For venues located more than 70 miles away, a fuel charge of may apply to the excess mileage.
         </p>
       </article>
 
