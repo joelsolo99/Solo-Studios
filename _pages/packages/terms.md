@@ -15,7 +15,7 @@ permalink: /packages/terms/
       The following terms apply to all bookings made with Solo Studios. Please read them carefully before confirming your event.
     </p>
     <p class="terms-intro" style="margin-top: 0.6rem;">
-      <strong>Last updated:</strong> 15 April 2026
+      <strong>Last updated:</strong> 19th August 2026
     </p>
   </header>
 
