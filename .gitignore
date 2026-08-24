@@ -16,6 +16,3 @@ beautiful-jekyll-theme-*.gem
 .Rhistory
 Website.rproj
 
-# scripts
-review_generate.py
-generate_location_pages.py
